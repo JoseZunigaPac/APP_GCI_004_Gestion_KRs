@@ -3,12 +3,20 @@
   "ControlUniqueGuids": {},
   "ControlUniqueIds": {
     "App": 1,
+    "Editar_Kr": 9,
+    "Home": 5,
     "Host": 3,
-    "Screen1": 4
+    "Kanban": 8,
+    "Lista_Kr": 11,
+    "Power_BI": 10,
+    "Pruebas Jose": 12,
+    "Pruebas Marcos": 4,
+    "Registrar_Kr": 6,
+    "Roadmap": 7
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/12/2024 16:39:26",
+  "HeaderLastSavedDateTimeUTC": "09/12/2024 17:04:09",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {},
   "LocalDatabaseReferencesAsEmpty": true,
@@ -23,25 +31,41 @@
   "OrderXMLTemplate": {},
   "OverridablePropertiesEntry": {
     "App": {},
+    "Editar_Kr": {},
+    "Home": {},
     "Host": {},
-    "Screen1": {}
+    "Kanban": {},
+    "Lista_Kr": {},
+    "Power_BI": {},
+    "Pruebas Jose": {},
+    "Pruebas Marcos": {},
+    "Registrar_Kr": {},
+    "Roadmap": {}
   },
   "PCFDynamicSchemaForIRRetrievalEntry": {},
   "PCFTemplateEntry": {},
   "PublishOrderIndices": {
     "App": 0,
+    "Editar_Kr": 0,
+    "Home": 0,
     "Host": 0,
-    "Screen1": 0
+    "Kanban": 0,
+    "Lista_Kr": 0,
+    "Power_BI": 0,
+    "Pruebas Jose": 0,
+    "Pruebas Marcos": 0,
+    "Registrar_Kr": 0,
+    "Roadmap": 0
   },
   "ResourcesJsonIndices": {},
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 0.1465986,
+    "AnalysisLoadTime": 0.0816047,
     "ControlCount": {
       "screen": 1
     },
-    "DeserializationLoadTime": 0.8105754
+    "DeserializationLoadTime": 0.4217739
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
