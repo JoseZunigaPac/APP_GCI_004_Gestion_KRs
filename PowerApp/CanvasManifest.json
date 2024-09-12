@@ -135,6 +135,14 @@
     "UserLocale": "es-ES"
   },
   "ScreenOrder": [
-    "Screen1"
+    "Home",
+    "Registrar_Kr",
+    "Roadmap",
+    "Kanban",
+    "Editar_Kr",
+    "Power_BI",
+    "Lista_Kr",
+    "Pruebas Marcos",
+    "Pruebas Jose"
   ]
 }
