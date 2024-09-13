@@ -20,46 +20,6 @@
         Width: =1366
         ZIndex: =1
 
-    Rectangle1 As rectangle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledFill: =RGBA(161, 159, 157, 1)
-        Fill: =RGBA(0, 153, 204, 1)
-        FocusedBorderThickness: =4
-        HoverFill: =RGBA(0, 120, 212, 1)
-        PressedFill: =RGBA(0, 120, 212, 1)
-        Width: =1366
-        ZIndex: =2
-
-    Button1_2 As button:
-        BorderColor: =Color.Transparent
-        BorderStyle: |+
-            =BorderStyle.None
-            
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
-        Fill: |-
-            =ColorValue("#EE2C70")
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: |-
-            =ColorValue("#0099CC")
-        HoverFill: =RGBA(16, 110, 190, 1)
-        PressedBorderColor: =RGBA(0, 69, 120, 1)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =RGBA(16, 110, 190, 1)
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="REGISTRAR"
-        X: =505
-        Y: =30
-        ZIndex: =5
-
     Rectangle3 As rectangle:
         AccessibleLabel: =
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -68,12 +28,25 @@
         DisabledFill: =RGBA(161, 159, 157, 1)
         Fill: =RGBA(0,0,0,0.3)
         FocusedBorderThickness: =4
-        Height: =668
-        HoverFill: =RGBA(0, 120, 212, 1)
+        Height: =683
+        HoverFill: =RGBA(0, 0, 0, 0.3)
         PressedFill: =
         Width: =1366
-        Y: =100
-        ZIndex: =9
+        Y: =85
+        ZIndex: =2
+
+    Rectangle1 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(161, 159, 157, 1)
+        Fill: =RGBA(0, 153, 204, 1)
+        FocusedBorderThickness: =4
+        HoverFill: |-
+            =ColorValue("#0099CC")
+        PressedFill: =RGBA(0, 120, 212, 1)
+        Width: =1366
+        ZIndex: =3
 
     Image3 As image:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -91,7 +64,7 @@
         Width: =304
         X: =125
         Y: =15
-        ZIndex: =10
+        ZIndex: =4
 
     Label1 As label:
         BorderColor: =RGBA(0, 0, 0, 0)
@@ -109,7 +82,7 @@
         Width: =580
         X: =384
         Y: =125
-        ZIndex: =11
+        ZIndex: =5
 
     Label1_1 As label:
         Align: =Align.Center
@@ -128,23 +101,53 @@
         Width: =670
         X: =348
         Y: =243
-        ZIndex: =12
+        ZIndex: =6
+
+    Button1_2 As button:
+        BorderColor: =RGBA(238,40,122,1)
+        BorderStyle: |+
+            =BorderStyle.Solid
+            
+        BorderThickness: =4
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(238,40,122,0.9)
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(16, 110, 190, 1)
+        RadiusBottomLeft: =08
+        RadiusBottomRight: =08
+        RadiusTopLeft: =08
+        RadiusTopRight: =08
+        Size: =15
+        Text: ="GESTIONAR KR"
+        X: =505
+        Y: =30
+        ZIndex: =9
 
     Button1_3 As button:
-        BorderColor: =Color.Transparent
+        BorderColor: =RGBA(238,40,122,1)
         BorderStyle: |+
-            =BorderStyle.None
+            =BorderStyle.Solid
             
+        BorderThickness: =4
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
         DisabledFill: =RGBA(242, 242, 241, 0)
-        Fill: |-
-            =ColorValue("#EE2C70")
+        Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
         HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: |-
-            =ColorValue("#0099CC")
-        HoverFill: =RGBA(16, 110, 190, 1)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(16, 110, 190, 1)
@@ -153,26 +156,27 @@
         RadiusTopLeft: =08
         RadiusTopRight: =08
         Size: =15
-        Text: ="REGISTRAR"
-        X: =906
+        Text: ="KANBAN"
+        X: =694
         Y: =30
-        ZIndex: =13
+        ZIndex: =10
 
     Button1_4 As button:
-        BorderColor: =Color.Transparent
+        BorderColor: =RGBA(238,40,122,1)
         BorderStyle: |+
-            =BorderStyle.None
+            =BorderStyle.Solid
             
+        BorderThickness: =4
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
         DisabledFill: =RGBA(242, 242, 241, 0)
-        Fill: |-
-            =ColorValue("#EE2C70")
+        Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
         HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: |-
-            =ColorValue("#0099CC")
-        HoverFill: =RGBA(16, 110, 190, 1)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(16, 110, 190, 1)
@@ -181,26 +185,27 @@
         RadiusTopLeft: =08
         RadiusTopRight: =08
         Size: =15
-        Text: ="REGISTRAR"
-        X: =1081
+        Text: ="ROADMAP"
+        X: =883
         Y: =30
-        ZIndex: =14
+        ZIndex: =11
 
     Button1_5 As button:
-        BorderColor: =Color.Transparent
+        BorderColor: =RGBA(238,40,122,1)
         BorderStyle: |+
-            =BorderStyle.None
+            =BorderStyle.Solid
             
+        BorderThickness: =4
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
         DisabledFill: =RGBA(242, 242, 241, 0)
-        Fill: |-
-            =ColorValue("#EE2C70")
+        Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
         HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverColor: |-
-            =ColorValue("#0099CC")
-        HoverFill: =RGBA(16, 110, 190, 1)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(16, 110, 190, 1)
@@ -209,33 +214,8 @@
         RadiusTopLeft: =08
         RadiusTopRight: =08
         Size: =15
-        Text: ="REGISTRAR"
-        X: =706
+        Text: ="POWER BI"
+        X: =1081
         Y: =30
-        ZIndex: =15
-
-    Rectangle4 As rectangle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledFill: =RGBA(161, 159, 157, 1)
-        Fill: =RGBA(0, 120, 212, 1)
-        FocusedBorderThickness: =4
-        HoverFill: =RGBA(0, 120, 212, 1)
-        PressedFill: =RGBA(0, 120, 212, 1)
-        Width: =125
-        ZIndex: =16
-
-    Rectangle4_1 As rectangle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledFill: =RGBA(161, 159, 157, 1)
-        Fill: =RGBA(0, 120, 212, 1)
-        FocusedBorderThickness: =4
-        HoverFill: =RGBA(0, 120, 212, 1)
-        PressedFill: =RGBA(0, 120, 212, 1)
-        Width: =125
-        X: =1241
-        ZIndex: =17
+        ZIndex: =12
 

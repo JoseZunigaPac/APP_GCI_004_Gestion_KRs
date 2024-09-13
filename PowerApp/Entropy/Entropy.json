@@ -4,9 +4,9 @@
   "ControlUniqueIds": {
     "App": 1,
     "Button1_2": 88,
-    "Button1_3": 101,
-    "Button1_4": 102,
-    "Button1_5": 103,
+    "Button1_3": 106,
+    "Button1_4": 107,
+    "Button1_5": 108,
     "Editar_Kr": 81,
     "Home": 82,
     "Host": 3,
@@ -21,14 +21,12 @@
     "Pruebas Marcos": 68,
     "Rectangle1": 85,
     "Rectangle3": 97,
-    "Rectangle4": 104,
-    "Rectangle4_1": 105,
     "Registrar_Kr": 79,
     "Roadmap": 80
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/13/2024 17:19:15",
+  "HeaderLastSavedDateTimeUTC": "09/13/2024 17:42:50",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "b0ded128-2a13-46a2-b93c-8bc8f9ab4fe2": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/shared-sharepointonl-23fc9781-22e3-43d0-a3f5-df6e709d766b\""
@@ -85,8 +83,6 @@
     "Pruebas Marcos": {},
     "Rectangle1": {},
     "Rectangle3": {},
-    "Rectangle4": {},
-    "Rectangle4_1": {},
     "Registrar_Kr": {},
     "Roadmap": {}
   },
@@ -112,8 +108,6 @@
     "Pruebas Marcos": 9,
     "Rectangle1": 0,
     "Rectangle3": 0,
-    "Rectangle4": 0,
-    "Rectangle4_1": 0,
     "Registrar_Kr": 10,
     "Roadmap": 11
   },
@@ -130,7 +124,7 @@
     "AnalysisLoadTime": 0.7119894,
     "ControlCount": {
       "attachments": 1,
-      "button": 7,
+      "button": 10,
       "combobox": 1,
       "datepicker": 2,
       "form": 1,
