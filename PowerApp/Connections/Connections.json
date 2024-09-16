@@ -1,5 +1,27 @@
 {
-  "b0ded128-2a13-46a2-b93c-8bc8f9ab4fe2": {
+  "2135da8b-722c-4b44-938a-e481b3192e27": {
+    "connectionRef": {
+      "displayName": "SharePoint",
+      "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
+    },
+    "datasets": {
+      "https://pacificocia-my.sharepoint.com/personal/josezunigaa_pacifico_com_pe": {
+        "dataSources": {
+          "T_REG_STS_KR_APP_GCI_4": {
+            "tableName": "aba3c9e0-12b9-4637-bcdd-24cd4b1f0089"
+          }
+        }
+      }
+    },
+    "dataSources": [
+      "T_REG_STS_KR_APP_GCI_4"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "2135da8b-722c-4b44-938a-e481b3192e27"
+  },
+  "ccab624e-a7e5-4b2e-bc5e-cca19290fcde": {
     "connectionRef": {
       "displayName": "SharePoint",
       "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
@@ -31,6 +53,6 @@
     ],
     "dependencies": {},
     "dependents": [],
-    "id": "b0ded128-2a13-46a2-b93c-8bc8f9ab4fe2"
+    "id": "ccab624e-a7e5-4b2e-bc5e-cca19290fcde"
   }
 }
