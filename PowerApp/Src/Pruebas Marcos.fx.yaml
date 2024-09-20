@@ -988,7 +988,12 @@
             BorderStyle: =BorderStyle.Solid
             DataField: ="metaPeriodo"
             Default: =ThisItem.metaPeriodo
-            DisplayMode: =Parent.DisplayMode
+            DisplayMode: |-
+                =If(
+                    cmb_UM.Selected.Value = "Hito", 
+                    DisplayMode.Edit,
+                    DisplayMode.Disabled
+                )
             DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,metaPeriodo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
