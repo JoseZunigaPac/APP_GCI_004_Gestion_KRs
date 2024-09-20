@@ -316,7 +316,7 @@
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, Title)
             Required: =true
-            Update: =DataCardValue5.Text
+            Update: =txt_Nombre.Text
             Width: =372
             X: =0
             Y: =0
@@ -343,7 +343,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue5 As text:
+            txt_Nombre As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 BorderThickness: =2
                 Color: =RGBA(50, 49, 48, 1)
@@ -396,7 +396,7 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue5.Y + DataCardValue5.Height
+                Y: =txt_Nombre.Y + txt_Nombre.Height
                 ZIndex: =3
 
             StarVisible5 As label:
@@ -431,7 +431,7 @@
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, descripcionKR)
             Required: =true
-            Update: =DataCardValue6.Text
+            Update: =txt_Descripcion.Text
             Width: =372
             X: =1
             Y: =0
@@ -458,7 +458,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue6 As text:
+            txt_Descripcion As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 BorderThickness: =2
                 Color: =RGBA(50, 49, 48, 1)
@@ -511,7 +511,7 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue6.Y + DataCardValue6.Height
+                Y: =txt_Descripcion.Y + txt_Descripcion.Height
                 ZIndex: =3
 
             StarVisible6 As label:
@@ -990,8 +990,7 @@
             Default: =ThisItem.metaPeriodo
             DisplayMode: |-
                 =If(
-                    cmb_UM.Selected.Value = "Hito", 
-                    DisplayMode.Edit,
+                    cmb_UM.Selected.Value = "Hito",
                     DisplayMode.Disabled
                 )
             DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,metaPeriodo)
@@ -1037,7 +1036,6 @@
                 DisplayMode: |
                     =If(
                         cmb_UM.Selected.Value = "Hito", 
-                        DisplayMode.Edit,
                         DisplayMode.Disabled
                     )
                 FocusedBorderThickness: =4
@@ -1153,7 +1151,7 @@
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(161, 159, 157, 1)
                 DisabledFill: =RGBA(242, 242, 241, 0)
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: =DisplayMode.Disabled
                 FocusedBorderThickness: =4
                 Font: =Font.'Segoe UI'
                 Format: =TextFormat.Number
@@ -1618,9 +1616,13 @@
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: |
-            =SubmitForm(Form2);
-            ResetForm(Form2);
-            Navigate(Home, ScreenTransition.Fade)
+            =If( 
+                IsBlank(txt_Descripcion) || IsBlank(txt_Nombre.Text),
+                Notify("Por favor, completa todos los campos requeridos.", NotificationType.Error),
+                SubmitForm(Form2);
+                ResetForm(Form2);
+                Navigate(Home, ScreenTransition.Fade)   
+            )
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(16, 110, 190, 1)

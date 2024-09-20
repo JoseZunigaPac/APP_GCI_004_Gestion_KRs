@@ -126,19 +126,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.nombreKR_DataCard1.DataCardValue5.AccessibleLabel"
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.nombreKR_DataCard1.txt_Nombre.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.nombreKR_DataCard1.DataCardValue5.AccessibleLabel",
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.nombreKR_DataCard1.txt_Nombre.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas Marcos",
-                "type": "'Pruebas Marcos'.Form2.nombreKR_DataCard1.DataCardValue5"
+                "type": "'Pruebas Marcos'.Form2.nombreKR_DataCard1.txt_Nombre"
               }
             }
           ],
@@ -156,19 +156,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.descripcionKR_DataCard1.DataCardValue6.AccessibleLabel"
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.descripcionKR_DataCard1.txt_Descripcion.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.descripcionKR_DataCard1.DataCardValue6.AccessibleLabel",
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.descripcionKR_DataCard1.txt_Descripcion.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas Marcos",
-                "type": "'Pruebas Marcos'.Form2.descripcionKR_DataCard1.DataCardValue6"
+                "type": "'Pruebas Marcos'.Form2.descripcionKR_DataCard1.txt_Descripcion"
               }
             }
           ],
