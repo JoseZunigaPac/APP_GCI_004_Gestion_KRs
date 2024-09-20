@@ -196,7 +196,7 @@
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
-            Update: =DataCardValue2.Selected.Value
+            Update: =cmb_UM.Selected.Value
             Width: =372
             X: =0
             Y: =2
@@ -223,7 +223,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue2 As dropdown:
+            cmb_UM As dropdown:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 ChevronBackground: =RGBA(245, 245, 245, 1)
                 ChevronDisabledBackground: =RGBA(242, 242, 241, 0)
@@ -281,7 +281,7 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue2.Y + DataCardValue2.Height
+                Y: =cmb_UM.Y + cmb_UM.Height
                 ZIndex: =3
 
             StarVisible1 As label:
@@ -1029,7 +1029,12 @@
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(161, 159, 157, 1)
                 DisabledFill: =RGBA(242, 242, 241, 0)
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: |
+                    =If(
+                        cmb_UM.Selected.Value = "Hito", 
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
                 FocusedBorderThickness: =4
                 Font: =Font.'Segoe UI'
                 Format: =TextFormat.Number
@@ -1608,8 +1613,8 @@
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: |
-            =SubmitForm(Form2) +
-            ResetForm(Form2)+ 
+            =SubmitForm(Form2);
+            ResetForm(Form2);
             Navigate(Home, ScreenTransition.Fade)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)

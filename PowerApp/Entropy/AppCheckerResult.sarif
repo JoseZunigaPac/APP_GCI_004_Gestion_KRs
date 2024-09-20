@@ -216,19 +216,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.unidadDeMedida_DataCard3.DataCardValue2.AccessibleLabel"
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.unidadDeMedida_DataCard3.cmb_UM.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.unidadDeMedida_DataCard3.DataCardValue2.AccessibleLabel",
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.unidadDeMedida_DataCard3.cmb_UM.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas Marcos",
-                "type": "'Pruebas Marcos'.Form2.unidadDeMedida_DataCard3.DataCardValue2"
+                "type": "'Pruebas Marcos'.Form2.unidadDeMedida_DataCard3.cmb_UM"
               }
             }
           ],
