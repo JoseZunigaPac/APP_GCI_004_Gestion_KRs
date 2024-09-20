@@ -1617,7 +1617,7 @@
             =ColorValue("#EE2C70")
         OnSelect: |
             =If( 
-                IsBlank(txt_Descripcion) || IsBlank(txt_Nombre.Text),
+                IsBlank(txt_Descripcion.Text) || IsBlank(txt_Nombre.Text),
                 Notify("Por favor, completa todos los campos requeridos.", NotificationType.Error),
                 SubmitForm(Form2);
                 ResetForm(Form2);
