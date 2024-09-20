@@ -22,7 +22,7 @@
     "DataCardKey14": 63,
     "DataCardKey15": 68,
     "DataCardKey16": 73,
-    "DataCardKey2": 98,
+    "DataCardKey2": 33,
     "DataCardKey5": 18,
     "DataCardKey6": 23,
     "DataCardKey7": 28,
@@ -34,7 +34,7 @@
     "DataCardValue14": 64,
     "DataCardValue15": 69,
     "DataCardValue16": 74,
-    "DataCardValue2": 99,
+    "DataCardValue2": 34,
     "DataCardValue5": 19,
     "DataCardValue6": 24,
     "DataCardValue7": 29,
@@ -42,7 +42,7 @@
     "Datos adjuntos_DataCard2": 72,
     "descripcionKR_DataCard1": 22,
     "Editar_Kr": 6,
-    "ErrorMessage1": 100,
+    "ErrorMessage1": 35,
     "ErrorMessage10": 45,
     "ErrorMessage11": 50,
     "ErrorMessage12": 55,
@@ -80,7 +80,7 @@
     "Rectangle3": 91,
     "Registrar_Kr": 4,
     "Roadmap": 5,
-    "StarVisible1": 101,
+    "StarVisible1": 36,
     "StarVisible10": 46,
     "StarVisible11": 51,
     "StarVisible12": 56,
@@ -92,12 +92,12 @@
     "StarVisible6": 26,
     "StarVisible7": 31,
     "StarVisible9": 41,
-    "unidadDeMedida_DataCard3": 97,
+    "unidadDeMedida_DataCard3": 32,
     "usuarioAprobador_DataCard1": 67
   },
   "FunctionParamsInvariantScripts": {},
   "FunctionParamsInvariantScriptsOnInstances": {},
-  "HeaderLastSavedDateTimeUTC": "09/18/2024 21:39:46",
+  "HeaderLastSavedDateTimeUTC": "09/20/2024 15:46:09",
   "IsLegacyComponentAllowGlobalScopeCase": false,
   "LocalConnectionIDReferences": {
     "2135da8b-722c-4b44-938a-e481b3192e27": "\"/providers/microsoft.powerapps/apis/shared_sharepointonline/connections/a7e81244369345ab95b59e2613c0332a\"",
@@ -111,10 +111,10 @@
     "Torito": "2da22d41-917b-41b9-a928-85f273649353.jpg"
   },
   "LocalResourceRootPaths": {
-    "Baners-Web-Torito-Agosto-Desktop-608-x-422-Seguro-Vehicular": "https://docserverpwaprodsbr.blob.core.windows.net/3a60ca2e-300a-4075-b7ff-c4c277fcefec-1/resource/Assets0Images0974268b3-d230-482e-ac1d-ded854665ad6.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-18T17%3A45%3A15Z&ske=2024-09-19T18%3A00%3A15Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-19T18%3A00%3A15Z&sr=b&sp=r&sig=Tg%2Fpu290LkwNoi1k1L8LJU27TsS%2FLlvvb4MjmqjUBPY%3D",
-    "Logo-pacifico-blanco": "https://docserverpwaprodsbr.blob.core.windows.net/3a60ca2e-300a-4075-b7ff-c4c277fcefec-1/resource/Assets0Images00b596a45-29de-4559-9d8a-742935a0f64d.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-18T17%3A45%3A15Z&ske=2024-09-19T18%3A00%3A15Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-19T18%3A00%3A15Z&sr=b&sp=r&sig=DHfqgcTkcpBsyc2WoY7VRXCE9t9XUbK56y%2FG93vxS2o%3D",
-    "pacifico": "https://docserverpwaprodsbr.blob.core.windows.net/3a60ca2e-300a-4075-b7ff-c4c277fcefec-1/resource/Assets0Images0d150d9b6-ac9b-4fbd-9065-8a8dba7ecfcf.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-18T17%3A45%3A15Z&ske=2024-09-19T18%3A00%3A15Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-19T18%3A00%3A15Z&sr=b&sp=r&sig=o6LIOGVH14liehRSFe0YM%2BtKgQGbiLCXto415CiCgGE%3D",
-    "Torito": "https://docserverpwaprodsbr.blob.core.windows.net/3a60ca2e-300a-4075-b7ff-c4c277fcefec-1/resource/Assets0Images02da22d41-917b-41b9-a928-85f273649353.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-18T17%3A45%3A15Z&ske=2024-09-19T18%3A00%3A15Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-19T18%3A00%3A15Z&sr=b&sp=r&sig=1NZnKGP0uoOC%2BahNTthKLhhWTIPO%2BBQWSzOxeBtciec%3D"
+    "Baners-Web-Torito-Agosto-Desktop-608-x-422-Seguro-Vehicular": "https://docserverpwaprodsbr.blob.core.windows.net/f5e1bca6-9ed6-4fc7-aa1c-dbf29ccbb5aa-1/resource/Assets0Images0974268b3-d230-482e-ac1d-ded854665ad6.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-20T15%3A07%3A36Z&ske=2024-09-21T15%3A22%3A36Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-21T15%3A22%3A36Z&sr=b&sp=r&sig=D5ll2zpdNjWphIcKC06MK5IWjopS3CPNr3LA6fcZHZU%3D",
+    "Logo-pacifico-blanco": "https://docserverpwaprodsbr.blob.core.windows.net/f5e1bca6-9ed6-4fc7-aa1c-dbf29ccbb5aa-1/resource/Assets0Images00b596a45-29de-4559-9d8a-742935a0f64d.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-20T15%3A07%3A36Z&ske=2024-09-21T15%3A22%3A36Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-21T15%3A22%3A36Z&sr=b&sp=r&sig=KGlLhONR9pFA%2Ba9CHOYrdS3RT1aILs%2F1rMy%2F%2F4I751s%3D",
+    "pacifico": "https://docserverpwaprodsbr.blob.core.windows.net/f5e1bca6-9ed6-4fc7-aa1c-dbf29ccbb5aa-1/resource/Assets0Images0d150d9b6-ac9b-4fbd-9065-8a8dba7ecfcf.png?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-20T15%3A07%3A36Z&ske=2024-09-21T15%3A22%3A36Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-21T15%3A22%3A36Z&sr=b&sp=r&sig=HfF2fUgiB9O7eN3pKql92SLtRQtb4LMGYP%2F36hy0rdQ%3D",
+    "Torito": "https://docserverpwaprodsbr.blob.core.windows.net/f5e1bca6-9ed6-4fc7-aa1c-dbf29ccbb5aa-1/resource/Assets0Images02da22d41-917b-41b9-a928-85f273649353.jpg?skoid=58690ece-ec83-4ce2-9ce8-883d4d6a54ee&sktid=975f013f-7f24-47e8-a7d3-abc4752bf346&skt=2024-09-20T15%3A07%3A36Z&ske=2024-09-21T15%3A22%3A36Z&sks=b&skv=2023-01-03&sv=2023-01-03&spr=https&se=2024-09-21T15%3A22%3A36Z&sr=b&sp=r&sig=ApLz8rpioYsrPNf6OjbT8zoIs3YFq0v%2BD6d5sCgmESo%3D"
   },
   "OrderComponentMetadata": {},
   "OrderComponentTemplate": {},
@@ -343,21 +343,22 @@
   "RuleScreenIdWithoutScreen": {},
   "TemplateVersions": {},
   "VolatileProperties": {
-    "AnalysisLoadTime": 1.436863,
+    "AnalysisLoadTime": 0.865597,
     "ControlCount": {
       "attachments": 1,
       "button": 10,
       "combobox": 1,
       "datepicker": 2,
+      "dropdown": 1,
       "form": 1,
       "image": 3,
       "label": 38,
       "rectangle": 5,
       "screen": 9,
-      "text": 8,
+      "text": 7,
       "typedDataCard": 12
     },
-    "DeserializationLoadTime": 3.4955487
+    "DeserializationLoadTime": 1.7754776
   },
   "WasLocalDatabaseReferencesEmpty": true
 }
