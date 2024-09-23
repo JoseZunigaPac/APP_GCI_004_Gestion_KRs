@@ -546,7 +546,7 @@
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, objetivoKR)
             Required: =false
-            Update: =DataCardValue7.Text
+            Update: =txt_Objetivo.Text
             Width: =372
             X: =2
             Y: =0
@@ -573,7 +573,7 @@
                 Y: =10
                 ZIndex: =1
 
-            DataCardValue7 As text:
+            txt_Objetivo As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 BorderThickness: =2
                 Color: =RGBA(50, 49, 48, 1)
@@ -626,7 +626,7 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =30
-                Y: =DataCardValue7.Y + DataCardValue7.Height
+                Y: =txt_Objetivo.Y + txt_Objetivo.Height
                 ZIndex: =3
 
             StarVisible7 As label:
@@ -879,7 +879,7 @@
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, observaciones)
             Required: =false
-            Update: =DataCardValue11.Text
+            Update: =txt_Observaciones.Text
             Width: =372
             X: =0
             Y: =1
@@ -906,7 +906,7 @@
                 Y: =7
                 ZIndex: =1
 
-            DataCardValue11 As text:
+            txt_Observaciones As text:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 BorderThickness: =2
                 Color: =RGBA(50, 49, 48, 1)
@@ -959,7 +959,7 @@
                 Visible: =Parent.DisplayMode=DisplayMode.Edit
                 Width: =Parent.Width - 60
                 X: =60
-                Y: =DataCardValue11.Y + DataCardValue11.Height
+                Y: =txt_Observaciones.Y + txt_Observaciones.Height
                 ZIndex: =3
 
             StarVisible11 As label:

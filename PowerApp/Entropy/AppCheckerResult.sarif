@@ -186,19 +186,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.objetivoKR_DataCard1.DataCardValue7.AccessibleLabel"
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.objetivoKR_DataCard1.txt_Objetivo.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.objetivoKR_DataCard1.DataCardValue7.AccessibleLabel",
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.objetivoKR_DataCard1.txt_Objetivo.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas Marcos",
-                "type": "'Pruebas Marcos'.Form2.objetivoKR_DataCard1.DataCardValue7"
+                "type": "'Pruebas Marcos'.Form2.objetivoKR_DataCard1.txt_Objetivo"
               }
             }
           ],
@@ -306,19 +306,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.observaciones_DataCard1.DataCardValue11.AccessibleLabel"
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.observaciones_DataCard1.txt_Observaciones.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.observaciones_DataCard1.DataCardValue11.AccessibleLabel",
+                  "fullyQualifiedName": "'Pruebas Marcos'.Form2.observaciones_DataCard1.txt_Observaciones.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas Marcos",
-                "type": "'Pruebas Marcos'.Form2.observaciones_DataCard1.DataCardValue11"
+                "type": "'Pruebas Marcos'.Form2.observaciones_DataCard1.txt_Observaciones"
               }
             }
           ],
