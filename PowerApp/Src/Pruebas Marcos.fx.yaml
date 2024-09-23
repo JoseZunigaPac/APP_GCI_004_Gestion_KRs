@@ -1617,11 +1617,11 @@
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: |-
-            =
-            If(    
+            =If(    
                 IsBlank(txt_Descripcion.Text) || IsBlank(txt_Nombre.Text),
                 Notify("Por favor, completa todos los campos requeridos.", NotificationType.Error),
                 SubmitForm(Form2);
+                Set(RegistroCreado, Form2.LastSubmit);
                 ResetForm(Form2);
                 Set(RegistroCreado, Form2.LastSubmit);
                 Navigate(Confirmación, ScreenTransition.Fade);

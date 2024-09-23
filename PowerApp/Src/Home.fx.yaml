@@ -28,11 +28,11 @@ Home As screen:
         DisabledFill: =RGBA(161, 159, 157, 1)
         Fill: =RGBA(0,0,0,0.3)
         FocusedBorderThickness: =4
-        Height: =683
+        Height: =553
         HoverFill: =RGBA(0, 0, 0, 0.3)
         PressedFill: =
         Width: =1366
-        Y: =85
+        Y: =215
         ZIndex: =2
 
     Rectangle1 As rectangle:
