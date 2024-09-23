@@ -50,7 +50,7 @@
         DisabledBorderColor: =RGBA(242, 242, 241, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
         DisabledFill: =RGBA(242, 242, 241, 0)
-        Duration: =2000
+        Duration: =6000
         Fill: =RGBA(0, 120, 212, 1)
         Font: =Font.'Segoe UI'
         HoverBorderColor: =RGBA(16, 110, 190, 1)
@@ -60,20 +60,8 @@
         PressedBorderColor: =RGBA(16, 110, 190, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
         PressedFill: =RGBA(16, 110, 190, 1)
+        Visible: =false
         X: =40
         Y: =40
         ZIndex: =4
-
-    LblSuccessMsg1_1 As label:
-        Align: =Align.Center
-        Color: =RGBA(50, 49, 48, 1)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        Font: =Font.'Segoe UI'
-        Height: =48
-        Size: =20
-        Text: ="Se registró correctamente el KR"
-        Width: =552
-        X: =599
-        Y: =426
-        ZIndex: =5
 

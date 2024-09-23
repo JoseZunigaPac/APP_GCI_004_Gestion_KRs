@@ -180,6 +180,7 @@
         DataSource: =T_OKR_APP_GCI_003
         DefaultMode: =FormMode.New
         Height: =484
+        NumberOfColumns: =2
         Width: =1116
         X: =125
         Y: =100
@@ -197,9 +198,9 @@
             Height: =50
             Required: =false
             Update: =cmb_UM.Selected.Value
-            Width: =372
+            Width: =558
             X: =0
-            Y: =2
+            Y: =3
             ZIndex: =1
 
             DataCardKey2 As label:
@@ -217,10 +218,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (cmb_UM.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             cmb_UM As dropdown:
@@ -254,9 +255,9 @@
                 SelectionFill: =RGBA(0, 120, 212, 1)
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey2.Y + DataCardKey2.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey2.X + DataCardKey2.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage1 As label:
@@ -317,7 +318,7 @@
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, Title)
             Required: =true
             Update: =txt_Nombre.Text
-            Width: =372
+            Width: =558
             X: =0
             Y: =0
             ZIndex: =10
@@ -337,10 +338,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: ="Nombre KR"
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (txt_Nombre.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             txt_Nombre As text:
@@ -369,9 +370,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey5.Y + DataCardKey5.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey5.X + DataCardKey5.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage5 As label:
@@ -432,7 +433,7 @@
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, descripcionKR)
             Required: =true
             Update: =txt_Descripcion.Text
-            Width: =372
+            Width: =558
             X: =1
             Y: =0
             ZIndex: =10
@@ -452,10 +453,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: ="Descripción"
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (txt_Descripcion.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             txt_Descripcion As text:
@@ -484,9 +485,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey6.Y + DataCardKey6.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey6.X + DataCardKey6.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage6 As label:
@@ -547,9 +548,9 @@
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, objetivoKR)
             Required: =false
             Update: =txt_Objetivo.Text
-            Width: =372
-            X: =2
-            Y: =0
+            Width: =558
+            X: =0
+            Y: =1
             ZIndex: =10
 
             DataCardKey7 As label:
@@ -567,10 +568,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: ="Objetivo"
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (txt_Objetivo.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             txt_Objetivo As text:
@@ -599,9 +600,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey7.Y + DataCardKey7.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey7.X + DataCardKey7.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage7 As label:
@@ -661,9 +662,9 @@
             Height: =50
             Required: =false
             Update: =DataCardValue9.SelectedDate
-            Width: =372
-            X: =1
-            Y: =1
+            Width: =558
+            X: =0
+            Y: =2
             ZIndex: =10
 
             DataCardKey9 As label:
@@ -681,10 +682,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (DataCardValue9.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             DataCardValue9 As datepicker:
@@ -708,9 +709,9 @@
                 Size: =13
                 StartYear: =1899
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey9.Y + DataCardKey9.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey9.X + DataCardKey9.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage9 As label:
@@ -770,9 +771,9 @@
             Height: =50
             Required: =false
             Update: =DataCardValue10.SelectedDate
-            Width: =372
-            X: =2
-            Y: =1
+            Width: =558
+            X: =1
+            Y: =2
             ZIndex: =10
 
             DataCardKey10 As label:
@@ -790,10 +791,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: ="Fecha Programada de Fin"
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (DataCardValue10.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             DataCardValue10 As datepicker:
@@ -817,9 +818,9 @@
                 Size: =13
                 StartYear: =1899
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey10.Y + DataCardKey10.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey10.X + DataCardKey10.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage10 As label:
@@ -880,8 +881,8 @@
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, observaciones)
             Required: =false
             Update: =txt_Observaciones.Text
-            Width: =372
-            X: =0
+            Width: =558
+            X: =1
             Y: =1
             ZIndex: =10
 
@@ -900,10 +901,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: ="Observaciones"
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =7
+                Y: =10 + (txt_Observaciones.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             txt_Observaciones As text:
@@ -932,9 +933,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey11.Y + DataCardKey11.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey11.X + DataCardKey11.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage11 As label:
@@ -998,9 +999,9 @@
             Height: =50
             Required: =false
             Update: =Value(DataCardValue12.Text)
-            Width: =372
+            Width: =558
             X: =1
-            Y: =2
+            Y: =3
             ZIndex: =10
 
             DataCardKey12 As label:
@@ -1018,10 +1019,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (DataCardValue12.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             DataCardValue12 As text:
@@ -1054,9 +1055,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey12.Y + DataCardKey12.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey12.X + DataCardKey12.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage12 As label:
@@ -1116,9 +1117,9 @@
             Height: =50
             Required: =false
             Update: =Value(DataCardValue13.Text)
-            Width: =372
-            X: =2
-            Y: =2
+            Width: =558
+            X: =0
+            Y: =4
             ZIndex: =10
 
             DataCardKey13 As label:
@@ -1136,10 +1137,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (DataCardValue13.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             DataCardValue13 As text:
@@ -1168,9 +1169,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey13.Y + DataCardKey13.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey13.X + DataCardKey13.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage13 As label:
@@ -1231,9 +1232,9 @@
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, aprobacion)
             Required: =false
             Update: =DataCardValue14.Text
-            Width: =372
-            X: =0
-            Y: =3
+            Width: =558
+            X: =1
+            Y: =4
             ZIndex: =10
 
             DataCardKey14 As label:
@@ -1251,10 +1252,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (DataCardValue14.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             DataCardValue14 As text:
@@ -1283,9 +1284,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey14.Y + DataCardKey14.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey14.X + DataCardKey14.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage14 As label:
@@ -1345,9 +1346,9 @@
             Height: =50
             Required: =false
             Update: =DataCardValue15.Selected
-            Width: =372
-            X: =1
-            Y: =3
+            Width: =558
+            X: =0
+            Y: =5
             ZIndex: =10
 
             DataCardKey15 As label:
@@ -1365,10 +1366,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (DataCardValue15.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             DataCardValue15 As combobox:
@@ -1402,9 +1403,9 @@
                 SelectMultiple: =false
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey15.Y + DataCardKey15.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey15.X + DataCardKey15.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage15 As label:
@@ -1464,9 +1465,9 @@
             Height: =50
             Required: =false
             Update: =DataCardValue16.Attachments
-            Width: =372
-            X: =2
-            Y: =3
+            Width: =558
+            X: =1
+            Y: =5
             ZIndex: =10
 
             DataCardKey16 As label:
@@ -1484,10 +1485,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
+                Width: =(Parent.Width - 60) * 0.4
                 Wrap: =false
                 X: =30
-                Y: =10
+                Y: =10 + (DataCardValue16.Height / 2) - (Self.Height / 2)
                 ZIndex: =1
 
             DataCardValue16 As attachments:
@@ -1502,7 +1503,7 @@
                 Fill: =RGBA(245, 245, 245, 1)
                 FocusedBorderThickness: =4
                 Font: =Font.'Segoe UI'
-                Height: =101
+                Height: =111
                 HoverColor: =RGBA(50, 49, 48, 1)
                 HoverFill: =RGBA(245, 245, 245, 1)
                 IsInDataCard: =true
@@ -1520,9 +1521,9 @@
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 120, 212, 1)
                 Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey16.Y + DataCardKey16.Height + 5
+                Width: =(Parent.Width - 60) * 0.6
+                X: =DataCardKey16.X + DataCardKey16.Width
+                Y: =10
                 ZIndex: =2
 
             ErrorMessage16 As label:
@@ -1615,14 +1616,15 @@
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: |
-            =If( 
+        OnSelect: |-
+            =
+            If(    
                 IsBlank(txt_Descripcion.Text) || IsBlank(txt_Nombre.Text),
                 Notify("Por favor, completa todos los campos requeridos.", NotificationType.Error),
                 SubmitForm(Form2);
                 ResetForm(Form2);
+                Set(RegistroCreado, Form2.LastSubmit);
                 Navigate(Confirmación, ScreenTransition.Fade);
-                Timer1.AutoStart
             )
         PressedBorderColor: =RGBA(0, 69, 120, 1)
         PressedColor: =RGBA(255, 255, 255, 1)
