@@ -1,18 +1,37 @@
 "Screen3 As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
     LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
 
-    RectQuickActionBar2 As rectangle:
+    Image5_2 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =768
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: =Torito
+        ImagePosition: =ImagePosition.Fill
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =1366
+        ZIndex: =1
+
+    Rectangle3_2 As rectangle:
+        AccessibleLabel: =
         BorderColor: =RGBA(0, 0, 0, 0)
         BorderStyle: =BorderStyle.None
         BorderThickness: =2
         DisabledFill: =RGBA(161, 159, 157, 1)
-        Fill: =RGBA(0, 120, 212, 1)
+        Fill: =RGBA(0,0,0,0.3)
         FocusedBorderThickness: =4
-        Height: =64
-        HoverFill: =RGBA(0, 120, 212, 1)
-        PressedFill: =RGBA(0, 120, 212, 1)
-        Width: =Parent.Width
-        ZIndex: =1
+        Height: =683
+        HoverFill: =RGBA(0, 0, 0, 0.3)
+        PressedFill: =
+        Width: =1366
+        Y: =85
+        ZIndex: =2
 
     "TemplateGalleryList2 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
         AccessibleLabel: |
@@ -22,7 +41,7 @@
         DisplayMode: =DisplayMode.View
         Fill: =RGBA(255, 255, 255, 1)
         FocusedBorderThickness: =1
-        Height: =499
+        Height: =583
         Items: =T_OKR_APP_GCI_003
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -30,10 +49,10 @@
         OnSelect: =
         TemplatePadding: =0
         TemplateSize: =116
-        Width: =1068
-        X: =176
-        Y: =140
-        ZIndex: =1
+        Width: =1116
+        X: =125
+        Y: =142
+        ZIndex: =3
 
         Title10 As label:
             Color: =RGBA(50, 49, 48, 1)
@@ -90,33 +109,6 @@
             X: =Title10.X
             Y: =Subtitle8.Y + Subtitle8.Height
             ZIndex: =3
-
-        NextArrow8 As icon.ChevronRight:
-            AccessibleLabel: =Self.Tooltip
-            BorderColor: =RGBA(0, 0, 0, 0)
-            Color: =RGBA(166, 166, 166, 1)
-            DisabledBorderColor: =RGBA(245, 245, 245, 1)
-            DisabledColor: =RGBA(225, 223, 221, 1)
-            DisabledFill: =RGBA(0, 0, 0, 0)
-            FocusedBorderThickness: =4
-            Height: =50
-            HoverBorderColor: =RGBA(0, 0, 0, 0)
-            HoverColor: =RGBA(16, 110, 190, 1)
-            HoverFill: =RGBA(0, 0, 0, 0)
-            Icon: =Icon.ChevronRight
-            OnSelect: =Select(Parent)
-            PaddingBottom: =16
-            PaddingLeft: =16
-            PaddingRight: =16
-            PaddingTop: =16
-            PressedBorderColor: =RGBA(0, 0, 0, 0)
-            PressedColor: =RGBA(16, 110, 190, 1)
-            PressedFill: =RGBA(0, 0, 0, 0)
-            Tooltip: ="Ver los detalles del elemento"
-            Width: =50
-            X: =Parent.TemplateWidth - Self.Width - 12
-            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
-            ZIndex: =4
 
         Separator8 As rectangle:
             BorderColor: =RGBA(0, 0, 0, 0)
@@ -179,8 +171,8 @@
             Height: =57
             Icon: ="Eye"
             Width: =55
-            X: =935
-            Y: =22
+            X: =947
+            Y: =38
             ZIndex: =9
 
         Icon2_1 As Icono:
@@ -188,19 +180,190 @@
             Height: =57
             Icon: ="Edit"
             Width: =55
-            X: =835
-            Y: =33
+            X: =1026
+            Y: =38
             ZIndex: =10
 
-    Title6 As label:
-        Align: =Align.Center
-        Color: =RGBA(255, 255, 255, 1)
+        Icon2_2 As Icono:
+            DisplayMode: =DisplayMode.Edit
+            Height: =57
+            Icon: ="Cros"
+            Width: =55
+            X: =865
+            Y: =38
+            ZIndex: =11
+
+    Rectangle1_5 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(161, 159, 157, 1)
+        Fill: =RGBA(0, 153, 204, 1)
+        FocusedBorderThickness: =4
+        HoverFill: |-
+            =ColorValue("#0099CC")
+        PressedFill: =RGBA(0, 120, 212, 1)
+        Width: =1366
+        ZIndex: =4
+
+    Image3_5 As image:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledFill: =RGBA(0, 0, 0, 0)
+        FocusedBorderThickness: =4
+        Height: =70
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverFill: =RGBA(0, 0, 0, 0)
+        Image: ='Logo-pacifico-blanco'
+        PressedBorderColor: =RGBA(0, 0, 0, 0)
+        PressedFill: =RGBA(0, 0, 0, 0)
+        Width: =304
+        X: =125
+        Y: =15
+        ZIndex: =5
+
+    Button1_25 As button:
+        BorderColor: =RGBA(238,40,122,1)
+        BorderStyle: |+
+            =BorderStyle.Solid
+            
+        BorderThickness: =4
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
-        Font: =Font.'Segoe UI'
-        Height: =64
-        PaddingRight: =10
-        Size: =18
-        Text: ="Nombre de la aplicación"
-        Width: =Parent.Width
-        ZIndex: =2
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(238,40,122,0.9)
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate('Pruebas Marcos')
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(16, 110, 190, 1)
+        RadiusBottomLeft: =08
+        RadiusBottomRight: =08
+        RadiusTopLeft: =08
+        RadiusTopRight: =08
+        Size: =15
+        Text: ="GESTIONAR KR"
+        X: =505
+        Y: =30
+        ZIndex: =6
+
+    Button1_26 As button:
+        BorderColor: =RGBA(238,40,122,1)
+        BorderStyle: |+
+            =BorderStyle.Solid
+            
+        BorderThickness: =4
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(238,40,122,0.9)
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(16, 110, 190, 1)
+        RadiusBottomLeft: =08
+        RadiusBottomRight: =08
+        RadiusTopLeft: =08
+        RadiusTopRight: =08
+        Size: =15
+        Text: ="KANBAN"
+        X: =694
+        Y: =30
+        ZIndex: =7
+
+    Button1_27 As button:
+        BorderColor: =RGBA(238,40,122,1)
+        BorderStyle: |+
+            =BorderStyle.Solid
+            
+        BorderThickness: =4
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(238,40,122,0.9)
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(16, 110, 190, 1)
+        RadiusBottomLeft: =08
+        RadiusBottomRight: =08
+        RadiusTopLeft: =08
+        RadiusTopRight: =08
+        Size: =15
+        Text: ="ROADMAP"
+        X: =883
+        Y: =30
+        ZIndex: =8
+
+    Button1_28 As button:
+        BorderColor: =RGBA(238,40,122,1)
+        BorderStyle: |+
+            =BorderStyle.Solid
+            
+        BorderThickness: =4
+        DisabledBorderColor: =RGBA(0, 0, 0, 0)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        DisabledFill: =RGBA(242, 242, 241, 0)
+        Fill: =RGBA(238,40,122,0.9)
+        FontWeight: =FontWeight.Semibold
+        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
+        PressedBorderColor: =RGBA(0, 69, 120, 1)
+        PressedColor: =RGBA(255, 255, 255, 1)
+        PressedFill: =RGBA(16, 110, 190, 1)
+        RadiusBottomLeft: =08
+        RadiusBottomRight: =08
+        RadiusTopLeft: =08
+        RadiusTopRight: =08
+        Size: =15
+        Text: ="POWER BI"
+        X: =1081
+        Y: =30
+        ZIndex: =9
+
+    Rectangle2_6 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(161, 159, 157, 1)
+        Fill: =RGBA(0, 120, 212, 1)
+        FocusedBorderThickness: =4
+        Height: =768
+        HoverFill: =RGBA(0, 120, 212, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        Width: =125
+        ZIndex: =10
+
+    Rectangle2_7 As rectangle:
+        BorderColor: =RGBA(0, 0, 0, 0)
+        BorderStyle: =BorderStyle.None
+        BorderThickness: =2
+        DisabledFill: =RGBA(161, 159, 157, 1)
+        Fill: =RGBA(0, 120, 212, 1)
+        FocusedBorderThickness: =4
+        Height: =768
+        HoverFill: =RGBA(0, 120, 212, 1)
+        PressedFill: =RGBA(0, 120, 212, 1)
+        Width: =125
+        X: =1241
+        ZIndex: =11
 
