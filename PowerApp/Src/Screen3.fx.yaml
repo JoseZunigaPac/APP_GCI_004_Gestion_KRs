@@ -187,7 +187,7 @@
         Icon2_2 As Icono:
             DisplayMode: =DisplayMode.Edit
             Height: =57
-            Icon: ="Cros"
+            Icon: ="Add"
             Width: =55
             X: =865
             Y: =38
