@@ -42,6 +42,7 @@
       "OData__ColorTag": "Etiqueta de color",
       "Title": "nombreKR",
       "unidadDeMedida": "unidadDeMedida",
+      "unidadDeMedida#Id": "unidadDeMedida Id",
       "usuarioAprobador": "usuarioAprobador",
       "usuarioAprobador#Claims": "usuarioAprobador Claims"
     },

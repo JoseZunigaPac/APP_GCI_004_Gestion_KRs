@@ -466,10 +466,10 @@ Pruebas_Marcos_2 As screen:
             DataField: ="Title"
             Default: =ThisItem.nombreKR
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,Title)
+            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,nombreKR)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, Title)
+            MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, nombreKR)
             Required: =true
             Update: =txt_Nombre_1.Text
             Width: =291
@@ -1615,7 +1615,7 @@ Pruebas_Marcos_2 As screen:
             DataField: ="{Attachments}"
             Default: =ThisItem.'Datos adjuntos'
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,'{Attachments}')
+            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,'Datos adjuntos')
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false

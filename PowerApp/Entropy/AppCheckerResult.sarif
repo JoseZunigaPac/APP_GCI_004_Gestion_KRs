@@ -126,419 +126,40 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.'Datos adjuntos_DataCard4'.DataCardValue41.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1.Default"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.'Datos adjuntos_DataCard4'.DataCardValue41.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1.Default",
                   "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 15,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".unidadDeMedida"
+                  }
                 }
               },
               "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Marcos",
-                "type": "'Pruebas Marcos'.form_Registrar.'Datos adjuntos_DataCard4'.DataCardValue41"
+                "member": "Default",
+                "module": "Pruebas_Marcos_2",
+                "type": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1"
               }
             }
           ],
           "message": {
+            "arguments": [
+              "Text",
+              "Record"
+            ],
             "id": "issue"
           },
           "properties": {
-            "level": "Medium"
+            "level": "High"
           },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.nombreKR_DataCard2.DataCardValue1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.nombreKR_DataCard2.DataCardValue1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.nombreKR_DataCard2.DataCardValue1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.descripcionKR_DataCard2.DataCardValue2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.descripcionKR_DataCard2.DataCardValue2.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.descripcionKR_DataCard2.DataCardValue2"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.objetivoKR_DataCard2.DataCardValue3.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.objetivoKR_DataCard2.DataCardValue3.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.objetivoKR_DataCard2.DataCardValue3"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.unidadDeMedida_DataCard1.DataCardValue4.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.unidadDeMedida_DataCard1.DataCardValue4.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.unidadDeMedida_DataCard1.DataCardValue4"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.fechaProgramadainicio_DataCard2.DataCardValue5.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.fechaProgramadainicio_DataCard2.DataCardValue5.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.fechaProgramadainicio_DataCard2.DataCardValue5"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.fechaProgramadaFin_DataCard2.DataCardValue18.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.fechaProgramadaFin_DataCard2.DataCardValue18.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.fechaProgramadaFin_DataCard2.DataCardValue18"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.observaciones_DataCard2.DataCardValue19.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.observaciones_DataCard2.DataCardValue19.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.observaciones_DataCard2.DataCardValue19"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.metaPeriodo_DataCard2.DataCardValue20.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.metaPeriodo_DataCard2.DataCardValue20.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.metaPeriodo_DataCard2.DataCardValue20"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.alcanzadoPeriodo_DataCard2.DataCardValue21.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.alcanzadoPeriodo_DataCard2.DataCardValue21.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.alcanzadoPeriodo_DataCard2.DataCardValue21"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.aprobacion_DataCard2.DataCardValue22.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.aprobacion_DataCard2.DataCardValue22.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.aprobacion_DataCard2.DataCardValue22"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.usuarioAprobador_DataCard2.DataCardValue23.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.usuarioAprobador_DataCard2.DataCardValue23.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.usuarioAprobador_DataCard2.DataCardValue23"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.'Datos adjuntos_DataCard1'.DataCardValue24.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.Form3.'Datos adjuntos_DataCard1'.DataCardValue24.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.Form3.'Datos adjuntos_DataCard1'.DataCardValue24"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Jose'.ButtonCanvas1.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Jose'.ButtonCanvas1.AccessibleLabel",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "AccessibleLabel",
-                "module": "Pruebas Jose",
-                "type": "'Pruebas Jose'.ButtonCanvas1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleId": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
           "ruleIndex": 3
         },
         {
@@ -569,7 +190,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -599,7 +220,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -629,7 +250,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -659,7 +280,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -689,7 +310,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -718,7 +339,7 @@
             "level": "Low"
           },
           "ruleId": "acc-ReadableScreenNameNeeded",
-          "ruleIndex": 4
+          "ruleIndex": 5
         },
         {
           "locations": [
@@ -748,7 +369,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -778,7 +399,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -808,7 +429,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
-          "ruleIndex": 5
+          "ruleIndex": 6
         },
         {
           "locations": [
@@ -838,7 +459,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -868,7 +489,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -898,7 +519,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -928,7 +549,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -958,7 +579,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -988,7 +609,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1018,7 +639,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1048,7 +669,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1078,7 +699,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1108,7 +729,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1138,7 +759,7 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1168,7 +789,367 @@
             "level": "Medium"
           },
           "ruleId": "acc-AccessibleLabelNeeded",
-          "ruleIndex": 3
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.'Datos adjuntos_DataCard2'.DataCardValue29.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.'Datos adjuntos_DataCard2'.DataCardValue29.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.'Datos adjuntos_DataCard2'.DataCardValue29"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.usuarioAprobador_DataCard1.DataCardValue28.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.usuarioAprobador_DataCard1.DataCardValue28.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.usuarioAprobador_DataCard1.DataCardValue28"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.aprobacion_DataCard1.DataCardValue27.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.aprobacion_DataCard1.DataCardValue27.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.aprobacion_DataCard1.DataCardValue27"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.alcanzadoPeriodo_DataCard1.DataCardValue26.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.alcanzadoPeriodo_DataCard1.DataCardValue26.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.alcanzadoPeriodo_DataCard1.DataCardValue26"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.metaPeriodo_DataCard1.DataCardValue25.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.metaPeriodo_DataCard1.DataCardValue25.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.metaPeriodo_DataCard1.DataCardValue25"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.observaciones_DataCard1.DataCardValue16.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.observaciones_DataCard1.DataCardValue16.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.observaciones_DataCard1.DataCardValue16"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.fechaProgramadaFin_DataCard1.DataCardValue15.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.fechaProgramadaFin_DataCard1.DataCardValue15.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.fechaProgramadaFin_DataCard1.DataCardValue15"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.fechaProgramadainicio_DataCard1.DataCardValue14.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.fechaProgramadainicio_DataCard1.DataCardValue14.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.fechaProgramadainicio_DataCard1.DataCardValue14"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.unidadDeMedida_DataCard2.DataCardValue13.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.unidadDeMedida_DataCard2.DataCardValue13.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.unidadDeMedida_DataCard2.DataCardValue13"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.objetivoKR_DataCard1.DataCardValue12.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.objetivoKR_DataCard1.DataCardValue12.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.objetivoKR_DataCard1.DataCardValue12"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.descripcionKR_DataCard1.DataCardValue10.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.descripcionKR_DataCard1.DataCardValue10.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.descripcionKR_DataCard1.DataCardValue10"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.nombreKR_DataCard1.DataCardValue9.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.form_Registrar.nombreKR_DataCard1.DataCardValue9.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.form_Registrar.nombreKR_DataCard1.DataCardValue9"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1198,7 +1179,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedVariables",
-          "ruleIndex": 6
+          "ruleIndex": 7
         },
         {
           "locations": [
@@ -1228,7 +1209,7 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 7
+          "ruleIndex": 8
         },
         {
           "locations": [
@@ -1258,7 +1239,37 @@
             "level": "Medium"
           },
           "ruleId": "app-UnusedMediaResources",
-          "ruleIndex": 7
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.DisplayMode"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.DisplayMode",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "DisplayMode",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.Button1_11"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-InefficientDelayLoading",
+          "ruleIndex": 9
         }
       ],
       "tool": {
@@ -1311,6 +1322,23 @@
                 "componentType": "app",
                 "howToFix": [
                   "Look at places where you use a context variable and make sure that the type (e.g., text, number, date, record, table) is compatible."
+                ],
+                "level": "High",
+                "primaryCategory": "formula",
+                "whyFix": ""
+              }
+            },
+            {
+              "id": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+              "messageStrings": {
+                "issue": {
+                  "text": "Expected {0} value."
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Change the rule to produce a {0} value."
                 ],
                 "level": "High",
                 "primaryCategory": "formula",
@@ -1400,6 +1428,23 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "No hay ninguna fórmula de control que haga referencia a este archivo multimedia, por lo que no es necesario. Si se quita, mejorará el rendimiento."
+              }
+            },
+            {
+              "id": "app-InefficientDelayLoading",
+              "messageStrings": {
+                "issue": {
+                  "text": "Retraso de carga ineficiente"
+                }
+              },
+              "properties": {
+                "componentType": "app",
+                "howToFix": [
+                  "Use variables, colecciones y contexto de navegación para compartir el estado entre pantallas en su lugar."
+                ],
+                "level": "Medium",
+                "primaryCategory": "performance",
+                "whyFix": "Los controles que hacen referencia a controles en otras pantallas pueden ralentizar la carga y la navegación de la aplicación. Al hacer esto, puede que se fuerce a la aplicación a cargar las otras pantallas de inmediato, en lugar de esperar hasta que el usuario navegue a esa pantalla."
               }
             }
           ],
