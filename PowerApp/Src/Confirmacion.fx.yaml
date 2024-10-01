@@ -77,28 +77,6 @@
         Y: =315
         ZIndex: =5
 
-    Timer1 As timer:
-        AutoStart: =true
-        BorderColor: =RGBA(0, 120, 212, 1)
-        BorderStyle: =BorderStyle.None
-        DisabledBorderColor: =RGBA(242, 242, 241, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
-        Duration: =6000
-        Fill: =RGBA(0, 120, 212, 1)
-        Font: =Font.'Segoe UI'
-        HoverBorderColor: =RGBA(16, 110, 190, 1)
-        HoverColor: =RGBA(255, 255, 255, 1)
-        HoverFill: =RGBA(16, 110, 190, 1)
-        OnTimerEnd: =Navigate(Home)
-        PressedBorderColor: =RGBA(16, 110, 190, 1)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =RGBA(16, 110, 190, 1)
-        Visible: =false
-        X: =40
-        Y: =40
-        ZIndex: =6
-
     Button1_18 As button:
         BorderColor: =RGBA(238,40,122,1)
         BorderStyle: |+
@@ -188,4 +166,17 @@
         X: =125
         Y: =15
         ZIndex: =10
+
+    LblSuccessMsg1_1 As label:
+        Align: =Align.Center
+        Color: =RGBA(255, 255, 255, 1)
+        DisabledColor: =RGBA(161, 159, 157, 1)
+        Font: =Font.'Segoe UI'
+        Height: =54
+        Size: =30
+        Text: =VarNombre
+        Width: =588
+        X: =389
+        Y: =369
+        ZIndex: =11
 

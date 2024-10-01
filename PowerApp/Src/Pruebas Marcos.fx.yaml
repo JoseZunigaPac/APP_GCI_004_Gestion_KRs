@@ -215,8 +215,8 @@
         DisabledBorderColor: =RGBA(0, 0, 0, 0)
         DisabledColor: =RGBA(161, 159, 157, 1)
         DisabledFill: =RGBA(242, 242, 241, 0)
-        DisplayMode: |-
-            =If(nombreKR_DataCard1_1.Valid && descripcionKR_DataCard1_1.Valid,
+        DisplayMode: |
+            =If(nombreKR_DataCard1.Valid && descripcionKR_DataCard1.Valid,
             DisplayMode.Edit,
             DisplayMode.Disabled)
         Fill: =RGBA(238,40,122,0.9)
@@ -227,6 +227,9 @@
             =ColorValue("#EE2C70")
         OnSelect: |-
             =SubmitForm(form_Registrar);
+            Set(VarNombre, form_Registrar.LastSubmit.nombreKR);
+            Set(VarID, form_Registrar.LastSubmit.ID);
+            Notify("Nombre: " & VarNombre & "; ID: " & VarID);
             Navigate(Confirmacion);
             NewForm(form_Registrar)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
@@ -245,6 +248,7 @@
     form_Registrar As form:
         BorderColor: =RGBA(245, 245, 245, 1)
         DataSource: =T_OKR_APP_GCI_003
+        DefaultMode: =FormMode.New
         Height: =497
         Width: =1114
         X: =127
@@ -727,8 +731,8 @@
             Required: =false
             Update: =DataCardValue14.SelectedDate
             Width: =371
-            X: =1
-            Y: =1
+            X: =0
+            Y: =2
             ZIndex: =13
 
             DataCardKey9 As label:
@@ -836,8 +840,8 @@
             Required: =false
             Update: =DataCardValue15.SelectedDate
             Width: =371
-            X: =2
-            Y: =1
+            X: =1
+            Y: =2
             ZIndex: =13
 
             DataCardKey10 As label:
@@ -946,7 +950,7 @@
             Required: =false
             Update: =DataCardValue16.Text
             Width: =371
-            X: =0
+            X: =2
             Y: =2
             ZIndex: =13
 
@@ -1053,7 +1057,8 @@
             BorderStyle: =BorderStyle.Solid
             DataField: ="metaPeriodo"
             Default: =ThisItem.metaPeriodo
-            DisplayMode: =Parent.DisplayMode
+            DisplayMode: |
+                =If(CountIf(DataCardValue13.SelectedItems, Value = "Hito") > 0, DisplayMode.Disabled, DisplayMode.Edit)
             DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,metaPeriodo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
@@ -1061,7 +1066,7 @@
             Update: =Value(DataCardValue25.Text)
             Width: =371
             X: =1
-            Y: =2
+            Y: =1
             ZIndex: =13
 
             DataCardKey12 As label:
@@ -1167,7 +1172,7 @@
             BorderStyle: =BorderStyle.Solid
             DataField: ="alcanzadoPeriodo"
             Default: =ThisItem.alcanzadoPeriodo
-            DisplayMode: =Parent.DisplayMode
+            DisplayMode: =DisplayMode.Disabled
             DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
@@ -1175,7 +1180,7 @@
             Update: =Value(DataCardValue26.Text)
             Width: =371
             X: =2
-            Y: =2
+            Y: =1
             ZIndex: =13
 
             DataCardKey13 As label:

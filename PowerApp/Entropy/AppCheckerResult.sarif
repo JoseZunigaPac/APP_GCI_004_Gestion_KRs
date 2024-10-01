@@ -126,40 +126,119 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1.Default"
+                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.OnSelect"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1.Default",
+                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.OnSelect",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 15,
-                  "charOffset": 8,
+                  "charLength": 9,
+                  "charOffset": 145,
                   "snippet": {
-                    "text": ".unidadDeMedida"
+                    "text": "VarNombre"
                   }
                 }
               },
               "properties": {
-                "member": "Default",
-                "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1"
+                "member": "OnSelect",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.Button1_11"
               }
             }
           ],
           "message": {
             "arguments": [
-              "Text",
-              "Record"
+              "VarNombre"
             ],
             "id": "issue"
           },
           "properties": {
             "level": "High"
           },
-          "ruleId": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.OnSelect"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.OnSelect",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 5,
+                  "charOffset": 168,
+                  "snippet": {
+                    "text": "VarID"
+                  }
+                }
+              },
+              "properties": {
+                "member": "OnSelect",
+                "module": "Pruebas Marcos",
+                "type": "'Pruebas Marcos'.Button1_11"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "VarID"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Confirmacion.LblSuccessMsg1_1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Confirmacion.LblSuccessMsg1_1.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 9,
+                  "charOffset": 0,
+                  "snippet": {
+                    "text": "VarNombre"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Confirmacion",
+                "type": "Confirmacion.LblSuccessMsg1_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "VarNombre"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
           "ruleIndex": 3
         },
         {
@@ -436,19 +515,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.nombreKR_DataCard1_1.txt_Nombre_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.'Datos adjuntos_DataCard4'.DataCardValue41.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.nombreKR_DataCard1_1.txt_Nombre_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.'Datos adjuntos_DataCard4'.DataCardValue41.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.nombreKR_DataCard1_1.txt_Nombre_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.'Datos adjuntos_DataCard4'.DataCardValue41"
               }
             }
           ],
@@ -466,19 +545,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.descripcionKR_DataCard1_1.txt_Descripcion_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.usuarioAprobador_DataCard2.DataCardValue40.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.descripcionKR_DataCard1_1.txt_Descripcion_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.usuarioAprobador_DataCard2.DataCardValue40.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.descripcionKR_DataCard1_1.txt_Descripcion_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.usuarioAprobador_DataCard2.DataCardValue40"
               }
             }
           ],
@@ -496,19 +575,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.objetivoKR_DataCard1_1.txt_Objetivo_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.aprobacion_DataCard2.DataCardValue39.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.objetivoKR_DataCard1_1.txt_Objetivo_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.aprobacion_DataCard2.DataCardValue39.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.objetivoKR_DataCard1_1.txt_Objetivo_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.aprobacion_DataCard2.DataCardValue39"
               }
             }
           ],
@@ -526,19 +605,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.observaciones_DataCard1_1.txt_Observaciones_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.alcanzadoPeriodo_DataCard2.DataCardValue38.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.observaciones_DataCard1_1.txt_Observaciones_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.alcanzadoPeriodo_DataCard2.DataCardValue38.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.observaciones_DataCard1_1.txt_Observaciones_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.alcanzadoPeriodo_DataCard2.DataCardValue38"
               }
             }
           ],
@@ -556,19 +635,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.fechaProgramadainicio_DataCard1_1.DataCardValue9_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.metaPeriodo_DataCard2.DataCardValue37.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.fechaProgramadainicio_DataCard1_1.DataCardValue9_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.metaPeriodo_DataCard2.DataCardValue37.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.fechaProgramadainicio_DataCard1_1.DataCardValue9_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.metaPeriodo_DataCard2.DataCardValue37"
               }
             }
           ],
@@ -586,19 +665,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.fechaProgramadaFin_DataCard1_1.DataCardValue10_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.observaciones_DataCard2.DataCardValue36.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.fechaProgramadaFin_DataCard1_1.DataCardValue10_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.observaciones_DataCard2.DataCardValue36.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.fechaProgramadaFin_DataCard1_1.DataCardValue10_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.observaciones_DataCard2.DataCardValue36"
               }
             }
           ],
@@ -616,19 +695,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1.cmb_UM_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.fechaProgramadaFin_DataCard2.DataCardValue35.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1.cmb_UM_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.fechaProgramadaFin_DataCard2.DataCardValue35.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.unidadDeMedida_DataCard3_1.cmb_UM_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.fechaProgramadaFin_DataCard2.DataCardValue35"
               }
             }
           ],
@@ -646,19 +725,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.metaPeriodo_DataCard1_1.DataCardValue12_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.fechaProgramadainicio_DataCard2.DataCardValue34.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.metaPeriodo_DataCard1_1.DataCardValue12_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.fechaProgramadainicio_DataCard2.DataCardValue34.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.metaPeriodo_DataCard1_1.DataCardValue12_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.fechaProgramadainicio_DataCard2.DataCardValue34"
               }
             }
           ],
@@ -676,19 +755,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.alcanzadoPeriodo_DataCard1_1.DataCardValue13_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.unidadDeMedida_DataCard3.DataCardValue33.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.alcanzadoPeriodo_DataCard1_1.DataCardValue13_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.unidadDeMedida_DataCard3.DataCardValue33.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.alcanzadoPeriodo_DataCard1_1.DataCardValue13_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.unidadDeMedida_DataCard3.DataCardValue33"
               }
             }
           ],
@@ -706,19 +785,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.aprobacion_DataCard1_1.DataCardValue14_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.objetivoKR_DataCard2.DataCardValue32.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.aprobacion_DataCard1_1.DataCardValue14_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.objetivoKR_DataCard2.DataCardValue32.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.aprobacion_DataCard1_1.DataCardValue14_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.objetivoKR_DataCard2.DataCardValue32"
               }
             }
           ],
@@ -736,19 +815,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.usuarioAprobador_DataCard1_1.DataCardValue15_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.descripcionKR_DataCard2.DataCardValue31.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.usuarioAprobador_DataCard1_1.DataCardValue15_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.descripcionKR_DataCard2.DataCardValue31.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.usuarioAprobador_DataCard1_1.DataCardValue15_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.descripcionKR_DataCard2.DataCardValue31"
               }
             }
           ],
@@ -766,19 +845,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.'Datos adjuntos_DataCard2_1'.DataCardValue16_1.AccessibleLabel"
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.nombreKR_DataCard2.DataCardValue30.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Pruebas_Marcos_2.form_Editar.'Datos adjuntos_DataCard2_1'.DataCardValue16_1.AccessibleLabel",
+                  "fullyQualifiedName": "Pruebas_Marcos_2.form_EditarKR.nombreKR_DataCard2.DataCardValue30.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Pruebas_Marcos_2",
-                "type": "Pruebas_Marcos_2.form_Editar.'Datos adjuntos_DataCard2_1'.DataCardValue16_1"
+                "type": "Pruebas_Marcos_2.form_EditarKR.nombreKR_DataCard2.DataCardValue30"
               }
             }
           ],
@@ -1240,36 +1319,6 @@
           },
           "ruleId": "app-UnusedMediaResources",
           "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.DisplayMode"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "'Pruebas Marcos'.Button1_11.DisplayMode",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "DisplayMode",
-                "module": "Pruebas Marcos",
-                "type": "'Pruebas Marcos'.Button1_11"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-InefficientDelayLoading",
-          "ruleIndex": 9
         }
       ],
       "tool": {
@@ -1329,16 +1378,16 @@
               }
             },
             {
-              "id": "app-ErrIncompatibleRulePropTypes-PropKind-RuleKind",
+              "id": "app-ErrInvalidName",
               "messageStrings": {
                 "issue": {
-                  "text": "Expected {0} value."
+                  "text": "Name isn't valid. '{0}' isn't recognized."
                 }
               },
               "properties": {
                 "componentType": "app",
                 "howToFix": [
-                  "Change the rule to produce a {0} value."
+                  "Remove or correct the reference to the name that isn't valid."
                 ],
                 "level": "High",
                 "primaryCategory": "formula",
@@ -1428,23 +1477,6 @@
                 "level": "Medium",
                 "primaryCategory": "performance",
                 "whyFix": "No hay ninguna fórmula de control que haga referencia a este archivo multimedia, por lo que no es necesario. Si se quita, mejorará el rendimiento."
-              }
-            },
-            {
-              "id": "app-InefficientDelayLoading",
-              "messageStrings": {
-                "issue": {
-                  "text": "Retraso de carga ineficiente"
-                }
-              },
-              "properties": {
-                "componentType": "app",
-                "howToFix": [
-                  "Use variables, colecciones y contexto de navegación para compartir el estado entre pantallas en su lugar."
-                ],
-                "level": "Medium",
-                "primaryCategory": "performance",
-                "whyFix": "Los controles que hacen referencia a controles en otras pantallas pueden ralentizar la carga y la navegación de la aplicación. Al hacer esto, puede que se fuerce a la aplicación a cargar las otras pantallas de inmediato, en lugar de esperar hasta que el usuario navegue a esa pantalla."
               }
             }
           ],
