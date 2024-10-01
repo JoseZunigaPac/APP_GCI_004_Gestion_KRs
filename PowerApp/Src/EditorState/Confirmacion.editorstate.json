@@ -693,7 +693,7 @@
       "StyleName": "defaultButtonStyle",
       "Type": "ControlInfo"
     },
-    "Confirmación": {
+    "Confirmacion": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Fill",
@@ -713,7 +713,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "Confirmación",
+      "Name": "Confirmacion",
       "OptimizeForDevices": "Off",
       "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
@@ -740,12 +740,12 @@
         },
         {
           "Category": "Design",
-          "PropertyName": "Orientation",
+          "PropertyName": "Size",
           "RuleProviderType": "Unknown"
         },
         {
           "Category": "Design",
-          "PropertyName": "Size",
+          "PropertyName": "Orientation",
           "RuleProviderType": "Unknown"
         },
         {
@@ -2177,5 +2177,5 @@
       "Type": "ControlInfo"
     }
   },
-  "TopParentName": "Confirmación"
+  "TopParentName": "Confirmacion"
 }
