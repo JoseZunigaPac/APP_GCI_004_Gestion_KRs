@@ -203,7 +203,7 @@
         Size: =15
         Text: ="CANCELAR"
         X: =346
-        Y: =634
+        Y: =679
         ZIndex: =10
 
     Button1_11 As button:
@@ -242,7 +242,7 @@
         Size: =15
         Text: ="REGISTRAR"
         X: =780
-        Y: =634
+        Y: =679
         ZIndex: =11
 
     form_Registrar As form:
@@ -251,17 +251,17 @@
         DefaultMode: =FormMode.New
         Height: =497
         Width: =1114
-        X: =127
-        Y: =102
+        X: =126
+        Y: =169
         ZIndex: =12
 
         nombreKR_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="Title"
             Default: =ThisItem.nombreKR
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,Title)
+            DisplayName: ="Nombre KR"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, Title)
@@ -371,12 +371,12 @@
                 ZIndex: =4
 
         descripcionKR_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="descripcionKR"
             Default: =ThisItem.descripcionKR
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,descripcionKR)
+            DisplayName: ="Descripción"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, descripcionKR)
@@ -486,12 +486,12 @@
                 ZIndex: =4
 
         objetivoKR_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="objetivoKR"
             Default: =ThisItem.objetivoKR
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,objetivoKR)
+            DisplayName: ="Objetivo"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, objetivoKR)
@@ -601,12 +601,12 @@
                 ZIndex: =4
 
         unidadDeMedida_DataCard2 As typedDataCard.comboBoxEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="unidadDeMedida"
             Default: =ThisItem.unidadDeMedida
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,unidadDeMedida)
+            DisplayName: ="Unidad de Medida"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -720,12 +720,12 @@
                 ZIndex: =4
 
         fechaProgramadainicio_DataCard1 As typedDataCard.dateEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="fechaProgramadainicio"
             Default: =ThisItem.fechaProgramadainicio
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadainicio)
+            DisplayName: ="Fecha Programada de Inicio"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -829,12 +829,12 @@
                 ZIndex: =4
 
         fechaProgramadaFin_DataCard1 As typedDataCard.dateEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="fechaProgramadaFin"
             Default: =ThisItem.fechaProgramadaFin
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadaFin)
+            DisplayName: ="Fecha Programada de Fin"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -938,14 +938,14 @@
                 ZIndex: =4
 
         observaciones_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="observaciones"
             Default: =ThisItem.observaciones
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,observaciones)
+            DisplayName: ="Observaciones"
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
+            Height: =
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, observaciones)
             Required: =false
             Update: =DataCardValue16.Text
@@ -1053,13 +1053,13 @@
                 ZIndex: =4
 
         metaPeriodo_DataCard1 As typedDataCard.numberEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="metaPeriodo"
             Default: =ThisItem.metaPeriodo
             DisplayMode: |
                 =If(CountIf(DataCardValue13.SelectedItems, Value = "Hito") > 0, DisplayMode.Disabled, DisplayMode.Edit)
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,metaPeriodo)
+            DisplayName: ="Meta Periodo"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1168,12 +1168,12 @@
                 ZIndex: =4
 
         alcanzadoPeriodo_DataCard1 As typedDataCard.numberEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="alcanzadoPeriodo"
             Default: =ThisItem.alcanzadoPeriodo
             DisplayMode: =DisplayMode.Disabled
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
+            DisplayName: ="Alcanzado Periodo"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1282,12 +1282,12 @@
                 ZIndex: =4
 
         aprobacion_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="aprobacion"
             Default: =ThisItem.aprobacion
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,aprobacion)
+            DisplayName: ="Aprobación"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, aprobacion)
@@ -1397,12 +1397,12 @@
                 ZIndex: =4
 
         usuarioAprobador_DataCard1 As typedDataCard.comboBoxEditCard:
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="usuarioAprobador"
             Default: =ThisItem.usuarioAprobador
             DisplayMode: =Parent.DisplayMode
-            DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,usuarioAprobador)
+            DisplayName: ="Usuario Aprobador"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
@@ -1463,6 +1463,7 @@
                 SelectionFill: =RGBA(0, 120, 212, 1)
                 SelectMultiple: =false
                 Size: =13
+                Template: =ListItemTemplate.Person
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
@@ -1516,14 +1517,14 @@
                 ZIndex: =4
 
         "'Datos adjuntos_DataCard2' As typedDataCard.attachmentsEditCard":
-            BorderColor: =RGBA(245, 245, 245, 1)
+            BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
             DataField: ="{Attachments}"
             Default: =ThisItem.'Datos adjuntos'
             DisplayMode: =Parent.DisplayMode
             DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,'{Attachments}')
             Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
+            Height: =
             Required: =false
             Update: =DataCardValue29.Attachments
             Width: =371

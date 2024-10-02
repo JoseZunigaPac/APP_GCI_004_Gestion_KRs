@@ -1546,6 +1546,7 @@ Pruebas_Marcos_2 As screen:
                 SelectionFill: =RGBA(0, 120, 212, 1)
                 SelectMultiple: =false
                 Size: =13
+                Template: =ListItemTemplate.Person
                 Tooltip: =Parent.DisplayName
                 Width: =Parent.Width - 60
                 X: =30
