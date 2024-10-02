@@ -148,33 +148,6 @@
         Y: =30
         ZIndex: =6
 
-    Rectangle2 As rectangle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledFill: =RGBA(161, 159, 157, 1)
-        Fill: =RGBA(0, 120, 212, 1)
-        FocusedBorderThickness: =4
-        Height: =768
-        HoverFill: =RGBA(0, 120, 212, 1)
-        PressedFill: =RGBA(0, 120, 212, 1)
-        Width: =125
-        ZIndex: =7
-
-    Rectangle2_1 As rectangle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledFill: =RGBA(161, 159, 157, 1)
-        Fill: =RGBA(0, 120, 212, 1)
-        FocusedBorderThickness: =4
-        Height: =768
-        HoverFill: =RGBA(0, 120, 212, 1)
-        PressedFill: =RGBA(0, 120, 212, 1)
-        Width: =125
-        X: =1241
-        ZIndex: =8
-
     Button1_10 As button:
         BorderColor: =RGBA(238,40,122,1)
         BorderStyle: |+
@@ -229,7 +202,6 @@
             =SubmitForm(form_Registrar);
             Set(VarNombre, form_Registrar.LastSubmit.nombreKR);
             Set(VarID, form_Registrar.LastSubmit.ID);
-            Notify("Nombre: " & VarNombre & "; ID: " & VarID);
             Navigate(Confirmacion);
             NewForm(form_Registrar)
         PressedBorderColor: =RGBA(0, 69, 120, 1)
@@ -252,7 +224,7 @@
         Height: =497
         Width: =1114
         X: =126
-        Y: =169
+        Y: =194
         ZIndex: =12
 
         nombreKR_DataCard1 As typedDataCard.textualEditCard:
@@ -760,7 +732,6 @@
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 CalendarHeaderFill: =RGBA(16, 110, 190, 1)
                 Color: =RGBA(50, 49, 48, 1)
-                DefaultDate: =Parent.Default
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(161, 159, 157, 1)
                 DisabledFill: =RGBA(242, 242, 241, 0)
@@ -869,7 +840,6 @@
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 CalendarHeaderFill: =RGBA(16, 110, 190, 1)
                 Color: =RGBA(50, 49, 48, 1)
-                DefaultDate: =Parent.Default
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(161, 159, 157, 1)
                 DisabledFill: =RGBA(242, 242, 241, 0)
@@ -1633,4 +1603,21 @@
                 Wrap: =false
                 Y: =DataCardKey16.Y
                 ZIndex: =4
+
+    TextCanvas1 As Texto:
+        Align: ='TextCanvas.Align'.Center
+        AutoHeight: =false
+        DisplayMode: =DisplayMode.Edit
+        Font: =Font.'Segoe UI'
+        FontColor: =RGBA(238, 44, 112, 1)
+        Height: =109
+        PaddingTop: =
+        Size: =70
+        Text: ="Registrar KR"
+        VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+        Weight: ='TextCanvas.Weight'.Semibold
+        Width: =1115
+        X: =125
+        Y: =100
+        ZIndex: =13
 
