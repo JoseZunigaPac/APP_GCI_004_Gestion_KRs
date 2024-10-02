@@ -280,10 +280,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.4
+                Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
-                Y: =10 + (DataCardValue6.Height / 2) - (Self.Height / 2)
+                Y: =10
                 ZIndex: =1
 
             DataCardValue6 As text:
@@ -312,9 +312,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.6
-                X: =DataCardKey18.X + DataCardKey18.Width
-                Y: =10
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey18.Y + DataCardKey18.Height + 5
                 ZIndex: =2
 
             ErrorMessage18 As label:
@@ -394,10 +394,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.4
+                Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
-                Y: =10 + (DataCardValue7.Height / 2) - (Self.Height / 2)
+                Y: =10
                 ZIndex: =1
 
             DataCardValue7 As combobox:
@@ -409,7 +409,7 @@
                 ChevronHoverBackground: =RGBA(245, 245, 245, 1)
                 ChevronHoverFill: =RGBA(50, 49, 48, 1)
                 Color: =RGBA(50, 49, 48, 1)
-                DefaultSelectedItems: =Parent.Default
+                DefaultSelectedItems: =
                 DisabledBorderColor: =RGBA(0, 0, 0, 0)
                 DisabledColor: =RGBA(161, 159, 157, 1)
                 DisabledFill: =RGBA(242, 242, 241, 0)
@@ -431,9 +431,9 @@
                 SelectMultiple: =false
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.6
-                X: =DataCardKey19.X + DataCardKey19.Width
-                Y: =10
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey19.Y + DataCardKey19.Height + 5
                 ZIndex: =2
 
             ErrorMessage19 As label:
@@ -514,10 +514,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.4
+                Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
-                Y: =10 + (DataCardValue8.Height / 2) - (Self.Height / 2)
+                Y: =10
                 ZIndex: =1
 
             DataCardValue8 As text:
@@ -546,9 +546,9 @@
                 RadiusTopRight: =0
                 Size: =13
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.6
-                X: =DataCardKey20.X + DataCardKey20.Width
-                Y: =10
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey20.Y + DataCardKey20.Height + 5
                 ZIndex: =2
 
             ErrorMessage20 As label:
@@ -628,10 +628,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.4
+                Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
-                Y: =10 + (DataCardValue11.Height / 2) - (Self.Height / 2)
+                Y: =10
                 ZIndex: =1
 
             DataCardValue11 As combobox:
@@ -665,9 +665,9 @@
                 Size: =13
                 Template: =ListItemTemplate.Person
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.6
-                X: =DataCardKey21.X + DataCardKey21.Width
-                Y: =10
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey21.Y + DataCardKey21.Height + 5
                 ZIndex: =2
 
             ErrorMessage21 As label:
@@ -747,10 +747,10 @@
                 PaddingLeft: =0
                 Size: =13
                 Text: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.4
+                Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
-                Y: =10 + (DataCardValue17.Height / 2) - (Self.Height / 2)
+                Y: =10
                 ZIndex: =1
 
             DataCardValue17 As attachments:
@@ -765,6 +765,7 @@
                 Fill: =RGBA(245, 245, 245, 1)
                 FocusedBorderThickness: =4
                 Font: =Font.'Segoe UI'
+                Height: =133
                 HoverColor: =RGBA(50, 49, 48, 1)
                 HoverFill: =RGBA(245, 245, 245, 1)
                 IsInDataCard: =true
@@ -782,9 +783,9 @@
                 PressedColor: =RGBA(255, 255, 255, 1)
                 PressedFill: =RGBA(0, 120, 212, 1)
                 Tooltip: =Parent.DisplayName
-                Width: =(Parent.Width - 60) * 0.6
-                X: =DataCardKey22.X + DataCardKey22.Width
-                Y: =10
+                Width: =Parent.Width - 60
+                X: =30
+                Y: =DataCardKey22.Y + DataCardKey22.Height + 5
                 ZIndex: =2
 
             ErrorMessage22 As label:
