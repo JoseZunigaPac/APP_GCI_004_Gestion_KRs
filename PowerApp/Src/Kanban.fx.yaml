@@ -1,3 +1,4 @@
 Kanban As screen:
-    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
 

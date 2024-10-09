@@ -1,5 +1,5 @@
 "'Pruebas Jose' As screen":
     Fill: |-
         =ColorValue("#DCDCDC")
-    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
 

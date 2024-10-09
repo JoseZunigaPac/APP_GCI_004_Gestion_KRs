@@ -1,33 +1,22 @@
 Home As screen:
     Fill: |-
         =ColorValue("#DCDCDC")
-    LoadingSpinnerColor: =RGBA(0, 120, 212, 1)
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
 
     Image5 As image:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledFill: =RGBA(0, 0, 0, 0)
-        FocusedBorderThickness: =4
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
         Height: =768
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverFill: =RGBA(0, 0, 0, 0)
         Image: =Torito
         ImagePosition: =ImagePosition.Fill
-        PressedBorderColor: =RGBA(0, 0, 0, 0)
-        PressedFill: =RGBA(0, 0, 0, 0)
         Width: =1366
         ZIndex: =1
 
     Rectangle3 As rectangle:
         AccessibleLabel: =
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledFill: =RGBA(161, 159, 157, 1)
+        BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(0,0,0,0.3)
-        FocusedBorderThickness: =4
         Height: =668
         HoverFill: =RGBA(0, 0, 0, 0.3)
         PressedFill: =
@@ -36,45 +25,29 @@ Home As screen:
         ZIndex: =2
 
     Rectangle1 As rectangle:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledFill: =RGBA(161, 159, 157, 1)
+        BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(0, 153, 204, 1)
-        FocusedBorderThickness: =4
         HoverFill: |-
             =ColorValue("#0099CC")
-        PressedFill: =RGBA(0, 120, 212, 1)
         Width: =1366
         ZIndex: =3
 
     Image3 As image:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledFill: =RGBA(0, 0, 0, 0)
-        FocusedBorderThickness: =4
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
         Height: =70
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
-        HoverFill: =RGBA(0, 0, 0, 0)
         Image: ='Logo-pacifico-blanco'
-        PressedBorderColor: =RGBA(0, 0, 0, 0)
-        PressedFill: =RGBA(0, 0, 0, 0)
         Width: =304
         X: =125
         Y: =15
         ZIndex: =4
 
     Label1 As label:
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
+        BorderColor: =App.Theme.Colors.Darker40
         Color: |-
             =ColorValue("#FFFFFF")
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        FocusedBorderThickness: =4
+        DisabledColor: =RGBA(166, 166, 166, 1)
         Font: =Font.Verdana
         Height: =90
         Size: =56
@@ -86,14 +59,10 @@ Home As screen:
 
     Label1_1 As label:
         Align: =Align.Center
-        BorderColor: =RGBA(0, 0, 0, 0)
-        BorderStyle: =BorderStyle.None
-        BorderThickness: =2
+        BorderColor: =App.Theme.Colors.Darker40
         Color: |-
             =ColorValue("#FFFFFF")
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        FocusedBorderThickness: =4
+        DisabledColor: =RGBA(166, 166, 166, 1)
         Font: =Font.Verdana
         Height: =161
         Size: =56
@@ -109,19 +78,20 @@ Home As screen:
             =BorderStyle.Solid
             
         BorderThickness: =4
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
+        Color: =App.Theme.Colors.PrimaryForeground
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverBorderColor: =App.Theme.Colors.Darker10
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: =Navigate('Pruebas Marcos')
-        PressedBorderColor: =RGBA(0, 69, 120, 1)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =RGBA(16, 110, 190, 1)
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
         RadiusBottomLeft: =08
         RadiusBottomRight: =08
         RadiusTopLeft: =08
@@ -138,19 +108,20 @@ Home As screen:
             =BorderStyle.Solid
             
         BorderThickness: =4
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
+        Color: =App.Theme.Colors.PrimaryForeground
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverBorderColor: =App.Theme.Colors.Darker10
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =RGBA(0, 69, 120, 1)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =RGBA(16, 110, 190, 1)
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
         RadiusBottomLeft: =08
         RadiusBottomRight: =08
         RadiusTopLeft: =08
@@ -167,19 +138,20 @@ Home As screen:
             =BorderStyle.Solid
             
         BorderThickness: =4
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
+        Color: =App.Theme.Colors.PrimaryForeground
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverBorderColor: =App.Theme.Colors.Darker10
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =RGBA(0, 69, 120, 1)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =RGBA(16, 110, 190, 1)
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
         RadiusBottomLeft: =08
         RadiusBottomRight: =08
         RadiusTopLeft: =08
@@ -196,19 +168,20 @@ Home As screen:
             =BorderStyle.Solid
             
         BorderThickness: =4
-        DisabledBorderColor: =RGBA(0, 0, 0, 0)
-        DisabledColor: =RGBA(161, 159, 157, 1)
-        DisabledFill: =RGBA(242, 242, 241, 0)
+        Color: =App.Theme.Colors.PrimaryForeground
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
         Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =RGBA(0, 0, 0, 0)
+        HoverBorderColor: =App.Theme.Colors.Darker10
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =RGBA(0, 69, 120, 1)
-        PressedColor: =RGBA(255, 255, 255, 1)
-        PressedFill: =RGBA(16, 110, 190, 1)
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
         RadiusBottomLeft: =08
         RadiusBottomRight: =08
         RadiusTopLeft: =08
