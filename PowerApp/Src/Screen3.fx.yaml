@@ -1196,3 +1196,39 @@
         Y: =108
         ZIndex: =15
 
+    Button1_31 As button:
+        BorderColor: =RGBA(238,40,122,1)
+        BorderStyle: |+
+            =BorderStyle.Solid
+            
+        BorderThickness: =4
+        Color: =App.Theme.Colors.PrimaryForeground
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(238,40,122,0.9)
+        FontWeight: =FontWeight.Semibold
+        Height: =23
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: |-
+            =form_registrar_gestion.DisplayMode.Edit;
+            gallery_Tareas_Gestion.DisplayMode.Edit;
+            
+            form_registrar_gestion.DisplayMode.Edit;
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        RadiusBottomLeft: =08
+        RadiusBottomRight: =08
+        RadiusTopLeft: =08
+        RadiusTopRight: =08
+        Size: =12
+        Text: ="Guardar"
+        Width: =111
+        X: =1209
+        Y: =108
+        ZIndex: =16
+
