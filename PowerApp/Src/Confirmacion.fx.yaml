@@ -108,7 +108,7 @@
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: =Navigate('Pruebas Marcos_1')
+        OnSelect: =Navigate(Registrar_Tarea)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40

@@ -88,7 +88,7 @@ Home As screen:
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: =Navigate('Pruebas Marcos')
+        OnSelect: =Navigate(Registrar_Kr)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
