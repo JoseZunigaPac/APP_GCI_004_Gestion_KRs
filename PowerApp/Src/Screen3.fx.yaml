@@ -1234,3 +1234,12 @@
         Y: =101
         ZIndex: =17
 
+    Icon1 As Icono:
+        DisplayMode: =DisplayMode.Edit
+        Height: =32
+        Icon: ="Search"
+        Width: =32
+        X: =344
+        Y: =101
+        ZIndex: =18
+
