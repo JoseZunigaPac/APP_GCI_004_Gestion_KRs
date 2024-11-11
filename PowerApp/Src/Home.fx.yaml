@@ -21,7 +21,7 @@ Home As screen:
         HoverFill: =RGBA(0, 0, 0, 0.3)
         PressedFill: =
         Width: =1366
-        Y: =100
+        Y: =74
         ZIndex: =2
 
     Rectangle1 As rectangle:
