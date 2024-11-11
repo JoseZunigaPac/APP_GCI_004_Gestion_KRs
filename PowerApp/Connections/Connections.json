@@ -24,6 +24,20 @@
     "dependents": [],
     "id": "2135da8b-722c-4b44-938a-e481b3192e27"
   },
+  "5a91c1c9-f197-473e-9ea2-bef6817a07f3": {
+    "connectionRef": {
+      "displayName": "Usuarios de Office 365",
+      "iconUri": "https://connectoricons-prod.azureedge.net/releases/v1.0.1717/1.0.1717.3929/office365users/icon.png",
+      "id": "/providers/microsoft.powerapps/apis/shared_office365users"
+    },
+    "datasets": {},
+    "dataSources": [
+      "UsuariosdeOffice365"
+    ],
+    "dependencies": {},
+    "dependents": [],
+    "id": "5a91c1c9-f197-473e-9ea2-bef6817a07f3"
+  },
   "ccab624e-a7e5-4b2e-bc5e-cca19290fcde": {
     "connectionRef": {
       "displayName": "SharePoint",
