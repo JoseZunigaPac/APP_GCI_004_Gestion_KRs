@@ -23,13 +23,22 @@
         Y: =100
         ZIndex: =2
 
+    Rectangle2 As rectangle:
+        BorderColor: =App.Theme.Colors.Darker40
+        Fill: =RGBA(220, 220, 220, 1)
+        Height: =595
+        Width: =940
+        X: =409
+        Y: =139
+        ZIndex: =3
+
     Rectangle1_5 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(0, 153, 204, 1)
         HoverFill: |-
             =ColorValue("#0099CC")
         Width: =1366
-        ZIndex: =3
+        ZIndex: =4
 
     Image3_5 As image:
         BorderColor: =App.Theme.Colors.Darker40
@@ -40,7 +49,7 @@
         Width: =304
         X: =125
         Y: =15
-        ZIndex: =4
+        ZIndex: =5
 
     Button1_25 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -70,7 +79,7 @@
         Text: ="GESTIONAR KR"
         X: =505
         Y: =30
-        ZIndex: =5
+        ZIndex: =6
 
     Button1_26 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -100,7 +109,7 @@
         Text: ="KANBAN"
         X: =694
         Y: =30
-        ZIndex: =6
+        ZIndex: =7
 
     Button1_27 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -130,7 +139,7 @@
         Text: ="ROADMAP"
         X: =883
         Y: =30
-        ZIndex: =7
+        ZIndex: =8
 
     Button1_28 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -160,7 +169,7 @@
         Text: ="POWER BI"
         X: =1081
         Y: =30
-        ZIndex: =8
+        ZIndex: =9
 
     "Gallery1 As gallery.'BrowseLayout_Vertical_ThreeTextVariant_ver5.0'":
         BorderColor: =RGBA(0, 153, 204, 1)
@@ -178,7 +187,7 @@
         Width: =275
         X: =101
         Y: =134
-        ZIndex: =11
+        ZIndex: =10
 
         Title3 As label:
             Color: =RGBA(50, 49, 48, 1)
@@ -285,7 +294,7 @@
         Width: =940
         X: =409
         Y: =139
-        ZIndex: =12
+        ZIndex: =11
 
         fechaProgramadainicio_DataCard2 As typedDataCard.dateEditCard:
             BorderColor: =App.Theme.Colors.Darker40
@@ -1023,7 +1032,7 @@
         BorderThickness: =1
         DelayItemLoading: =true
         Fill: =RGBA(220, 220, 220, 1)
-        Height: =237
+        Height: =181
         Items: |
             =Filter(T_TAREAS_APP_GCI_003,nombreKRAsociado.Id = Gallery1.Selected.ID)
         Layout: =Layout.Vertical
@@ -1034,8 +1043,8 @@
         Width: =940
         WrapCount: =2
         X: =409
-        Y: =497
-        ZIndex: =13
+        Y: =553
+        ZIndex: =12
 
         Title8 As label:
             Color: =RGBA(50, 49, 48, 1)
@@ -1156,7 +1165,7 @@
         Width: =111
         X: =409
         Y: =108
-        ZIndex: =14
+        ZIndex: =13
 
     Button1_30 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -1188,7 +1197,7 @@
         Width: =111
         X: =529
         Y: =108
-        ZIndex: =15
+        ZIndex: =14
 
     Button1_31 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -1224,7 +1233,7 @@
         Width: =111
         X: =1209
         Y: =108
-        ZIndex: =16
+        ZIndex: =15
 
     "TextInputCanvas1 As 'Entrada de texto'":
         DisplayMode: =DisplayMode.Edit
@@ -1232,7 +1241,7 @@
         Width: =275
         X: =101
         Y: =101
-        ZIndex: =17
+        ZIndex: =16
 
     Icon1 As Icono:
         DisplayMode: =DisplayMode.Edit
@@ -1241,5 +1250,19 @@
         Width: =32
         X: =344
         Y: =101
+        ZIndex: =17
+
+    TextCanvas1 As Texto:
+        Align: ='TextCanvas.Align'.Center
+        DisplayMode: =DisplayMode.Edit
+        Fill: |
+            =ColorValue("#EE2C70")
+        FontColor: =RGBA(255, 255, 255, 1)
+        Height: =46
+        Size: =26
+        Text: ="TAREAS ASOCIADAS AL KR"
+        Width: =552
+        X: =567
+        Y: =485
         ZIndex: =18
 
