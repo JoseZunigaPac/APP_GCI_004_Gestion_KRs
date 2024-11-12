@@ -18,7 +18,8 @@
       "T_REG_STS_KR_APP_GCI_4",
       "T_TAREAS_APP_GCI_003",
       "T_REG_STS_TAREAS_APP_GCI_003",
-      "T_OKR_APP_GCI_003"
+      "T_OKR_APP_GCI_003",
+      "T_REG_STS_KR_APP_GCI_003"
     ],
     "dependencies": {},
     "dependents": [],

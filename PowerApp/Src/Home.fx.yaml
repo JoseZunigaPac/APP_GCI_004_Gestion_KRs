@@ -3,7 +3,23 @@ Home As screen:
         =ColorValue("#DCDCDC")
     LoadingSpinnerColor: =App.Theme.Colors.Primary
 
-    Image5 As image:
+    HtmlText2_2 As htmlViewer:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        Font: =App.Theme.Font
+        Height: =668
+        HtmlText: |-
+            =$"<div style='background: rgba(0, 0, 0, 0.4
+            ); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-1}px;'></div>"
+        PaddingBottom: =0
+        PaddingLeft: =0
+        PaddingRight: =0
+        PaddingTop: =0
+        Size: =13
+        Width: =1366
+        Y: =100
+        ZIndex: =1
+
+    Image5_4 As image:
         BorderColor: =App.Theme.Colors.Darker40
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -11,20 +27,9 @@ Home As screen:
         Image: =Torito
         ImagePosition: =ImagePosition.Fill
         Width: =1366
-        ZIndex: =1
-
-    Rectangle3 As rectangle:
-        AccessibleLabel: =
-        BorderColor: =App.Theme.Colors.Darker40
-        Fill: =RGBA(0,0,0,0.3)
-        Height: =668
-        HoverFill: =RGBA(0, 0, 0, 0.3)
-        PressedFill: =
-        Width: =1366
-        Y: =74
         ZIndex: =2
 
-    Rectangle1 As rectangle:
+    Rectangle1_2 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(0, 153, 204, 1)
         HoverFill: |-
@@ -32,7 +37,7 @@ Home As screen:
         Width: =1366
         ZIndex: =3
 
-    Image3 As image:
+    Image3_2 As image:
         BorderColor: =App.Theme.Colors.Darker40
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -43,152 +48,78 @@ Home As screen:
         Y: =15
         ZIndex: =4
 
-    Label1 As label:
-        BorderColor: =App.Theme.Colors.Darker40
-        Color: |-
-            =ColorValue("#FFFFFF")
+    Button1_15 As button:
+        BorderColor: =RGBA(238,40,122,1)
+        BorderStyle: |+
+            =BorderStyle.Solid
+            
+        BorderThickness: =4
+        Color: =App.Theme.Colors.PrimaryForeground
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
-        Font: =Font.Verdana
-        Height: =90
-        Size: =56
-        Text: ="¡BIENVENID@!"
-        Width: =580
-        X: =384
-        Y: =125
-        ZIndex: =5
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(238,40,122,0.9)
+        FontWeight: =FontWeight.Semibold
+        Height: =65
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =Color.White
+        HoverFill: |-
+            =ColorValue("#EE2C70")
+        OnSelect: =Navigate(Registrar_Kr)
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =App.Theme.Colors.Darker40
+        RadiusBottomLeft: =08
+        RadiusBottomRight: =08
+        RadiusTopLeft: =08
+        RadiusTopRight: =08
+        Size: =15
+        Text: ="INGRESAR"
+        Width: =225
+        X: =570
+        Y: =562
+        ZIndex: =8
 
-    Label1_1 As label:
+    Label1_2 As label:
         Align: =Align.Center
         BorderColor: =App.Theme.Colors.Darker40
         Color: |-
             =ColorValue("#FFFFFF")
         DisabledColor: =RGBA(166, 166, 166, 1)
         Font: =Font.Verdana
-        Height: =161
+        Height: =126
         Size: =56
-        Text: =User().FullName
-        Width: =670
-        X: =348
-        Y: =243
-        ZIndex: =6
-
-    Button1_2 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="GESTIONAR KR"
-        X: =505
-        Y: =30
+        Text: |-
+            ="Hola " & // Concatenar el primer nombre y el primer apellido
+            Concatenate(First(Split(User().FullName, " ")).Value, " ", Last(FirstN(Split(User().FullName, " "), CountRows(Split(User().FullName, " ")) - 1)).Value) & ","
+        Width: =755
+        X: =305
+        Y: =144
         ZIndex: =9
 
-    Button1_3 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+    Label1_3 As label:
+        Align: =Align.Center
+        BorderColor: =App.Theme.Colors.Darker40
+        Color: |-
+            =ColorValue("#FFFFFF")
         DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="KANBAN"
-        X: =694
-        Y: =30
+        Font: =Font.Verdana
+        Height: =205
+        Size: =50
+        Text: ="Bienvenido al gestor de OKRs de La Tribu Clásica"
+        Width: =904
+        X: =230
+        Y: =281
         ZIndex: =10
 
-    Button1_4 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
+    Image2 As image:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="ROADMAP"
-        X: =883
-        Y: =30
+        Height: =65
+        Image: =Logo_GCI
+        Width: =87
+        X: =1148
+        Y: =17
         ZIndex: =11
-
-    Button1_5 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="POWER BI"
-        X: =1081
-        Y: =30
-        ZIndex: =12
 

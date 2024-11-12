@@ -1,31 +1,6 @@
-"Screen3_1 As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
+"ListaOKRs As screen.'tabletLayout_HeaderAndGallery_ver3.0'":
     Fill: =Color.White
     LoadingSpinnerColor: =App.Theme.Colors.Primary
-
-    Image5_3 As image:
-        BorderColor: =App.Theme.Colors.Darker40
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Height: =768
-        Image: =Torito
-        ImagePosition: =ImagePosition.Fill
-        Width: =1366
-        ZIndex: =1
-
-    HtmlText2 As htmlViewer:
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        Font: =App.Theme.Font
-        Height: =668
-        HtmlText: |-
-            =$"<div style='background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-1}px;'></div>"
-        PaddingBottom: =0
-        PaddingLeft: =0
-        PaddingRight: =0
-        PaddingTop: =0
-        Size: =13
-        Width: =1366
-        Y: =100
-        ZIndex: =2
 
     Rectangle1_6 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
@@ -228,15 +203,15 @@
         Gallery3 As gallery.galleryVertical:
             BorderColor: =App.Theme.Colors.Darker40
             DelayItemLoading: =true
-            Height: =161
+            Height: =137
             Items: |
                 =Filter(T_TAREAS_APP_GCI_003, nombreKRAsociado.Id = ThisItem.ID)
             Layout: =Layout.Vertical
             LoadingSpinner: =LoadingSpinner.Data
-            TemplateSize: =18
-            Width: =538
-            X: =722
-            Y: =30
+            TemplateSize: =22
+            Width: =454
+            X: =787
+            Y: =54
             ZIndex: =5
 
             TextCanvas3_1 As Texto:
@@ -256,7 +231,7 @@
                 OnSelect: =Select(Parent)
                 OnUncheck: =false
                 Width: =44
-                X: =461
+                X: =389
                 Y: =1
                 ZIndex: =3
 
@@ -302,20 +277,21 @@
             Font: =Font.Arial
             FontColor: =RGBA(40, 134, 222, 1)
             Height: =19
-            Text: ="KR Aprobado"
+            Text: ="Cumplimiento"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =110
-            X: =368
-            Y: =11
+            X: =402
+            Y: =143
             ZIndex: =9
 
         TextCanvas2_3 As Texto:
             DisplayMode: =DisplayMode.Edit
             Height: =19
-            Text: =ThisItem.aprobacion
-            Width: =60
-            X: =489
-            Y: =11
+            Text: |
+                ="0%"
+            Width: =28
+            X: =523
+            Y: =143
             ZIndex: =10
 
         TextCanvas4_4 As Texto:
@@ -325,9 +301,9 @@
             Height: =19
             Text: ="Tareas"
             Weight: ='TextCanvas.Weight'.Semibold
-            Width: =222
-            X: =733
-            Y: =11
+            Width: =150
+            X: =799
+            Y: =32
             ZIndex: =11
 
         TextCanvas4_5 As Texto:
@@ -340,7 +316,7 @@
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =74
             X: =1167
-            Y: =11
+            Y: =32
             ZIndex: =12
 
         TextCanvas2_4 As Texto:
@@ -349,8 +325,8 @@
             Height: =22
             Text: =Lower(ThisItem.usuarioAprobador.Department)
             Width: =222
-            X: =489
-            Y: =33
+            X: =523
+            Y: =37
             ZIndex: =13
 
         TextCanvas4_6 As Texto:
@@ -362,8 +338,8 @@
             Text: ="Equipo"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =70
-            X: =408
-            Y: =35
+            X: =442
+            Y: =39
             ZIndex: =14
 
         Gallery6 As gallery.galleryHorizontal:
@@ -375,8 +351,8 @@
             TemplatePadding: =0
             TemplateSize: =30
             Width: =50
-            X: =489
-            Y: =55
+            X: =523
+            Y: =66
             ZIndex: =15
 
             Container2 As groupContainer.manualLayoutContainer:
@@ -397,7 +373,7 @@
                     FontColor: =RGBA(255, 255, 255, 1)
                     Height: =30
                     Size: =11
-                    Text: =Left(ThisItem.DisplayName,1)
+                    Text: =Left(First(Split(ThisItem.DisplayName, " ")).Value,1) & Left(Last(FirstN(Split(ThisItem.DisplayName, " "), CountRows(Split(ThisItem.DisplayName, " ")) - 1)).Value,1)
                     Weight: ='TextCanvas.Weight'.Bold
                     Width: =30
                     Wrap: =true
@@ -428,10 +404,10 @@
             Font: =Font.Arial
             Height: =20
             Size: =13
-            Text: =ThisItem.usuarioAprobador.DisplayName
+            Text: =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
             Width: =195
-            X: =524
-            Y: =59
+            X: =558
+            Y: =71
             ZIndex: =16
 
         TextCanvas4_7 As Texto:
@@ -443,8 +419,8 @@
             Text: ="Lider"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =70
-            X: =408
-            Y: =59
+            X: =442
+            Y: =70
             ZIndex: =17
 
         TextCanvas4_8 As Texto:
@@ -456,8 +432,8 @@
             Text: ="Estado"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =70
-            X: =408
-            Y: =87
+            X: =442
+            Y: =11
             ZIndex: =18
 
         TextCanvas4_9 As Texto:
@@ -465,12 +441,12 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             FontColor: =RGBA(40, 134, 222, 1)
-            Height: =19
-            Text: ="Realizado"
+            Height: =20
+            Text: ="Línea base"
             Weight: ='TextCanvas.Weight'.Semibold
-            Width: =70
-            X: =408
-            Y: =108
+            Width: =110
+            X: =402
+            Y: =97
             ZIndex: =19
 
         TextCanvas4_10 As Texto:
@@ -479,11 +455,11 @@
             Font: =Font.Arial
             FontColor: =RGBA(40, 134, 222, 1)
             Height: =19
-            Text: ="Período"
+            Text: ="Período programado"
             Weight: ='TextCanvas.Weight'.Semibold
-            Width: =70
-            X: =408
-            Y: =133
+            Width: =153
+            X: =358
+            Y: =165
             ZIndex: =20
 
         fecini As Texto:
@@ -494,8 +470,8 @@
             Text: =Text(ThisItem.fechaProgramadainicio,"dd/mm/yyyy")
             VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
             Width: =70
-            X: =491
-            Y: =133
+            X: =525
+            Y: =165
             ZIndex: =21
 
         fecfin As Texto:
@@ -506,11 +482,59 @@
             Text: =Text(ThisItem.fechaProgramadaFin,"dd/mm/yyyy")
             VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
             Width: =70
-            X: =649
-            Y: =133
+            X: =619
+            Y: =165
             ZIndex: =22
 
-        "Progress1 As 'Barra de progreso'":
+        Gallery7 As gallery.galleryVertical:
+            BorderColor: =App.Theme.Colors.Darker40
+            DelayItemLoading: =true
+            Height: =20
+            Items: =Filter(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID, status.Value = "activo")
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =20
+            Width: =135
+            X: =523
+            Y: =10
+            ZIndex: =24
+
+            estadoKr As Texto:
+                Align: ='TextCanvas.Align'.Center
+                BorderRadius: =8
+                BorderThickness: =
+                DisplayMode: =DisplayMode.Edit
+                Fill: |-
+                    =If(
+                        estadoKr.Text = "en curso",
+                        RGBA(54, 176, 75, 1),
+                        RGBA(0, 0, 0, 1)
+                    )
+                Font: =Font.Arial
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =Parent.Height
+                PaddingLeft: =
+                Text: =ThisItem.nombreEstado
+                Width: =Parent.Width
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+        TextCanvas4_11 As Texto:
+            Align: ='TextCanvas.Align'.End
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Arial
+            FontColor: =RGBA(40, 134, 222, 1)
+            Height: =20
+            Text: ="Und. medida"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =93
+            X: =591
+            Y: =97
+            ZIndex: =25
+
+        "Progress1_1 As 'Barra de progreso'":
             BasePaletteColor: =RGBA(249, 83, 109, 1)
             DisplayMode: =DisplayMode.Edit
             Height: =19
@@ -530,7 +554,7 @@
                     false,
                     true
                 )
-            ProgressColor: ='Progress.ProgressColor'.Warning
+            ProgressColor: ='Progress.ProgressColor'.Success
             Shape: ='Progress.Shape'.Rounded
             Thickness: ='Progress.Thickness'.Large
             Value: |-
@@ -545,10 +569,104 @@
                     )*100,
                     2
                 )
-            Width: =80
-            X: =561
-            Y: =133
-            ZIndex: =23
+            Width: =145
+            X: =553
+            Y: =143
+            ZIndex: =26
+
+        TextCanvas2_6 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =19
+            Text: |
+                ="100%"
+            Width: =55
+            X: =701
+            Y: =143
+            ZIndex: =27
+
+        TextCanvas2_7 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =19
+            Text: |
+                =ThisItem.lineaBase
+            Width: =70
+            X: =523
+            Y: =97
+            ZIndex: =28
+
+        TextCanvas2_8 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =19
+            Text: |
+                =ThisItem.unidadDeMedida.Value
+            Width: =70
+            X: =693
+            Y: =96
+            ZIndex: =29
+
+        TextCanvas4_12 As Texto:
+            Align: ='TextCanvas.Align'.End
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Arial
+            FontColor: =RGBA(40, 134, 222, 1)
+            Height: =20
+            Text: ="Meta"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =110
+            X: =402
+            Y: =120
+            ZIndex: =30
+
+        TextCanvas2_9 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =19
+            Text: |
+                =ThisItem.metaPeriodo
+            Width: =70
+            X: =523
+            Y: =120
+            ZIndex: =31
+
+        TextCanvas2_10 As Texto:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            Height: =19
+            Text: |
+                ="-"
+            Width: =28
+            X: =588
+            Y: =165
+            ZIndex: =32
+
+        Icon2 As icon.Edit:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =App.Theme.Colors.Darker30
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Height: =20
+            Icon: =Icon.Edit
+            OnSelect: =Select(Parent)
+            PaddingBottom: =2
+            PaddingLeft: =2
+            PaddingRight: =2
+            PaddingTop: =2
+            Width: =20
+            X: =1167
+            Y: =6
+            ZIndex: =33
+
+        TextCanvas2_11 As Texto:
+            Align: ='TextCanvas.Align'.Center
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Arial
+            Height: =19
+            Text: |
+                ="Editar"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =55
+            X: =1182
+            Y: =6
+            ZIndex: =34
 
     TextCanvas5 As Texto:
         Align: ='TextCanvas.Align'.Center

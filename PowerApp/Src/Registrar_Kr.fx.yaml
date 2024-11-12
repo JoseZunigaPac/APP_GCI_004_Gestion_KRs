@@ -21,126 +21,6 @@ Registrar_Kr As screen:
         Y: =15
         ZIndex: =2
 
-    Button1_6 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="GESTIONAR KR"
-        X: =505
-        Y: =30
-        ZIndex: =3
-
-    Button1_7 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="KANBAN"
-        X: =694
-        Y: =30
-        ZIndex: =4
-
-    Button1_8 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="ROADMAP"
-        X: =883
-        Y: =30
-        ZIndex: =5
-
-    Button1_9 As button:
-        BorderColor: =RGBA(238,40,122,1)
-        BorderStyle: |+
-            =BorderStyle.Solid
-            
-        BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
-        DisabledBorderColor: =RGBA(244, 244, 244, 1)
-        DisabledColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Fill: =RGBA(238,40,122,0.9)
-        FontWeight: =FontWeight.Semibold
-        HoverBorderColor: =App.Theme.Colors.Darker10
-        HoverColor: =Color.White
-        HoverFill: |-
-            =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
-        PressedBorderColor: =App.Theme.Colors.Darker40
-        PressedColor: =Self.Color
-        PressedFill: =App.Theme.Colors.Darker40
-        RadiusBottomLeft: =08
-        RadiusBottomRight: =08
-        RadiusTopLeft: =08
-        RadiusTopRight: =08
-        Size: =15
-        Text: ="POWER BI"
-        X: =1081
-        Y: =30
-        ZIndex: =6
-
     Button1_10 As button:
         BorderColor: =RGBA(238,40,122,1)
         BorderStyle: |+
@@ -1250,7 +1130,7 @@ Registrar_Kr As screen:
                 Font: =App.Theme.Font
                 Height: =34
                 Size: =13
-                Text: =Parent.DisplayName
+                Text: =Parent.DisplayName & " (líder del equipo)"
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30

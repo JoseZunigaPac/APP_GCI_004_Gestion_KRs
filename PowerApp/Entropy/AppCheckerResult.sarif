@@ -246,6 +246,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.estadoKr.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.estadoKr.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 13,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".nombreEstado"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery7.estadoKr"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreEstado"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Registrar_Kr.Button1_11.OnSelect"
                 }
               ],
@@ -566,52 +606,12 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.TextCanvas2_1.Text"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.Items"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.TextCanvas2_1.Text",
-                  "relativeAddress": 0
-                },
-                "region": {
-                  "charLength": 9,
-                  "charOffset": 8,
-                  "snippet": {
-                    "text": ".nombreKR"
-                  }
-                }
-              },
-              "properties": {
-                "member": "Text",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.TextCanvas2_1"
-              }
-            }
-          ],
-          "message": {
-            "arguments": [
-              "nombreKR"
-            ],
-            "id": "issue"
-          },
-          "properties": {
-            "level": "High"
-          },
-          "ruleId": "app-ErrInvalidName",
-          "ruleIndex": 3
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.Items"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.Items",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.Items",
                   "relativeAddress": 0
                 },
                 "region": {
@@ -624,8 +624,8 @@
               },
               "properties": {
                 "member": "Items",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Gallery3"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery3"
               }
             }
           ],
@@ -646,12 +646,12 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.Items"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.Items"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.Items",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.Items",
                   "relativeAddress": 0
                 },
                 "region": {
@@ -664,8 +664,88 @@
               },
               "properties": {
                 "member": "Items",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Gallery3"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 4
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 48,
+                  "snippet": {
+                    "text": ".Id"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery7"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreKRAsociado.Id"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.Items"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.Items",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 52,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Items",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery7"
               }
             }
           ],
@@ -1675,48 +1755,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "module": "Screen3_1",
-                "type": "Screen3_1"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Low"
-          },
-          "ruleId": "acc-ReadableScreenNameNeeded",
-          "ruleIndex": 8
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.AccessibleLabel"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery7"
               }
             }
           ],
@@ -1734,19 +1785,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.TabIndex"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.TabIndex",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.AccessibleLabel",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "AccessibleLabel",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-AccessibleLabelNeeded",
+          "ruleIndex": 7
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2"
               }
             }
           ],
@@ -1764,19 +1845,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Gallery3"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery3"
               }
             }
           ],
@@ -1794,19 +1875,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.TabIndex"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.TabIndex",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Gallery3"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery3"
               }
             }
           ],
@@ -1824,19 +1905,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.CheckboxCanvas1.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.CheckboxCanvas1.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery3.CheckboxCanvas1.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.CheckboxCanvas1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Gallery3.CheckboxCanvas1"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery3.CheckboxCanvas1"
               }
             }
           ],
@@ -1854,19 +1935,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery6.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery6.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery6.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery6.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Gallery6"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery6"
               }
             }
           ],
@@ -1884,19 +1965,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery6.TabIndex"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery6.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Gallery6.TabIndex",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery6.TabIndex",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "TabIndex",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Gallery6"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery6"
               }
             }
           ],
@@ -1914,19 +1995,49 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Progress1.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.TabIndex"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1.Gallery2.Progress1.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery7.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery7"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 9
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Progress1_1.AccessibleLabel"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Progress1_1.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
-                "module": "Screen3_1",
-                "type": "Screen3_1.Gallery2.Progress1"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Progress1_1"
               }
             }
           ],
@@ -2034,18 +2145,18 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Screen3_1"
+                  "fullyQualifiedName": "ListaOKRs"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Screen3_1",
+                  "fullyQualifiedName": "ListaOKRs",
                   "relativeAddress": 0
                 }
               },
               "properties": {
-                "module": "Screen3_1",
-                "type": "Screen3_1"
+                "module": "ListaOKRs",
+                "type": "ListaOKRs"
               }
             }
           ],
@@ -2287,7 +2398,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"Screen3_1\" es 305, que es superior al umbral máximo recomendado (300)."
+                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ListaOKRs\" es 403, que es superior al umbral máximo recomendado (300)."
               }
             }
           ],
