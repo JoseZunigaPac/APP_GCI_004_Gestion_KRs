@@ -65,7 +65,7 @@ Home As screen:
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
+        OnSelect: =Navigate(ListaOKRs)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40

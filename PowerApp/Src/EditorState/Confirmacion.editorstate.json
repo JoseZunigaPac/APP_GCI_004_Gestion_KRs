@@ -1505,7 +1505,7 @@
       "MetaDataIDKey": "%TemplatePhoneSuccessMsg.ID%",
       "Name": "LblSuccessMsg1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -1728,7 +1728,7 @@
       "MetaDataIDKey": "",
       "Name": "LblSuccessMsg1_1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
