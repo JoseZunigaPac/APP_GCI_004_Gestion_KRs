@@ -149,7 +149,7 @@
         Items: |-
             =Filter(
                 T_OKR_APP_GCI_003, 
-                ID = LookUp(T_REG_STS_KR_APP_GCI_003, nombreEstado = Dropdown1.Selected.Value, nombreKRAsociado.Id)
+                ID = LookUp(T_REG_STS_KR_APP_GCI_003, nombreEstado = filterEstado.Selected.Value, nombreKRAsociado.Id)
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -700,7 +700,7 @@
             Y: =11
             ZIndex: =35
 
-    DropdownCanvas3 As Desplegable.pcfdataset:
+    filterEstado As Desplegable.pcfdataset:
         Appearance: ='DropdownCanvas.Appearance'.FilledDarker
         BasePaletteColor: =RGBA(141, 229, 250, 1)
         BorderStyle: =BorderStyle.Solid
