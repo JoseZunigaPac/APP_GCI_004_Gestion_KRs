@@ -1415,19 +1415,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.filterTitle.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.TextInputCanvas2.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.filterTitle.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.TextInputCanvas2.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.filterTitle"
+                "type": "ListaOKRs.TextInputCanvas2"
               }
             }
           ],
