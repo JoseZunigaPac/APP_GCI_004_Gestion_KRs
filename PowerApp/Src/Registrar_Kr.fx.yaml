@@ -142,11 +142,28 @@ Registrar_Kr As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: |-
+                    =If(
+                        DataCardValue13.Selected.Value = "Hito" || IsBlank(DataCardValue13.Selected.Value),
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 FocusedBorderThickness: =4
                 Font: =App.Theme.Font
                 Format: =TextFormat.Number
-                HintText: =If(DataCardValue13.Selected.Value = "Porcentaje","Ej. 60","otros")
+                HintText: |-
+                    =// Ajustar el HintText según la selección
+                    Switch(
+                        DataCardValue13.Selected.Value,
+                        "Porcentaje", "Ejemplo: 60",
+                        "Importe - $", "Ejemplo: 100",
+                        "Importe - S/.", "Ejemplo: 100",
+                        "Hito", "Campo bloqueado",
+                        "Cantidad", "Ejemplo: 10",
+                        "Horas", "Ejemplo: 8",
+                        "Días", "Ejemplo: 5",
+                        "Seleccione una opción"
+                    )
                 HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
