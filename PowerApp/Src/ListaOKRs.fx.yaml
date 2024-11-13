@@ -147,9 +147,19 @@
         Fill: =RGBA(255, 255, 255, 1)
         Height: =576
         Items: |-
-            =Filter(
-                T_OKR_APP_GCI_003, 
-                ID = LookUp(T_REG_STS_KR_APP_GCI_003, nombreEstado = filterEstado.Selected.Value, nombreKRAsociado.Id)
+            =If(
+                IsBlank(filterEstado.Selected.Value) || filterEstado.Selected.Value = "todos",
+                T_OKR_APP_GCI_003,
+                Filter(
+                    T_OKR_APP_GCI_003, 
+                    ID in ForAll(
+                        Filter(
+                            T_REG_STS_KR_APP_GCI_003, 
+                            nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
+                        ),
+                        nombreKRAsociado.Id
+                    )
+                )
             )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
@@ -708,9 +718,41 @@
         DisplayMode: =DisplayMode.Edit
         FontSize: =14
         Height: =35
-        Items: =["sin aprobación", "programado", "en curso", "finalizado"]
+        Items: =["todos", "sin aprobación", "programado", "en curso", "finalizado"]
         Width: =157
-        X: =321
+        X: =313
         Y: =127
         ZIndex: =10
+
+    "ComboboxCanvas1 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName)
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =228
+        X: =480
+        Y: =127
+        ZIndex: =13
+
+        Value2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =0
+
+    "TextInputCanvas2 As 'Entrada de texto'":
+        BasePaletteColor: =RGBA(141, 229, 250, 1)
+        BorderRadius: =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        Placeholder: ="Nombre KR"
+        Type: ='TextInputCanvas.Type'.Search
+        Width: =242
+        X: =59
+        Y: =127
+        ZIndex: =14
 
