@@ -149,7 +149,10 @@
         Items: |-
             =If(
                 IsBlank(filterEstado.Selected.Value) || filterEstado.Selected.Value = "todos",
-                T_OKR_APP_GCI_003,
+                Filter(
+                    T_OKR_APP_GCI_003, 
+                    StartsWith(nombreKR,filterTitle.Value)
+                ),
                 Filter(
                     T_OKR_APP_GCI_003, 
                     ID in ForAll(
@@ -750,7 +753,7 @@
         DisplayMode: =DisplayMode.Edit
         Height: =35
         Placeholder: ="Buscar por nombre KR"
-        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
+        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
         Type: ='TextInputCanvas.Type'.Text
         Width: =242
         X: =59

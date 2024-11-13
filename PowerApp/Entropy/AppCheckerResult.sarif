@@ -296,7 +296,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 161,
+                  "charOffset": 232,
                   "snippet": {
                     "text": "in"
                   }
@@ -1415,19 +1415,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.TextInputCanvas2.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.filterTitle.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.TextInputCanvas2.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.filterTitle.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.TextInputCanvas2"
+                "type": "ListaOKRs.filterTitle"
               }
             }
           ],
