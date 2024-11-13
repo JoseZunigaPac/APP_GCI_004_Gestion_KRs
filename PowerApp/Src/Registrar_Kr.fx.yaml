@@ -73,12 +73,10 @@ Registrar_Kr As screen:
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: |-
+        OnSelect: |
             =SubmitForm(form_Registrar);
-            Set(VarNombre, form_Registrar.LastSubmit.nombreKR);
-            Set(VarID, form_Registrar.LastSubmit.ID);
             Navigate(Confirmacion);
-            NewForm(form_Registrar)
+            NewForm(form_Registrar);
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
@@ -97,6 +95,7 @@ Registrar_Kr As screen:
         DataSource: =T_OKR_APP_GCI_003
         DefaultMode: =FormMode.New
         Height: =587
+        NumberOfColumns: =2
         Width: =1114
         X: =126
         Y: =104
@@ -114,9 +113,9 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, lineaBase)
             Required: =false
             Update: =DataCardValue1.Text
-            Width: =371
-            X: =1
-            Y: =1
+            Width: =557
+            X: =0
+            Y: =2
             ZIndex: =1
 
             DataCardKey1 As label:
@@ -142,9 +141,28 @@ Registrar_Kr As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: |-
+                    =If(
+                        DataCardValue13.Selected.Value = "Hito" || IsBlank(DataCardValue13.Selected.Value),
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 FocusedBorderThickness: =4
                 Font: =App.Theme.Font
+                Format: =TextFormat.Number
+                HintText: |-
+                    =// Ajustar el HintText según la selección
+                    Switch(
+                        DataCardValue13.Selected.Value,
+                        "Porcentaje", "Ejemplo: 60",
+                        "Importe - $", "Ejemplo: 100",
+                        "Importe - S/.", "Ejemplo: 100",
+                        "Hito", "Campo bloqueado",
+                        "Cantidad", "Ejemplo: 10",
+                        "Horas", "Ejemplo: 8",
+                        "Días", "Ejemplo: 5",
+                        "Seleccione una opción"
+                    )
                 HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
@@ -206,7 +224,7 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, nombreKR)
             Required: =true
             Update: =DataCardValue9.Text
-            Width: =371
+            Width: =557
             X: =0
             Y: =0
             ZIndex: =13
@@ -298,7 +316,7 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, descripcionKR)
             Required: =true
             Update: =DataCardValue10.Text
-            Width: =371
+            Width: =557
             X: =1
             Y: =0
             ZIndex: =13
@@ -390,9 +408,9 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, objetivoKR)
             Required: =false
             Update: =DataCardValue12.Text
-            Width: =371
-            X: =2
-            Y: =0
+            Width: =557
+            X: =0
+            Y: =1
             ZIndex: =13
 
             DataCardKey6 As label:
@@ -481,8 +499,8 @@ Registrar_Kr As screen:
             Height: =50
             Required: =false
             Update: =DataCardValue13.Selected
-            Width: =371
-            X: =0
+            Width: =557
+            X: =1
             Y: =1
             ZIndex: =13
 
@@ -518,6 +536,18 @@ Registrar_Kr As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
                 Items: =Choices([@T_OKR_APP_GCI_003].unidadDeMedida)
+                OnChange: |-
+                    =Switch(
+                        DataCardValue13.Selected.Value,
+                        "Porcentaje", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        "Importe - $", Set(FieldType1, "Currency"), Set(FieldEnabled, true);
+                        "Importe - S/.", Set(FieldType1, "Currency"), Set(FieldEnabled, true);
+                        "Hito", Set(FieldType1, "Text"), Set(FieldEnabled, false);
+                        "Cantidad", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        "Horas", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        "Días", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        Set(FieldEnabled, false) // Caso por defecto para ninguna selección
+                    )
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedColor: =App.Theme.Colors.PrimaryForeground
                 PressedFill: =App.Theme.Colors.Darker30
@@ -571,16 +601,15 @@ Registrar_Kr As screen:
             BorderStyle: =BorderStyle.Solid
             DataField: ="metaPeriodo"
             Default: =ThisItem.metaPeriodo
-            DisplayMode: |
-                =DisplayMode.Edit
+            DisplayMode: =//DisplayMode = If(FieldEnabled; DisplayMode.Edit; DisplayMode.Disabled)
             DisplayName: ="Meta Periodo"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
             Required: =false
             Update: =Value(DataCardValue25.Text)
-            Width: =371
-            X: =2
-            Y: =1
+            Width: =557
+            X: =1
+            Y: =2
             ZIndex: =13
 
             DataCardKey12 As label:
@@ -606,10 +635,28 @@ Registrar_Kr As screen:
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: |-
+                    =If(
+                        DataCardValue13.Selected.Value = "Hito" || IsBlank(DataCardValue13.Selected.Value),
+                        DisplayMode.Disabled,
+                        DisplayMode.Edit
+                    )
                 FocusedBorderThickness: =4
                 Font: =App.Theme.Font
                 Format: =TextFormat.Number
+                HintText: |-
+                    =// Ajustar el HintText según la selección
+                    Switch(
+                        DataCardValue13.Selected.Value,
+                        "Porcentaje", "Ejemplo: 60",
+                        "Importe - $", "Ejemplo: 100",
+                        "Importe - S/.", "Ejemplo: 100",
+                        "Hito", "Campo bloqueado",
+                        "Cantidad", "Ejemplo: 10",
+                        "Horas", "Ejemplo: 8",
+                        "Días", "Ejemplo: 5",
+                        "Seleccione una opción"
+                    )
                 HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
@@ -669,9 +716,9 @@ Registrar_Kr As screen:
             Height: =50
             Required: =false
             Update: =Value(DataCardValue26.Text)
-            Width: =371
+            Width: =557
             X: =0
-            Y: =2
+            Y: =3
             ZIndex: =13
 
             DataCardKey13 As label:
@@ -749,180 +796,6 @@ Registrar_Kr As screen:
                 Y: =DataCardKey13.Y
                 ZIndex: =4
 
-        fechaProgramadainicio_DataCard1 As typedDataCard.dateEditCard:
-            BorderColor: =RGBA(0, 153, 204, 1)
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="fechaProgramadainicio"
-            Default: =ThisItem.fechaProgramadainicio
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: ="Fecha Programada de Inicio"
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =false
-            Update: =DataCardValue14.SelectedDate
-            Width: =371
-            X: =1
-            Y: =2
-            ZIndex: =13
-
-            DataCardKey9 As label:
-                AutoHeight: =true
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =34
-                Size: =13
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue14 As datepicker:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                CalendarHeaderFill: =App.Theme.Colors.Primary
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =Parent.DisplayMode
-                EndYear: =Year(Today())+100
-                Font: =App.Theme.Font
-                HoverDateFill: =App.Theme.Colors.Lighter70
-                IconBackground: =App.Theme.Colors.Primary
-                IconFill: =App.Theme.Colors.PrimaryForeground
-                IsEditable: =true
-                PaddingBottom: =0
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                SelectedDateFill: =App.Theme.Colors.Primary
-                StartYear: =1899
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey9.Y + DataCardKey9.Height + 5
-                ZIndex: =2
-
-            ErrorMessage9 As label:
-                AutoHeight: =true
-                Color: =RGBA(168, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                FontWeight: =FontWeight.Semibold
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue14.Y + DataCardValue14.Height
-                ZIndex: =3
-
-            StarVisible9 As label:
-                Align: =Align.Center
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =DataCardKey9.Height
-                Size: =13
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey9.Y
-                ZIndex: =4
-
-        fechaProgramadaFin_DataCard1 As typedDataCard.dateEditCard:
-            BorderColor: =RGBA(0, 153, 204, 1)
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="fechaProgramadaFin"
-            Default: =ThisItem.fechaProgramadaFin
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: ="Fecha Programada de Fin"
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            Required: =false
-            Update: =DataCardValue15.SelectedDate
-            Width: =371
-            X: =2
-            Y: =2
-            ZIndex: =13
-
-            DataCardKey10 As label:
-                AutoHeight: =true
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =34
-                Size: =13
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue15 As datepicker:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                CalendarHeaderFill: =App.Theme.Colors.Primary
-                Color: =RGBA(0, 0, 0, 1)
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =Parent.DisplayMode
-                EndYear: =Year(Today())+100
-                Font: =App.Theme.Font
-                HoverDateFill: =App.Theme.Colors.Lighter70
-                IconBackground: =App.Theme.Colors.Primary
-                IconFill: =App.Theme.Colors.PrimaryForeground
-                IsEditable: =true
-                PaddingBottom: =0
-                PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                SelectedDateFill: =App.Theme.Colors.Primary
-                StartYear: =1899
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey10.Y + DataCardKey10.Height + 5
-                ZIndex: =2
-
-            ErrorMessage10 As label:
-                AutoHeight: =true
-                Color: =RGBA(168, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                FontWeight: =FontWeight.Semibold
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue15.Y + DataCardValue15.Height
-                ZIndex: =3
-
-            StarVisible10 As label:
-                Align: =Align.Center
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =DataCardKey10.Height
-                Size: =13
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey10.Y
-                ZIndex: =4
-
         observaciones_DataCard1 As typedDataCard.textualEditCard:
             BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
@@ -935,9 +808,9 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, observaciones)
             Required: =false
             Update: =DataCardValue16.Text
-            Width: =371
+            Width: =557
             X: =0
-            Y: =3
+            Y: =4
             ZIndex: =13
 
             DataCardKey11 As label:
@@ -966,6 +839,7 @@ Registrar_Kr As screen:
                 DisplayMode: =Parent.DisplayMode
                 FocusedBorderThickness: =4
                 Font: =App.Theme.Font
+                Height: =100
                 HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
@@ -1015,98 +889,6 @@ Registrar_Kr As screen:
                 Y: =DataCardKey11.Y
                 ZIndex: =4
 
-        aprobacion_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =RGBA(0, 153, 204, 1)
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="aprobacion"
-            Default: =ThisItem.aprobacion
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: ="Aprobación"
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, aprobacion)
-            Required: =false
-            Update: =DataCardValue27.Text
-            Width: =371
-            X: =1
-            Y: =3
-            ZIndex: =13
-
-            DataCardKey14 As label:
-                AutoHeight: =true
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =34
-                Size: =13
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue27 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                BorderThickness: =2
-                Color: =RGBA(0, 0, 0, 1)
-                Default: =Parent.Default
-                DelayOutput: =true
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =Parent.DisplayMode
-                FocusedBorderThickness: =4
-                Font: =App.Theme.Font
-                HoverBorderColor: =App.Theme.Colors.Darker40
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =App.Theme.Colors.Lighter70
-                MaxLength: =Parent.MaxLength
-                PaddingLeft: =5
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Size: =13
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey14.Y + DataCardKey14.Height + 5
-                ZIndex: =2
-
-            ErrorMessage14 As label:
-                AutoHeight: =true
-                Color: =RGBA(168, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                FontWeight: =FontWeight.Semibold
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue27.Y + DataCardValue27.Height
-                ZIndex: =3
-
-            StarVisible14 As label:
-                Align: =Align.Center
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =DataCardKey14.Height
-                Size: =13
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey14.Y
-                ZIndex: =4
-
         usuarioAprobador_DataCard1 As typedDataCard.comboBoxEditCard:
             BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
@@ -1118,8 +900,8 @@ Registrar_Kr As screen:
             Height: =50
             Required: =false
             Update: =DataCardValue28.Selected
-            Width: =371
-            X: =2
+            Width: =557
+            X: =1
             Y: =3
             ZIndex: =13
 
@@ -1215,8 +997,8 @@ Registrar_Kr As screen:
             Height: =166
             Required: =false
             Update: =DataCardValue29.Attachments
-            Width: =371
-            X: =0
+            Width: =557
+            X: =1
             Y: =4
             ZIndex: =13
 
