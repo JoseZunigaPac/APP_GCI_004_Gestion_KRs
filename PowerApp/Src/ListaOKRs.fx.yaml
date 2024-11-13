@@ -146,7 +146,11 @@
         DelayItemLoading: =true
         Fill: =RGBA(255, 255, 255, 1)
         Height: =576
-        Items: =T_OKR_APP_GCI_003
+        Items: |-
+            =Filter(
+                T_OKR_APP_GCI_003, 
+                ID = LookUp(T_REG_STS_KR_APP_GCI_003, nombreEstado = Dropdown1.Selected.Value, nombreKRAsociado.Id)
+            )
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =212
@@ -197,19 +201,9 @@
             Y: =159
             ZIndex: =3
 
-        TextCanvas2_1 As Texto:
-            DisplayMode: =DisplayMode.Edit
-            Height: =24
-            Text: =ThisItem.nombreKR
-            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-            Width: =347
-            X: =10
-            Y: =30
-            ZIndex: =4
-
         TextCanvas2_2 As Texto:
             DisplayMode: =DisplayMode.Edit
-            Height: =55
+            Height: =40
             Text: =ThisItem.descripcionKR
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
             Width: =348
@@ -253,13 +247,21 @@
                 ZIndex: =3
 
         TextCanvas4 As Texto:
+            Align: ='TextCanvas.Align'.Center
+            BorderRadius: =10
+            BorderThickness: =
             DisplayMode: =DisplayMode.Edit
+            Fill: |
+                =RGBA(0, 153, 204, 1)
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
-            Height: =19
-            Text: ="Nombre del KR"
-            Weight: ='TextCanvas.Weight'.Semibold
-            Width: =222
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =27
+            PaddingLeft: =4
+            PaddingTop: =3
+            Text: =ThisItem.codigoKR
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+            Weight: ='TextCanvas.Weight'.Bold
+            Width: =85
             X: =10
             Y: =11
             ZIndex: =7
@@ -267,7 +269,7 @@
         TextCanvas4_1 As Texto:
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Descripción"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -279,7 +281,7 @@
         TextCanvas4_2 As Texto:
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Objetivo"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -292,7 +294,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Cumplimiento"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -314,7 +316,7 @@
         TextCanvas4_4 As Texto:
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Lista de tareas"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -327,7 +329,7 @@
             Align: ='TextCanvas.Align'.Center
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Marcar finalizado"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -350,7 +352,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Equipo"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -431,7 +433,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Lider"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -444,7 +446,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Estado"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -457,7 +459,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =20
             Text: ="Línea base"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -470,7 +472,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
             Text: ="Período programado"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -545,7 +547,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =20
             Text: ="Und. medida"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -628,7 +630,7 @@
             Align: ='TextCanvas.Align'.End
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =RGBA(40, 134, 222, 1)
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =20
             Text: ="Meta"
             Weight: ='TextCanvas.Weight'.Semibold
@@ -688,19 +690,27 @@
             Y: =6
             ZIndex: =34
 
-    TextCanvas5 As Texto:
-        Align: ='TextCanvas.Align'.Center
+        TextCanvas2_12 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =48
+            Text: =ThisItem.nombreKR
+            VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Width: =336
+            X: =105
+            Y: =11
+            ZIndex: =35
+
+    DropdownCanvas3 As Desplegable.pcfdataset:
+        Appearance: ='DropdownCanvas.Appearance'.FilledDarker
+        BasePaletteColor: =RGBA(141, 229, 250, 1)
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =1
         DisplayMode: =DisplayMode.Edit
-        Fill: |
-            =RGBA(0, 153, 204, 1)
-        Font: =Font.Arial
-        FontColor: =RGBA(255, 255, 255, 1)
-        Height: =42
-        Size: =20
-        Text: ="Sección de filtros"
-        Weight: ='TextCanvas.Weight'.Semibold
-        Width: =1270
-        X: =53
-        Y: =111
+        FontSize: =14
+        Height: =35
+        Items: =["sin aprobación", "programado", "en curso", "finalizado"]
+        Width: =157
+        X: =321
+        Y: =127
         ZIndex: =10
 

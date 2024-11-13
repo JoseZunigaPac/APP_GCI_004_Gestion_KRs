@@ -3,6 +3,16 @@ Home As screen:
         =ColorValue("#DCDCDC")
     LoadingSpinnerColor: =App.Theme.Colors.Primary
 
+    Image5_4 As image:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =768
+        Image: =Torito
+        ImagePosition: =ImagePosition.Fill
+        Width: =1366
+        ZIndex: =1
+
     HtmlText2_2 As htmlViewer:
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         Font: =App.Theme.Font
@@ -17,16 +27,6 @@ Home As screen:
         Size: =13
         Width: =1366
         Y: =100
-        ZIndex: =1
-
-    Image5_4 As image:
-        BorderColor: =App.Theme.Colors.Darker40
-        DisabledBorderColor: =RGBA(166, 166, 166, 1)
-        DisabledFill: =RGBA(244, 244, 244, 1)
-        Height: =768
-        Image: =Torito
-        ImagePosition: =ImagePosition.Fill
-        Width: =1366
         ZIndex: =2
 
     Rectangle1_2 As rectangle:
@@ -78,7 +78,7 @@ Home As screen:
         Width: =225
         X: =570
         Y: =562
-        ZIndex: =8
+        ZIndex: =5
 
     Label1_2 As label:
         Align: =Align.Center
@@ -95,7 +95,7 @@ Home As screen:
         Width: =755
         X: =305
         Y: =144
-        ZIndex: =9
+        ZIndex: =6
 
     Label1_3 As label:
         Align: =Align.Center
@@ -110,7 +110,7 @@ Home As screen:
         Width: =904
         X: =230
         Y: =281
-        ZIndex: =10
+        ZIndex: =7
 
     Image2 As image:
         BorderColor: =App.Theme.Colors.Darker40
@@ -121,5 +121,5 @@ Home As screen:
         Width: =87
         X: =1148
         Y: =17
-        ZIndex: =11
+        ZIndex: =8
 
