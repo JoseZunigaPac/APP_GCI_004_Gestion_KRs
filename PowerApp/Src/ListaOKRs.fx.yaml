@@ -158,7 +158,7 @@
                             nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
                         ),
                         nombreKRAsociado.Id
-                    )
+                    ), StartsWith(nombreKR,filterTitle.Value)
                 )
             )
         Layout: =Layout.Vertical
@@ -719,7 +719,7 @@
         FontSize: =14
         Height: =35
         Items: =["todos", "sin aprobación", "programado", "en curso", "finalizado"]
-        Width: =157
+        Width: =178
         X: =313
         Y: =127
         ZIndex: =10
@@ -732,7 +732,7 @@
         SelectMultiple: =false
         TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
         Width: =228
-        X: =480
+        X: =503
         Y: =127
         ZIndex: =13
 
@@ -744,13 +744,14 @@
             Order: =1
             ZIndex: =0
 
-    "TextInputCanvas2 As 'Entrada de texto'":
+    "filterTitle As 'Entrada de texto'":
         BasePaletteColor: =RGBA(141, 229, 250, 1)
         BorderRadius: =
         DisplayMode: =DisplayMode.Edit
         Height: =35
-        Placeholder: ="Nombre KR"
-        Type: ='TextInputCanvas.Type'.Search
+        Placeholder: ="Buscar por nombre KR"
+        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
+        Type: ='TextInputCanvas.Type'.Text
         Width: =242
         X: =59
         Y: =127
