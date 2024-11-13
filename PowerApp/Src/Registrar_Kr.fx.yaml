@@ -145,6 +145,8 @@ Registrar_Kr As screen:
                 DisplayMode: =Parent.DisplayMode
                 FocusedBorderThickness: =4
                 Font: =App.Theme.Font
+                Format: =TextFormat.Number
+                HintText: =If(DataCardValue13.Selected.Value = "Porcentaje","Ej. 60","otros")
                 HoverBorderColor: =App.Theme.Colors.Darker40
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
@@ -518,6 +520,18 @@ Registrar_Kr As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
                 Items: =Choices([@T_OKR_APP_GCI_003].unidadDeMedida)
+                OnChange: |-
+                    =Switch(
+                        DataCardValue13.Selected.Value,
+                        "Porcentaje", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        "Importe - $", Set(FieldType1, "Currency"), Set(FieldEnabled, true);
+                        "Importe - S/.", Set(FieldType1, "Currency"), Set(FieldEnabled, true);
+                        "Hito", Set(FieldType1, "Text"), Set(FieldEnabled, false);
+                        "Cantidad", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        "Horas", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        "Días", Set(FieldType1, "Number"), Set(FieldEnabled, true);
+                        Set(FieldEnabled, false) // Caso por defecto para ninguna selección
+                    )
                 PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                 PressedColor: =App.Theme.Colors.PrimaryForeground
                 PressedFill: =App.Theme.Colors.Darker30
@@ -571,8 +585,7 @@ Registrar_Kr As screen:
             BorderStyle: =BorderStyle.Solid
             DataField: ="metaPeriodo"
             Default: =ThisItem.metaPeriodo
-            DisplayMode: |
-                =DisplayMode.Edit
+            DisplayMode: =//DisplayMode = If(FieldEnabled; DisplayMode.Edit; DisplayMode.Disabled)
             DisplayName: ="Meta Periodo"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
