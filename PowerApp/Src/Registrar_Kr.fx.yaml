@@ -73,14 +73,10 @@ Registrar_Kr As screen:
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: |-
-            =If(
-                IsNumeric(DataCardValue1.Text) && IsNumeric(DataCardValue25.Text),
-                SubmitForm(form_Registrar),
-                Navigate(Confirmacion),
-                NewForm(form_Registrar),
-                Notify("Por favor, ingresa solo números en los campos requeridos.",   NotificationType.Error)
-            )
+        OnSelect: |
+            =SubmitForm(form_Registrar);
+            Navigate(Confirmacion);
+            NewForm(form_Registrar);
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
@@ -99,6 +95,7 @@ Registrar_Kr As screen:
         DataSource: =T_OKR_APP_GCI_003
         DefaultMode: =FormMode.New
         Height: =587
+        NumberOfColumns: =2
         Width: =1114
         X: =126
         Y: =104
@@ -116,9 +113,9 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, lineaBase)
             Required: =false
             Update: =DataCardValue1.Text
-            Width: =371
-            X: =1
-            Y: =1
+            Width: =557
+            X: =0
+            Y: =2
             ZIndex: =1
 
             DataCardKey1 As label:
@@ -227,7 +224,7 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, nombreKR)
             Required: =true
             Update: =DataCardValue9.Text
-            Width: =371
+            Width: =557
             X: =0
             Y: =0
             ZIndex: =13
@@ -319,7 +316,7 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, descripcionKR)
             Required: =true
             Update: =DataCardValue10.Text
-            Width: =371
+            Width: =557
             X: =1
             Y: =0
             ZIndex: =13
@@ -411,9 +408,9 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, objetivoKR)
             Required: =false
             Update: =DataCardValue12.Text
-            Width: =371
-            X: =2
-            Y: =0
+            Width: =557
+            X: =0
+            Y: =1
             ZIndex: =13
 
             DataCardKey6 As label:
@@ -502,8 +499,8 @@ Registrar_Kr As screen:
             Height: =50
             Required: =false
             Update: =DataCardValue13.Selected
-            Width: =371
-            X: =0
+            Width: =557
+            X: =1
             Y: =1
             ZIndex: =13
 
@@ -610,9 +607,9 @@ Registrar_Kr As screen:
             Height: =50
             Required: =false
             Update: =Value(DataCardValue25.Text)
-            Width: =371
-            X: =2
-            Y: =1
+            Width: =557
+            X: =1
+            Y: =2
             ZIndex: =13
 
             DataCardKey12 As label:
@@ -719,9 +716,9 @@ Registrar_Kr As screen:
             Height: =50
             Required: =false
             Update: =Value(DataCardValue26.Text)
-            Width: =371
+            Width: =557
             X: =0
-            Y: =2
+            Y: =3
             ZIndex: =13
 
             DataCardKey13 As label:
@@ -811,9 +808,9 @@ Registrar_Kr As screen:
             MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, observaciones)
             Required: =false
             Update: =DataCardValue16.Text
-            Width: =371
+            Width: =557
             X: =0
-            Y: =3
+            Y: =4
             ZIndex: =13
 
             DataCardKey11 As label:
@@ -827,7 +824,7 @@ Registrar_Kr As screen:
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
-                Y: =12
+                Y: =10
                 ZIndex: =1
 
             DataCardValue16 As text:
@@ -892,98 +889,6 @@ Registrar_Kr As screen:
                 Y: =DataCardKey11.Y
                 ZIndex: =4
 
-        aprobacion_DataCard1 As typedDataCard.textualEditCard:
-            BorderColor: =RGBA(0, 153, 204, 1)
-            BorderStyle: =BorderStyle.Solid
-            DataField: ="aprobacion"
-            Default: =ThisItem.aprobacion
-            DisplayMode: =Parent.DisplayMode
-            DisplayName: ="Aprobación"
-            Fill: =RGBA(0, 0, 0, 0)
-            Height: =50
-            MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, aprobacion)
-            Required: =false
-            Update: =DataCardValue27.Text
-            Width: =371
-            X: =1
-            Y: =2
-            ZIndex: =13
-
-            DataCardKey14 As label:
-                AutoHeight: =true
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =34
-                Size: =13
-                Text: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                Wrap: =false
-                X: =30
-                Y: =10
-                ZIndex: =1
-
-            DataCardValue27 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                BorderThickness: =2
-                Color: =RGBA(0, 0, 0, 1)
-                Default: =Parent.Default
-                DelayOutput: =true
-                DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                DisabledFill: =RGBA(244, 244, 244, 1)
-                DisplayMode: =Parent.DisplayMode
-                FocusedBorderThickness: =4
-                Font: =App.Theme.Font
-                HoverBorderColor: =App.Theme.Colors.Darker40
-                HoverColor: =RGBA(0, 0, 0, 1)
-                HoverFill: =App.Theme.Colors.Lighter70
-                MaxLength: =Parent.MaxLength
-                PaddingLeft: =5
-                RadiusBottomLeft: =0
-                RadiusBottomRight: =0
-                RadiusTopLeft: =0
-                RadiusTopRight: =0
-                Size: =13
-                Tooltip: =Parent.DisplayName
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardKey14.Y + DataCardKey14.Height + 5
-                ZIndex: =2
-
-            ErrorMessage14 As label:
-                AutoHeight: =true
-                Color: =RGBA(168, 0, 0, 1)
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                FontWeight: =FontWeight.Semibold
-                Height: =10
-                Live: =Live.Assertive
-                PaddingBottom: =0
-                PaddingLeft: =0
-                PaddingRight: =0
-                PaddingTop: =0
-                Text: =Parent.Error
-                Visible: =Parent.DisplayMode=DisplayMode.Edit
-                Width: =Parent.Width - 60
-                X: =30
-                Y: =DataCardValue27.Y + DataCardValue27.Height
-                ZIndex: =3
-
-            StarVisible14 As label:
-                Align: =Align.Center
-                Color: =App.Theme.Colors.Darker30
-                DisabledColor: =RGBA(166, 166, 166, 1)
-                Font: =App.Theme.Font
-                Height: =DataCardKey14.Height
-                Size: =13
-                Text: ="*"
-                Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                Width: =30
-                Wrap: =false
-                Y: =DataCardKey14.Y
-                ZIndex: =4
-
         usuarioAprobador_DataCard1 As typedDataCard.comboBoxEditCard:
             BorderColor: =RGBA(0, 153, 204, 1)
             BorderStyle: =BorderStyle.Solid
@@ -995,9 +900,9 @@ Registrar_Kr As screen:
             Height: =50
             Required: =false
             Update: =DataCardValue28.Selected
-            Width: =371
-            X: =2
-            Y: =2
+            Width: =557
+            X: =1
+            Y: =3
             ZIndex: =13
 
             DataCardKey15 As label:
@@ -1092,9 +997,9 @@ Registrar_Kr As screen:
             Height: =166
             Required: =false
             Update: =DataCardValue29.Attachments
-            Width: =371
+            Width: =557
             X: =1
-            Y: =3
+            Y: =4
             ZIndex: =13
 
             DataCardKey16 As label:
