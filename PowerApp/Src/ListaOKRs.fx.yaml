@@ -1397,7 +1397,9 @@
                 Fill: =RGBA(238, 44, 112, 1)
                 Height: =43
                 Icon: =Icon.Save
-                OnSelect: =Set(pouplista,false)
+                OnSelect: |-
+                    =SubmitForm(Form1);
+                    Set(pouplista,false)
                 PaddingBottom: =5
                 PaddingLeft: =5
                 PaddingRight: =5
