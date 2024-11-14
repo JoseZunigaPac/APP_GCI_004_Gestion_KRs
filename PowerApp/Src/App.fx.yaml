@@ -1,7 +1,7 @@
 App As appinfo:
     BackEnabled: =true
     Formulas: =
-    OnStart: =Set(fecha,
+    OnStart: =Set(pouplista,false)
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
