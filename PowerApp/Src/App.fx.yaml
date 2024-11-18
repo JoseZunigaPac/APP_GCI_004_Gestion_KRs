@@ -3,7 +3,8 @@ App As appinfo:
     Formulas: =
     OnStart: |-
         =Set(pouplista,false);
-        Set(pouplista_2,false)
+        Set(pouplista_2,false);
+        Set(displayModeVar,DisplayMode.View)
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
