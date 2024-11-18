@@ -654,19 +654,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.Popup_1.ComboboxCanvas1.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.Popup_1.seleccionarQ.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.Popup_1.ComboboxCanvas1.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.Popup_1.seleccionarQ.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.Popup_1.ComboboxCanvas1"
+                "type": "ListaOKRs.Popup_1.seleccionarQ"
               }
             }
           ],
@@ -2063,66 +2063,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.fecIniProgramado"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.fecIniProgramado",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "fecIniProgramado",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
-                  "fullyQualifiedName": "App.fecFinProgramado"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.fecFinProgramado",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "fecFinProgramado",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 7
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.Baners-Web-Torito-Agosto-Desktop-608-x-422-Seguro-Vehicular"
                 }
               ],
@@ -2391,7 +2331,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ListaOKRs\" es 443, que es superior al umbral máximo recomendado (300)."
+                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ListaOKRs\" es 453, que es superior al umbral máximo recomendado (300)."
               }
             }
           ],

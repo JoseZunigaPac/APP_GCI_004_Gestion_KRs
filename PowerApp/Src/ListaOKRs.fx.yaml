@@ -1560,6 +1560,144 @@
                     Y: =DataCardKey28_1.Y
                     ZIndex: =4
 
+            fechaProgramadainicio_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="fechaProgramadainicio"
+                Default: =ThisItem.fechaProgramadainicio
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadainicio)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue18.SelectedDate
+                Visible: =false
+                Width: =298
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey17 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue18 As 'Selector de fecha'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    EndDate: =Date(Year(Today())+100, 12, 31)
+                    Height: =32
+                    Required: =Parent.Required
+                    SelectedDate: |-
+                        =If(
+                            IsBlank(seleccionarQ.Selected.Value),
+                            Parent.Default,
+                            fecIniProgramado
+                        )
+                    StartDate: =Date(1900, 1, 1)
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey17.Y + DataCardKey17.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage17 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue18.Y + DataCardValue18.Height
+                    ZIndex: =3
+
+                StarVisible17 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey17.Y
+                    ZIndex: =4
+
+            fechaProgramadaFin_DataCard1 As typedDataCard.fluentV9DateEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="fechaProgramadaFin"
+                Default: =ThisItem.fechaProgramadaFin
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadaFin)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue19.SelectedDate
+                Visible: =false
+                Width: =298
+                X: =2
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey23 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue19 As 'Selector de fecha'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    EndDate: =Date(Year(Today())+100, 12, 31)
+                    Height: =32
+                    Required: =Parent.Required
+                    SelectedDate: |-
+                        =If(
+                            IsBlank(seleccionarQ.Selected.Value),
+                            Parent.Default,
+                            fecFinProgramado
+                        )
+                    StartDate: =Date(1900, 1, 1)
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey23.Y + DataCardKey23.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage23 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue19.Y + DataCardValue19.Height
+                    ZIndex: =3
+
+                StarVisible23 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey23.Y
+                    ZIndex: =4
+
             unidadDeMedida_DataCard1_1 As typedDataCard.fluentV9ComboBoxEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
@@ -1852,7 +1990,7 @@
             Y: =102
             ZIndex: =7
 
-        "ComboboxCanvas1 As 'Cuadro combinado'.pcfdataset":
+        "seleccionarQ As 'Cuadro combinado'.pcfdataset":
             BasePaletteColor: =RGBA(8, 222, 8, 1)
             DisplayMode: =DisplayMode.Edit
             Fill: =RGBA(255, 255, 255, 1)
