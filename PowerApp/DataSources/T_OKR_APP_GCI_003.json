@@ -42,6 +42,8 @@
       "objetivoKR": "objetivoKR",
       "observaciones": "observaciones",
       "OData__ColorTag": "Etiqueta de color",
+      "Q": "Q",
+      "Q#Id": "Q Id",
       "Title": "nombreKR",
       "unidadDeMedida": "unidadDeMedida",
       "unidadDeMedida#Id": "unidadDeMedida Id",
