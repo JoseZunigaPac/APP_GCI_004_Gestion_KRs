@@ -1852,3 +1852,39 @@
             Y: =102
             ZIndex: =7
 
+        "ComboboxCanvas1 As 'Cuadro combinado'.pcfdataset":
+            BasePaletteColor: =RGBA(8, 222, 8, 1)
+            DisplayMode: =DisplayMode.Edit
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =32
+            Items: =["Q1", "Q2", "Q3", "Q4"]
+            OnChange: |-
+                =Switch(
+                    Self.Selected.Value,
+                    "Q1", Set(fecIniProgramado,Date(Year(Today()),1,1));
+                          Set(fecFinProgramado,Date(Year(Today()),3,31)),
+                    "Q2", Set(fecIniProgramado,Date(Year(Today()),4,1));
+                          Set(fecFinProgramado,Date(Year(Today()),6,30)),
+                    "Q3", Set(fecIniProgramado,Date(Year(Today()),7,1));
+                          Set(fecFinProgramado,Date(Year(Today()),9,30)),
+                    Set(fecIniProgramado,Date(Year(Today()),10,1));
+                    Set(fecFinProgramado,Date(Year(Today()),12,31))
+                )
+            Width: =100
+            X: =559
+            Y: =252
+            ZIndex: =8
+
+        TextCanvas5 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.'Segoe UI'
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =32
+            Size: =15
+            Text: ="Trimestre"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =96
+            X: =559
+            Y: =220
+            ZIndex: =9
+
