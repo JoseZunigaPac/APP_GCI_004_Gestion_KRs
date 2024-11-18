@@ -687,7 +687,7 @@
             Y: =11
             ZIndex: =35
 
-        Button1_34 As button:
+        btnCambiarEstado As button:
             BorderColor: =RGBA(238,40,122,1)
             BorderStyle: |+
                 =BorderStyle.Solid
@@ -1778,12 +1778,52 @@
             Fill: =RGBA(238, 44, 112, 1)
             Height: =44
             Icon: =Icon.Save
-            OnSelect: |-
+            OnSelect: |
                 =If(
                     !IsBlank(DataCardValue21_1.Value) && !IsBlank(DataCardValue22_1.Value) && !IsBlank(DataCardValue15_1.Selected.Value) && !IsBlank(DataCardValue24_1.Value),
                     SubmitForm(Form1);
-                    Set(pouplista_2,false),
-                    Notify("Por favor, completa todos los campos.", NotificationType.Error)
+                    Patch(
+                        T_REG_STS_KR_APP_GCI_003,
+                        LookUp(
+                            T_REG_STS_KR_APP_GCI_003,
+                            nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = "activo"
+                        ),
+                        {status: {Value: "inactivo"}}
+                    );
+                    If(
+                        btnCambiarEstado.Text = "aprobar",
+                        Set(
+                            varEstadoKr,
+                            "en curso"
+                        ),
+                        If(
+                            btnCambiarEstado.Text = "en curso",
+                            Set(
+                                varEstadoKr,
+                                "finalizado"
+                            )
+                        )
+                    );
+                    Patch(
+                        T_REG_STS_KR_APP_GCI_003,
+                        Defaults(T_REG_STS_KR_APP_GCI_003),
+                        {
+                            nombreEstado: varEstadoKr,
+                            nombreKRAsociado: {
+                                Id: Gallery2.Selected.ID,
+                                Value: Gallery2.Selected.nombreKR
+                            },
+                            status: {Value: "activo"}
+                        }
+                    );
+                    Set(
+                        pouplista_2,
+                        false
+                    ),
+                    Notify(
+                        "Por favor, completa todos los campos.",
+                        NotificationType.Error
+                    )
                 );
             PaddingBottom: =5
             PaddingLeft: =5
