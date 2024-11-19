@@ -4,7 +4,8 @@ App As appinfo:
     OnStart: |-
         =Set(pouplista,false);
         Set(pouplista_2,false);
-        Set(displayModeVar,DisplayMode.View)
+        Set(displayModeVar,DisplayMode.View);
+        Set(varEstadoKr,"sin aprobación")
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:

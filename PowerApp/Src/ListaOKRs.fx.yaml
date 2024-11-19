@@ -1919,14 +1919,17 @@
             OnSelect: |
                 =If(
                     !IsBlank(DataCardValue21_1.Value) && !IsBlank(DataCardValue22_1.Value) && !IsBlank(DataCardValue15_1.Selected.Value) && !IsBlank(DataCardValue24_1.Value),
-                    SubmitForm(Form1);
                     Patch(
-                        T_REG_STS_KR_APP_GCI_003,
+                        T_OKR_APP_GCI_003,
                         LookUp(
-                            T_REG_STS_KR_APP_GCI_003,
-                            nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = "activo"
+                            T_OKR_APP_GCI_003,
+                            ID = Gallery2.Selected.ID
                         ),
-                        {status: {Value: "inactivo"}}
+                        {
+                            fechaProgramadainicio: DataCardValue18.SelectedDate,
+                            fechaProgramadaFin: DataCardValue19.SelectedDate,
+                            alcanzadoPeriodo: Value(DataCardValue22_1.Value)
+                        }
                     );
                     If(
                         btnCambiarEstado.Text = "aprobar",
@@ -1941,6 +1944,14 @@
                                 "finalizado"
                             )
                         )
+                    );
+                    Patch(
+                        T_REG_STS_KR_APP_GCI_003,
+                        LookUp(
+                            T_REG_STS_KR_APP_GCI_003,
+                            nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = "activo"
+                        ),
+                        {status: {Value: "inactivo"}}
                     );
                     Patch(
                         T_REG_STS_KR_APP_GCI_003,
@@ -1963,6 +1974,8 @@
                         NotificationType.Error
                     )
                 );
+                Refresh(T_REG_STS_KR_APP_GCI_003);
+                Refresh(T_OKR_APP_GCI_003)
             PaddingBottom: =5
             PaddingLeft: =5
             PaddingRight: =5
