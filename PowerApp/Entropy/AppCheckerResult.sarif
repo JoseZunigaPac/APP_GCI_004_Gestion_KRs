@@ -496,6 +496,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.TextCanvas3_1.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.TextCanvas3_1.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 13,
+                  "charOffset": 15,
+                  "snippet": {
+                    "text": ".nombreTareas"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.Gallery3.TextCanvas3_1"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreTareas"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Screen3.Gallery1.Items"
                 }
               ],
@@ -616,6 +656,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Screen3.gallery_Tareas_Gestion.Body3.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen3.gallery_Tareas_Gestion.Body3.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 13,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".nombreTareas"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Screen3",
+                "type": "Screen3.gallery_Tareas_Gestion.Body3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreTareas"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "Confirmacion.LblSuccessMsg1_1.Text"
                 }
               ],
@@ -650,6 +730,166 @@
           },
           "ruleId": "app-ErrInvalidName",
           "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.nombreTareas_DataCard2.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.nombreTareas_DataCard2.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 13,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".nombreTareas"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Registrar_Tarea",
+                "type": "Registrar_Tarea.form_rgt_Tarea.nombreTareas_DataCard2"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreTareas"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.'Datos adjuntos_DataCard3'.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.'Datos adjuntos_DataCard3'.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 17,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".'Datos adjuntos'"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Registrar_Tarea",
+                "type": "Registrar_Tarea.form_rgt_Tarea.'Datos adjuntos_DataCard3'"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Datos adjuntos"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 6
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.verificarTareas.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.verificarTareas.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 3,
+                  "charOffset": 54,
+                  "snippet": {
+                    "text": ".Id"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.verificarTareas"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreKRAsociado.Id"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
+          "ruleIndex": 3
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.verificarTareas.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.verificarTareas.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 1,
+                  "charOffset": 58,
+                  "snippet": {
+                    "text": "="
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Gallery2.verificarTareas"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Filter"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-SuggestRemoteExecutionHint",
+          "ruleIndex": 4
         },
         {
           "locations": [
@@ -1496,19 +1736,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Progress1_1.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.Icon5.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Progress1_1.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.Icon5.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.Gallery2.Progress1_1"
+                "type": "ListaOKRs.Icon5"
               }
             }
           ],
@@ -2125,6 +2365,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ListaOKRs.Icon5.TabIndex"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Icon5.TabIndex",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "TabIndex",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Icon5"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "acc-TabIndexShouldBeDefinedForInteractiveControl",
+          "ruleIndex": 8
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.FieldType1"
                 }
               ],
@@ -2498,7 +2768,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ListaOKRs\" es 453, que es superior al umbral máximo recomendado (300)."
+                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ListaOKRs\" es 459, que es superior al umbral máximo recomendado (300)."
               }
             }
           ],
