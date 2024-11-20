@@ -1932,16 +1932,23 @@
                         }
                     );
                     If(
-                        btnCambiarEstado.Text = "aprobar",
+                        estadoKRtext.Text = "sin aprobación" && DataCardValue18.SelectedDate > Today(),
                         Set(
                             varEstadoKr,
-                            "en curso"
+                            "programado"
                         ),
                         If(
-                            btnCambiarEstado.Text = "en curso",
+                            estadoKRtext.Text = "sin aprobación" && DataCardValue18.SelectedDate <= Today(),
                             Set(
                                 varEstadoKr,
-                                "finalizado"
+                                "en curso"
+                            ),
+                            If(
+                                estadoKRtext.Text = "en curso",
+                                Set(
+                                    varEstadoKr,
+                                    "finalizado"
+                                )
                             )
                         )
                     );
