@@ -2079,7 +2079,6 @@
 
     Icon5 As icon.Sync:
         BorderColor: =RGBA(238, 40, 122, 1)
-        BorderThickness: =4
         Color: =RGBA(238, 40, 122, 1)
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         DisabledColor: =RGBA(244, 244, 244, 1)
@@ -2090,10 +2089,10 @@
             =Refresh(T_OKR_APP_GCI_003);
             Refresh(T_REG_STS_KR_APP_GCI_003);
             Refresh(T_TAREAS_APP_GCI_003)
-        PaddingBottom: =8
-        PaddingLeft: =8
-        PaddingRight: =8
-        PaddingTop: =8
+        PaddingBottom: =5
+        PaddingLeft: =5
+        PaddingRight: =5
+        PaddingTop: =5
         Width: =35
         X: =1263
         Y: =127
