@@ -263,7 +263,8 @@ Registrar_Tarea As screen:
                 ZIndex: =1
 
             DataCardValue6 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: |-
+                    =ColorValue("#0099cc")
                 BorderThickness: =2
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =Parent.Default
@@ -272,6 +273,7 @@ Registrar_Tarea As screen:
                 DisabledColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 DisplayMode: =Parent.DisplayMode
+                Fill: =RGBA(0, 0, 0, 0)
                 FocusedBorderThickness: =4
                 Font: =App.Theme.Font
                 HoverBorderColor: =App.Theme.Colors.Darker40
@@ -354,7 +356,8 @@ Registrar_Tarea As screen:
                 ZIndex: =1
 
             DataCardValue7 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: |-
+                    =ColorValue("#0099cc")
                 ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
@@ -451,7 +454,8 @@ Registrar_Tarea As screen:
                 ZIndex: =1
 
             DataCardValue8 As text:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: |-
+                    =ColorValue("#0099cc")
                 BorderThickness: =2
                 Color: =RGBA(0, 0, 0, 1)
                 Default: =Parent.Default
@@ -542,7 +546,8 @@ Registrar_Tarea As screen:
                 ZIndex: =1
 
             DataCardValue11 As combobox:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: |-
+                    =ColorValue("#0099cc")
                 ChevronBackground: =App.Theme.Colors.Primary
                 ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                 ChevronDisabledFill: =RGBA(244, 244, 244, 1)
@@ -638,7 +643,8 @@ Registrar_Tarea As screen:
                 ZIndex: =1
 
             DataCardValue17 As attachments:
-                BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                BorderColor: |-
+                    =ColorValue("#0099cc")
                 BorderThickness: =2
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)

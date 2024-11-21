@@ -654,19 +654,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "Registrar_Kr.form_Registrar.Q_DataCard2.DataCardValue32.AccessibleLabel"
+                  "fullyQualifiedName": "Registrar_Kr.form_Registrar.Q_DataCard2.DataCardValue26.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "Registrar_Kr.form_Registrar.Q_DataCard2.DataCardValue32.AccessibleLabel",
+                  "fullyQualifiedName": "Registrar_Kr.form_Registrar.Q_DataCard2.DataCardValue26.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "Registrar_Kr",
-                "type": "Registrar_Kr.form_Registrar.Q_DataCard2.DataCardValue32"
+                "type": "Registrar_Kr.form_Registrar.Q_DataCard2.DataCardValue26"
               }
             }
           ],
