@@ -73,20 +73,23 @@ Registrar_Kr As screen:
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: |
+        OnSelect: |+
             =SubmitForm(form_Registrar);
             Patch(
                 T_REG_STS_KR_APP_GCI_003,
                 Defaults(T_REG_STS_KR_APP_GCI_003),
                 {
-                    nombreKRAsociado: {Id: "X",
-                    Value: DataCardValue9.Text
-                    },
-                    nombreEstado: "sin aprobación"
+                    nombreKRAsociado: {Id:form_Registrar.LastSubmit.ID, Value: form_Registrar.LastSubmit.nombreKR},
+                    nombreEstado: "sin aprobación", status: {
+                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
+                        Value: "inactivo" 
+                    }
+            
                 }
             );
             Navigate(Confirmacion);
             NewForm(form_Registrar);
+            
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
@@ -843,6 +846,7 @@ Registrar_Kr As screen:
                 ZIndex: =1
 
             DataCardValue16 As text:
+                Align: =Align.Justify
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 BorderThickness: =2
                 Color: =RGBA(0, 0, 0, 1)
@@ -859,6 +863,7 @@ Registrar_Kr As screen:
                 HoverColor: =RGBA(0, 0, 0, 1)
                 HoverFill: =App.Theme.Colors.Lighter70
                 MaxLength: =Parent.MaxLength
+                Mode: =TextMode.MultiLine
                 PaddingLeft: =5
                 RadiusBottomLeft: =0
                 RadiusBottomRight: =0
