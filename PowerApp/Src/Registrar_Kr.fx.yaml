@@ -75,6 +75,19 @@ Registrar_Kr As screen:
             =ColorValue("#EE2C70")
         OnSelect: |+
             =SubmitForm(form_Registrar);
+            
+            //Registrar código del KR
+            
+            Patch(
+                T_OKR_APP_GCI_003,
+                Defaults(T_OKR_APP_GCI_003),
+                {
+                    Title: form_Registrar.LastSubmit.nombreKR, 
+                    codigoKR: "KR - " & Text(CountRows(T_OKR_APP_GCI_003) + 100, "0000")
+                }
+            );
+            
+            //Registrar estado inicial del KR
             Patch(
                 T_REG_STS_KR_APP_GCI_003,
                 Defaults(T_REG_STS_KR_APP_GCI_003),
