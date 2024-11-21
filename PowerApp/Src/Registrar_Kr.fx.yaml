@@ -80,11 +80,7 @@ Registrar_Kr As screen:
                 Defaults(T_REG_STS_KR_APP_GCI_003),
                 {
                     nombreKRAsociado: {Id:form_Registrar.LastSubmit.ID, Value: form_Registrar.LastSubmit.nombreKR},
-                    nombreEstado: "sin aprobación", status: {
-                        '@odata.type': "#Microsoft.Azure.Connectors.SharePoint.SPListExpandedReference",
-                        Value: "inactivo" 
-                    }
-            
+                    nombreEstado: "sin aprobación"
                 }
             );
             Navigate(Confirmacion);
