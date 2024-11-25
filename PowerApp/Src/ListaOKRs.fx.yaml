@@ -2066,7 +2066,7 @@
             Fill: =RGBA(238, 44, 112, 1)
             Height: =44
             Icon: =Icon.Save
-            OnSelect: |
+            OnSelect: |-
                 =Switch(
                     estadoKRtext.Text,
                 
@@ -2075,35 +2075,64 @@
                     If(// Se verifica que ningun campo esté vacio
                         !IsBlank(DataCardValue21_1.Value) && !IsBlank(DataCardValue15_1.Selected.Value) && !IsBlank(DataCardValue24_1.Value) && !IsBlank(DataCardValue43.Selected.Value),
                 
-                        Patch(// Se actualizan el Q y las fechas de inicio y fin del Q
-                            T_OKR_APP_GCI_003,
-                            LookUp(
-                                T_OKR_APP_GCI_003,
-                                ID = Gallery2.Selected.ID
-                            ),
-                            {
-                                fechaProgramadainicio: DataCardValue18.SelectedDate,
-                                fechaProgramadaFin: DataCardValue19.SelectedDate,
-                                Q: DataCardValue43.Selected
-                            }
-                        );
-                        If(
-                            Value(Right(DataCardValue43.Selected.Value,1)) = RoundUp(Month(Now())/3,0),
-                            Set(
-                                varEstadoKr,
-                                "en curso"
-                            ),
+                        IfError(
                             If(
-                                Value(Right(DataCardValue43.Selected.Value,1)) > RoundUp(Month(Now())/3,0),
+                                Value(Right(DataCardValue43.Selected.Value,1)) = RoundUp(Month(Now())/3,0),
                                 Set(
                                     varEstadoKr,
-                                    "programado"
+                                    "en curso"
                                 ),
-                                Notify(
-                                    "No es posible programar en trimestres cerrados",
-                                    NotificationType.Error
-                                );
-                                Exit()
+                                If(
+                                    Value(Right(DataCardValue43.Selected.Value,1)) > RoundUp(Month(Now())/3,0),
+                                    Set(
+                                        varEstadoKr,
+                                        "programado"
+                                    ),
+                                    Error("Error forzado")
+                                )
+                            ),
+                            Notify(
+                                "No es posible programar en trimestres cerrados",
+                                NotificationType.Error
+                            ),
+                            Patch(// Se actualizan el Q y las fechas de inicio y fin del Q
+                                T_OKR_APP_GCI_003,
+                                LookUp(
+                                    T_OKR_APP_GCI_003,
+                                    ID = Gallery2.Selected.ID
+                                ),
+                                {
+                                    fechaProgramadainicio: DataCardValue18.SelectedDate,
+                                    fechaProgramadaFin: DataCardValue19.SelectedDate,
+                                    Q: DataCardValue43.Selected,
+                                    unidadDeMedida: DataCardValue15_1.Selected,
+                                    lineaBase: DataCardValue24_1.Value,
+                                    metaPeriodo: Value(DataCardValue21_1.Value)
+                                }
+                            );
+                            Patch(// Se pone en inactivo el estado anterior
+                                T_REG_STS_KR_APP_GCI_003,
+                                LookUp(
+                                    T_REG_STS_KR_APP_GCI_003,
+                                    nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = "activo"
+                                ),
+                                {status: {Value: "inactivo"}}
+                            );
+                            Patch(// se agrega un nuevo estado
+                                T_REG_STS_KR_APP_GCI_003,
+                                Defaults(T_REG_STS_KR_APP_GCI_003),
+                                {
+                                    nombreEstado: varEstadoKr,
+                                    nombreKRAsociado: {
+                                        Id: Gallery2.Selected.ID,
+                                        Value: Gallery2.Selected.nombreKR
+                                    },
+                                    status: {Value: "activo"}
+                                }
+                            );
+                            Set(
+                                pouplista_2,
+                                false
                             )
                         ),
                         Notify(
@@ -2120,6 +2149,30 @@
                         Set(
                             varEstadoKr,
                             "en curso"
+                        );
+                        Patch(// Se pone en inactivo el estado anterior
+                            T_REG_STS_KR_APP_GCI_003,
+                            LookUp(
+                                T_REG_STS_KR_APP_GCI_003,
+                                nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = "activo"
+                            ),
+                            {status: {Value: "inactivo"}}
+                        );
+                        Patch(// se agrega un nuevo estado
+                            T_REG_STS_KR_APP_GCI_003,
+                            Defaults(T_REG_STS_KR_APP_GCI_003),
+                            {
+                                nombreEstado: varEstadoKr,
+                                nombreKRAsociado: {
+                                    Id: Gallery2.Selected.ID,
+                                    Value: Gallery2.Selected.nombreKR
+                                },
+                                status: {Value: "activo"}
+                            }
+                        );
+                        Set(
+                            pouplista_2,
+                            false
                         ),
                 
                         Notify(
@@ -2176,7 +2229,10 @@
                             NotificationType.Error
                         )
                     ),
-                    Blank()
+                    Notify(
+                        "No se reconoce el estado que intenta actualizar. Consulte con el desarrollador.",
+                        NotificationType.Error
+                    )
                 );
                 Refresh(T_REG_STS_KR_APP_GCI_003);
                 Refresh(T_OKR_APP_GCI_003)
