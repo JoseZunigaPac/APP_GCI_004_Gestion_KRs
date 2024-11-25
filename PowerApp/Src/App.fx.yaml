@@ -4,6 +4,7 @@ App As appinfo:
     OnStart: |-
         =Set(pouplista,false);
         Set(pouplista_2,false);
+        Set(pouplista_3,false);
         Set(displayModeVar,DisplayMode.View);
         Set(varEstadoKr,"sin aprobación")
     Theme: =PowerAppsTheme
