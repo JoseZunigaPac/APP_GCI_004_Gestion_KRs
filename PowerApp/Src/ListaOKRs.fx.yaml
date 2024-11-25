@@ -691,6 +691,7 @@
             Height: =48
             Text: =ThisItem.nombreKR
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+            Weight: ='TextCanvas.Weight'.Semibold
             Width: =336
             X: =105
             Y: =11
@@ -795,7 +796,7 @@
             Y: =6
             ZIndex: =38
 
-        btnCambiarEstado_1 As button:
+        btnAgregartareas As button:
             BorderColor: =RGBA(238,40,122,1)
             BorderStyle: |+
                 =BorderStyle.Solid
@@ -811,7 +812,9 @@
             HoverColor: =Color.White
             HoverFill: |-
                 =ColorValue("#0099cc")
-            OnSelect: =Set(pouplista_3,true)
+            OnSelect: |-
+                =Set(pouplista_3,true);
+                NewForm(Form3)
             PaddingBottom: =2
             PaddingLeft: =2
             PaddingRight: =2
