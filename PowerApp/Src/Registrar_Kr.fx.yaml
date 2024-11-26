@@ -76,6 +76,9 @@ Registrar_Kr As screen:
         OnSelect: |+
             =SubmitForm(form_Registrar);
             
+            // guardar el ID del KR recien registrado
+            Set(lastID, form_Registrar.LastSubmit.nombreKR);
+            
             //Registrar código del KR
             
             Patch(

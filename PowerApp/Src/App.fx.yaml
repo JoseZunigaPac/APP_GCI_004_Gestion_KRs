@@ -6,7 +6,8 @@ App As appinfo:
         Set(pouplista_2,false);
         Set(pouplista_3,false);
         Set(displayModeVar,DisplayMode.View);
-        Set(varEstadoKr,"sin aprobación")
+        Set(varEstadoKr,"sin aprobación");
+        Set(lastID, form_Registrar.LastSubmit.nombreKR)
     Theme: =PowerAppsTheme
 
     Host As hostControl.DefaultHostControlVariant:
