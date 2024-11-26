@@ -141,21 +141,6 @@ Registrar_Tarea As screen:
         Y: =30
         ZIndex: =6
 
-    Rectangle2_4 As rectangle:
-        BorderColor: =App.Theme.Colors.Darker40
-        Fill: =App.Theme.Colors.Primary
-        Height: =768
-        Width: =125
-        ZIndex: =7
-
-    Rectangle2_5 As rectangle:
-        BorderColor: =App.Theme.Colors.Darker40
-        Fill: =App.Theme.Colors.Primary
-        Height: =768
-        Width: =125
-        X: =1241
-        ZIndex: =8
-
     Button1_24 As button:
         BorderColor: =RGBA(238,40,122,1)
         BorderStyle: |+

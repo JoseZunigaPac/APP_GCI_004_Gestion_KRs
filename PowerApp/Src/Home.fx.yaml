@@ -88,7 +88,7 @@ Home As screen:
         DisabledColor: =RGBA(166, 166, 166, 1)
         Font: =Font.Verdana
         Height: =126
-        Size: =56
+        Size: =45
         Text: |-
             ="Hola " & // Concatenar el primer nombre y el primer apellido
             Concatenate(First(Split(User().FullName, " ")).Value, " ", Last(FirstN(Split(User().FullName, " "), CountRows(Split(User().FullName, " ")) - 1)).Value) & ","
@@ -105,8 +105,8 @@ Home As screen:
         DisabledColor: =RGBA(166, 166, 166, 1)
         Font: =Font.Verdana
         Height: =205
-        Size: =50
-        Text: ="Bienvenido al gestor de OKRs de La Tribu Clásica"
+        Size: =40
+        Text: ="Bienvenido al gestor de KRs de La Tribu Clásica"
         Width: =904
         X: =230
         Y: =281

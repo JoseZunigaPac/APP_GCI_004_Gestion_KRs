@@ -38,7 +38,7 @@ Registrar_Kr As screen:
         HoverFill: |-
             =ColorValue("#EE2C70")
         OnSelect: |-
-            =Navigate(Home);
+            =Navigate(ListaOKRs);
             ResetForm(form_Registrar)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
