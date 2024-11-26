@@ -8,7 +8,7 @@
         HoverFill: |-
             =ColorValue("#0099CC")
         Width: =1366
-        ZIndex: =3
+        ZIndex: =1
 
     Image3_6 As image:
         BorderColor: =App.Theme.Colors.Darker40
@@ -19,7 +19,7 @@
         Width: =304
         X: =125
         Y: =15
-        ZIndex: =4
+        ZIndex: =2
 
     Button1_32 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -37,7 +37,7 @@
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
+        OnSelect: =Navigate(ListaOKRs)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
@@ -49,7 +49,7 @@
         Text: ="GESTIONAR KR"
         X: =505
         Y: =30
-        ZIndex: =5
+        ZIndex: =3
 
     Button1_33 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -67,7 +67,6 @@
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
@@ -79,7 +78,7 @@
         Text: ="KANBAN"
         X: =694
         Y: =30
-        ZIndex: =6
+        ZIndex: =4
 
     Button1_37 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -97,7 +96,6 @@
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
@@ -109,7 +107,7 @@
         Text: ="ROADMAP"
         X: =883
         Y: =30
-        ZIndex: =7
+        ZIndex: =5
 
     Button1_38 As button:
         BorderColor: =RGBA(238,40,122,1)
@@ -127,7 +125,6 @@
         HoverColor: =Color.White
         HoverFill: |-
             =ColorValue("#EE2C70")
-        OnSelect: =Navigate(Registrar_Kr)
         PressedBorderColor: =App.Theme.Colors.Darker40
         PressedColor: =Self.Color
         PressedFill: =App.Theme.Colors.Darker40
@@ -139,7 +136,7 @@
         Text: ="POWER BI"
         X: =1081
         Y: =30
-        ZIndex: =8
+        ZIndex: =6
 
     Gallery2 As gallery.galleryVertical:
         BorderColor: =App.Theme.Colors.Darker40
@@ -182,7 +179,7 @@
         Width: =1270
         X: =53
         Y: =166
-        ZIndex: =9
+        ZIndex: =7
 
         HtmlText1 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -253,7 +250,7 @@
             TextCanvas3_1 As Texto:
                 DisplayMode: =DisplayMode.Edit
                 Height: =20
-                Text: ="• " & ThisItem.nombreTareas
+                Text: ="• "
                 Width: =300
                 X: =7
                 Y: =1
@@ -275,9 +272,61 @@
                 OnSelect: =false
                 OnUncheck: =false
                 Width: =44
-                X: =375
+                X: =400
                 Y: =1
                 ZIndex: =3
+
+            "nombreTarea As 'Entrada de texto'":
+                DisplayMode: =mode
+                FontColor: =RGBA(0, 0, 0, 1)
+                FontSize: =12
+                FontWeight: =FontWeight.Normal
+                Height: =20
+                OnChange: |-
+                    =Patch(
+                        T_TAREAS_APP_GCI_003,
+                        LookUp(T_TAREAS_APP_GCI_003,ID = ThisItem.ID),
+                        {
+                            nombreTareas: Self.Value
+                        }
+                    )
+                PaddingBottom: =8
+                PaddingLeft: =0
+                PaddingTop: =0
+                Placeholder: =ThisItem.nombreTareas
+                Value: =ThisItem.nombreTareas
+                Width: =320
+                X: =15
+                Y: =0
+                ZIndex: =4
+
+            ButtonCanvas2 As Botón:
+                Appearance: ='ButtonCanvas.Appearance'.Outline
+                DisplayMode: =DisplayMode.Edit
+                FontSize: =14
+                Height: =22
+                Icon: |-
+                    =If(
+                        nombreTarea.DisplayMode = DisplayMode.Edit,
+                        "Save",
+                        "Edit"
+                    )
+                IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                Layout: ='ButtonCanvas.Layout'.IconOnly
+                OnSelect: |-
+                    =If(
+                        nombreTarea.DisplayMode = DisplayMode.Edit,
+                        UpdateContext({mode: DisplayMode.View}),
+                        UpdateContext({mode: DisplayMode.Edit})
+                    )
+                PaddingBottom: =5
+                PaddingLeft: =5
+                PaddingRight: =5
+                PaddingTop: =5
+                Width: =25
+                X: =345
+                Y: =0
+                ZIndex: =5
 
         TextCanvas4 As Texto:
             Align: ='TextCanvas.Align'.Center
@@ -784,7 +833,7 @@
             PaddingTop: =2
             Text: ="editar KR"
             Width: =110
-            X: =1026
+            X: =880
             Y: =7
             ZIndex: =41
 
@@ -804,11 +853,31 @@
                 NewForm(Form3)
             PaddingBottom: =2
             PaddingTop: =2
-            Text: ="agregar tarea"
-            Width: =135
-            X: =882
+            Text: ="crear tarea"
+            Width: =115
+            X: =998
             Y: =7
             ZIndex: =42
+
+        btnAddTask_1 As Botón:
+            Appearance: ='ButtonCanvas.Appearance'.Secondary
+            BasePaletteColor: =
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =
+            FontSize: =14
+            FontWeight: =FontWeight.Semibold
+            Height: =25
+            Icon: ="Edit"
+            IconStyle: ='ButtonCanvas.IconStyle'.Outline
+            Layout: ='ButtonCanvas.Layout'.IconBefore
+            OnSelect: =false
+            PaddingBottom: =2
+            PaddingTop: =2
+            Text: ="editar tarea"
+            Width: =120
+            X: =1122
+            Y: =7
+            ZIndex: =43
 
     filterEstado As Desplegable.pcfdataset:
         AccessibleLabel: ="Estado"
@@ -825,7 +894,7 @@
         Width: =178
         X: =313
         Y: =127
-        ZIndex: =10
+        ZIndex: =8
 
     "filterLider As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =
@@ -838,7 +907,7 @@
         Width: =228
         X: =503
         Y: =127
-        ZIndex: =13
+        ZIndex: =9
 
         Value2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
             FieldDisplayName: ="Value"
@@ -859,7 +928,46 @@
         Width: =242
         X: =59
         Y: =127
-        ZIndex: =14
+        ZIndex: =10
+
+    btnAgregarKr As Botón:
+        Appearance: ='ButtonCanvas.Appearance'.Subtle
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        FontSize: =0
+        FontWeight: =FontWeight.Semibold
+        Height: =32
+        Icon: ="Add"
+        IconStyle: ='ButtonCanvas.IconStyle'.Filled
+        Layout: ='ButtonCanvas.Layout'.IconBefore
+        OnSelect: =Navigate(Registrar_Kr)
+        Text: ="Agregar"
+        Width: =100
+        X: =1096
+        Y: =128
+        ZIndex: =11
+
+    btnActualizarVista As Botón:
+        Appearance: ='ButtonCanvas.Appearance'.Subtle
+        BasePaletteColor: =
+        DisplayMode: =DisplayMode.Edit
+        FontColor: =
+        FontSize: =0
+        FontWeight: =FontWeight.Semibold
+        Height: =32
+        Icon: ="ArrowSync"
+        IconStyle: ='ButtonCanvas.IconStyle'.Filled
+        Layout: ='ButtonCanvas.Layout'.IconBefore
+        OnSelect: |-
+            =Refresh(T_OKR_APP_GCI_003);
+            Refresh(T_REG_STS_KR_APP_GCI_003);
+            Refresh(T_TAREAS_APP_GCI_003)
+        Text: ="Sincronizar"
+        Width: =110
+        X: =1205
+        Y: =128
+        ZIndex: =12
 
     Popup As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -871,7 +979,7 @@
         Visible: =pouplista
         Width: =1366
         Y: =100
-        ZIndex: =15
+        ZIndex: =13
 
         HtmlText2 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1504,7 +1612,7 @@
         Visible: =pouplista_2
         Width: =1366
         Y: =100
-        ZIndex: =16
+        ZIndex: =14
 
         HtmlText2_3 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1749,7 +1857,7 @@
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Q"
                 Default: =ThisItem.Q
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: =displayModeVar
                 DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,Q)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =70
@@ -2246,7 +2354,7 @@
         Visible: =pouplista_3
         Width: =1366
         Y: =100
-        ZIndex: =19
+        ZIndex: =15
 
         HtmlText2_5 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2785,43 +2893,4 @@
                     Wrap: =false
                     Y: =DataCardKey42.Y
                     ZIndex: =4
-
-    btnAgregarKr As Botón:
-        Appearance: ='ButtonCanvas.Appearance'.Subtle
-        BasePaletteColor: =
-        DisplayMode: =DisplayMode.Edit
-        FontColor: =
-        FontSize: =0
-        FontWeight: =FontWeight.Semibold
-        Height: =32
-        Icon: ="Add"
-        IconStyle: ='ButtonCanvas.IconStyle'.Filled
-        Layout: ='ButtonCanvas.Layout'.IconBefore
-        OnSelect: =Navigate(Registrar_Kr)
-        Text: ="Agregar"
-        Width: =100
-        X: =1096
-        Y: =128
-        ZIndex: =21
-
-    btnActualizarVista As Botón:
-        Appearance: ='ButtonCanvas.Appearance'.Subtle
-        BasePaletteColor: =
-        DisplayMode: =DisplayMode.Edit
-        FontColor: =
-        FontSize: =0
-        FontWeight: =FontWeight.Semibold
-        Height: =32
-        Icon: ="ArrowSync"
-        IconStyle: ='ButtonCanvas.IconStyle'.Filled
-        Layout: ='ButtonCanvas.Layout'.IconBefore
-        OnSelect: |-
-            =Refresh(T_OKR_APP_GCI_003);
-            Refresh(T_REG_STS_KR_APP_GCI_003);
-            Refresh(T_TAREAS_APP_GCI_003)
-        Text: ="Sincronizar"
-        Width: =110
-        X: =1205
-        Y: =128
-        ZIndex: =22
 

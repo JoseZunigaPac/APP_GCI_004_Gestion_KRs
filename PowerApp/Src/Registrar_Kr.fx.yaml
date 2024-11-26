@@ -85,7 +85,7 @@ Registrar_Kr As screen:
                 T_OKR_APP_GCI_003,
                 form_Registrar.LastSubmit,
                 {
-                    codigoKR: "KR-" & Text(CountRows(T_OKR_APP_GCI_003) + 100, "0000")
+                    codigoKR: "KR-" & Text(CountRows(T_OKR_APP_GCI_003) + 100, "00000")
                 }
             );
             //Registrar estado inicial del KR
