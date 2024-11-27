@@ -258,7 +258,12 @@
 
             CheckboxCanvas1 As Casilla:
                 Checked: =If(ThisItem.finalizado = true ,true,false)
-                DisplayMode: =DisplayMode.Edit
+                DisplayMode: |-
+                    =If(
+                        Boolean(visibleBotonPerUser.Text),
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
                 Height: =20
                 Label: =""
                 OnCheck: |-
@@ -323,6 +328,17 @@
                 PaddingLeft: =5
                 PaddingRight: =5
                 PaddingTop: =5
+                Visible: |-
+                    =If(
+                        estadoKRtext.Text = "finalizado",
+                        false,
+                        !IsBlank(
+                            LookUp(
+                                T_TAREAS_APP_GCI_003,
+                                nombreKRAsociado.Id = ThisItem.nombreKRAsociado.Id && User().Email in ShowColumns(responsableTarea,Email)
+                            )
+                        )
+                    )
                 Width: =25
                 X: =345
                 Y: =0
@@ -788,7 +804,7 @@
                 =If(
                     estadoKRtext.Text = "finalizado",
                     false,
-                    true
+                    Boolean(visibleBotonPerUser.Text)
                 )
             Width: =82
             X: =789
@@ -847,7 +863,7 @@
                 =If(
                     estadoKRtext.Text = "finalizado",
                     false,
-                    true
+                    Boolean(visibleBotonPerUser.Text)
                 )
             Width: =110
             X: =880
@@ -875,7 +891,7 @@
                 =If(
                     estadoKRtext.Text = "finalizado",
                     false,
-                    true
+                    Boolean(visibleBotonPerUser.Text)
                 )
             Width: =115
             X: =998
@@ -901,12 +917,28 @@
                 =If(
                     estadoKRtext.Text = "finalizado",
                     false,
-                    true
+                    Boolean(visibleBotonPerUser.Text)
                 )
             Width: =120
             X: =1122
             Y: =7
             ZIndex: =43
+
+        visibleBotonPerUser As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            Text: |-
+                =!IsBlank(
+                        LookUp(
+                            T_TAREAS_APP_GCI_003,
+                            nombreKRAsociado.Id = ThisItem.ID && User().Email in ShowColumns(responsableTarea,Email)
+                        )
+                    )
+            Visible: =false
+            Width: =96
+            X: =269
+            Y: =68
+            ZIndex: =44
 
     filterEstado As Desplegable.pcfdataset:
         AccessibleLabel: ="Estado"
