@@ -332,12 +332,7 @@
                     =If(
                         estadoKRtext.Text = "finalizado",
                         false,
-                        !IsBlank(
-                            LookUp(
-                                T_TAREAS_APP_GCI_003,
-                                nombreKRAsociado.Id = ThisItem.nombreKRAsociado.Id && User().Email in ShowColumns(responsableTarea,Email)
-                            )
-                        )
+                        Boolean(visibleBotonPerUser.Text)
                     )
                 Width: =25
                 X: =345
@@ -928,12 +923,20 @@
             DisplayMode: =DisplayMode.Edit
             Height: =32
             Text: |-
-                =!IsBlank(
+                =Or(
+                !IsBlank(
                         LookUp(
                             T_TAREAS_APP_GCI_003,
                             nombreKRAsociado.Id = ThisItem.ID && User().Email in ShowColumns(responsableTarea,Email)
                         )
+                    ),
+                    !IsBlank(
+                    LookUp(
+                            T_OKR_APP_GCI_003,
+                            ID = ThisItem.ID && User().Email = usuarioAprobador.Email
+                        )
                     )
+                )
             Visible: =false
             Width: =96
             X: =269
@@ -2505,10 +2508,10 @@
                 DataField: ="Title"
                 Default: =ThisItem.nombreTareas
                 DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,Title)
+                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreTareas)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =50
-                MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, Title)
+                MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, nombreTareas)
                 Required: =true
                 Update: =DataCardValue38.Text
                 Width: =299

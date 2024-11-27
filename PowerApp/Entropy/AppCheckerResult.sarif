@@ -454,6 +454,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "ListaOKRs.Popup_2.Form3.nombreTareas_DataCard4.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "ListaOKRs.Popup_2.Form3.nombreTareas_DataCard4.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 13,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".nombreTareas"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "ListaOKRs",
+                "type": "ListaOKRs.Popup_2.Form3.nombreTareas_DataCard4"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreTareas"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ListaOKRs.Gallery2.Items"
                 }
               ],
@@ -774,120 +814,160 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2.Visible"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.nombreTarea.Placeholder"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2.Visible",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.nombreTarea.Placeholder",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 3,
-                  "charOffset": 151,
+                  "charLength": 13,
+                  "charOffset": 8,
                   "snippet": {
-                    "text": ".Id"
+                    "text": ".nombreTareas"
                   }
                 }
               },
               "properties": {
-                "member": "Visible",
+                "member": "Placeholder",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2"
+                "type": "ListaOKRs.Gallery2.Gallery3.nombreTarea"
               }
             }
           ],
           "message": {
             "arguments": [
-              "nombreKRAsociado.Id"
+              "nombreTareas"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "Medium"
+            "level": "High"
           },
-          "ruleId": "app-SuggestRemoteExecutionHint-OpNotSupportedByColumn",
-          "ruleIndex": 2
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2.Visible"
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.nombreTarea.Value"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2.Visible",
+                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.nombreTarea.Value",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 1,
-                  "charOffset": 155,
+                  "charLength": 13,
+                  "charOffset": 8,
                   "snippet": {
-                    "text": "="
+                    "text": ".nombreTareas"
                   }
                 }
               },
               "properties": {
-                "member": "Visible",
+                "member": "Value",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2"
+                "type": "ListaOKRs.Gallery2.Gallery3.nombreTarea"
               }
             }
           ],
           "message": {
             "arguments": [
-              "LookUp"
+              "nombreTareas"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "Medium"
+            "level": "High"
           },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 3
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
         },
         {
           "locations": [
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2.Visible"
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.nombreTareas_DataCard2.Default"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2.Visible",
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.nombreTareas_DataCard2.Default",
                   "relativeAddress": 0
                 },
                 "region": {
-                  "charLength": 2,
-                  "charOffset": 186,
+                  "charLength": 13,
+                  "charOffset": 8,
                   "snippet": {
-                    "text": "&&"
+                    "text": ".nombreTareas"
                   }
                 }
               },
               "properties": {
-                "member": "Visible",
-                "module": "ListaOKRs",
-                "type": "ListaOKRs.Gallery2.Gallery3.ButtonCanvas2"
+                "member": "Default",
+                "module": "Registrar_Tarea",
+                "type": "Registrar_Tarea.form_rgt_Tarea.nombreTareas_DataCard2"
               }
             }
           ],
           "message": {
             "arguments": [
-              "LookUp"
+              "nombreTareas"
             ],
             "id": "issue"
           },
           "properties": {
-            "level": "Medium"
+            "level": "High"
           },
-          "ruleId": "app-SuggestRemoteExecutionHint",
-          "ruleIndex": 3
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.'Datos adjuntos_DataCard3'.Default"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Registrar_Tarea.form_rgt_Tarea.'Datos adjuntos_DataCard3'.Default",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 17,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".'Datos adjuntos'"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Default",
+                "module": "Registrar_Tarea",
+                "type": "Registrar_Tarea.form_rgt_Tarea.'Datos adjuntos_DataCard3'"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "Datos adjuntos"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
         },
         {
           "locations": [
@@ -1014,6 +1094,46 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "Screen3.gallery_Tareas_Gestion.Body3.Text"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "Screen3.gallery_Tareas_Gestion.Body3.Text",
+                  "relativeAddress": 0
+                },
+                "region": {
+                  "charLength": 13,
+                  "charOffset": 8,
+                  "snippet": {
+                    "text": ".nombreTareas"
+                  }
+                }
+              },
+              "properties": {
+                "member": "Text",
+                "module": "Screen3",
+                "type": "Screen3.gallery_Tareas_Gestion.Body3"
+              }
+            }
+          ],
+          "message": {
+            "arguments": [
+              "nombreTareas"
+            ],
+            "id": "issue"
+          },
+          "properties": {
+            "level": "High"
+          },
+          "ruleId": "app-ErrInvalidName",
+          "ruleIndex": 1
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "ListaOKRs.Gallery2.visibleBotonPerUser.Text"
                 }
               ],
@@ -1024,7 +1144,7 @@
                 },
                 "region": {
                   "charLength": 3,
-                  "charOffset": 91,
+                  "charOffset": 96,
                   "snippet": {
                     "text": ".Id"
                   }
@@ -1064,7 +1184,7 @@
                 },
                 "region": {
                   "charLength": 1,
-                  "charOffset": 95,
+                  "charOffset": 100,
                   "snippet": {
                     "text": "="
                   }
@@ -1104,7 +1224,7 @@
                 },
                 "region": {
                   "charLength": 2,
-                  "charOffset": 109,
+                  "charOffset": 114,
                   "snippet": {
                     "text": "&&"
                   }
