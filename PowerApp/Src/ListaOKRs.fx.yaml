@@ -1336,25 +1336,25 @@
                         Y: =DataCardKey10.Y
                         ZIndex: =4
 
-                unidadDeMedida_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                alcanzadoPeriodo_DataCard2 As typedDataCard.fluentV9NumberEditCard:
                     BorderColor: =App.Theme.Colors.Darker40
                     BorderStyle: =BorderStyle.Solid
-                    DataField: ="unidadDeMedida"
-                    Default: =ThisItem.unidadDeMedida
-                    DisplayMode: =DisplayMode.View
-                    DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,unidadDeMedida)
+                    DataField: ="alcanzadoPeriodo"
+                    Default: =ThisItem.alcanzadoPeriodo
+                    DisplayMode: =Parent.DisplayMode
+                    DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
                     Fill: =RGBA(0, 0, 0, 0)
                     Height: =70
                     Required: =false
-                    Update: =DataCardValue15.Selected
+                    Update: =Value(DataCardValue22.Value)
                     Width: =298
                     X: =0
-                    Y: =4
+                    Y: =3
                     ZIndex: =2
 
-                    DataCardKey14 As Texto:
+                    DataCardKey26 As Texto:
                         DisplayMode: =DisplayMode.Edit
-                        FontColor: =RGBA(214, 221, 224, 1)
+                        FontColor: =RGBA(255, 255, 255, 1)
                         Height: =22
                         Size: =16
                         Text: =Parent.DisplayName
@@ -1365,24 +1365,21 @@
                         Y: =10
                         ZIndex: =1
 
-                    "DataCardValue15 As 'Cuadro combinado'.pcfdataset":
+                    "DataCardValue22 As 'Entrada de texto'":
                         AccessibleLabel: =Parent.DisplayName
-                        BasePaletteColor: =RGBA(141, 229, 250, 1)
-                        DefaultSelectedItems: =[Parent.Default]
+                        BasePaletteColor: =RGBA(8, 222, 8, 1)
                         DisplayMode: =Parent.DisplayMode
-                        Fill: =
+                        Fill: =RGBA(255, 255, 255, 1)
                         Height: =32
-                        Items: =Choices([@T_OKR_APP_GCI_003].unidadDeMedida)
                         Required: =Parent.Required
-                        SelectMultiple: =false
                         ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                        Visible: =true
+                        Value: =Parent.Default
                         Width: =Parent.Width - 48
                         X: =24
-                        Y: =DataCardKey14.Y + DataCardKey14.Height + 4
+                        Y: =DataCardKey26.Y + DataCardKey26.Height + 4
                         ZIndex: =2
 
-                    ErrorMessage14 As Texto:
+                    ErrorMessage26 As Texto:
                         DisplayMode: =DisplayMode.Edit
                         Height: =30
                         Text: =Parent.Error
@@ -1390,18 +1387,18 @@
                         Width: =Parent.Width - 48
                         Wrap: =true
                         X: =24
-                        Y: =DataCardValue15.Y + DataCardValue15.Height
+                        Y: =DataCardValue22.Y + DataCardValue22.Height
                         ZIndex: =3
 
-                    StarVisible14 As Texto:
+                    StarVisible26 As Texto:
                         Align: ='TextCanvas.Align'.Center
                         DisplayMode: =DisplayMode.Edit
-                        Height: =20
+                        Height: =30
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                         Width: =30
                         X: =0
-                        Y: =DataCardKey14.Y
+                        Y: =DataCardKey26.Y
                         ZIndex: =4
 
                 observaciones_DataCard2 As typedDataCard.fluentV9TextualEditCard:
@@ -1471,6 +1468,74 @@
                         Y: =DataCardKey24.Y
                         ZIndex: =4
 
+                unidadDeMedida_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    BorderStyle: =BorderStyle.Solid
+                    DataField: ="unidadDeMedida"
+                    Default: =ThisItem.unidadDeMedida
+                    DisplayMode: =DisplayMode.View
+                    DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,unidadDeMedida)
+                    Fill: =RGBA(0, 0, 0, 0)
+                    Height: =70
+                    Required: =false
+                    Update: =DataCardValue15.Selected
+                    Width: =298
+                    X: =0
+                    Y: =4
+                    ZIndex: =2
+
+                    DataCardKey14 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        FontColor: =RGBA(214, 221, 224, 1)
+                        Height: =22
+                        Size: =16
+                        Text: =Parent.DisplayName
+                        Weight: ='TextCanvas.Weight'.Semibold
+                        Width: =Parent.Width - 48
+                        Wrap: =false
+                        X: =24
+                        Y: =10
+                        ZIndex: =1
+
+                    "DataCardValue15 As 'Cuadro combinado'.pcfdataset":
+                        AccessibleLabel: =Parent.DisplayName
+                        BasePaletteColor: =RGBA(141, 229, 250, 1)
+                        DefaultSelectedItems: =[Parent.Default]
+                        DisplayMode: =Parent.DisplayMode
+                        Fill: =
+                        Height: =32
+                        Items: =Choices([@T_OKR_APP_GCI_003].unidadDeMedida)
+                        Required: =Parent.Required
+                        SelectMultiple: =false
+                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                        Visible: =true
+                        Width: =Parent.Width - 48
+                        X: =24
+                        Y: =DataCardKey14.Y + DataCardKey14.Height + 4
+                        ZIndex: =2
+
+                    ErrorMessage14 As Texto:
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =30
+                        Text: =Parent.Error
+                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =Parent.Width - 48
+                        Wrap: =true
+                        X: =24
+                        Y: =DataCardValue15.Y + DataCardValue15.Height
+                        ZIndex: =3
+
+                    StarVisible14 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Height: =20
+                        Text: ="*"
+                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                        Width: =30
+                        X: =0
+                        Y: =DataCardKey14.Y
+                        ZIndex: =4
+
                 metaPeriodo_DataCard2 As typedDataCard.fluentV9NumberEditCard:
                     BorderColor: =App.Theme.Colors.Darker40
                     BorderStyle: =BorderStyle.Solid
@@ -1532,71 +1597,6 @@
                         Width: =30
                         X: =0
                         Y: =DataCardKey25.Y
-                        ZIndex: =4
-
-                alcanzadoPeriodo_DataCard2 As typedDataCard.fluentV9NumberEditCard:
-                    BorderColor: =App.Theme.Colors.Darker40
-                    BorderStyle: =BorderStyle.Solid
-                    DataField: ="alcanzadoPeriodo"
-                    Default: =ThisItem.alcanzadoPeriodo
-                    DisplayMode: =Parent.DisplayMode
-                    DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
-                    Fill: =RGBA(0, 0, 0, 0)
-                    Height: =70
-                    Required: =false
-                    Update: =Value(DataCardValue22.Value)
-                    Width: =298
-                    X: =0
-                    Y: =3
-                    ZIndex: =2
-
-                    DataCardKey26 As Texto:
-                        DisplayMode: =DisplayMode.Edit
-                        FontColor: =RGBA(255, 255, 255, 1)
-                        Height: =22
-                        Size: =16
-                        Text: =Parent.DisplayName
-                        Weight: ='TextCanvas.Weight'.Semibold
-                        Width: =Parent.Width - 48
-                        Wrap: =false
-                        X: =24
-                        Y: =10
-                        ZIndex: =1
-
-                    "DataCardValue22 As 'Entrada de texto'":
-                        AccessibleLabel: =Parent.DisplayName
-                        BasePaletteColor: =RGBA(8, 222, 8, 1)
-                        DisplayMode: =Parent.DisplayMode
-                        Fill: =RGBA(255, 255, 255, 1)
-                        Height: =32
-                        Required: =Parent.Required
-                        ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                        Value: =Parent.Default
-                        Width: =Parent.Width - 48
-                        X: =24
-                        Y: =DataCardKey26.Y + DataCardKey26.Height + 4
-                        ZIndex: =2
-
-                    ErrorMessage26 As Texto:
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =30
-                        Text: =Parent.Error
-                        Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =Parent.Width - 48
-                        Wrap: =true
-                        X: =24
-                        Y: =DataCardValue22.Y + DataCardValue22.Height
-                        ZIndex: =3
-
-                    StarVisible26 As Texto:
-                        Align: ='TextCanvas.Align'.Center
-                        DisplayMode: =DisplayMode.Edit
-                        Height: =30
-                        Text: ="*"
-                        Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                        Width: =30
-                        X: =0
-                        Y: =DataCardKey26.Y
                         ZIndex: =4
 
             TextCanvas3 As Texto:
@@ -1743,6 +1743,83 @@
                     Y: =DataCardKey28_1.Y
                     ZIndex: =4
 
+            Q_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Q"
+                Default: =ThisItem.Q
+                DisplayMode: =displayModeVar
+                DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,Q)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue43.Selected
+                Width: =298
+                X: =1
+                Y: =1
+                ZIndex: =1
+
+                DataCardKey43 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    FontColor: =RGBA(255, 255, 255, 1)
+                    Height: =22
+                    Text: ="trimestre"
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue43 As 'Cuadro combinado'.pcfdataset":
+                    AccessibleLabel: =Parent.DisplayName
+                    BasePaletteColor: =RGBA(8, 222, 8, 1)
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(255, 255, 255, 1)
+                    Height: =32
+                    Items: =Choices([@T_OKR_APP_GCI_003].Q)
+                    OnChange: |-
+                        =Switch(
+                            Self.Selected.Value,
+                            "Q1", Set(fecIniProgramado,Date(Year(Today()),1,1));
+                                  Set(fecFinProgramado,Date(Year(Today()),3,31)),
+                            "Q2", Set(fecIniProgramado,Date(Year(Today()),4,1));
+                                  Set(fecFinProgramado,Date(Year(Today()),6,30)),
+                            "Q3", Set(fecIniProgramado,Date(Year(Today()),7,1));
+                                  Set(fecFinProgramado,Date(Year(Today()),9,30)),
+                            Set(fecIniProgramado,Date(Year(Today()),10,1));
+                            Set(fecFinProgramado,Date(Year(Today()),12,31))
+                        )
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey43.Y + DataCardKey43.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage43 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue43.Y + DataCardValue43.Height
+                    ZIndex: =3
+
+                StarVisible43 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey43.Y
+                    ZIndex: =4
+
             fechaProgramadainicio_DataCard1 As typedDataCard.fluentV9DateEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
@@ -1879,83 +1956,6 @@
                     Width: =30
                     X: =0
                     Y: =DataCardKey23.Y
-                    ZIndex: =4
-
-            Q_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
-                BorderColor: =App.Theme.Colors.Darker40
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="Q"
-                Default: =ThisItem.Q
-                DisplayMode: =displayModeVar
-                DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,Q)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =70
-                Required: =false
-                Update: =DataCardValue43.Selected
-                Width: =298
-                X: =1
-                Y: =1
-                ZIndex: =1
-
-                DataCardKey43 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    FontColor: =RGBA(255, 255, 255, 1)
-                    Height: =22
-                    Text: ="trimestre"
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =Parent.Width - 48
-                    Wrap: =false
-                    X: =24
-                    Y: =10
-                    ZIndex: =1
-
-                "DataCardValue43 As 'Cuadro combinado'.pcfdataset":
-                    AccessibleLabel: =Parent.DisplayName
-                    BasePaletteColor: =RGBA(8, 222, 8, 1)
-                    DefaultSelectedItems: =[Parent.Default]
-                    DisplayMode: =Parent.DisplayMode
-                    Fill: =RGBA(255, 255, 255, 1)
-                    Height: =32
-                    Items: =Choices([@T_OKR_APP_GCI_003].Q)
-                    OnChange: |-
-                        =Switch(
-                            Self.Selected.Value,
-                            "Q1", Set(fecIniProgramado,Date(Year(Today()),1,1));
-                                  Set(fecFinProgramado,Date(Year(Today()),3,31)),
-                            "Q2", Set(fecIniProgramado,Date(Year(Today()),4,1));
-                                  Set(fecFinProgramado,Date(Year(Today()),6,30)),
-                            "Q3", Set(fecIniProgramado,Date(Year(Today()),7,1));
-                                  Set(fecFinProgramado,Date(Year(Today()),9,30)),
-                            Set(fecIniProgramado,Date(Year(Today()),10,1));
-                            Set(fecFinProgramado,Date(Year(Today()),12,31))
-                        )
-                    Required: =Parent.Required
-                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                    Width: =Parent.Width - 48
-                    X: =24
-                    Y: =DataCardKey43.Y + DataCardKey43.Height + 4
-                    ZIndex: =2
-
-                ErrorMessage43 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
-                    Text: =Parent.Error
-                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =Parent.Width - 48
-                    Wrap: =true
-                    X: =24
-                    Y: =DataCardValue43.Y + DataCardValue43.Height
-                    ZIndex: =3
-
-                StarVisible43 As Texto:
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =20
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    X: =0
-                    Y: =DataCardKey43.Y
                     ZIndex: =4
 
             unidadDeMedida_DataCard1_1 As typedDataCard.fluentV9ComboBoxEditCard:
@@ -2558,6 +2558,97 @@
                     Y: =DataCardKey38.Y
                     ZIndex: =4
 
+            descripcionTarea_DataCard4 As typedDataCard.textualEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="descripcionTarea"
+                Default: =ThisItem.descripcionTarea
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =160
+                MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, descripcionTarea)
+                Required: =false
+                Update: =DataCardValue40.Text
+                Width: =598
+                X: =1
+                Y: =0
+                ZIndex: =9
+
+                DataCardKey40 As label:
+                    AutoHeight: =true
+                    Color: =App.Theme.Colors.Lighter80
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =34
+                    Size: =13
+                    Text: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    Wrap: =false
+                    X: =30
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue40 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayMode: =Parent.DisplayMode
+                    Fill: =RGBA(247, 247, 247, 1)
+                    FocusedBorderThickness: =4
+                    Font: =App.Theme.Font
+                    Height: =113
+                    HoverBorderColor: =App.Theme.Colors.Darker40
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
+                    MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey40.Y + DataCardKey40.Height + 5
+                    ZIndex: =2
+
+                ErrorMessage40 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
+                    Text: =Parent.Error
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue40.Y + DataCardValue40.Height
+                    ZIndex: =3
+
+                StarVisible40 As label:
+                    Align: =Align.Center
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =DataCardKey40.Height
+                    Size: =13
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    Wrap: =false
+                    Y: =DataCardKey40.Y
+                    ZIndex: =4
+
             nombreKRAsociado_DataCard4 As typedDataCard.comboBoxEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
@@ -2654,97 +2745,6 @@
                     Width: =30
                     Wrap: =false
                     Y: =DataCardKey39.Y
-                    ZIndex: =4
-
-            descripcionTarea_DataCard4 As typedDataCard.textualEditCard:
-                BorderColor: =App.Theme.Colors.Darker40
-                BorderStyle: =BorderStyle.Solid
-                DataField: ="descripcionTarea"
-                Default: =ThisItem.descripcionTarea
-                DisplayMode: =Parent.DisplayMode
-                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
-                Fill: =RGBA(0, 0, 0, 0)
-                Height: =160
-                MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, descripcionTarea)
-                Required: =false
-                Update: =DataCardValue40.Text
-                Width: =598
-                X: =1
-                Y: =0
-                ZIndex: =9
-
-                DataCardKey40 As label:
-                    AutoHeight: =true
-                    Color: =App.Theme.Colors.Lighter80
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Font: =App.Theme.Font
-                    Height: =34
-                    Size: =13
-                    Text: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    Wrap: =false
-                    X: =30
-                    Y: =10
-                    ZIndex: =1
-
-                DataCardValue40 As text:
-                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
-                    Color: =RGBA(0, 0, 0, 1)
-                    Default: =Parent.Default
-                    DelayOutput: =true
-                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    DisabledFill: =RGBA(244, 244, 244, 1)
-                    DisplayMode: =Parent.DisplayMode
-                    Fill: =RGBA(247, 247, 247, 1)
-                    FocusedBorderThickness: =4
-                    Font: =App.Theme.Font
-                    Height: =113
-                    HoverBorderColor: =App.Theme.Colors.Darker40
-                    HoverColor: =RGBA(0, 0, 0, 1)
-                    HoverFill: =App.Theme.Colors.Lighter70
-                    MaxLength: =Parent.MaxLength
-                    Mode: =TextMode.MultiLine
-                    PaddingLeft: =5
-                    Size: =13
-                    Tooltip: =Parent.DisplayName
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardKey40.Y + DataCardKey40.Height + 5
-                    ZIndex: =2
-
-                ErrorMessage40 As label:
-                    AutoHeight: =true
-                    Color: =RGBA(168, 0, 0, 1)
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Font: =App.Theme.Font
-                    FontWeight: =FontWeight.Semibold
-                    Height: =10
-                    Live: =Live.Assertive
-                    PaddingBottom: =0
-                    PaddingLeft: =0
-                    PaddingRight: =0
-                    PaddingTop: =0
-                    Text: =Parent.Error
-                    Visible: =Parent.DisplayMode=DisplayMode.Edit
-                    Width: =Parent.Width - 60
-                    X: =30
-                    Y: =DataCardValue40.Y + DataCardValue40.Height
-                    ZIndex: =3
-
-                StarVisible40 As label:
-                    Align: =Align.Center
-                    Color: =App.Theme.Colors.Darker30
-                    DisabledColor: =RGBA(166, 166, 166, 1)
-                    Font: =App.Theme.Font
-                    Height: =DataCardKey40.Height
-                    Size: =13
-                    Text: ="*"
-                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =30
-                    Wrap: =false
-                    Y: =DataCardKey40.Y
                     ZIndex: =4
 
             responsableTarea_DataCard4 As typedDataCard.comboBoxMultiSelectEditCard:

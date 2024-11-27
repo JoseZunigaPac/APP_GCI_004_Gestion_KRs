@@ -5,17 +5,8 @@
       "iconUri": "https://connectoricons-prod.azureedge.net/u/jayawan/releases/v1.0.1697/1.0.1697.3786/sharepointonline/icon.png",
       "id": "/providers/microsoft.powerapps/apis/shared_sharepointonline"
     },
-    "datasets": {
-      "https://pacificocia-my.sharepoint.com/personal/josezunigaa_pacifico_com_pe": {
-        "dataSources": {
-          "T_REG_STS_KR_APP_GCI_4": {
-            "tableName": "aba3c9e0-12b9-4637-bcdd-24cd4b1f0089"
-          }
-        }
-      }
-    },
+    "datasets": {},
     "dataSources": [
-      "T_REG_STS_KR_APP_GCI_4",
       "T_TAREAS_APP_GCI_003",
       "T_REG_STS_TAREAS_APP_GCI_003",
       "T_OKR_APP_GCI_003",

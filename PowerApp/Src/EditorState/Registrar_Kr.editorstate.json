@@ -2406,7 +2406,7 @@
       "MetaDataIDKey": "%FieldName.ID%",
       "Name": "DataCardKey27",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -5559,7 +5559,7 @@
       "MetaDataIDKey": "%FieldValue.ID%",
       "Name": "DataCardValue26",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -7125,7 +7125,7 @@
       "MetaDataIDKey": "",
       "Name": "descripcionKR_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 1,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -8969,7 +8969,7 @@
       "MetaDataIDKey": "%ErrorMessage.ID%",
       "Name": "ErrorMessage27",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 2,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10417,7 +10417,7 @@
       "MetaDataIDKey": "",
       "Name": "lineaBase_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 5,
+      "ParentIndex": 4,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10577,7 +10577,7 @@
       "MetaDataIDKey": "",
       "Name": "metaPeriodo_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 6,
+      "ParentIndex": 5,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10740,7 +10740,7 @@
       "MetaDataIDKey": "",
       "Name": "nombreKR_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 1,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -10908,7 +10908,7 @@
       "MetaDataIDKey": "",
       "Name": "objetivoKR_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 2,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11083,7 +11083,7 @@
       "MetaDataIDKey": "",
       "Name": "observaciones_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 7,
+      "ParentIndex": 8,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -11236,7 +11236,7 @@
       "MetaDataIDKey": "",
       "Name": "Q_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 0,
+      "ParentIndex": 7,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -13270,7 +13270,7 @@
       "MetaDataIDKey": "%FieldRequired.ID%",
       "Name": "StarVisible27",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 3,
+      "ParentIndex": 0,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14406,7 +14406,7 @@
       "MetaDataIDKey": "",
       "Name": "unidadDeMedida_DataCard2",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 4,
+      "ParentIndex": 3,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
@@ -14561,7 +14561,7 @@
       "MetaDataIDKey": "",
       "Name": "usuarioAprobador_DataCard1",
       "OptimizeForDevices": "Off",
-      "ParentIndex": 8,
+      "ParentIndex": 6,
       "PersistMetaDataIDKey": false,
       "Properties": [
         {
