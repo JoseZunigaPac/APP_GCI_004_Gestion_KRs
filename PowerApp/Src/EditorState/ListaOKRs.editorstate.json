@@ -21577,7 +21577,7 @@
         {
           "Category": "Data",
           "PropertyName": "Indeterminate",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -21597,7 +21597,7 @@
         {
           "Category": "Data",
           "PropertyName": "Value",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",
@@ -25462,7 +25462,14 @@
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         "Height",
-        "X",
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "",
+          "InvariantPropertyName": "X",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
+        },
         "Y",
         {
           "AFDDataSourceName": "",

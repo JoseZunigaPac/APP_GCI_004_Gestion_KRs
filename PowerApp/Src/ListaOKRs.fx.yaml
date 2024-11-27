@@ -609,12 +609,12 @@
                 =If(
                     Round(
                         Min(
-                            (Today() - DateValue(fecini.Text)),
-                            (DateValue(fecfin.Text) - DateValue(fecini.Text))
+                            ThisItem.alcanzadoPeriodo - ThisItem.lineaBase,
+                            100
                         )/
                         Max(
-                            (DateValue(fecfin.Text) - DateValue(fecini.Text))
-                            ,1
+                            ThisItem.metaPeriodo - ThisItem.lineaBase,
+                            1
                         )*100,
                         2
                     ) > 0,
@@ -627,16 +627,16 @@
             Value: |-
                 =Round(
                     Min(
-                        (Today() - DateValue(fecini.Text)),
-                        (DateValue(fecfin.Text) - DateValue(fecini.Text))
+                        ThisItem.alcanzadoPeriodo - ThisItem.lineaBase,
+                        100
                     )/
                     Max(
-                        (DateValue(fecfin.Text) - DateValue(fecini.Text))
-                        ,1
+                        ThisItem.metaPeriodo - ThisItem.lineaBase,
+                        1
                     )*100,
                     2
                 )
-            Width: =145
+            Width: =125
             X: =553
             Y: =143
             ZIndex: =26
@@ -645,9 +645,20 @@
             DisplayMode: =DisplayMode.Edit
             Height: =19
             Text: |
-                ="100%"
-            Width: =55
-            X: =701
+                ="100% (" & Round(
+                        Min(
+                            ThisItem.alcanzadoPeriodo - ThisItem.lineaBase,
+                            100
+                        )/
+                        Max(
+                            ThisItem.metaPeriodo - ThisItem.lineaBase,
+                            1
+                        )*100,
+                        2
+                    )
+                & "%)"
+            Width: =100
+            X: =680
             Y: =143
             ZIndex: =27
 
