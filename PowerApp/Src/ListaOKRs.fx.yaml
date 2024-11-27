@@ -832,6 +832,12 @@
             PaddingBottom: =2
             PaddingTop: =2
             Text: ="editar KR"
+            Visible: |-
+                =If(
+                    estadoKRtext.Text = "finalizado",
+                    false,
+                    true
+                )
             Width: =110
             X: =880
             Y: =7
@@ -854,6 +860,12 @@
             PaddingBottom: =2
             PaddingTop: =2
             Text: ="crear tarea"
+            Visible: |-
+                =If(
+                    estadoKRtext.Text = "finalizado",
+                    false,
+                    true
+                )
             Width: =115
             X: =998
             Y: =7
@@ -874,6 +886,12 @@
             PaddingBottom: =2
             PaddingTop: =2
             Text: ="editar tarea"
+            Visible: |-
+                =If(
+                    estadoKRtext.Text = "finalizado",
+                    false,
+                    true
+                )
             Width: =120
             X: =1122
             Y: =7
