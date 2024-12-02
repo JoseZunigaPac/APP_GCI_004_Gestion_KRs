@@ -146,31 +146,55 @@
         Items: |-
             =If(
                 IsBlank(filterEstado.Selected.Value) || filterEstado.Selected.Value = "todos",
-            
                 If(
                     IsBlank(filterLider.Selected.Value),
-            
                     Filter(
-                        T_OKR_APP_GCI_003, 
-                        StartsWith(nombreKR,filterTitle.Value)
+                        T_OKR_APP_GCI_003,
+                        StartsWith(
+                            nombreKR,
+                            filterTitle.Value
+                        )
                     ),
-                    
                     Filter(
-                        T_OKR_APP_GCI_003, 
-                        StartsWith(nombreKR,filterTitle.Value),
+                        T_OKR_APP_GCI_003,
+                        StartsWith(
+                            nombreKR,
+                            filterTitle.Value
+                        ),
                         usuarioAprobador.DisplayName = filterLider.Selected.Value
                     )
                 ),
-            
-                Filter(
-                    T_OKR_APP_GCI_003, 
-                    ID in ForAll(
-                        Filter(
-                            T_REG_STS_KR_APP_GCI_003, 
-                            nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
+                If(
+                    IsBlank(filterLider.Selected.Value),
+                    Filter(
+                        T_OKR_APP_GCI_003,
+                        ID in ForAll(
+                            Filter(
+                                T_REG_STS_KR_APP_GCI_003,
+                                nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
+                            ),
+                            nombreKRAsociado.Id
                         ),
-                        nombreKRAsociado.Id
-                    ), StartsWith(nombreKR,filterTitle.Value)
+                        StartsWith(
+                            nombreKR,
+                            filterTitle.Value
+                        )
+                    ),
+                    Filter(
+                        T_OKR_APP_GCI_003,
+                        ID in ForAll(
+                            Filter(
+                                T_REG_STS_KR_APP_GCI_003,
+                                nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
+                            ),
+                            nombreKRAsociado.Id
+                        ),
+                        StartsWith(
+                            nombreKR,
+                            filterTitle.Value
+                        ),
+                        usuarioAprobador.DisplayName = filterLider.Selected.Value
+                    )
                 )
             )
         Layout: =Layout.Vertical
@@ -962,6 +986,7 @@
 
     "filterLider As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =
+        DefaultSelectedItems: =[User().FullName]
         DisplayMode: =DisplayMode.Edit
         Height: =35
         InputTextPlaceholder: ="Seleccionar Lider"
@@ -2957,4 +2982,26 @@
                     Wrap: =false
                     Y: =DataCardKey42.Y
                     ZIndex: =4
+
+    "filterLider_1 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: =[""]
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Trimestre"
+        Items: =["Q1","Q2","Q3","Q4"]
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =110
+        X: =743
+        Y: =127
+        ZIndex: =16
+
+        Value2_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
 

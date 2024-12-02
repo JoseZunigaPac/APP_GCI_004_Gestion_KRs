@@ -31,6 +31,12 @@ Registrar_Tarea As screen:
         DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
+        DisplayMode: |-
+            =If(
+                CountRows(Filter(T_TAREAS_APP_GCI_003,nombreKRAsociado.Id = DataCardValue7.Selected.Id)) > 0,
+                DisplayMode.Edit,
+                DisplayMode.Disabled
+            )
         Fill: =RGBA(238,40,122,0.9)
         FontWeight: =FontWeight.Semibold
         HoverBorderColor: =App.Theme.Colors.Darker10
@@ -391,7 +397,7 @@ Registrar_Tarea As screen:
             DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,responsableTarea)
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            Required: =false
+            Required: =true
             Update: =DataCardValue11.SelectedItems
             Width: =558
             X: =1

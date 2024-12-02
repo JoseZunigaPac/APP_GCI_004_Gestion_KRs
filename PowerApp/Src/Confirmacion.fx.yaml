@@ -88,6 +88,7 @@
         RadiusTopRight: =08
         Size: =15
         Text: ="HOME"
+        Visible: =false
         X: =406
         Y: =454
         ZIndex: =7
@@ -120,7 +121,7 @@
         Size: =15
         Text: ="REGISTRAR TAREA"
         Width: =205
-        X: =733
+        X: =564
         Y: =454
         ZIndex: =8
 

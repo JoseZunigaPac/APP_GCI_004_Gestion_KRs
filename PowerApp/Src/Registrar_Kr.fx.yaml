@@ -849,7 +849,7 @@ Registrar_Kr As screen:
                 Font: =App.Theme.Font
                 Height: =34
                 Size: =13
-                Text: =Parent.DisplayName & " (líder del equipo)"
+                Text: ="líder del equipo"
                 Width: =Parent.Width - 60
                 Wrap: =false
                 X: =30
