@@ -64,7 +64,7 @@ Registrar_Kr As screen:
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
         DisplayMode: |
-            =If(nombreKR_DataCard1.Valid && descripcionKR_DataCard1.Valid,
+            =If(nombreKR_DataCard1.Valid && descripcionKR_DataCard1.Valid && usuarioAprobador_DataCard1.Valid,
             DisplayMode.Edit,
             DisplayMode.Disabled)
         Fill: =RGBA(238,40,122,0.9)
@@ -159,7 +159,12 @@ Registrar_Kr As screen:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 BorderThickness: =2
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =Parent.Default
+                Default: |-
+                    =If(
+                        DataCardValue13.Selected.Value = "Hito",
+                        0,
+                        Parent.Default
+                    )
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -751,7 +756,12 @@ Registrar_Kr As screen:
                 BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                 BorderThickness: =2
                 Color: =RGBA(0, 0, 0, 1)
-                Default: =Parent.Default
+                Default: |-
+                    =If(
+                        DataCardValue13.Selected.Value = "Hito",
+                        1,
+                        Parent.Default
+                    )
                 DelayOutput: =true
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledColor: =RGBA(166, 166, 166, 1)
@@ -835,7 +845,7 @@ Registrar_Kr As screen:
             DisplayName: ="Usuario Aprobador"
             Fill: =RGBA(0, 0, 0, 0)
             Height: =50
-            Required: =false
+            Required: =true
             Update: =DataCardValue28.Selected
             Width: =557
             X: =0

@@ -789,7 +789,7 @@
                     Set(pouplista_2,true)
                 );
                 If(
-                    Self.Text = "aprobar",
+                    Self.Text = "aprobar" && ThisItem.unidadDeMedida.Value <> "Hito",
                     Set(displayModeVar,DisplayMode.Edit),
                     Set(displayModeVar,DisplayMode.View)
                 )
@@ -1769,7 +1769,12 @@
                 "DataCardValue24_1 As 'Entrada de texto'":
                     AccessibleLabel: =Parent.DisplayName
                     BasePaletteColor: =RGBA(8, 222, 8, 1)
-                    DisplayMode: =Parent.DisplayMode
+                    DisplayMode: |-
+                        =If(
+                            DataCardValue15_1.Selected.Value = "Hito",
+                            DisplayMode.View,
+                            Parent.DisplayMode
+                        )
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =32
                     Mode: ='TextInputCanvas.Mode'.SingleLine
@@ -2118,7 +2123,12 @@
                 "DataCardValue21_1 As 'Entrada de texto'":
                     AccessibleLabel: =Parent.DisplayName
                     BasePaletteColor: =RGBA(8, 222, 8, 1)
-                    DisplayMode: =Parent.DisplayMode
+                    DisplayMode: |-
+                        =If(
+                            DataCardValue15_1.Selected.Value = "Hito",
+                            DisplayMode.View,
+                            Parent.DisplayMode
+                        )
                     Fill: =RGBA(255, 255, 255, 1)
                     Height: =32
                     Required: =Parent.Required
