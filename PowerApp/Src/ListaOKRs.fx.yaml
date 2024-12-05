@@ -144,59 +144,80 @@
         Fill: =RGBA(255, 255, 255, 1)
         Height: =576
         Items: |-
-            =If(
-                IsBlank(filterEstado.Selected.Value) || filterEstado.Selected.Value = "todos",
+            =Filter(
+                T_OKR_APP_GCI_003,
+                If(!IsBlank(filterTitle.Value),StartsWith(nombreKR,filterTitle.Value),true),
+                If(!IsBlank(filterEstado.Selected.Value) && filterEstado.Selected.Value <> "todos",
+                    ID in ForAll(
+                            Filter(
+                                T_REG_STS_KR_APP_GCI_003,
+                                nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
+                            ),
+                            nombreKRAsociado.Id
+                        ), true
+                ),
+                If(!IsBlank(filterLider.Selected.Value),
+                    usuarioAprobador.DisplayName = filterLider.Selected.Value, true
+                ),
+                If(!IsBlank(filterTrimestre.Selected.Value),Q.Value = filterTrimestre.Selected.Value,true),
+                If(!IsBlank(filterAnio.Selected.Value),Year(fechaProgramadainicio) = filterAnio.Selected.Value,true)
+            )
+            
+            /*
+            If(
+                IsBlank(filterEstado.Selected.Value) || filterEstado.Selected.Value = "todos";
                 If(
-                    IsBlank(filterLider.Selected.Value),
+                    IsBlank(filterLider.Selected.Value);
                     Filter(
-                        T_OKR_APP_GCI_003,
+                        T_OKR_APP_GCI_003;
                         StartsWith(
-                            nombreKR,
+                            nombreKR;
                             filterTitle.Value
                         )
-                    ),
+                    );
                     Filter(
-                        T_OKR_APP_GCI_003,
+                        T_OKR_APP_GCI_003;
                         StartsWith(
-                            nombreKR,
+                            nombreKR;
                             filterTitle.Value
-                        ),
+                        );
                         usuarioAprobador.DisplayName = filterLider.Selected.Value
                     )
-                ),
+                );
                 If(
-                    IsBlank(filterLider.Selected.Value),
+                    IsBlank(filterLider.Selected.Value);
                     Filter(
-                        T_OKR_APP_GCI_003,
+                        T_OKR_APP_GCI_003;
                         ID in ForAll(
                             Filter(
-                                T_REG_STS_KR_APP_GCI_003,
+                                T_REG_STS_KR_APP_GCI_003;
                                 nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
-                            ),
+                            );
                             nombreKRAsociado.Id
-                        ),
+                        );
                         StartsWith(
-                            nombreKR,
+                            nombreKR;
                             filterTitle.Value
                         )
-                    ),
+                    );
                     Filter(
-                        T_OKR_APP_GCI_003,
+                        T_OKR_APP_GCI_003;
                         ID in ForAll(
                             Filter(
-                                T_REG_STS_KR_APP_GCI_003,
+                                T_REG_STS_KR_APP_GCI_003;
                                 nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
-                            ),
+                            );
                             nombreKRAsociado.Id
-                        ),
+                        );
                         StartsWith(
-                            nombreKR,
+                            nombreKR;
                             filterTitle.Value
-                        ),
+                        );
                         usuarioAprobador.DisplayName = filterLider.Selected.Value
                     )
                 )
             )
+            */
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =212
@@ -239,12 +260,12 @@
 
         TextCanvas2 As Texto:
             DisplayMode: =DisplayMode.Edit
-            Height: =39
+            Height: =34
             Text: =ThisItem.objetivoKR
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-            Width: =300
+            Width: =348
             X: =10
-            Y: =159
+            Y: =131
             ZIndex: =3
 
         TextCanvas2_2 As Texto:
@@ -254,7 +275,7 @@
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
             Width: =348
             X: =10
-            Y: =80
+            Y: =66
             ZIndex: =5
 
         Gallery3 As gallery.galleryVertical:
@@ -392,7 +413,7 @@
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =222
             X: =10
-            Y: =61
+            Y: =47
             ZIndex: =8
 
         TextCanvas4_2 As Texto:
@@ -404,7 +425,7 @@
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =222
             X: =10
-            Y: =140
+            Y: =112
             ZIndex: =9
 
         TextCanvas4_3 As Texto:
@@ -522,9 +543,10 @@
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
                 Height: =Self.Width
-                Image: |-
-                    =If(
+                Image: |
+                    =IfError(
                         UsuariosdeOffice365.UserPhotoMetadata(ThisItem.Email).HasPhoto,
+                        false,
                         UsuariosdeOffice365.UserPhotoV2(ThisItem.Email)
                     )
                 OnSelect: =Select(Parent)
@@ -753,7 +775,7 @@
 
         TextCanvas2_12 As Texto:
             DisplayMode: =DisplayMode.Edit
-            Height: =48
+            Height: =36
             Text: =ThisItem.nombreKR
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
             Weight: ='TextCanvas.Weight'.Semibold
@@ -967,26 +989,13 @@
             Y: =68
             ZIndex: =44
 
-    filterEstado As Desplegable.pcfdataset:
-        AccessibleLabel: ="Estado"
-        Appearance: ='DropdownCanvas.Appearance'.FilledDarker
-        BasePaletteColor: =RGBA(141, 229, 250, 1)
-        BorderStyle: =BorderStyle.Solid
-        BorderThickness: =1
-        DefaultSelectedItems: =["todos"]
-        DisplayMode: =DisplayMode.Edit
-        FontSize: =14
-        Height: =35
-        Items: =["todos", "sin aprobación", "programado", "en curso", "finalizado"]
-        Required: =true
-        Width: =178
-        X: =313
-        Y: =127
-        ZIndex: =8
-
     "filterLider As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =
-        DefaultSelectedItems: =[User().FullName]
+        DefaultSelectedItems: |-
+            =If(
+                User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
+                [User().FullName]
+            )
         DisplayMode: =DisplayMode.Edit
         Height: =35
         InputTextPlaceholder: ="Seleccionar Lider"
@@ -1031,9 +1040,9 @@
         IconStyle: ='ButtonCanvas.IconStyle'.Filled
         Layout: ='ButtonCanvas.Layout'.IconBefore
         OnSelect: =Navigate(Registrar_Kr)
-        Text: ="Agregar"
-        Width: =100
-        X: =1096
+        Text: ="Agregar KR"
+        Width: =130
+        X: =1066
         Y: =128
         ZIndex: =11
 
@@ -2993,9 +3002,9 @@
                     Y: =DataCardKey42.Y
                     ZIndex: =4
 
-    "filterLider_1 As 'Cuadro combinado'.pcfdataset":
+    "filterTrimestre As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =
-        DefaultSelectedItems: =[""]
+        DefaultSelectedItems: =
         DisplayMode: =DisplayMode.Edit
         Height: =35
         InputTextPlaceholder: ="Trimestre"
@@ -3008,6 +3017,52 @@
         ZIndex: =16
 
         Value2_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
+    "filterEstado As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |
+            =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Estado"
+        Items: =["sin aprobación","programado","en curso","finalizado"]
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =178
+        X: =313
+        Y: =127
+        ZIndex: =17
+
+        Value2_2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
+    "filterAnio As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |
+            =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Año"
+        Items: =Distinct(Filter(T_OKR_APP_GCI_003,!IsBlank(fechaProgramadainicio)),Year(fechaProgramadainicio))
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =110
+        X: =866
+        Y: =127
+        ZIndex: =18
+
+        Value2_3 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
             FieldDisplayName: ="Value"
             FieldName: ="Value"
             FieldType: ="s"
