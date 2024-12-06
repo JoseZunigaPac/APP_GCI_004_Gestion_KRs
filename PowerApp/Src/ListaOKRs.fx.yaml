@@ -1005,7 +1005,7 @@
         Width: =228
         X: =503
         Y: =127
-        ZIndex: =9
+        ZIndex: =8
 
         Value2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
             FieldDisplayName: ="Value"
@@ -1026,7 +1026,30 @@
         Width: =242
         X: =59
         Y: =127
+        ZIndex: =9
+
+    "filterEstado As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |
+            =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Estado"
+        Items: =["sin aprobación","programado","en curso","finalizado"]
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =178
+        X: =313
+        Y: =127
         ZIndex: =10
+
+        Value2_2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
 
     btnAgregarKr As Botón:
         Appearance: ='ButtonCanvas.Appearance'.Subtle
@@ -1067,6 +1090,51 @@
         Y: =128
         ZIndex: =12
 
+    "filterTrimestre As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Trimestre"
+        Items: =["Q1","Q2","Q3","Q4"]
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =110
+        X: =743
+        Y: =127
+        ZIndex: =13
+
+        Value2_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
+    "filterAnio As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |
+            =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Año"
+        Items: =Distinct(Filter(T_OKR_APP_GCI_003,!IsBlank(fechaProgramadainicio)),Year(fechaProgramadainicio))
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =110
+        X: =866
+        Y: =127
+        ZIndex: =14
+
+        Value2_3 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
     Popup As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =668
@@ -1077,7 +1145,7 @@
         Visible: =pouplista
         Width: =1366
         Y: =100
-        ZIndex: =13
+        ZIndex: =15
 
         HtmlText2 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1710,7 +1778,7 @@
         Visible: =pouplista_2
         Width: =1366
         Y: =100
-        ZIndex: =14
+        ZIndex: =16
 
         HtmlText2_3 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1822,7 +1890,13 @@
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Q"
                 Default: =ThisItem.Q
-                DisplayMode: =displayModeVar
+                DisplayMode: |-
+                    =Switch(
+                        Gallery2.Selected.estadoKRtext.Text,
+                        "sin aprobación", DisplayMode.Edit,
+                        "programado",DisplayMode.Edit,
+                        DisplayMode.View
+                    )
                 DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,Q)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =70
@@ -1848,9 +1922,25 @@
                 "DataCardValue43 As 'Cuadro combinado'.pcfdataset":
                     AccessibleLabel: =Parent.DisplayName
                     BasePaletteColor: =RGBA(8, 222, 8, 1)
+                    BorderColor: |-
+                        =
+                        If(
+                            IsBlank(Self.Selected.Value) && Gallery2.Selected.estadoKRtext.Text in ["sin aprobación","programado"],
+                            Color.Red
+                        )
+                    BorderThickness: |-
+                        =If(
+                            IsBlank(Self.Selected.Value) && Gallery2.Selected.estadoKRtext.Text in ["sin aprobación","programado"],
+                            2,
+                            0
+                        )
                     DefaultSelectedItems: =[Parent.Default]
                     DisplayMode: =Parent.DisplayMode
-                    Fill: =RGBA(255, 255, 255, 1)
+                    Fill: |-
+                        =If(
+                            IsBlank(Self.Selected.Value) && Gallery2.Selected.estadoKRtext.Text in ["sin aprobación","programado"],
+                            Color.LightGoldenRodYellow
+                        )
                     Height: =32
                     Items: =Choices([@T_OKR_APP_GCI_003].Q)
                     OnChange: |-
@@ -1866,6 +1956,7 @@
                             Set(fecFinProgramado,Date(Year(Today()),12,31))
                         )
                     Required: =Parent.Required
+                    TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Keypress
                     ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
                     Width: =Parent.Width - 48
                     X: =24
@@ -2175,7 +2266,12 @@
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="alcanzadoPeriodo"
                 Default: =ThisItem.alcanzadoPeriodo
-                DisplayMode: =Parent.DisplayMode
+                DisplayMode: |-
+                    =Switch(
+                        Gallery2.Selected.estadoKRtext.Text,
+                        "en curso", DisplayMode.Edit,
+                        DisplayMode.View
+                    )
                 DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
                 Fill: =RGBA(0, 0, 0, 0)
                 Height: =70
@@ -2202,11 +2298,71 @@
                 "DataCardValue22_1 As 'Entrada de texto'":
                     AccessibleLabel: =Parent.DisplayName
                     BasePaletteColor: =RGBA(8, 222, 8, 1)
+                    BorderColor: |-
+                        =If(
+                            !IsBlank(Self.Value),
+                            If(
+                                DataCardValue15_1.Selected.Value = "Hito" && IsMatch(
+                                    Self.Value,
+                                    "^[01]$"
+                                ),
+                                Color.GreenYellow,
+                                If(
+                                    DataCardValue15_1.Selected.Value = "Porcentaje" && IsNumeric(Self.Value) && Value(Self.Value) >= 0 && Value(Self.Value) <= 100,
+                                    Color.GreenYellow,
+                                    If(
+                                        DataCardValue15_1.Selected.Value = "Cantidad" && IsNumeric(Self.Value) && Value(Self.Value) >= 0,
+                                        Color.GreenYellow,
+                                        If(
+                                            DataCardValue15_1.Selected.Value = "Horas" && IsNumeric(Self.Value) && Value(Self.Value) >= 0,
+                                            Color.GreenYellow,
+                                            If(
+                                                DataCardValue15_1.Selected.Value = "Días" && IsNumeric(Self.Value) && Value(Self.Value) >= 0,
+                                                Color.GreenYellow,
+                                                Color.Red
+                                            )
+                                        )
+                                    )
+                                )
+                            ),
+                            Color.Red
+                        )
+                    BorderThickness: |-
+                        =If(
+                            !IsBlank(Self.Value) && Gallery2.Selected.estadoKRtext.Text = "en curso",
+                            2,
+                            2
+                        )
                     DisplayMode: =Parent.DisplayMode
-                    Fill: =RGBA(255, 255, 255, 1)
+                    Fill: |-
+                        =If(
+                            IsBlank(Self.Value) && Gallery2.Selected.estadoKRtext.Text = "en curso",
+                            Color.LightGoldenRodYellow
+                        )
                     Height: =32
+                    OnChange: =false
+                    Placeholder: |-
+                        =Switch(
+                            DataCardValue15_1.Selected.Value,
+                            "Hito", "1 si se cumplió, 0 caso contrario",
+                            "Porcentaje", "Se admiten valores del 0 al 100",
+                            "Cantidad", "Ejemplo: 25",
+                            "Horas", "Ejemplo: 10",
+                            "Días", "Ejemplo: 13",
+                            "Ingrese un valor"
+                        )
                     Required: =Parent.Required
-                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
+                    ValidationState: |-
+                        =If(
+                            IsBlank(Parent.Error),
+                            If(DataCardValue15_1.Selected.Value = "Hito" && IsMatch(Self.Value, "^[01]$"), "Valid", "Invalid"),
+                            If(DataCardValue15_1.Selected.Value = "Porcentaje" && IsNumeric(Self.Value) && Value(Self.Value) >= 0 && Value(Self.Value) <= 100, "Valid", "Invalid"),
+                            If(DataCardValue15_1.Selected.Value = "Cantidad" && IsNumeric(Self.Value) && Value(Self.Value) >= 0, "Valid", "Invalid"),
+                            If(DataCardValue15_1.Selected.Value = "Horas" && IsNumeric(Self.Value) && Value(Self.Value) >= 0, "Valid", "Invalid"),
+                            If(DataCardValue15_1.Selected.Value = "Días" && IsNumeric(Self.Value) && Value(Self.Value) >= 0, "Valid", "Invalid"),
+                            "Error"
+                        )
                     Value: =Parent.Default
                     Width: =Parent.Width - 48
                     X: =24
@@ -2252,6 +2408,17 @@
             Color: =App.Theme.Colors.PrimaryForeground
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             DisabledColor: =RGBA(244, 244, 244, 1)
+            DisabledFill: =RGBA(214, 221, 224, 1)
+            DisplayMode: |-
+                =If(
+                    Gallery2.Selected.estadoKRtext.Text = "en curso" && DataCardValue22_1.ValidationState = "Valid",
+                    DisplayMode.Edit,
+                    If(
+                        Gallery2.Selected.estadoKRtext.Text = "sin aprobación" && !IsBlank(DataCardValue43.Selected.Value),
+                        DisplayMode.Edit,
+                        DisplayMode.Disabled
+                    )
+                )
             Fill: =RGBA(238, 44, 112, 1)
             Height: =44
             Icon: =Icon.Save
@@ -2462,7 +2629,7 @@
         Visible: =pouplista_3
         Width: =1366
         Y: =100
-        ZIndex: =15
+        ZIndex: =17
 
         HtmlText2_5 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -3001,72 +3168,4 @@
                     Wrap: =false
                     Y: =DataCardKey42.Y
                     ZIndex: =4
-
-    "filterTrimestre As 'Cuadro combinado'.pcfdataset":
-        BasePaletteColor: =
-        DefaultSelectedItems: =
-        DisplayMode: =DisplayMode.Edit
-        Height: =35
-        InputTextPlaceholder: ="Trimestre"
-        Items: =["Q1","Q2","Q3","Q4"]
-        SelectMultiple: =false
-        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-        Width: =110
-        X: =743
-        Y: =127
-        ZIndex: =16
-
-        Value2_1 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-            FieldDisplayName: ="Value"
-            FieldName: ="Value"
-            FieldType: ="s"
-            FieldVariantName: ="textualColumn"
-            Order: =1
-            ZIndex: =36
-
-    "filterEstado As 'Cuadro combinado'.pcfdataset":
-        BasePaletteColor: =
-        DefaultSelectedItems: |
-            =
-        DisplayMode: =DisplayMode.Edit
-        Height: =35
-        InputTextPlaceholder: ="Estado"
-        Items: =["sin aprobación","programado","en curso","finalizado"]
-        SelectMultiple: =false
-        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-        Width: =178
-        X: =313
-        Y: =127
-        ZIndex: =17
-
-        Value2_2 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-            FieldDisplayName: ="Value"
-            FieldName: ="Value"
-            FieldType: ="s"
-            FieldVariantName: ="textualColumn"
-            Order: =1
-            ZIndex: =36
-
-    "filterAnio As 'Cuadro combinado'.pcfdataset":
-        BasePaletteColor: =
-        DefaultSelectedItems: |
-            =
-        DisplayMode: =DisplayMode.Edit
-        Height: =35
-        InputTextPlaceholder: ="Año"
-        Items: =Distinct(Filter(T_OKR_APP_GCI_003,!IsBlank(fechaProgramadainicio)),Year(fechaProgramadainicio))
-        SelectMultiple: =false
-        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-        Width: =110
-        X: =866
-        Y: =127
-        ZIndex: =18
-
-        Value2_3 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-            FieldDisplayName: ="Value"
-            FieldName: ="Value"
-            FieldType: ="s"
-            FieldVariantName: ="textualColumn"
-            Order: =1
-            ZIndex: =36
 
