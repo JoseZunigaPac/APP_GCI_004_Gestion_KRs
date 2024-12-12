@@ -127,7 +127,7 @@
     "Name": "PowerApps_CoreControls_ComboboxCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Cuadro combinado",
-    "Version": "0.0.47"
+    "Version": "0.0.48"
   },
   "datepicker": {
     "CustomGroupControlTemplateName": "",
@@ -369,7 +369,7 @@
     "Name": "PowerApps_CoreControls_DatePickerCanvas",
     "OverridableProperties": {},
     "TemplateDisplayName": "Selector de fecha",
-    "Version": "0.0.35"
+    "Version": "0.0.36"
   },
   "text": {
     "CustomGroupControlTemplateName": "",

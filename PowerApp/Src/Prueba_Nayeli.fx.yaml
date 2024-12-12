@@ -1,0 +1,14 @@
+Prueba_Nayeli As screen:
+    Fill: =Color.White
+    LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    TextCanvas5 As Texto:
+        DisplayMode: =DisplayMode.Edit
+        Height: =117
+        Size: =30
+        Text: ="Nombre del KR,código del KR,líder, estado del KR,responsable(como bolitas), botones"
+        Width: =743
+        X: =40
+        Y: =40
+        ZIndex: =1
+
