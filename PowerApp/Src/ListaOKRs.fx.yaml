@@ -162,62 +162,6 @@
                 If(!IsBlank(filterTrimestre.Selected.Value),Q.Value = filterTrimestre.Selected.Value,true),
                 If(!IsBlank(filterAnio.Selected.Value),Year(fechaProgramadainicio) = filterAnio.Selected.Value,true)
             )
-            
-            /*
-            If(
-                IsBlank(filterEstado.Selected.Value) || filterEstado.Selected.Value = "todos";
-                If(
-                    IsBlank(filterLider.Selected.Value);
-                    Filter(
-                        T_OKR_APP_GCI_003;
-                        StartsWith(
-                            nombreKR;
-                            filterTitle.Value
-                        )
-                    );
-                    Filter(
-                        T_OKR_APP_GCI_003;
-                        StartsWith(
-                            nombreKR;
-                            filterTitle.Value
-                        );
-                        usuarioAprobador.DisplayName = filterLider.Selected.Value
-                    )
-                );
-                If(
-                    IsBlank(filterLider.Selected.Value);
-                    Filter(
-                        T_OKR_APP_GCI_003;
-                        ID in ForAll(
-                            Filter(
-                                T_REG_STS_KR_APP_GCI_003;
-                                nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
-                            );
-                            nombreKRAsociado.Id
-                        );
-                        StartsWith(
-                            nombreKR;
-                            filterTitle.Value
-                        )
-                    );
-                    Filter(
-                        T_OKR_APP_GCI_003;
-                        ID in ForAll(
-                            Filter(
-                                T_REG_STS_KR_APP_GCI_003;
-                                nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
-                            );
-                            nombreKRAsociado.Id
-                        );
-                        StartsWith(
-                            nombreKR;
-                            filterTitle.Value
-                        );
-                        usuarioAprobador.DisplayName = filterLider.Selected.Value
-                    )
-                )
-            )
-            */
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =212
@@ -231,7 +175,7 @@
             Font: =App.Theme.Font
             Height: =212
             HtmlText: |-
-                =$"<div style='border-radius: 5px;padding: 97px;margin: 0px;background-color: #f9f9f9;border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
+                =$"<div style='border-radius: 5px;padding: 100px;margin: 0px;background-color: #f9f9f9;border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
             OnSelect: =Select(Parent)
             PaddingBottom: =1
             PaddingLeft: =1
@@ -260,7 +204,9 @@
 
         TextCanvas2 As Texto:
             DisplayMode: =DisplayMode.Edit
+            Font: =Font.Arial
             Height: =34
+            Size: =13
             Text: =ThisItem.objetivoKR
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
             Width: =348
@@ -270,10 +216,12 @@
 
         TextCanvas2_2 As Texto:
             DisplayMode: =DisplayMode.Edit
+            Font: =Font.Arial
             Height: =40
+            Size: =13
             Text: =ThisItem.descripcionKR
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
-            Width: =348
+            Width: =392
             X: =10
             Y: =66
             ZIndex: =5
@@ -480,7 +428,7 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             Height: =22
-            Text: =Lower(ThisItem.usuarioAprobador.Department)
+            Text: =Proper(ThisItem.usuarioAprobador.Department)
             Width: =222
             X: =523
             Y: =37
@@ -491,7 +439,7 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             FontColor: =RGBA(0, 153, 204, 1)
-            Height: =19
+            Height: =20
             Text: ="Equipo"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =70
@@ -573,7 +521,7 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             FontColor: =RGBA(0, 153, 204, 1)
-            Height: =19
+            Height: =20
             Text: ="Lider"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =70
@@ -612,7 +560,7 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             FontColor: =RGBA(0, 153, 204, 1)
-            Height: =19
+            Height: =20
             Text: ="Período programado"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =153
@@ -775,6 +723,7 @@
 
         TextCanvas2_12 As Texto:
             DisplayMode: =DisplayMode.Edit
+            Font: =Font.Arial
             Height: =36
             Text: =ThisItem.nombreKR
             VerticalAlign: ='TextCanvas.VerticalAlign'.Top
@@ -803,7 +752,7 @@
                 =ColorValue("#f7f7f7")
             OnSelect: |-
                 =If(
-                    Self.Text = "finalizar" && verificarTareas.Text = "false",  
+                    Lower(Self.Text) = "finalizar" && verificarTareas.Text = "false",  
                     Notify(
                         "No puede finalizar el KR sin completar las tareas",
                         NotificationType.Error
@@ -811,7 +760,7 @@
                     Set(pouplista_2,true)
                 );
                 If(
-                    Self.Text = "aprobar" && ThisItem.unidadDeMedida.Value <> "Hito",
+                    Lower(Self.Text) = "aprobar" && ThisItem.unidadDeMedida.Value <> "Hito",
                     Set(displayModeVar,DisplayMode.Edit),
                     Set(displayModeVar,DisplayMode.View)
                 )
@@ -829,13 +778,13 @@
             Size: =10
             Text: |
                 =If(
-                    estadoKRtext.Text = "sin aprobación", 
+                    Lower(estadoKRtext.Text) = "sin aprobación", 
                     "aprobar",
                     If(
-                        estadoKRtext.Text   = "programado", 
+                        Lower(estadoKRtext.Text)   = "programado", 
                         "iniciar",
                         If(
-                            estadoKRtext.Text  = "en curso", 
+                            Lower(estadoKRtext.Text)  = "en curso", 
                             "finalizar",
                             ""
                         )
@@ -843,7 +792,7 @@
                 )
             Visible: |-
                 =If(
-                    estadoKRtext.Text = "finalizado",
+                    Lower(estadoKRtext.Text) = "finalizado",
                     false,
                     Boolean(visibleBotonPerUser.Text)
                 )
@@ -858,7 +807,7 @@
             DisplayMode: =DisplayMode.Edit
             Fill: |-
                 =Switch(
-                    estadoKRtext.Text,
+                    Lower(estadoKRtext.Text),
                     "sin aprobación", RGBA(255, 0, 0, 1), // Rojo
                     "programado", RGBA(255, 165, 0, 1),   // Naranja
                     "en curso", RGBA(54, 176, 75, 1),     // Verde
@@ -867,10 +816,11 @@
                 )
             Font: =Font.Arial
             FontColor: =RGBA(255, 255, 255, 1)
-            Height: =20
-            Text: =LookUp(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID && status.Value = "activo",nombreEstado)
+            Height: =22
+            Size: =14
+            Text: =LookUp(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID && status.Value = "activo",Proper(nombreEstado))
             Weight: ='TextCanvas.Weight'.Semibold
-            Width: =135
+            Width: =140
             X: =523
             Y: =9
             ZIndex: =37
@@ -970,7 +920,7 @@
             Height: =32
             Text: |-
                 =Or(
-                !IsBlank(
+                    !IsBlank(
                         LookUp(
                             T_TAREAS_APP_GCI_003,
                             nombreKRAsociado.Id = ThisItem.ID && User().Email in ShowColumns(responsableTarea,Email)
@@ -981,7 +931,8 @@
                             T_OKR_APP_GCI_003,
                             ID = ThisItem.ID && User().Email = usuarioAprobador.Email
                         )
-                    )
+                    ),
+                    Lower(User().Email) = "josezunigaa@pacifico.com.pe"
                 )
             Visible: =false
             Width: =96
@@ -1892,7 +1843,7 @@
                 Default: =ThisItem.Q
                 DisplayMode: |-
                     =Switch(
-                        Gallery2.Selected.estadoKRtext.Text,
+                        Lower(Gallery2.Selected.estadoKRtext.Text),
                         "sin aprobación", DisplayMode.Edit,
                         "programado",DisplayMode.Edit,
                         DisplayMode.View
@@ -2268,7 +2219,7 @@
                 Default: =ThisItem.alcanzadoPeriodo
                 DisplayMode: |-
                     =Switch(
-                        Gallery2.Selected.estadoKRtext.Text,
+                        Lower(Gallery2.Selected.estadoKRtext.Text),
                         "en curso", DisplayMode.Edit,
                         DisplayMode.View
                     )
@@ -2424,7 +2375,7 @@
             Icon: =Icon.Save
             OnSelect: |-
                 =Switch(
-                    estadoKRtext.Text,
+                    Lower(estadoKRtext.Text),
                 
                     "sin aprobación", 
                     // Cambio de estado: sin aprobación -> programado / en curso

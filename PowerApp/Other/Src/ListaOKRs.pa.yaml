@@ -1,0 +1,2641 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  ListaOKRs:
+    Properties:
+      LoadingSpinnerColor: =App.Theme.Colors.Primary
+    Children:
+      - Rectangle1_6:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(0, 153, 204, 1)
+            HoverFill: =ColorValue("#0099CC")
+            Width: =1366
+      - Image3_6:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =App.Theme.Colors.Darker40
+            Height: =70
+            Image: ='Logo-pacifico-blanco'
+            Width: =304
+            X: =125
+            Y: =15
+      - Button1_32:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =RGBA(238,40,122,1)
+            BorderStyle: |+
+              =BorderStyle.Solid
+
+            BorderThickness: =4
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(238,40,122,0.9)
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =Color.White
+            HoverFill: =ColorValue("#EE2C70")
+            OnSelect: =Navigate(ListaOKRs)
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            RadiusBottomLeft: =08
+            RadiusBottomRight: =08
+            RadiusTopLeft: =08
+            RadiusTopRight: =08
+            Text: ="GESTIONAR KR"
+            X: =505
+            Y: =30
+      - Button1_33:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =RGBA(238,40,122,1)
+            BorderStyle: |+
+              =BorderStyle.Solid
+
+            BorderThickness: =4
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(238,40,122,0.9)
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =Color.White
+            HoverFill: =ColorValue("#EE2C70")
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            RadiusBottomLeft: =08
+            RadiusBottomRight: =08
+            RadiusTopLeft: =08
+            RadiusTopRight: =08
+            Text: ="KANBAN"
+            X: =694
+            Y: =30
+      - Button1_37:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =RGBA(238,40,122,1)
+            BorderStyle: |+
+              =BorderStyle.Solid
+
+            BorderThickness: =4
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(238,40,122,0.9)
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =Color.White
+            HoverFill: =ColorValue("#EE2C70")
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            RadiusBottomLeft: =08
+            RadiusBottomRight: =08
+            RadiusTopLeft: =08
+            RadiusTopRight: =08
+            Text: ="ROADMAP"
+            X: =883
+            Y: =30
+      - Button1_38:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =RGBA(238,40,122,1)
+            BorderStyle: |+
+              =BorderStyle.Solid
+
+            BorderThickness: =4
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(238,40,122,0.9)
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =Color.White
+            HoverFill: =ColorValue("#EE2C70")
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            RadiusBottomLeft: =08
+            RadiusBottomRight: =08
+            RadiusTopLeft: =08
+            RadiusTopRight: =08
+            Text: ="POWER BI"
+            X: =1081
+            Y: =30
+      - Gallery2:
+          Control: Gallery@2.15.0
+          Variant: Vertical
+          Properties:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =576
+            Items: |-
+              =Filter(
+                  T_OKR_APP_GCI_003,
+                  If(!IsBlank(filterTitle.Value),StartsWith(nombreKR,filterTitle.Value),true),
+                  If(!IsBlank(filterEstado.Selected.Value) && filterEstado.Selected.Value <> "todos",
+                      ID in ForAll(
+                              Filter(
+                                  T_REG_STS_KR_APP_GCI_003,
+                                  nombreEstado = filterEstado.Selected.Value && status.Value = "activo"
+                              ),
+                              nombreKRAsociado.Id
+                          ), true
+                  ),
+                  If(!IsBlank(filterLider.Selected.Value),
+                      usuarioAprobador.DisplayName = filterLider.Selected.Value, true
+                  ),
+                  If(!IsBlank(filterTrimestre.Selected.Value),Q.Value = filterTrimestre.Selected.Value,true),
+                  If(!IsBlank(filterAnio.Selected.Value),Year(fechaProgramadainicio) = filterAnio.Selected.Value,true)
+              )
+            TemplateSize: =212
+            Width: =1270
+            X: =53
+            Y: =166
+          Children:
+            - HtmlText1:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =212
+                  HtmlText: |-
+                    =$"<div style='border-radius: 5px;padding: 100px;margin: 0px;background-color: #f9f9f9;border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =1
+                  PaddingLeft: =1
+                  PaddingRight: =1
+                  PaddingTop: =1
+                  Width: =1252
+            - HtmlText1_1:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =140
+                  HtmlText: |-
+                    =$"<div style='border-radius: 5px;padding: 68px;margin: 0px;background-color: #EEEFED;'></div>"
+                  OnSelect: =Select(Parent)
+                  PaddingBottom: =1
+                  PaddingLeft: =1
+                  PaddingRight: =1
+                  PaddingTop: =1
+                  Width: =454
+                  X: =787
+                  Y: =51
+            - TextCanvas2:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  Height: =34
+                  Size: =13
+                  Text: =ThisItem.objetivoKR
+                  VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                  Width: =348
+                  X: =10
+                  Y: =131
+            - TextCanvas2_2:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  Height: =40
+                  Size: =13
+                  Text: =ThisItem.descripcionKR
+                  VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                  Width: =392
+                  X: =10
+                  Y: =66
+            - Gallery3:
+                Control: Gallery@2.15.0
+                Variant: Vertical
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Height: =137
+                  Items: |
+                    =Filter(T_TAREAS_APP_GCI_003, nombreKRAsociado.Id = ThisItem.ID)
+                  TemplateSize: =22
+                  Width: =454
+                  X: =787
+                  Y: =54
+                Children:
+                  - TextCanvas3_1:
+                      Control: Text@0.0.43
+                      Properties:
+                        Height: =20
+                        Text: ="• "
+                        Width: =300
+                        X: =7
+                        Y: =1
+                  - CheckboxCanvas1:
+                      Control: CheckBox@0.0.26
+                      Properties:
+                        Checked: =If(ThisItem.finalizado = true ,true,false)
+                        DisplayMode: |-
+                          =If(
+                              Boolean(visibleBotonPerUser.Text),
+                              DisplayMode.Edit,
+                              DisplayMode.Disabled
+                          )
+                        Height: =20
+                        Label: =""
+                        OnCheck: |-
+                          =Patch(
+                              T_TAREAS_APP_GCI_003,
+                              LookUp(T_TAREAS_APP_GCI_003,ID = Gallery3.Selected.ID),
+                              {
+                                  finalizado: true
+                              }
+                          )
+                        Width: =44
+                        X: =400
+                        Y: =1
+                  - nombreTarea:
+                      Control: TextInput@0.0.49
+                      Properties:
+                        DisplayMode: =mode
+                        FontColor: =RGBA(0, 0, 0, 1)
+                        FontSize: =12
+                        FontWeight: =FontWeight.Normal
+                        Height: =20
+                        OnChange: |-
+                          =Patch(
+                              T_TAREAS_APP_GCI_003,
+                              LookUp(T_TAREAS_APP_GCI_003,ID = ThisItem.ID),
+                              {
+                                  nombreTareas: Self.Value
+                              }
+                          )
+                        PaddingBottom: =8
+                        PaddingLeft: =0
+                        PaddingTop: =0
+                        Placeholder: =ThisItem.nombreTareas
+                        Value: =ThisItem.nombreTareas
+                        X: =15
+                  - ButtonCanvas2:
+                      Control: Button@0.0.43
+                      Properties:
+                        Appearance: ='ButtonCanvas.Appearance'.Outline
+                        FontSize: =14
+                        Height: =22
+                        Icon: |-
+                          =If(
+                              nombreTarea.DisplayMode = DisplayMode.Edit,
+                              "Save",
+                              "Edit"
+                          )
+                        IconStyle: ='ButtonCanvas.IconStyle'.Filled
+                        Layout: ='ButtonCanvas.Layout'.IconOnly
+                        OnSelect: |-
+                          =If(
+                              nombreTarea.DisplayMode = DisplayMode.Edit,
+                              UpdateContext({mode: DisplayMode.View}),
+                              UpdateContext({mode: DisplayMode.Edit})
+                          )
+                        PaddingBottom: =5
+                        PaddingLeft: =5
+                        PaddingRight: =5
+                        PaddingTop: =5
+                        Visible: |-
+                          =If(
+                              estadoKRtext.Text = "finalizado",
+                              false,
+                              Boolean(visibleBotonPerUser.Text)
+                          )
+                        Width: =25
+                        X: =345
+            - TextCanvas4:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  BorderRadius: =10
+                  Fill: |
+                    =RGBA(0, 153, 204, 1)
+                  Font: =Font.Arial
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Height: =27
+                  PaddingLeft: =4
+                  PaddingTop: =3
+                  Text: =ThisItem.codigoKR
+                  VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =85
+                  X: =10
+                  Y: =11
+            - TextCanvas4_1:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =19
+                  Text: ="Descripción"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =222
+                  X: =10
+                  Y: =47
+            - TextCanvas4_2:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =19
+                  Text: ="Objetivo"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =222
+                  X: =10
+                  Y: =112
+            - TextCanvas4_3:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =19
+                  Text: ="Cumplimiento"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =110
+                  X: =402
+                  Y: =143
+            - TextCanvas2_3:
+                Control: Text@0.0.43
+                Properties:
+                  Height: =19
+                  Text: |
+                    ="0%"
+                  Width: =28
+                  X: =523
+                  Y: =143
+            - TextCanvas4_4:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =19
+                  Text: ="Lista de tareas"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =150
+                  X: =799
+                  Y: =32
+            - TextCanvas4_5:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =19
+                  Text: ="Marcar finalizado"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =127
+                  X: =1114
+                  Y: =32
+            - TextCanvas2_4:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  Height: =22
+                  Text: =Proper(ThisItem.usuarioAprobador.Department)
+                  Width: =222
+                  X: =523
+                  Y: =37
+            - TextCanvas4_6:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =20
+                  Text: ="Equipo"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =70
+                  X: =442
+                  Y: =39
+            - Gallery6:
+                Control: Gallery@2.15.0
+                Variant: Horizontal
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Height: =31
+                  Items: =ThisItem.usuarioAprobador
+                  TemplatePadding: =0
+                  TemplateSize: =30
+                  Width: =50
+                  X: =523
+                  Y: =66
+                Children:
+                  - Container2:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        BorderColor: =RGBA(52, 152, 47, 1)
+                        DropShadow: =DropShadow.None
+                        Fill: =RGBA(62, 128, 149, 1)
+                        Height: =Self.Width
+                        RadiusBottomLeft: =30
+                        RadiusBottomRight: =30
+                        RadiusTopLeft: =30
+                        RadiusTopRight: =30
+                        Width: =30
+                      Children:
+                        - TextCanvas6:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Font: =Font.Arial
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =30
+                              Size: =11
+                              Text: =Left(First(Split(ThisItem.DisplayName, " ")).Value,1) & Left(Last(FirstN(Split(ThisItem.DisplayName, " "), CountRows(Split(ThisItem.DisplayName, " ")) - 1)).Value,1)
+                              Weight: ='TextCanvas.Weight'.Bold
+                              Width: =30
+                  - Image1:
+                      Control: Image@2.2.3
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        Height: =Self.Width
+                        Image: |
+                          =IfError(
+                              UsuariosdeOffice365.UserPhotoMetadata(ThisItem.Email).HasPhoto,
+                              false,
+                              UsuariosdeOffice365.UserPhotoV2(ThisItem.Email)
+                          )
+                        OnSelect: =Select(Parent)
+                        RadiusBottomLeft: =30
+                        RadiusBottomRight: =30
+                        RadiusTopLeft: =30
+                        RadiusTopRight: =30
+                        Width: =30
+            - TextCanvas2_5:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  Height: =20
+                  Size: =13
+                  Text: =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
+                  Width: =195
+                  X: =558
+                  Y: =71
+            - TextCanvas4_7:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =20
+                  Text: ="Lider"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =70
+                  X: =442
+                  Y: =70
+            - TextCanvas4_8:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =19
+                  Text: ="Estado"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =70
+                  X: =442
+                  Y: =11
+            - TextCanvas4_9:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =20
+                  Text: ="Línea base"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =110
+                  X: =402
+                  Y: =97
+            - TextCanvas4_10:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =20
+                  Text: ="Período programado"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =153
+                  X: =358
+                  Y: =165
+            - fecini:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  Height: =19
+                  Size: =12
+                  Text: =Text(ThisItem.fechaProgramadainicio,"dd/mm/yyyy")
+                  VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
+                  Width: =70
+                  X: =525
+                  Y: =165
+            - fecfin:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  Height: =19
+                  Size: =12
+                  Text: =Text(ThisItem.fechaProgramadaFin,"dd/mm/yyyy")
+                  VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
+                  Width: =70
+                  X: =619
+                  Y: =165
+            - TextCanvas4_11:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =20
+                  Text: ="Und. medida"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =93
+                  X: =591
+                  Y: =97
+            - Progress1_1:
+                Control: Progress@1.1.31
+                Properties:
+                  AccessibleLabel: =Self.Value
+                  BasePaletteColor: =RGBA(249, 83, 109, 1)
+                  Height: =19
+                  Indeterminate: |-
+                    =If(
+                        Round(
+                            Min(
+                                ThisItem.alcanzadoPeriodo - ThisItem.lineaBase,
+                                100
+                            )/
+                            Max(
+                                ThisItem.metaPeriodo - ThisItem.lineaBase,
+                                1
+                            )*100,
+                            2
+                        ) > 0,
+                        false,
+                        true
+                    )
+                  ProgressColor: ='Progress.ProgressColor'.Success
+                  Shape: ='Progress.Shape'.Rounded
+                  Thickness: ='Progress.Thickness'.Large
+                  Value: |-
+                    =Round(
+                        Min(
+                            ThisItem.alcanzadoPeriodo - ThisItem.lineaBase,
+                            100
+                        )/
+                        Max(
+                            ThisItem.metaPeriodo - ThisItem.lineaBase,
+                            1
+                        )*100,
+                        2
+                    )
+                  Width: =125
+                  X: =553
+                  Y: =143
+            - TextCanvas2_6:
+                Control: Text@0.0.43
+                Properties:
+                  Height: =19
+                  Text: |
+                    ="100% (" & Round(
+                            Min(
+                                ThisItem.alcanzadoPeriodo - ThisItem.lineaBase,
+                                100
+                            )/
+                            Max(
+                                ThisItem.metaPeriodo - ThisItem.lineaBase,
+                                1
+                            )*100,
+                            2
+                        )
+                    & "%)"
+                  Width: =100
+                  X: =680
+                  Y: =143
+            - TextCanvas2_7:
+                Control: Text@0.0.43
+                Properties:
+                  Height: =19
+                  Text: |
+                    =ThisItem.lineaBase
+                  Width: =70
+                  X: =523
+                  Y: =97
+            - TextCanvas2_8:
+                Control: Text@0.0.43
+                Properties:
+                  Height: =19
+                  Text: |
+                    =ThisItem.unidadDeMedida.Value
+                  Width: =70
+                  X: =693
+                  Y: =96
+            - TextCanvas4_12:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.End
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =20
+                  Text: ="Meta"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =110
+                  X: =402
+                  Y: =120
+            - TextCanvas2_9:
+                Control: Text@0.0.43
+                Properties:
+                  Height: =19
+                  Text: |
+                    =ThisItem.metaPeriodo
+                  Width: =70
+                  X: =523
+                  Y: =120
+            - TextCanvas2_10:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  Height: =19
+                  Text: |
+                    ="-"
+                  Width: =28
+                  X: =588
+                  Y: =165
+            - TextCanvas2_12:
+                Control: Text@0.0.43
+                Properties:
+                  Font: =Font.Arial
+                  Height: =36
+                  Text: =ThisItem.nombreKR
+                  VerticalAlign: ='TextCanvas.VerticalAlign'.Top
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =336
+                  X: =105
+                  Y: =11
+            - btnCambiarEstado:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  BorderColor: =RGBA(238,40,122,1)
+                  BorderStyle: |+
+                    =BorderStyle.Solid
+
+                  BorderThickness: =1
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                  Fill: =RGBA(238,40,122,0.9)
+                  Font: =Font.Arial
+                  FontWeight: =FontWeight.Normal
+                  Height: =24
+                  HoverBorderColor: =RGBA(214, 221, 224, 1)
+                  HoverColor: =RGBA(0, 0, 0, 1)
+                  HoverFill: =ColorValue("#f7f7f7")
+                  OnSelect: |-
+                    =If(
+                        Lower(Self.Text) = "finalizar" && verificarTareas.Text = "false",  
+                        Notify(
+                            "No puede finalizar el KR sin completar las tareas",
+                            NotificationType.Error
+                        ),
+                        Set(pouplista_2,true)
+                    );
+                    If(
+                        Lower(Self.Text) = "aprobar" && ThisItem.unidadDeMedida.Value <> "Hito",
+                        Set(displayModeVar,DisplayMode.Edit),
+                        Set(displayModeVar,DisplayMode.View)
+                    )
+                  PaddingBottom: =2
+                  PaddingLeft: =2
+                  PaddingRight: =2
+                  PaddingTop: =2
+                  PressedBorderColor: =App.Theme.Colors.Darker40
+                  PressedColor: =Self.Color
+                  PressedFill: =App.Theme.Colors.Darker40
+                  RadiusBottomLeft: =4
+                  RadiusBottomRight: =4
+                  RadiusTopLeft: =4
+                  RadiusTopRight: =4
+                  Size: =10
+                  Text: |
+                    =If(
+                        Lower(estadoKRtext.Text) = "sin aprobación", 
+                        "aprobar",
+                        If(
+                            Lower(estadoKRtext.Text)   = "programado", 
+                            "iniciar",
+                            If(
+                                Lower(estadoKRtext.Text)  = "en curso", 
+                                "finalizar",
+                                ""
+                            )
+                        )
+                    )
+                  Visible: |-
+                    =If(
+                        Lower(estadoKRtext.Text) = "finalizado",
+                        false,
+                        Boolean(visibleBotonPerUser.Text)
+                    )
+                  Width: =82
+                  X: =789
+                  Y: =7
+            - estadoKRtext:
+                Control: Text@0.0.43
+                Properties:
+                  Align: ='TextCanvas.Align'.Center
+                  BorderRadius: =8
+                  Fill: |-
+                    =Switch(
+                        Lower(estadoKRtext.Text),
+                        "sin aprobación", RGBA(255, 0, 0, 1), // Rojo
+                        "programado", RGBA(255, 165, 0, 1),   // Naranja
+                        "en curso", RGBA(54, 176, 75, 1),     // Verde
+                        "finalizado", RGBA(0, 0, 255, 1),     // Azul
+                        RGBA(0, 0, 0, 0)                      // Color por defecto (Negro)
+                    )
+                  Font: =Font.Arial
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Height: =22
+                  Text: =LookUp(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID && status.Value = "activo",Proper(nombreEstado))
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =140
+                  X: =523
+                  Y: =9
+            - verificarTareas:
+                Control: Text@0.0.43
+                Properties:
+                  Height: =24
+                  Text: =CountRows(Filter(T_TAREAS_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID,finalizado = true)) = Gallery3.AllItemsCount
+                  Visible: =false
+                  Width: =56
+                  X: =1187
+                  Y: =6
+            - btnEditarKr:
+                Control: Button@0.0.43
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  FontSize: =14
+                  FontWeight: =FontWeight.Semibold
+                  Height: =25
+                  Icon: ="Edit"
+                  IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                  Layout: ='ButtonCanvas.Layout'.IconBefore
+                  OnSelect: =Set(pouplista,true)
+                  PaddingBottom: =2
+                  PaddingTop: =2
+                  Text: ="editar KR"
+                  Visible: |-
+                    =If(
+                        estadoKRtext.Text = "finalizado",
+                        false,
+                        Boolean(visibleBotonPerUser.Text)
+                    )
+                  Width: =110
+                  X: =880
+                  Y: =7
+            - btnAddTask:
+                Control: Button@0.0.43
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  FontSize: =14
+                  FontWeight: =FontWeight.Semibold
+                  Height: =25
+                  Icon: ="Add"
+                  IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                  Layout: ='ButtonCanvas.Layout'.IconBefore
+                  OnSelect: |-
+                    =Set(pouplista_3,true);
+                    NewForm(Form3)
+                  PaddingBottom: =2
+                  PaddingTop: =2
+                  Text: ="crear tarea"
+                  Visible: |-
+                    =If(
+                        estadoKRtext.Text = "finalizado",
+                        false,
+                        Boolean(visibleBotonPerUser.Text)
+                    )
+                  Width: =115
+                  X: =998
+                  Y: =7
+            - btnAddTask_1:
+                Control: Button@0.0.43
+                Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  FontSize: =14
+                  FontWeight: =FontWeight.Semibold
+                  Height: =25
+                  Icon: ="Edit"
+                  IconStyle: ='ButtonCanvas.IconStyle'.Outline
+                  Layout: ='ButtonCanvas.Layout'.IconBefore
+                  PaddingBottom: =2
+                  PaddingTop: =2
+                  Text: ="editar tarea"
+                  Visible: |-
+                    =If(
+                        estadoKRtext.Text = "finalizado",
+                        false,
+                        Boolean(visibleBotonPerUser.Text)
+                    )
+                  Width: =120
+                  X: =1122
+                  Y: =7
+            - visibleBotonPerUser:
+                Control: Text@0.0.43
+                Properties:
+                  Text: |-
+                    =Or(
+                        !IsBlank(
+                            LookUp(
+                                T_TAREAS_APP_GCI_003,
+                                nombreKRAsociado.Id = ThisItem.ID && User().Email in ShowColumns(responsableTarea,Email)
+                            )
+                        ),
+                        !IsBlank(
+                        LookUp(
+                                T_OKR_APP_GCI_003,
+                                ID = ThisItem.ID && User().Email = usuarioAprobador.Email
+                            )
+                        ),
+                        Lower(User().Email) = "josezunigaa@pacifico.com.pe"
+                    )
+                  Visible: =false
+                  X: =269
+                  Y: =68
+      - filterLider:
+          Control: ComboBox@0.0.48
+          Properties:
+            DefaultSelectedItems: |-
+              =If(
+                  User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
+                  [User().FullName]
+              )
+            Height: =35
+            InputTextPlaceholder: ="Seleccionar Lider"
+            Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName)
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =228
+            X: =503
+            Y: =127
+          Children:
+            - Value2:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1
+      - filterTitle:
+          Control: TextInput@0.0.49
+          Properties:
+            BasePaletteColor: =RGBA(141, 229, 250, 1)
+            Height: =35
+            Placeholder: ="Buscar por nombre KR"
+            TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
+            Type: ='TextInputCanvas.Type'.Text
+            Width: =242
+            X: =59
+            Y: =127
+      - filterEstado:
+          Control: ComboBox@0.0.48
+          Properties:
+            DefaultSelectedItems: |
+              =
+            Height: =35
+            InputTextPlaceholder: ="Estado"
+            Items: =["sin aprobación","programado","en curso","finalizado"]
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =178
+            X: =313
+            Y: =127
+          Children:
+            - Value2_2:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1
+      - btnAgregarKr:
+          Control: Button@0.0.43
+          Properties:
+            Appearance: ='ButtonCanvas.Appearance'.Subtle
+            FontWeight: =FontWeight.Semibold
+            Icon: ="Add"
+            IconStyle: ='ButtonCanvas.IconStyle'.Filled
+            Layout: ='ButtonCanvas.Layout'.IconBefore
+            OnSelect: =Navigate(Registrar_Kr)
+            Text: ="Agregar KR"
+            Width: =130
+            X: =1066
+            Y: =128
+      - btnActualizarVista:
+          Control: Button@0.0.43
+          Properties:
+            Appearance: ='ButtonCanvas.Appearance'.Subtle
+            FontWeight: =FontWeight.Semibold
+            Icon: ="ArrowSync"
+            IconStyle: ='ButtonCanvas.IconStyle'.Filled
+            Layout: ='ButtonCanvas.Layout'.IconBefore
+            OnSelect: |-
+              =Refresh(T_OKR_APP_GCI_003);
+              Refresh(T_REG_STS_KR_APP_GCI_003);
+              Refresh(T_TAREAS_APP_GCI_003)
+            Text: ="Sincronizar"
+            Width: =110
+            X: =1205
+            Y: =128
+      - filterTrimestre:
+          Control: ComboBox@0.0.48
+          Properties:
+            Height: =35
+            InputTextPlaceholder: ="Trimestre"
+            Items: =["Q1","Q2","Q3","Q4"]
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =110
+            X: =743
+            Y: =127
+          Children:
+            - Value2_1:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1
+      - filterAnio:
+          Control: ComboBox@0.0.48
+          Properties:
+            DefaultSelectedItems: |
+              =
+            Height: =35
+            InputTextPlaceholder: ="Año"
+            Items: =Distinct(Filter(T_OKR_APP_GCI_003,!IsBlank(fechaProgramadainicio)),Year(fechaProgramadainicio))
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =110
+            X: =866
+            Y: =127
+          Children:
+            - Value2_3:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1
+      - Popup:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =668
+            Visible: =pouplista
+            Width: =1366
+            Y: =100
+          Children:
+            - HtmlText2:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =667
+                  HtmlText: |-
+                    =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
+                  Width: =1366
+            - HtmlText2_1:
+                Control: HtmlViewer@2.1.0
+                Group: Group1
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =482
+                  HtmlText: |-
+                    =$"<div style='border-radius: 10px;padding: 232px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
+                  Width: =957
+                  X: =198
+                  Y: =87
+            - Form1:
+                Control: Form@2.4.2
+                Layout: Vertical
+                Group: Group1
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  DataSource: =T_OKR_APP_GCI_003
+                  Height: =400
+                  Item: =Gallery2.Selected
+                  Width: =894
+                  X: =237
+                  Y: =145
+                Children:
+                  - lineaBase_DataCard2:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="lineaBase"
+                        Default: =ThisItem.lineaBase
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,lineaBase)
+                        MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, lineaBase)
+                        Required: =false
+                        Update: =DataCardValue24.Value
+                        Width: =298
+                        X: =1
+                        Y: =4
+                      Children:
+                        - DataCardKey28:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(214, 221, 224, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue24:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              Mode: ='TextInputCanvas.Mode'.SingleLine
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey28.Y + DataCardKey28.Height + 4
+                        - ErrorMessage28:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue24.Y + DataCardValue24.Height
+                        - StarVisible28:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey28.Y
+                  - nombreKR_DataCard2:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="Title"
+                        Default: =ThisItem.nombreKR
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,nombreKR)
+                        Height: =71
+                        MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, nombreKR)
+                        Required: =true
+                        Update: =DataCardValue4.Value
+                        Width: =894
+                        Y: =0
+                      Children:
+                        - DataCardKey8:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue4:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey8.Y + DataCardKey8.Height + 4
+                        - ErrorMessage8:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue4.Y + DataCardValue4.Height
+                        - StarVisible8:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey8.Y
+                  - descripcionKR_DataCard2:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="descripcionKR"
+                        Default: =ThisItem.descripcionKR
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,descripcionKR)
+                        Height: =94
+                        MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, descripcionKR)
+                        Required: =true
+                        Update: =DataCardValue5.Value
+                        Width: =894
+                        Y: =1
+                      Children:
+                        - DataCardKey9:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue5:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Height: =50
+                              Mode: ='TextInputCanvas.Mode'.Multiline
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey9.Y + DataCardKey9.Height + 4
+                        - ErrorMessage9:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue5.Y + DataCardValue5.Height
+                        - StarVisible9:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey9.Y
+                  - objetivoKR_DataCard2:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="objetivoKR"
+                        Default: =ThisItem.objetivoKR
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,objetivoKR)
+                        MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, objetivoKR)
+                        Required: =false
+                        Update: =DataCardValue14.Value
+                        Width: =894
+                        Y: =2
+                      Children:
+                        - DataCardKey10:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue14:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey10.Y + DataCardKey10.Height + 4
+                        - ErrorMessage10:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue14.Y + DataCardValue14.Height
+                        - StarVisible10:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey10.Y
+                  - alcanzadoPeriodo_DataCard2:
+                      Control: TypedDataCard@1.0.6
+                      Variant: NumberEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="alcanzadoPeriodo"
+                        Default: =ThisItem.alcanzadoPeriodo
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
+                        Required: =false
+                        Update: =Value(DataCardValue22.Value)
+                        Width: =298
+                        Y: =3
+                      Children:
+                        - DataCardKey26:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue22:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey26.Y + DataCardKey26.Height + 4
+                        - ErrorMessage26:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue22.Y + DataCardValue22.Height
+                        - StarVisible26:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey26.Y
+                  - observaciones_DataCard2:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="observaciones"
+                        Default: =ThisItem.observaciones
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,observaciones)
+                        MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, observaciones)
+                        Required: =false
+                        Update: =DataCardValue20.Value
+                        Width: =596
+                        X: =1
+                        Y: =3
+                      Children:
+                        - DataCardKey24:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue20:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey24.Y + DataCardKey24.Height + 4
+                        - ErrorMessage24:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue20.Y + DataCardValue20.Height
+                        - StarVisible24:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey24.Y
+                  - unidadDeMedida_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ComboBoxEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="unidadDeMedida"
+                        Default: =ThisItem.unidadDeMedida
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,unidadDeMedida)
+                        Required: =false
+                        Update: =DataCardValue15.Selected
+                        Width: =298
+                        Y: =4
+                      Children:
+                        - DataCardKey14:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(214, 221, 224, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue15:
+                            Control: ComboBox@0.0.48
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(141, 229, 250, 1)
+                              DefaultSelectedItems: =[Parent.Default]
+                              DisplayMode: =Parent.DisplayMode
+                              Items: =Choices([@T_OKR_APP_GCI_003].unidadDeMedida)
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey14.Y + DataCardKey14.Height + 4
+                        - ErrorMessage14:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue15.Y + DataCardValue15.Height
+                        - StarVisible14:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =20
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey14.Y
+                  - metaPeriodo_DataCard2:
+                      Control: TypedDataCard@1.0.6
+                      Variant: NumberEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="metaPeriodo"
+                        Default: =ThisItem.metaPeriodo
+                        DisplayMode: =DisplayMode.View
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,metaPeriodo)
+                        Required: =false
+                        Update: =Value(DataCardValue21.Value)
+                        Width: =298
+                        X: =2
+                        Y: =4
+                      Children:
+                        - DataCardKey25:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(214, 221, 224, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue21:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey25.Y + DataCardKey25.Height + 4
+                        - ErrorMessage25:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue21.Y + DataCardValue21.Height
+                        - StarVisible25:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey25.Y
+            - TextCanvas3:
+                Control: Text@0.0.43
+                Group: Group1
+                Properties:
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Size: =20
+                  Text: ="Editar información - " & Gallery2.Selected.codigoKR
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =322
+                  X: =247
+                  Y: =102
+            - Icon3:
+                Control: Classic/Icon@2.5.0
+                Group: Group1
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =43
+                  Icon: =Icon.Save
+                  OnSelect: |-
+                    =SubmitForm(Form1);
+                    Set(pouplista,false)
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1000
+                  Y: =102
+            - Icon3_1:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =43
+                  Icon: =Icon.Cancel
+                  OnSelect: =Set(pouplista,false)
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1072
+                  Y: =102
+      - Popup_1:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =668
+            Visible: =pouplista_2
+            Width: =1366
+            Y: =100
+          Children:
+            - HtmlText2_3:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =667
+                  HtmlText: |-
+                    =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
+                  Width: =1366
+            - HtmlText2_4:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =237
+                  HtmlText: |-
+                    =$"<div style='border-radius: 10px;padding: 110px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
+                  Width: =957
+                  X: =198
+                  Y: =87
+            - Form1_1:
+                Control: Form@2.4.2
+                Layout: Vertical
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  DataSource: =T_OKR_APP_GCI_003
+                  Height: =159
+                  Item: =Gallery2.Selected
+                  Width: =894
+                  X: =237
+                  Y: =145
+                Children:
+                  - lineaBase_DataCard2_1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="lineaBase"
+                        Default: =ThisItem.lineaBase
+                        DisplayMode: =displayModeVar
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,lineaBase)
+                        MaxLength: =DataSourceInfo([@T_OKR_APP_GCI_003], DataSourceInfo.MaxLength, lineaBase)
+                        Required: =false
+                        Update: =DataCardValue24_1.Value
+                        Width: =298
+                        X: =1
+                        Y: =0
+                      Children:
+                        - DataCardKey28_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue24_1:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: |-
+                                =If(
+                                    DataCardValue15_1.Selected.Value = "Hito",
+                                    DisplayMode.View,
+                                    Parent.DisplayMode
+                                )
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Mode: ='TextInputCanvas.Mode'.SingleLine
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey28_1.Y + DataCardKey28_1.Height + 4
+                        - ErrorMessage28_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue24_1.Y + DataCardValue24_1.Height
+                        - StarVisible28_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey28_1.Y
+                  - Q_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ComboBoxEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="Q"
+                        Default: =ThisItem.Q
+                        DisplayMode: |-
+                          =Switch(
+                              Lower(Gallery2.Selected.estadoKRtext.Text),
+                              "sin aprobación", DisplayMode.Edit,
+                              "programado",DisplayMode.Edit,
+                              DisplayMode.View
+                          )
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,Q)
+                        Required: =false
+                        Update: =DataCardValue43.Selected
+                        Width: =298
+                        X: =1
+                        Y: =1
+                      Children:
+                        - DataCardKey43:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Text: ="trimestre"
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue43:
+                            Control: ComboBox@0.0.48
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              BorderColor: |-
+                                =
+                                If(
+                                    IsBlank(Self.Selected.Value) && Gallery2.Selected.estadoKRtext.Text in ["sin aprobación","programado"],
+                                    Color.Red
+                                )
+                              BorderThickness: |-
+                                =If(
+                                    IsBlank(Self.Selected.Value) && Gallery2.Selected.estadoKRtext.Text in ["sin aprobación","programado"],
+                                    2,
+                                    0
+                                )
+                              DefaultSelectedItems: =[Parent.Default]
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: |-
+                                =If(
+                                    IsBlank(Self.Selected.Value) && Gallery2.Selected.estadoKRtext.Text in ["sin aprobación","programado"],
+                                    Color.LightGoldenRodYellow
+                                )
+                              Items: =Choices([@T_OKR_APP_GCI_003].Q)
+                              OnChange: |-
+                                =Switch(
+                                    Self.Selected.Value,
+                                    "Q1", Set(fecIniProgramado,Date(Year(Today()),1,1));
+                                          Set(fecFinProgramado,Date(Year(Today()),3,31)),
+                                    "Q2", Set(fecIniProgramado,Date(Year(Today()),4,1));
+                                          Set(fecFinProgramado,Date(Year(Today()),6,30)),
+                                    "Q3", Set(fecIniProgramado,Date(Year(Today()),7,1));
+                                          Set(fecFinProgramado,Date(Year(Today()),9,30)),
+                                    Set(fecIniProgramado,Date(Year(Today()),10,1));
+                                    Set(fecFinProgramado,Date(Year(Today()),12,31))
+                                )
+                              Required: =Parent.Required
+                              TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Keypress
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey43.Y + DataCardKey43.Height + 4
+                        - ErrorMessage43:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue43.Y + DataCardValue43.Height
+                        - StarVisible43:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =20
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey43.Y
+                  - fechaProgramadainicio_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: DateEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="fechaProgramadainicio"
+                        Default: =ThisItem.fechaProgramadainicio
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadainicio)
+                        Required: =false
+                        Update: =DataCardValue18.SelectedDate
+                        Visible: =false
+                        Width: =298
+                        X: =2
+                        Y: =1
+                      Children:
+                        - DataCardKey17:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue18:
+                            Control: DatePicker@0.0.36
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              EndDate: =Date(Year(Today())+100, 12, 31)
+                              SelectedDate: |-
+                                =If(
+                                    IsBlank(DataCardValue43.Selected.Value),
+                                    Parent.Default,
+                                    fecIniProgramado
+                                )
+                              StartDate: =Date(1900, 1, 1)
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey17.Y + DataCardKey17.Height + 4
+                        - ErrorMessage17:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue18.Y + DataCardValue18.Height
+                        - StarVisible17:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey17.Y
+                  - fechaProgramadaFin_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: DateEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="fechaProgramadaFin"
+                        Default: =ThisItem.fechaProgramadaFin
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadaFin)
+                        Required: =false
+                        Update: =DataCardValue19.SelectedDate
+                        Visible: =false
+                        Width: =298
+                        Y: =2
+                      Children:
+                        - DataCardKey23:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue19:
+                            Control: DatePicker@0.0.36
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              EndDate: =Date(Year(Today())+100, 12, 31)
+                              SelectedDate: |-
+                                =If(
+                                    IsBlank(DataCardValue43.Selected.Value),
+                                    Parent.Default,
+                                    fecFinProgramado
+                                )
+                              StartDate: =Date(1900, 1, 1)
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey23.Y + DataCardKey23.Height + 4
+                        - ErrorMessage23:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue19.Y + DataCardValue19.Height
+                        - StarVisible23:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey23.Y
+                  - unidadDeMedida_DataCard1_1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ComboBoxEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="unidadDeMedida"
+                        Default: =ThisItem.unidadDeMedida
+                        DisplayMode: =displayModeVar
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,unidadDeMedida)
+                        Required: =false
+                        Update: =DataCardValue15_1.Selected
+                        Width: =298
+                        Y: =0
+                      Children:
+                        - DataCardKey14_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue15_1:
+                            Control: ComboBox@0.0.48
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DefaultSelectedItems: =[Parent.Default]
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Items: =Choices([@T_OKR_APP_GCI_003].unidadDeMedida)
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey14_1.Y + DataCardKey14_1.Height + 4
+                        - ErrorMessage14_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue15_1.Y + DataCardValue15_1.Height
+                        - StarVisible14_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =20
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey14_1.Y
+                  - metaPeriodo_DataCard2_1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: NumberEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="metaPeriodo"
+                        Default: =ThisItem.metaPeriodo
+                        DisplayMode: =displayModeVar
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,metaPeriodo)
+                        Required: =false
+                        Update: =Value(DataCardValue21_1.Value)
+                        Width: =298
+                        X: =2
+                        Y: =0
+                      Children:
+                        - DataCardKey25_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue21_1:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              DisplayMode: |-
+                                =If(
+                                    DataCardValue15_1.Selected.Value = "Hito",
+                                    DisplayMode.View,
+                                    Parent.DisplayMode
+                                )
+                              Fill: =RGBA(255, 255, 255, 1)
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey25_1.Y + DataCardKey25_1.Height + 4
+                        - ErrorMessage25_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue21_1.Y + DataCardValue21_1.Height
+                        - StarVisible25_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey25_1.Y
+                  - alcanzadoPeriodo_DataCard2_1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: NumberEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="alcanzadoPeriodo"
+                        Default: =ThisItem.alcanzadoPeriodo
+                        DisplayMode: |-
+                          =Switch(
+                              Lower(Gallery2.Selected.estadoKRtext.Text),
+                              "en curso", DisplayMode.Edit,
+                              DisplayMode.View
+                          )
+                        DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
+                        Required: =false
+                        Update: =Value(DataCardValue22_1.Value)
+                        Width: =298
+                        Y: =1
+                      Children:
+                        - DataCardKey26_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =22
+                              Size: =16
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue22_1:
+                            Control: TextInput@0.0.49
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              BasePaletteColor: =RGBA(8, 222, 8, 1)
+                              BorderColor: |-
+                                =If(
+                                    !IsBlank(Self.Value),
+                                    If(
+                                        DataCardValue15_1.Selected.Value = "Hito" && IsMatch(
+                                            Self.Value,
+                                            "^[01]$"
+                                        ),
+                                        Color.GreenYellow,
+                                        If(
+                                            DataCardValue15_1.Selected.Value = "Porcentaje" && IsNumeric(Self.Value) && Value(Self.Value) >= 0 && Value(Self.Value) <= 100,
+                                            Color.GreenYellow,
+                                            If(
+                                                DataCardValue15_1.Selected.Value = "Cantidad" && IsNumeric(Self.Value) && Value(Self.Value) >= 0,
+                                                Color.GreenYellow,
+                                                If(
+                                                    DataCardValue15_1.Selected.Value = "Horas" && IsNumeric(Self.Value) && Value(Self.Value) >= 0,
+                                                    Color.GreenYellow,
+                                                    If(
+                                                        DataCardValue15_1.Selected.Value = "Días" && IsNumeric(Self.Value) && Value(Self.Value) >= 0,
+                                                        Color.GreenYellow,
+                                                        Color.Red
+                                                    )
+                                                )
+                                            )
+                                        )
+                                    ),
+                                    Color.Red
+                                )
+                              BorderThickness: |-
+                                =If(
+                                    !IsBlank(Self.Value) && Gallery2.Selected.estadoKRtext.Text = "en curso",
+                                    2,
+                                    2
+                                )
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: |-
+                                =If(
+                                    IsBlank(Self.Value) && Gallery2.Selected.estadoKRtext.Text = "en curso",
+                                    Color.LightGoldenRodYellow
+                                )
+                              Placeholder: |-
+                                =Switch(
+                                    DataCardValue15_1.Selected.Value,
+                                    "Hito", "1 si se cumplió, 0 caso contrario",
+                                    "Porcentaje", "Se admiten valores del 0 al 100",
+                                    "Cantidad", "Ejemplo: 25",
+                                    "Horas", "Ejemplo: 10",
+                                    "Días", "Ejemplo: 13",
+                                    "Ingrese un valor"
+                                )
+                              Required: =Parent.Required
+                              TriggerOutput: ='TextInputCanvas.TriggerOutput'.Keypress
+                              ValidationState: |-
+                                =If(
+                                    IsBlank(Parent.Error),
+                                    If(DataCardValue15_1.Selected.Value = "Hito" && IsMatch(Self.Value, "^[01]$"), "Valid", "Invalid"),
+                                    If(DataCardValue15_1.Selected.Value = "Porcentaje" && IsNumeric(Self.Value) && Value(Self.Value) >= 0 && Value(Self.Value) <= 100, "Valid", "Invalid"),
+                                    If(DataCardValue15_1.Selected.Value = "Cantidad" && IsNumeric(Self.Value) && Value(Self.Value) >= 0, "Valid", "Invalid"),
+                                    If(DataCardValue15_1.Selected.Value = "Horas" && IsNumeric(Self.Value) && Value(Self.Value) >= 0, "Valid", "Invalid"),
+                                    If(DataCardValue15_1.Selected.Value = "Días" && IsNumeric(Self.Value) && Value(Self.Value) >= 0, "Valid", "Invalid"),
+                                    "Error"
+                                )
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 4
+                        - ErrorMessage26_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue22_1.Y + DataCardValue22_1.Height
+                        - StarVisible26_1:
+                            Control: Text@0.0.43
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey26_1.Y
+            - TextCanvas3_2:
+                Control: Text@0.0.43
+                Properties:
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Size: =20
+                  Text: ="Completar información - " & Gallery2.Selected.codigoKR
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =400
+                  X: =247
+                  Y: =103
+            - Icon3_2:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  DisabledFill: =RGBA(214, 221, 224, 1)
+                  DisplayMode: |-
+                    =If(
+                        Gallery2.Selected.estadoKRtext.Text = "en curso" && DataCardValue22_1.ValidationState = "Valid",
+                        DisplayMode.Edit,
+                        If(
+                            Gallery2.Selected.estadoKRtext.Text = "sin aprobación" && !IsBlank(DataCardValue43.Selected.Value),
+                            DisplayMode.Edit,
+                            DisplayMode.Disabled
+                        )
+                    )
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =44
+                  Icon: =Icon.Save
+                  OnSelect: "=Switch(\n    Lower(estadoKRtext.Text),\n\n    \"sin aprobación\", \n    // Cambio de estado: sin aprobación -> programado / en curso\n    If(// Se verifica que ningun campo esté vacio\n        !IsBlank(DataCardValue21_1.Value) && !IsBlank(DataCardValue15_1.Selected.Value) && !IsBlank(DataCardValue24_1.Value) && !IsBlank(DataCardValue43.Selected.Value),\n\n        IfError(\n            If(\n                Value(Right(DataCardValue43.Selected.Value,1)) = RoundUp(Month(Now())/3,0),\n                Set(\n                    varEstadoKr,\n                    \"en curso\"\n                ),\n                If(\n                    Value(Right(DataCardValue43.Selected.Value,1)) > RoundUp(Month(Now())/3,0),\n                    Set(\n                        varEstadoKr,\n                        \"programado\"\n                    ),\n                    Error(\"Error forzado\")\n                )\n            ),\n            Notify(\n                \"No es posible programar en trimestres cerrados\",\n                NotificationType.Error\n            ),\n            Patch(// Se actualizan el Q y las fechas de inicio y fin del Q\n                T_OKR_APP_GCI_003,\n                LookUp(\n                    T_OKR_APP_GCI_003,\n                    ID = Gallery2.Selected.ID\n                ),\n                {\n                    fechaProgramadainicio: DataCardValue18.SelectedDate,\n                    fechaProgramadaFin: DataCardValue19.SelectedDate,\n                    Q: DataCardValue43.Selected,\n                    unidadDeMedida: DataCardValue15_1.Selected,\n                    lineaBase: DataCardValue24_1.Value,\n                    metaPeriodo: Value(DataCardValue21_1.Value)\n                }\n            );\n            Patch(// Se pone en inactivo el estado anterior\n                T_REG_STS_KR_APP_GCI_003,\n                LookUp(\n                    T_REG_STS_KR_APP_GCI_003,\n                    nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = \"activo\"\n                ),\n                {status: {Value: \"inactivo\"}}\n            );\n            Patch(// se agrega un nuevo estado\n                T_REG_STS_KR_APP_GCI_003,\n                Defaults(T_REG_STS_KR_APP_GCI_003),\n                {\n                    nombreEstado: varEstadoKr,\n                    nombreKRAsociado: {\n                        Id: Gallery2.Selected.ID,\n                        Value: Gallery2.Selected.nombreKR\n                    },\n                    status: {Value: \"activo\"}\n                }\n            );\n            Set(\n                pouplista_2,\n                false\n            )\n        ),\n        Notify(\n            \"Hay campos requeridos que faltan completar\",\n            NotificationType.Error\n        )\n    ),\n\n    \"programado\", \n    // Cambio de estado: programado -> en curso\n    If(// Se verifica que ningun campo esté vacio\n        !IsBlank(DataCardValue21_1.Value) && !IsBlank(DataCardValue15_1.Selected.Value) && !IsBlank(DataCardValue24_1.Value) && !IsBlank(DataCardValue43.Selected.Value),\n\n        Set(\n            varEstadoKr,\n            \"en curso\"\n        );\n        Patch(// Se pone en inactivo el estado anterior\n            T_REG_STS_KR_APP_GCI_003,\n            LookUp(\n                T_REG_STS_KR_APP_GCI_003,\n                nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = \"activo\"\n            ),\n            {status: {Value: \"inactivo\"}}\n        );\n        Patch(// se agrega un nuevo estado\n            T_REG_STS_KR_APP_GCI_003,\n            Defaults(T_REG_STS_KR_APP_GCI_003),\n            {\n                nombreEstado: varEstadoKr,\n                nombreKRAsociado: {\n                    Id: Gallery2.Selected.ID,\n                    Value: Gallery2.Selected.nombreKR\n                },\n                status: {Value: \"activo\"}\n            }\n        );\n        Set(\n            pouplista_2,\n            false\n        ),\n\n        Notify(\n            \"Hay campos requeridos que faltan completar\",\n            NotificationType.Error\n        )\n    ),\n    \n    \"en curso\", \n    // Cambio de estado: en curso -> finalizado\n    If(// Se verifica que ningun campo esté vacio\n        !IsBlank(DataCardValue21_1.Value) && !IsBlank(DataCardValue22_1.Value) && !IsBlank(DataCardValue15_1.Selected.Value) && !IsBlank(DataCardValue24_1.Value) && !IsBlank(DataCardValue43.Selected.Value),\n\n        Patch(// Se actualizan las fechas de inicio y fin del periodo así como el resultado del periodo\n            T_OKR_APP_GCI_003,\n            LookUp(\n                T_OKR_APP_GCI_003,\n                ID = Gallery2.Selected.ID\n            ),\n            {\n                alcanzadoPeriodo: Value(DataCardValue22_1.Value)\n            }\n        );\n        \n        Set(varEstadoKr,\"finalizado\");\n        \n        Patch(// Se pone en inactivo el estado anterior\n            T_REG_STS_KR_APP_GCI_003,\n            LookUp(\n                T_REG_STS_KR_APP_GCI_003,\n                nombreKRAsociado.Id = Gallery2.Selected.ID && status.Value = \"activo\"\n            ),\n            {status: {Value: \"inactivo\"}}\n        );\n        Patch(// se agrega un nuevo estado\n            T_REG_STS_KR_APP_GCI_003,\n            Defaults(T_REG_STS_KR_APP_GCI_003),\n            {\n                nombreEstado: varEstadoKr,\n                nombreKRAsociado: {\n                    Id: Gallery2.Selected.ID,\n                    Value: Gallery2.Selected.nombreKR\n                },\n                status: {Value: \"activo\"}\n            }\n        );\n        Set(\n            pouplista_2,\n            false\n        ),\n\n        Notify(\n            \"Por favor, completa todos los campos.\",\n            NotificationType.Error\n        )\n    ),\n    Notify(\n        \"No se reconoce el estado que intenta actualizar. Consulte con el desarrollador.\",\n        NotificationType.Error\n    )\n);\nRefresh(T_REG_STS_KR_APP_GCI_003);\nRefresh(T_OKR_APP_GCI_003)"
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1000
+                  Y: =103
+            - Icon3_3:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =43
+                  Icon: =Icon.Cancel
+                  OnSelect: =Set(pouplista_2,false)
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1072
+                  Y: =102
+      - Popup_2:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
+          Properties:
+            Height: =668
+            Visible: =pouplista_3
+            Width: =1366
+            Y: =100
+          Children:
+            - HtmlText2_5:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =667
+                  HtmlText: |-
+                    =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
+                  Width: =1366
+            - HtmlText2_6:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Font: =App.Theme.Font
+                  Height: =350
+                  HtmlText: |-
+                    =$"<div style='border-radius: 10px;padding: 155px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
+                  Width: =957
+                  X: =198
+                  Y: =87
+            - TextCanvas3_3:
+                Control: Text@0.0.43
+                Properties:
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Size: =20
+                  Text: ="Agregar tarea - " & Gallery2.Selected.codigoKR
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =400
+                  X: =247
+                  Y: =103
+            - Icon3_4:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =44
+                  Icon: =Icon.Save
+                  OnSelect: |-
+                    =SubmitForm(Form3);
+                    Set(pouplista_3,false)
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1000
+                  Y: =103
+            - Icon3_5:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =43
+                  Icon: =Icon.Cancel
+                  OnSelect: =Set(pouplista_3,false)
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1072
+                  Y: =102
+            - Form3:
+                Control: Form@2.4.2
+                Variant: Classic
+                Layout: Vertical
+                Properties:
+                  BorderColor: =App.Theme.Colors.Darker40
+                  DataSource: =T_TAREAS_APP_GCI_003
+                  DefaultMode: =FormMode.New
+                  Height: =292
+                  Width: =898
+                  X: =224
+                  Y: =130
+                Children:
+                  - nombreTareas_DataCard4:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ClassicTextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="Title"
+                        Default: =ThisItem.nombreTareas
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreTareas)
+                        MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, nombreTareas)
+                        Required: =true
+                        Update: =DataCardValue38.Text
+                        Width: =299
+                        Y: =0
+                      Children:
+                        - DataCardKey38:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Lighter80
+                              Font: =App.Theme.Font
+                              Height: =34
+                              Text: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              Wrap: =false
+                              X: =30
+                              Y: =10
+                        - DataCardValue38:
+                            Control: Classic/TextInput@2.3.2
+                            Properties:
+                              BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              Default: =Parent.Default
+                              DelayOutput: =true
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(247, 247, 247, 1)
+                              Font: =App.Theme.Font
+                              Height: =113
+                              HoverBorderColor: =App.Theme.Colors.Darker40
+                              HoverFill: =App.Theme.Colors.Lighter70
+                              MaxLength: =Parent.MaxLength
+                              Mode: =TextMode.MultiLine
+                              PaddingLeft: =5
+                              Tooltip: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardKey38.Y + DataCardKey38.Height + 5
+                        - ErrorMessage38:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =RGBA(168, 0, 0, 1)
+                              Font: =App.Theme.Font
+                              FontWeight: =FontWeight.Semibold
+                              Height: =10
+                              Live: =Live.Assertive
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =14
+                              Text: =Parent.Error
+                              Visible: =Parent.DisplayMode=DisplayMode.Edit
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardValue38.Y + DataCardValue38.Height
+                        - StarVisible38:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Darker30
+                              Font: =App.Theme.Font
+                              Height: =DataCardKey38.Height
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Wrap: =false
+                              Y: =DataCardKey38.Y
+                  - descripcionTarea_DataCard4:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ClassicTextualEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="descripcionTarea"
+                        Default: =ThisItem.descripcionTarea
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
+                        Height: =160
+                        MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, descripcionTarea)
+                        Required: =false
+                        Update: =DataCardValue40.Text
+                        Width: =598
+                        X: =1
+                        Y: =0
+                      Children:
+                        - DataCardKey40:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Lighter80
+                              Font: =App.Theme.Font
+                              Height: =34
+                              Text: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              Wrap: =false
+                              X: =30
+                              Y: =10
+                        - DataCardValue40:
+                            Control: Classic/TextInput@2.3.2
+                            Properties:
+                              BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              Default: =Parent.Default
+                              DelayOutput: =true
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(247, 247, 247, 1)
+                              Font: =App.Theme.Font
+                              Height: =113
+                              HoverBorderColor: =App.Theme.Colors.Darker40
+                              HoverFill: =App.Theme.Colors.Lighter70
+                              MaxLength: =Parent.MaxLength
+                              Mode: =TextMode.MultiLine
+                              PaddingLeft: =5
+                              Tooltip: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardKey40.Y + DataCardKey40.Height + 5
+                        - ErrorMessage40:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =RGBA(168, 0, 0, 1)
+                              Font: =App.Theme.Font
+                              FontWeight: =FontWeight.Semibold
+                              Height: =10
+                              Live: =Live.Assertive
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =14
+                              Text: =Parent.Error
+                              Visible: =Parent.DisplayMode=DisplayMode.Edit
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardValue40.Y + DataCardValue40.Height
+                        - StarVisible40:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Darker30
+                              Font: =App.Theme.Font
+                              Height: =DataCardKey40.Height
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Wrap: =false
+                              Y: =DataCardKey40.Y
+                  - nombreKRAsociado_DataCard4:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ClassicComboBoxEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="nombreKRAsociado"
+                        Default: =ThisItem.nombreKRAsociado
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreKRAsociado)
+                        Required: =true
+                        Update: =DataCardValue39.Selected
+                        Width: =299
+                        Y: =1
+                      Children:
+                        - DataCardKey39:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Lighter80
+                              Font: =App.Theme.Font
+                              Height: =34
+                              Text: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              Wrap: =false
+                              X: =30
+                              Y: =10
+                        - DataCardValue39:
+                            Control: Classic/ComboBox@2.4.0
+                            Properties:
+                              BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              ChevronBackground: =App.Theme.Colors.Primary
+                              ChevronFill: =App.Theme.Colors.PrimaryForeground
+                              ChevronHoverBackground: =App.Theme.Colors.Darker10
+                              ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
+                              DefaultSelectedItems: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado,Gallery2.Selected.nombreKR)
+                              DisplayFields: =["Value"]
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(247, 247, 247, 1)
+                              Font: =App.Theme.Font
+                              HoverFill: =App.Theme.Colors.Lighter70
+                              IsSearchable: =false
+                              Items: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado,Gallery2.Selected.nombreKR)
+                              PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                              PressedColor: =App.Theme.Colors.PrimaryForeground
+                              PressedFill: =App.Theme.Colors.Darker30
+                              SearchFields: =["Value"]
+                              SelectMultiple: =false
+                              SelectionColor: =App.Theme.Colors.PrimaryForeground
+                              SelectionFill: =App.Theme.Colors.Primary
+                              Tooltip: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardKey39.Y + DataCardKey39.Height + 5
+                        - ErrorMessage39:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =RGBA(168, 0, 0, 1)
+                              Font: =App.Theme.Font
+                              FontWeight: =FontWeight.Semibold
+                              Height: =10
+                              Live: =Live.Assertive
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =14
+                              Text: =Parent.Error
+                              Visible: =Parent.DisplayMode=DisplayMode.Edit
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardValue39.Y + DataCardValue39.Height
+                        - StarVisible39:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Darker30
+                              Font: =App.Theme.Font
+                              Height: =DataCardKey39.Height
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Wrap: =false
+                              Y: =DataCardKey39.Y
+                  - responsableTarea_DataCard4:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ClassicComboBoxMultiSelectEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="responsableTarea"
+                        Default: =ThisItem.responsableTarea
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,responsableTarea)
+                        Required: =false
+                        Update: =DataCardValue41.SelectedItems
+                        Width: =299
+                        X: =1
+                        Y: =1
+                      Children:
+                        - DataCardKey41:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Lighter80
+                              Font: =App.Theme.Font
+                              Height: =34
+                              Text: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              Wrap: =false
+                              X: =30
+                              Y: =10
+                        - DataCardValue41:
+                            Control: Classic/ComboBox@2.4.0
+                            Properties:
+                              BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              ChevronBackground: =App.Theme.Colors.Primary
+                              ChevronFill: =App.Theme.Colors.PrimaryForeground
+                              ChevronHoverBackground: =App.Theme.Colors.Darker10
+                              ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
+                              DefaultSelectedItems: =Parent.Default
+                              DisplayFields: =["DisplayName","Email","Picture"]
+                              DisplayMode: =Parent.DisplayMode
+                              Fill: =RGBA(247, 247, 247, 1)
+                              Font: =App.Theme.Font
+                              HoverFill: =App.Theme.Colors.Lighter70
+                              Items: =Choices([@T_TAREAS_APP_GCI_003].responsableTarea)
+                              PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                              PressedColor: =App.Theme.Colors.PrimaryForeground
+                              PressedFill: =App.Theme.Colors.Darker30
+                              SearchFields: =["DisplayName"]
+                              SelectionColor: =App.Theme.Colors.PrimaryForeground
+                              SelectionFill: =App.Theme.Colors.Primary
+                              Tooltip: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardKey41.Y + DataCardKey41.Height + 5
+                        - ErrorMessage41:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =RGBA(168, 0, 0, 1)
+                              Font: =App.Theme.Font
+                              FontWeight: =FontWeight.Semibold
+                              Height: =10
+                              Live: =Live.Assertive
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =14
+                              Text: =Parent.Error
+                              Visible: =Parent.DisplayMode=DisplayMode.Edit
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardValue41.Y + DataCardValue41.Height
+                        - StarVisible41:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Darker30
+                              Font: =App.Theme.Font
+                              Height: =DataCardKey41.Height
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Wrap: =false
+                              Y: =DataCardKey41.Y
+                  - finalizado_DataCard3:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ClassicToggleEdit
+                      Properties:
+                        BorderColor: =App.Theme.Colors.Darker40
+                        DataField: ="finalizado"
+                        Default: =ThisItem.finalizado
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,finalizado)
+                        Required: =false
+                        Update: =DataCardValue42.Value
+                        Width: =299
+                        X: =2
+                        Y: =1
+                      Children:
+                        - DataCardKey42:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Lighter80
+                              Font: =App.Theme.Font
+                              Height: =34
+                              Text: =Parent.DisplayName
+                              Width: =Parent.Width - 60
+                              Wrap: =false
+                              X: =30
+                              Y: =10
+                        - DataCardValue42:
+                            Control: Classic/Toggle@2.1.0
+                            Properties:
+                              BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              Default: =Parent.Default
+                              DisplayMode: =Parent.DisplayMode
+                              Font: =App.Theme.Font
+                              Height: =30
+                              ShowLabel: =false
+                              TrueFill: =App.Theme.Colors.Primary
+                              Width: =150
+                              X: =30
+                              Y: =DataCardKey42.Y + DataCardKey42.Height + 5
+                        - ErrorMessage42:
+                            Control: Label@2.5.1
+                            Properties:
+                              AutoHeight: =true
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =RGBA(168, 0, 0, 1)
+                              Font: =App.Theme.Font
+                              FontWeight: =FontWeight.Semibold
+                              Height: =10
+                              Live: =Live.Assertive
+                              PaddingBottom: =0
+                              PaddingLeft: =0
+                              PaddingRight: =0
+                              PaddingTop: =0
+                              Size: =14
+                              Text: =Parent.Error
+                              Visible: =Parent.DisplayMode=DisplayMode.Edit
+                              Width: =Parent.Width - 60
+                              X: =30
+                              Y: =DataCardValue42.Y + DataCardValue42.Height
+                        - StarVisible42:
+                            Control: Label@2.5.1
+                            Properties:
+                              Align: =Align.Center
+                              BorderColor: =RGBA(0, 0, 0, 1)
+                              Color: =App.Theme.Colors.Darker30
+                              Font: =App.Theme.Font
+                              Height: =DataCardKey42.Height
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Wrap: =false
+                              Y: =DataCardKey42.Y

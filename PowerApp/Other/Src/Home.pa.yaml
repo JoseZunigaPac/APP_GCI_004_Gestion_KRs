@@ -1,0 +1,117 @@
+# ************************************************************************************************
+# Warning: YAML source code for Canvas Apps is in preview. The schema is being actively developed.
+# Content may be incomplete and subject to change.
+# This file is read-only and should only be used to review changes made within Power Apps Studio.
+# This file isn't used when loading the app. External editing, merging and conflict resolution are
+# not supported.
+# 
+# For more information, visit https://go.microsoft.com/fwlink/?linkid=2292623
+# ************************************************************************************************
+Screens:
+  Home:
+    Properties:
+      Fill: =ColorValue("#DCDCDC")
+      LoadingSpinnerColor: =App.Theme.Colors.Primary
+    Children:
+      - Image5_4:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =App.Theme.Colors.Darker40
+            Height: =768
+            Image: =Torito
+            ImagePosition: =ImagePosition.Fill
+            Width: =1366
+      - HtmlText2_2:
+          Control: HtmlViewer@2.1.0
+          Properties:
+            Font: =App.Theme.Font
+            Height: =668
+            HtmlText: |-
+              =$"<div style='background: rgba(0, 0, 0, 0.4
+              ); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-1}px;'></div>"
+            PaddingBottom: =0
+            PaddingLeft: =0
+            PaddingRight: =0
+            PaddingTop: =0
+            Width: =1366
+            Y: =100
+      - Rectangle1_2:
+          Control: Rectangle@2.3.0
+          Properties:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(0, 153, 204, 1)
+            HoverFill: =ColorValue("#0099CC")
+            Width: =1366
+      - Image3_2:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =App.Theme.Colors.Darker40
+            Height: =70
+            Image: ='Logo-pacifico-blanco'
+            Width: =304
+            X: =125
+            Y: =15
+      - Button1_15:
+          Control: Classic/Button@2.2.0
+          Properties:
+            BorderColor: =RGBA(238,40,122,1)
+            BorderStyle: |+
+              =BorderStyle.Solid
+
+            BorderThickness: =4
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(238,40,122,0.9)
+            Height: =65
+            HoverBorderColor: =App.Theme.Colors.Darker10
+            HoverColor: =Color.White
+            HoverFill: =ColorValue("#EE2C70")
+            OnSelect: =Navigate(ListaOKRs)
+            PressedBorderColor: =App.Theme.Colors.Darker40
+            PressedColor: =Self.Color
+            PressedFill: =App.Theme.Colors.Darker40
+            RadiusBottomLeft: =08
+            RadiusBottomRight: =08
+            RadiusTopLeft: =08
+            RadiusTopRight: =08
+            Text: ="INGRESAR"
+            Width: =225
+            X: =570
+            Y: =562
+      - Label1_2:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =ColorValue("#FFFFFF")
+            Font: =Font.Verdana
+            Height: =126
+            Size: =45
+            Text: |-
+              ="Hola " & // Concatenar el primer nombre y el primer apellido
+              Concatenate(First(Split(User().FullName, " ")).Value, " ", Last(FirstN(Split(User().FullName, " "), CountRows(Split(User().FullName, " ")) - 1)).Value) & ","
+            Width: =755
+            X: =305
+            Y: =144
+      - Label1_3:
+          Control: Label@2.5.1
+          Properties:
+            Align: =Align.Center
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =ColorValue("#FFFFFF")
+            Font: =Font.Verdana
+            Height: =205
+            Size: =40
+            Text: ="Bienvenido al gestor de KRs de La Tribu Clásica"
+            Width: =904
+            X: =230
+            Y: =281
+      - Image2:
+          Control: Image@2.2.3
+          Properties:
+            BorderColor: =App.Theme.Colors.Darker40
+            Height: =65
+            Image: =Logo_GCI
+            Width: =87
+            X: =1148
+            Y: =17
