@@ -967,7 +967,7 @@
             ZIndex: =36
 
     "filterTitle As 'Entrada de texto'":
-        BasePaletteColor: =RGBA(141, 229, 250, 1)
+        BasePaletteColor: =
         BorderRadius: =
         DisplayMode: =DisplayMode.Edit
         Height: =35

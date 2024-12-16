@@ -4,11 +4,315 @@ Prueba_Nayeli As screen:
 
     TextCanvas5 As Texto:
         DisplayMode: =DisplayMode.Edit
-        Height: =117
+        Height: =55
         Size: =30
         Text: ="Nombre del KR,código del KR,líder, estado del KR,responsable(como bolitas), botones"
-        Width: =743
-        X: =40
-        Y: =40
+        Width: =1303
+        X: =48
+        Y: =187
         ZIndex: =1
+
+    Rectangle1_7 As rectangle:
+        BorderColor: =App.Theme.Colors.Darker40
+        Fill: =RGBA(0, 153, 204, 1)
+        HoverFill: |-
+            =ColorValue("#0099CC")
+        Width: =1366
+        ZIndex: =2
+
+    Image3_7 As image:
+        BorderColor: =App.Theme.Colors.Darker40
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Height: =70
+        Image: ='Logo-pacifico-blanco'
+        Width: =304
+        X: =125
+        Y: =15
+        ZIndex: =3
+
+    "Gallery4 As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+        BorderColor: =App.Theme.Colors.Darker40
+        DelayItemLoading: =true
+        Height: =437
+        Items: |+
+            =Filter(
+                T_OKR_APP_GCI_003,
+                If(!IsBlank(filterBuscarKR_1.Value),StartsWith(nombreKR,filterBuscarKR_1.Value),true),
+                If(!IsBlank(filterEstado_1.Selected.Value) && filterEstado_1.Selected.Value <> "todos",
+                    ID in ForAll(
+                            Filter(
+                                T_REG_STS_KR_APP_GCI_003,
+                                nombreEstado = filterEstado_1.Selected.Value && status.Value = "activo"
+                            ),
+                            nombreKRAsociado.Id
+                        ), true
+                ),
+                If(!IsBlank(filterLider_1.Selected.Value),
+                    usuarioAprobador.DisplayName = filterLider_1.Selected.Value, true
+                ),
+                If(!IsBlank(filterTrimestre_1.Selected.Value),Q.Value = filterTrimestre_1.Selected.Value,true),
+                If(!IsBlank(filterAnio_1.Selected.Value),Year(fechaProgramadainicio) = filterAnio_1.Selected.Value,true)
+            )
+            
+        Layout: =Layout.Vertical
+        LoadingSpinner: =LoadingSpinner.Data
+        TemplatePadding: =0
+        TemplateSize: =90
+        Width: =1245
+        X: =59
+        Y: =283
+        ZIndex: =4
+
+        NextArrow1 As icon.ChevronRight:
+            AccessibleLabel: =Self.Tooltip
+            Color: =RGBA(166, 166, 166, 1)
+            Height: =50
+            Icon: =Icon.ChevronRight
+            OnSelect: =Select(Parent)
+            PaddingBottom: =16
+            PaddingLeft: =16
+            PaddingRight: =16
+            PaddingTop: =16
+            Tooltip: ="Ver los detalles del elemento"
+            Width: =50
+            X: =Parent.TemplateWidth - Self.Width - 12
+            Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
+            ZIndex: =4
+
+        Separator1 As rectangle:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =RGBA(255, 255, 255, 1)
+            Height: =8
+            OnSelect: =Select(Parent)
+            Width: =Parent.TemplateWidth
+            Y: =Parent.TemplateHeight - Self.Height
+            ZIndex: =5
+
+        Rectangle1 As rectangle:
+            BorderColor: =App.Theme.Colors.Darker40
+            Fill: =App.Theme.Colors.Darker30
+            Height: =Parent.TemplateHeight - Separator1.Height
+            OnSelect: =Select(Parent)
+            Visible: =ThisItem.IsSelected
+            Width: =4
+            ZIndex: =6
+
+        TextCanvas7 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =56
+            Text: =ThisItem.codigoKR
+            Width: =90
+            X: =20
+            Y: =14
+            ZIndex: =7
+
+        TextCanvas7_1 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =56
+            Text: =ThisItem.nombreKR
+            Width: =220
+            X: =110
+            Y: =14
+            ZIndex: =8
+
+        TextCanvas7_2 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =56
+            Text: |
+                =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
+            Width: =141
+            X: =330
+            Y: =14
+            ZIndex: =9
+
+        estadoKRtext_1 As Texto:
+            Align: ='TextCanvas.Align'.Center
+            BorderRadius: =8
+            DisplayMode: =DisplayMode.Edit
+            Fill: |-
+                =Switch(
+                    Lower(estadoKRtext_1.Text),
+                    "sin aprobación", RGBA(255, 0, 0, 1), // Rojo
+                    "programado", RGBA(255, 165, 0, 1),   // Naranja
+                    "en curso", RGBA(54, 176, 75, 1),     // Verde
+                    "finalizado", RGBA(0, 0, 255, 1),     // Azul
+                    RGBA(0, 0, 0, 0)                      // Color por defecto (Negro)
+                )
+            Font: =Font.Arial
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =22
+            Size: =14
+            Text: =LookUp(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID && status.Value = "activo",Proper(nombreEstado))
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =140
+            X: =471
+            Y: =31
+            ZIndex: =10
+
+        Gallery6_1 As gallery.galleryHorizontal:
+            BorderColor: =App.Theme.Colors.Darker40
+            DelayItemLoading: =true
+            Height: =50
+            Items: =ThisItem.'Creado por'
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =61
+            Width: =69
+            X: =644
+            Y: =20
+            ZIndex: =11
+
+            Container2_1 As groupContainer.manualLayoutContainer:
+                BorderColor: =RGBA(52, 152, 47, 1)
+                Fill: =RGBA(62, 128, 149, 1)
+                Height: =42
+                RadiusBottomLeft: =30
+                RadiusBottomRight: =30
+                RadiusTopLeft: =30
+                RadiusTopRight: =30
+                Width: =42
+                ZIndex: =1
+
+                TextCanvas6_1 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Font: =Font.Arial
+                    FontColor: =RGBA(255, 255, 255, 1)
+                    Height: =30
+                    Size: =14
+                    Text: =Left(First(Split(ThisItem.DisplayName, " ")).Value,1) & Left(Last(FirstN(Split(ThisItem.DisplayName, " "), CountRows(Split(ThisItem.DisplayName, " ")) - 1)).Value,1)
+                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
+                    Weight: ='TextCanvas.Weight'.Bold
+                    Width: =30
+                    Wrap: =true
+                    X: =5
+                    Y: =6
+                    ZIndex: =1
+
+            Image1_1 As image:
+                BorderColor: =App.Theme.Colors.Darker40
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Height: =50
+                Image: |
+                    =IfError(
+                        UsuariosdeOffice365.UserPhotoMetadata(ThisItem.Email).HasPhoto,
+                        false,
+                        UsuariosdeOffice365.UserPhotoV2(ThisItem.Email)
+                    )
+                OnSelect: =Select(Parent)
+                RadiusBottomLeft: =40
+                RadiusBottomRight: =40
+                RadiusTopLeft: =40
+                RadiusTopRight: =40
+                Width: =50
+                ZIndex: =2
+
+    "filterLider_1 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |-
+            =If(
+                User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
+                [User().FullName]
+            )
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Seleccionar Lider"
+        Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName)
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =228
+        X: =503
+        Y: =127
+        ZIndex: =5
+
+        Value2_4 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
+    "filterBuscarKR_1 As 'Entrada de texto'":
+        BasePaletteColor: =
+        BorderRadius: =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        Placeholder: ="Buscar por nombre KR"
+        TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
+        Type: ='TextInputCanvas.Type'.Text
+        Width: =242
+        X: =59
+        Y: =127
+        ZIndex: =6
+
+    "filterEstado_1 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |
+            =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Estado"
+        Items: =["sin aprobación","programado","en curso","finalizado"]
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =178
+        X: =313
+        Y: =127
+        ZIndex: =7
+
+        Value2_5 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
+    "filterTrimestre_1 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Trimestre"
+        Items: =["Q1","Q2","Q3","Q4"]
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =110
+        X: =743
+        Y: =127
+        ZIndex: =8
+
+        Value2_6 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
+    "filterAnio_1 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |
+            =
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Año"
+        Items: =Distinct(Filter(T_OKR_APP_GCI_003,!IsBlank(fechaProgramadainicio)),Year(fechaProgramadainicio))
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =110
+        X: =866
+        Y: =127
+        ZIndex: =9
+
+        Value2_7 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
 
