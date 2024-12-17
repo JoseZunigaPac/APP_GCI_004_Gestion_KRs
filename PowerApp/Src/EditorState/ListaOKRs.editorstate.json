@@ -15421,6 +15421,14 @@
           "InvariantPropertyName": "DefaultSelectedItems",
           "IsLockable": false,
           "NameMapSourceSchema": "?"
+        },
+        {
+          "AFDDataSourceName": "",
+          "AutoRuleBindingEnabled": false,
+          "AutoRuleBindingString": "\", \"",
+          "InvariantPropertyName": "MultiValueDelimiter",
+          "IsLockable": false,
+          "NameMapSourceSchema": "?"
         }
       ],
       "HasDynamicProperties": false,
@@ -15450,7 +15458,7 @@
         {
           "Category": "Data",
           "PropertyName": "SelectMultiple",
-          "RuleProviderType": "Unknown"
+          "RuleProviderType": "User"
         },
         {
           "Category": "Data",
@@ -15466,6 +15474,11 @@
           "Category": "Data",
           "PropertyName": "DefaultSelectedItems",
           "RuleProviderType": "Unknown"
+        },
+        {
+          "Category": "Data",
+          "PropertyName": "MultiValueDelimiter",
+          "RuleProviderType": "User"
         },
         {
           "Category": "Design",

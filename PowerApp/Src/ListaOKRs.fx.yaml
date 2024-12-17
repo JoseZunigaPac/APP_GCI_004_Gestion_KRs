@@ -3206,6 +3206,7 @@
         Height: =35
         InputTextPlaceholder: ="Seleccionar Responsable"
         Items: =Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName)
+        MultiValueDelimiter: ="; "
         SelectMultiple: =false
         TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
         Width: =200
