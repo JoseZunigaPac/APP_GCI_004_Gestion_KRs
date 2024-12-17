@@ -10,15 +10,6 @@
 Screens:
   Prueba_Nayeli:
     Children:
-      - TextCanvas5:
-          Control: Text@0.0.47
-          Properties:
-            Height: =55
-            Size: =30
-            Text: ="Nombre del KR,código del KR,líder, estado del KR,responsable(como bolitas), botones"
-            Width: =1303
-            X: =48
-            Y: =187
       - Rectangle1_7:
           Control: Rectangle@2.3.0
           Properties:
@@ -37,7 +28,7 @@ Screens:
           Control: Gallery@2.15.0
           Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
           Properties:
-            Height: =437
+            Height: =455
             Items: |+
               =Filter(
                   T_OKR_APP_GCI_003,
@@ -61,7 +52,7 @@ Screens:
             TemplateSize: =90
             Width: =1245
             X: =59
-            Y: =283
+            Y: =264
           Children:
             - NextArrow1:
                 Control: Classic/Icon@2.5.0
@@ -101,11 +92,11 @@ Screens:
             - TextCanvas7:
                 Control: Text@0.0.47
                 Properties:
-                  Height: =56
+                  Height: =50
                   Text: =ThisItem.codigoKR
                   Width: =90
                   X: =20
-                  Y: =14
+                  Y: =20
             - TextCanvas7_1:
                 Control: Text@0.0.47
                 Properties:
@@ -295,3 +286,30 @@ Screens:
                   FieldName: ="Value"
                   FieldType: ="s"
                   Order: =1
+      - TextInputCanvas2:
+          Control: TextInput@0.0.51
+          Properties:
+            Align: ='TextInputCanvas.Align'.Center
+            BorderRadius: =5
+            Fill: =RGBA(180, 214, 250, 1)
+            Height: =33
+            Value: ="Código"
+            Width: =96
+            X: =59
+            Y: =194
+      - TextInputCanvas2_1:
+          Control: TextInput@0.0.51
+          Properties:
+            Height: =33
+            Value: ="Descrpción del KR"
+            Width: =144
+            X: =169
+            Y: =194
+      - TextInputCanvas2_2:
+          Control: TextInput@0.0.51
+          Properties:
+            Height: =33
+            Value: ="Responsable"
+            Width: =144
+            X: =369
+            Y: =194
