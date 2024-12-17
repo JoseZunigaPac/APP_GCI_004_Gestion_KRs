@@ -52,7 +52,7 @@ Registrar_Tarea As screen:
         RadiusTopLeft: =08
         RadiusTopRight: =08
         Size: =15
-        Text: ="CANCELAR"
+        Text: ="Finalizar"
         X: =346
         Y: =634
         ZIndex: =10
@@ -87,7 +87,7 @@ Registrar_Tarea As screen:
         RadiusTopLeft: =08
         RadiusTopRight: =08
         Size: =15
-        Text: ="REGISTRAR"
+        Text: ="Registrar"
         X: =780
         Y: =634
         ZIndex: =11
