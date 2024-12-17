@@ -159,6 +159,9 @@
                 If(!IsBlank(filterLider.Selected.Value),
                     usuarioAprobador.DisplayName = filterLider.Selected.Value, true
                 ),
+                If(!IsBlank(filterResponsable.Selected.Value),
+                    filterResponsable.Selected.Value in ShowColumns(responsables,DisplayName), true
+                ),
                 If(!IsBlank(filterTrimestre.Selected.Value),Q.Value = filterTrimestre.Selected.Value,true),
                 If(!IsBlank(filterAnio.Selected.Value),Year(fechaProgramadainicio) = filterAnio.Selected.Value,true)
             )
@@ -3192,7 +3195,7 @@
                     Y: =DataCardKey42.Y
                     ZIndex: =4
 
-    "filterLider_2 As 'Cuadro combinado'.pcfdataset":
+    "filterResponsable As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =
         DefaultSelectedItems: |-
             =If(

@@ -15351,7 +15351,7 @@
       "StyleName": "",
       "Type": "ControlInfo"
     },
-    "filterLider_2": {
+    "filterResponsable": {
       "AllowAccessToGlobals": true,
       "ControlPropertyState": [
         {
@@ -15432,7 +15432,7 @@
       "IsLocked": false,
       "LayoutName": "",
       "MetaDataIDKey": "",
-      "Name": "filterLider_2",
+      "Name": "filterResponsable",
       "OptimizeForDevices": "Off",
       "ParentIndex": 11,
       "PersistMetaDataIDKey": false,

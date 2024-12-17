@@ -3613,19 +3613,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.filterLider_2.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.filterResponsable.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.filterLider_2.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.filterResponsable.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.filterLider_2"
+                "type": "ListaOKRs.filterResponsable"
               }
             }
           ],

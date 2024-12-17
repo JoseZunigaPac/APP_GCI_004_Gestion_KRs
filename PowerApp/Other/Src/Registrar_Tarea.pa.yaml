@@ -47,7 +47,7 @@ Screens:
             RadiusBottomRight: =08
             RadiusTopLeft: =08
             RadiusTopRight: =08
-            Text: ="CANCELAR"
+            Text: ="Finalizar"
             X: =346
             Y: =634
       - btn_rgt_Tarea:
@@ -72,7 +72,7 @@ Screens:
             RadiusBottomRight: =08
             RadiusTopLeft: =08
             RadiusTopRight: =08
-            Text: ="REGISTRAR"
+            Text: ="Registrar"
             X: =780
             Y: =634
       - form_rgt_Tarea:

@@ -48,7 +48,7 @@ Registrar_Kr As screen:
         RadiusTopLeft: =08
         RadiusTopRight: =08
         Size: =15
-        Text: ="CANCELAR"
+        Text: ="Cancelar"
         X: =346
         Y: =679
         ZIndex: =10
@@ -108,7 +108,7 @@ Registrar_Kr As screen:
         RadiusTopLeft: =08
         RadiusTopRight: =08
         Size: =15
-        Text: ="REGISTRAR"
+        Text: ="Registrar"
         X: =780
         Y: =679
         ZIndex: =11

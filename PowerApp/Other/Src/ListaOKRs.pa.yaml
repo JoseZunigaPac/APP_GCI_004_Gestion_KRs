@@ -123,6 +123,9 @@ Screens:
                   If(!IsBlank(filterLider.Selected.Value),
                       usuarioAprobador.DisplayName = filterLider.Selected.Value, true
                   ),
+                  If(!IsBlank(filterResponsable.Selected.Value),
+                      filterResponsable.Selected.Value in ShowColumns(responsables,DisplayName), true
+                  ),
                   If(!IsBlank(filterTrimestre.Selected.Value),Q.Value = filterTrimestre.Selected.Value,true),
                   If(!IsBlank(filterAnio.Selected.Value),Year(fechaProgramadainicio) = filterAnio.Selected.Value,true)
               )
@@ -2591,7 +2594,7 @@ Screens:
                               Width: =30
                               Wrap: =false
                               Y: =DataCardKey42.Y
-      - filterLider_2:
+      - filterResponsable:
           Control: ComboBox@0.0.48
           Properties:
             DefaultSelectedItems: |-

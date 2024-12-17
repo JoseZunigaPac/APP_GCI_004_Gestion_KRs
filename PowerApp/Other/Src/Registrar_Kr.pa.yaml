@@ -43,7 +43,7 @@ Screens:
             RadiusBottomRight: =08
             RadiusTopLeft: =08
             RadiusTopRight: =08
-            Text: ="CANCELAR"
+            Text: ="Cancelar"
             X: =346
             Y: =679
       - Button1_11:
@@ -93,7 +93,7 @@ Screens:
             RadiusBottomRight: =08
             RadiusTopLeft: =08
             RadiusTopRight: =08
-            Text: ="REGISTRAR"
+            Text: ="Registrar"
             X: =780
             Y: =679
       - form_Registrar:
