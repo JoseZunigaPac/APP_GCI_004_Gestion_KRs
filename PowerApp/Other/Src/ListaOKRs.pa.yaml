@@ -123,6 +123,9 @@ Screens:
                   If(!IsBlank(filterLider.Selected.Value),
                       usuarioAprobador.DisplayName = filterLider.Selected.Value, true
                   ),
+                  If(!IsBlank(filterResponsable.Selected.Value),
+                      filterResponsable.Selected.Value in ShowColumns(responsables,DisplayName), true
+                  ),
                   If(!IsBlank(filterTrimestre.Selected.Value),Q.Value = filterTrimestre.Selected.Value,true),
                   If(!IsBlank(filterAnio.Selected.Value),Year(fechaProgramadainicio) = filterAnio.Selected.Value,true)
               )
@@ -161,13 +164,13 @@ Screens:
                 Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
-                  Height: =34
+                  Height: =38
                   Size: =13
                   Text: =ThisItem.objetivoKR
                   VerticalAlign: ='TextCanvas.VerticalAlign'.Top
                   Width: =348
                   X: =10
-                  Y: =131
+                  Y: =121
             - TextCanvas2_2:
                 Control: Text@0.0.47
                 Properties:
@@ -178,7 +181,7 @@ Screens:
                   VerticalAlign: ='TextCanvas.VerticalAlign'.Top
                   Width: =392
                   X: =10
-                  Y: =66
+                  Y: =61
             - Gallery3:
                 Control: Gallery@2.15.0
                 Variant: Vertical
@@ -304,7 +307,7 @@ Screens:
                   Weight: ='TextCanvas.Weight'.Semibold
                   Width: =222
                   X: =10
-                  Y: =47
+                  Y: =42
             - TextCanvas4_2:
                 Control: Text@0.0.47
                 Properties:
@@ -315,7 +318,7 @@ Screens:
                   Weight: ='TextCanvas.Weight'.Semibold
                   Width: =222
                   X: =10
-                  Y: =112
+                  Y: =102
             - TextCanvas4_3:
                 Control: Text@0.0.47
                 Properties:
@@ -433,6 +436,7 @@ Screens:
                         RadiusBottomRight: =30
                         RadiusTopLeft: =30
                         RadiusTopRight: =30
+                        Tooltip: ="Lider"
                         Width: =30
             - TextCanvas2_5:
                 Control: Text@0.0.47
@@ -830,6 +834,71 @@ Screens:
                   Visible: =false
                   X: =269
                   Y: =68
+            - Gallery6_2:
+                Control: Gallery@2.15.0
+                Variant: Horizontal
+                Properties:
+                  Height: =30
+                  Items: =ThisItem.responsables
+                  TemplatePadding: =0
+                  TemplateSize: =30
+                  Width: =200
+                  X: =115
+                  Y: =165
+                Children:
+                  - Container2_2:
+                      Control: GroupContainer@1.3.0
+                      Variant: ManualLayout
+                      Properties:
+                        BorderColor: =RGBA(52, 152, 47, 1)
+                        DropShadow: =DropShadow.None
+                        Fill: =RGBA(62, 128, 149, 1)
+                        Height: =Self.Width
+                        RadiusBottomLeft: =30
+                        RadiusBottomRight: =30
+                        RadiusTopLeft: =30
+                        RadiusTopRight: =30
+                        Width: =30
+                      Children:
+                        - TextCanvas6_2:
+                            Control: Text@0.0.47
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Font: =Font.Arial
+                              FontColor: =RGBA(255, 255, 255, 1)
+                              Height: =30
+                              Size: =11
+                              Text: =Left(First(Split(ThisItem.DisplayName, " ")).Value,1) & Left(Last(FirstN(Split(ThisItem.DisplayName, " "), CountRows(Split(ThisItem.DisplayName, " ")) - 1)).Value,1)
+                              Weight: ='TextCanvas.Weight'.Bold
+                              Width: =30
+                  - Image1_2:
+                      Control: Image@2.2.3
+                      Properties:
+                        Height: =Self.Width
+                        Image: |
+                          =IfError(
+                              UsuariosdeOffice365.UserPhotoMetadata(ThisItem.Email).HasPhoto,
+                              false,
+                              UsuariosdeOffice365.UserPhotoV2(ThisItem.Email)
+                          )
+                        OnSelect: =Select(Parent)
+                        RadiusBottomLeft: =30
+                        RadiusBottomRight: =30
+                        RadiusTopLeft: =30
+                        RadiusTopRight: =30
+                        Tooltip: =ThisItem.DisplayName
+                        Width: =30
+            - TextCanvas4_13:
+                Control: Text@0.0.47
+                Properties:
+                  Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
+                  Height: =19
+                  Text: ="Responsables"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =100
+                  X: =10
+                  Y: =171
       - filterLider:
           Control: ComboBox@0.0.48
           Properties:
@@ -842,8 +911,8 @@ Screens:
             InputTextPlaceholder: ="Seleccionar Lider"
             Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName)
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-            Width: =228
-            X: =503
+            Width: =200
+            X: =408
             Y: =127
           Children:
             - Value2:
@@ -861,7 +930,7 @@ Screens:
             Placeholder: ="Buscar por nombre KR"
             TriggerOutput: ='TextInputCanvas.TriggerOutput'.Delayed
             Type: ='TextInputCanvas.Type'.Text
-            Width: =242
+            Width: =180
             X: =59
             Y: =127
       - filterEstado:
@@ -873,8 +942,8 @@ Screens:
             InputTextPlaceholder: ="Estado"
             Items: =["sin aprobación","programado","en curso","finalizado"]
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-            Width: =178
-            X: =313
+            Width: =140
+            X: =253
             Y: =127
           Children:
             - Value2_2:
@@ -922,7 +991,7 @@ Screens:
             Items: =["Q1","Q2","Q3","Q4"]
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =110
-            X: =743
+            X: =835
             Y: =127
           Children:
             - Value2_1:
@@ -942,8 +1011,8 @@ Screens:
             InputTextPlaceholder: ="Año"
             Items: =Distinct(Filter(T_OKR_APP_GCI_003,!IsBlank(fechaProgramadainicio)),Year(fechaProgramadainicio))
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-            Width: =110
-            X: =866
+            Width: =90
+            X: =958
             Y: =127
           Children:
             - Value2_3:
@@ -2525,3 +2594,28 @@ Screens:
                               Width: =30
                               Wrap: =false
                               Y: =DataCardKey42.Y
+      - filterResponsable:
+          Control: ComboBox@0.0.48
+          Properties:
+            DefaultSelectedItems: |-
+              =If(
+                  User().FullName in Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName),
+                  [User().FullName]
+              )
+            Height: =35
+            InputTextPlaceholder: ="Seleccionar Responsable"
+            Items: =Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName)
+            MultiValueDelimiter: ="; "
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =200
+            X: =621
+            Y: =127
+          Children:
+            - Value2_8:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1
