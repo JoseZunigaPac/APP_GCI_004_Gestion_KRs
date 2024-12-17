@@ -11,4 +11,3 @@ Screens:
   Pruebas Jose:
     Properties:
       Fill: =ColorValue("#DCDCDC")
-      LoadingSpinnerColor: =App.Theme.Colors.Primary

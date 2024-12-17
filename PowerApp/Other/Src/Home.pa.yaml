@@ -11,12 +11,10 @@ Screens:
   Home:
     Properties:
       Fill: =ColorValue("#DCDCDC")
-      LoadingSpinnerColor: =App.Theme.Colors.Primary
     Children:
       - Image5_4:
           Control: Image@2.2.3
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Height: =768
             Image: =Torito
             ImagePosition: =ImagePosition.Fill
@@ -24,7 +22,6 @@ Screens:
       - HtmlText2_2:
           Control: HtmlViewer@2.1.0
           Properties:
-            Font: =App.Theme.Font
             Height: =668
             HtmlText: |-
               =$"<div style='background: rgba(0, 0, 0, 0.4
@@ -38,14 +35,12 @@ Screens:
       - Rectangle1_2:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Fill: =RGBA(0, 153, 204, 1)
             HoverFill: =ColorValue("#0099CC")
             Width: =1366
       - Image3_2:
           Control: Image@2.2.3
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Height: =70
             Image: ='Logo-pacifico-blanco'
             Width: =304
@@ -59,17 +54,12 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
-            Color: =App.Theme.Colors.PrimaryForeground
-            DisabledBorderColor: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(238,40,122,0.9)
+            Font: =Font.'Open Sans'
             Height: =65
-            HoverBorderColor: =App.Theme.Colors.Darker10
             HoverColor: =Color.White
             HoverFill: =ColorValue("#EE2C70")
             OnSelect: =Navigate(ListaOKRs)
-            PressedBorderColor: =App.Theme.Colors.Darker40
-            PressedColor: =Self.Color
-            PressedFill: =App.Theme.Colors.Darker40
             RadiusBottomLeft: =08
             RadiusBottomRight: =08
             RadiusTopLeft: =08
@@ -82,7 +72,6 @@ Screens:
           Control: Label@2.5.1
           Properties:
             Align: =Align.Center
-            BorderColor: =App.Theme.Colors.Darker40
             Color: =ColorValue("#FFFFFF")
             Font: =Font.Verdana
             Height: =126
@@ -97,7 +86,6 @@ Screens:
           Control: Label@2.5.1
           Properties:
             Align: =Align.Center
-            BorderColor: =App.Theme.Colors.Darker40
             Color: =ColorValue("#FFFFFF")
             Font: =Font.Verdana
             Height: =205
@@ -109,7 +97,6 @@ Screens:
       - Image2:
           Control: Image@2.2.3
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Height: =65
             Image: =Logo_GCI
             Width: =87

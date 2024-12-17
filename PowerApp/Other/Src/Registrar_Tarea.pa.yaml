@@ -9,20 +9,16 @@
 # ************************************************************************************************
 Screens:
   Registrar_Tarea:
-    Properties:
-      LoadingSpinnerColor: =App.Theme.Colors.Primary
     Children:
       - Rectangle1_4:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Fill: =RGBA(0, 153, 204, 1)
             HoverFill: =ColorValue("#0099CC")
             Width: =1366
       - Image3_4:
           Control: Image@2.2.3
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Height: =70
             Image: ='Logo-pacifico-blanco'
             Width: =304
@@ -36,8 +32,6 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
-            Color: =App.Theme.Colors.PrimaryForeground
-            DisabledBorderColor: =RGBA(244, 244, 244, 1)
             DisplayMode: |-
               =If(
                   CountRows(Filter(T_TAREAS_APP_GCI_003,nombreKRAsociado.Id = DataCardValue7.Selected.Id)) > 0,
@@ -45,13 +39,10 @@ Screens:
                   DisplayMode.Disabled
               )
             Fill: =RGBA(238,40,122,0.9)
-            HoverBorderColor: =App.Theme.Colors.Darker10
+            Font: =Font.'Open Sans'
             HoverColor: =Color.White
             HoverFill: =ColorValue("#EE2C70")
             OnSelect: =Navigate(ListaOKRs)
-            PressedBorderColor: =App.Theme.Colors.Darker40
-            PressedColor: =Self.Color
-            PressedFill: =App.Theme.Colors.Darker40
             RadiusBottomLeft: =08
             RadiusBottomRight: =08
             RadiusTopLeft: =08
@@ -67,21 +58,16 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
-            Color: =App.Theme.Colors.PrimaryForeground
-            DisabledBorderColor: =RGBA(244, 244, 244, 1)
             DisplayMode: |
               =DisplayMode.Edit
             Fill: =RGBA(238,40,122,0.9)
-            HoverBorderColor: =App.Theme.Colors.Darker10
+            Font: =Font.'Open Sans'
             HoverColor: =Color.White
             HoverFill: =ColorValue("#EE2C70")
             OnSelect: |-
               =SubmitForm(form_rgt_Tarea);
               Notify("Se registró la tarea con éxito", NotificationType.Success);
               ResetForm(form_rgt_Tarea)
-            PressedBorderColor: =App.Theme.Colors.Darker40
-            PressedColor: =Self.Color
-            PressedFill: =App.Theme.Colors.Darker40
             RadiusBottomLeft: =08
             RadiusBottomRight: =08
             RadiusTopLeft: =08
@@ -94,7 +80,6 @@ Screens:
           Variant: Classic
           Layout: Vertical
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             DataSource: =T_TAREAS_APP_GCI_003
             DefaultMode: =FormMode.New
             Height: =484
@@ -106,7 +91,6 @@ Screens:
                 Control: TypedDataCard@1.0.6
                 Variant: ClassicTextualEdit
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataField: ="Title"
                   Default: =ThisItem.nombreTareas
                   DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreTareas)
@@ -122,7 +106,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =34
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -137,9 +120,6 @@ Screens:
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
                         Fill: =RGBA(0, 0, 0, 0)
-                        Font: =App.Theme.Font
-                        HoverBorderColor: =App.Theme.Colors.Darker40
-                        HoverFill: =App.Theme.Colors.Lighter70
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
@@ -156,7 +136,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(168, 0, 0, 1)
-                        Font: =App.Theme.Font
                         FontWeight: =FontWeight.Semibold
                         Height: =10
                         Live: =Live.Assertive
@@ -176,7 +155,6 @@ Screens:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =DataCardKey18.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -187,7 +165,6 @@ Screens:
                 Control: TypedDataCard@1.0.6
                 Variant: ClassicComboBoxEdit
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataField: ="nombreKRAsociado"
                   Default: =ThisItem.nombreKRAsociado
                   DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreKRAsociado)
@@ -203,7 +180,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =34
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -214,24 +190,14 @@ Screens:
                       Control: Classic/ComboBox@2.4.0
                       Properties:
                         BorderColor: =ColorValue("#0099cc")
-                        ChevronBackground: =App.Theme.Colors.Primary
-                        ChevronFill: =App.Theme.Colors.PrimaryForeground
-                        ChevronHoverBackground: =App.Theme.Colors.Darker10
-                        ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                         DefaultSelectedItems: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado,Last(T_OKR_APP_GCI_003).nombreKR)
                         DisplayFields: =["Value"]
                         DisplayMode: =Parent.DisplayMode
-                        Font: =App.Theme.Font
-                        HoverFill: =App.Theme.Colors.Lighter70
                         IsSearchable: =false
                         Items: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado,Last(T_OKR_APP_GCI_003).nombreKR)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        PressedColor: =App.Theme.Colors.PrimaryForeground
-                        PressedFill: =App.Theme.Colors.Darker30
                         SearchFields: =["Value"]
                         SelectMultiple: =false
-                        SelectionColor: =App.Theme.Colors.PrimaryForeground
-                        SelectionFill: =App.Theme.Colors.Primary
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -242,7 +208,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(168, 0, 0, 1)
-                        Font: =App.Theme.Font
                         FontWeight: =FontWeight.Semibold
                         Height: =10
                         Live: =Live.Assertive
@@ -262,7 +227,6 @@ Screens:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =DataCardKey19.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -273,7 +237,6 @@ Screens:
                 Control: TypedDataCard@1.0.6
                 Variant: ClassicTextualEdit
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataField: ="descripcionTarea"
                   Default: =ThisItem.descripcionTarea
                   DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
@@ -289,7 +252,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =34
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -303,9 +265,6 @@ Screens:
                         Default: =Parent.Default
                         DelayOutput: =true
                         DisplayMode: =Parent.DisplayMode
-                        Font: =App.Theme.Font
-                        HoverBorderColor: =App.Theme.Colors.Darker40
-                        HoverFill: =App.Theme.Colors.Lighter70
                         MaxLength: =Parent.MaxLength
                         PaddingLeft: =5
                         RadiusBottomLeft: =0
@@ -322,7 +281,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(168, 0, 0, 1)
-                        Font: =App.Theme.Font
                         FontWeight: =FontWeight.Semibold
                         Height: =10
                         Live: =Live.Assertive
@@ -342,7 +300,6 @@ Screens:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =DataCardKey20.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -353,7 +310,6 @@ Screens:
                 Control: TypedDataCard@1.0.6
                 Variant: ClassicComboBoxMultiSelectEdit
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataField: ="responsableTarea"
                   Default: =ThisItem.responsableTarea
                   DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,responsableTarea)
@@ -369,7 +325,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =34
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -380,22 +335,12 @@ Screens:
                       Control: Classic/ComboBox@2.4.0
                       Properties:
                         BorderColor: =ColorValue("#0099cc")
-                        ChevronBackground: =App.Theme.Colors.Primary
-                        ChevronFill: =App.Theme.Colors.PrimaryForeground
-                        ChevronHoverBackground: =App.Theme.Colors.Darker10
-                        ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                         DefaultSelectedItems: =Parent.Default
                         DisplayFields: =["DisplayName","Email","Picture"]
                         DisplayMode: =Parent.DisplayMode
-                        Font: =App.Theme.Font
-                        HoverFill: =App.Theme.Colors.Lighter70
                         Items: =Choices([@T_TAREAS_APP_GCI_003].responsableTarea)
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                        PressedColor: =App.Theme.Colors.PrimaryForeground
-                        PressedFill: =App.Theme.Colors.Darker30
                         SearchFields: =["DisplayName"]
-                        SelectionColor: =App.Theme.Colors.PrimaryForeground
-                        SelectionFill: =App.Theme.Colors.Primary
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -406,7 +351,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(168, 0, 0, 1)
-                        Font: =App.Theme.Font
                         FontWeight: =FontWeight.Semibold
                         Height: =10
                         Live: =Live.Assertive
@@ -426,7 +370,6 @@ Screens:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =DataCardKey21.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -437,7 +380,6 @@ Screens:
                 Control: TypedDataCard@1.0.6
                 Variant: ClassicAttachmentsEdit
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataField: ="{Attachments}"
                   Default: =ThisItem.'Datos adjuntos'
                   DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,'Datos adjuntos')
@@ -452,7 +394,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =34
                         Text: =Parent.DisplayName
                         Width: =Parent.Width - 60
@@ -464,19 +405,12 @@ Screens:
                       Properties:
                         BorderColor: =ColorValue("#0099cc")
                         DisplayMode: =Parent.DisplayMode
-                        Font: =App.Theme.Font
                         Height: =133
-                        HoverFill: =App.Theme.Colors.Lighter70
-                        ItemColor: =App.Theme.Colors.PrimaryForeground
-                        ItemFill: =App.Theme.Colors.Primary
-                        ItemHoverFill: =App.Theme.Colors.Lighter70
                         Items: =Parent.Default
                         PaddingBottom: =5
                         PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
                         PaddingRight: =5
                         PaddingTop: =5
-                        PressedColor: =App.Theme.Colors.PrimaryForeground
-                        PressedFill: =App.Theme.Colors.Darker30
                         Tooltip: =Parent.DisplayName
                         Width: =Parent.Width - 60
                         X: =30
@@ -487,7 +421,6 @@ Screens:
                         AutoHeight: =true
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =RGBA(168, 0, 0, 1)
-                        Font: =App.Theme.Font
                         FontWeight: =FontWeight.Semibold
                         Height: =10
                         Live: =Live.Assertive
@@ -507,7 +440,6 @@ Screens:
                         Align: =Align.Center
                         BorderColor: =RGBA(0, 0, 0, 1)
                         Color: =App.Theme.Colors.Darker30
-                        Font: =App.Theme.Font
                         Height: =DataCardKey22.Height
                         Text: ="*"
                         Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)

@@ -9,20 +9,16 @@
 # ************************************************************************************************
 Screens:
   ListaOKRs:
-    Properties:
-      LoadingSpinnerColor: =App.Theme.Colors.Primary
     Children:
       - Rectangle1_6:
           Control: Rectangle@2.3.0
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Fill: =RGBA(0, 153, 204, 1)
             HoverFill: =ColorValue("#0099CC")
             Width: =1366
       - Image3_6:
           Control: Image@2.2.3
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Height: =70
             Image: ='Logo-pacifico-blanco'
             Width: =304
@@ -36,16 +32,11 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
-            Color: =App.Theme.Colors.PrimaryForeground
-            DisabledBorderColor: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(238,40,122,0.9)
-            HoverBorderColor: =App.Theme.Colors.Darker10
+            Font: =Font.'Open Sans'
             HoverColor: =Color.White
             HoverFill: =ColorValue("#EE2C70")
             OnSelect: =Navigate(ListaOKRs)
-            PressedBorderColor: =App.Theme.Colors.Darker40
-            PressedColor: =Self.Color
-            PressedFill: =App.Theme.Colors.Darker40
             RadiusBottomLeft: =08
             RadiusBottomRight: =08
             RadiusTopLeft: =08
@@ -61,15 +52,10 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
-            Color: =App.Theme.Colors.PrimaryForeground
-            DisabledBorderColor: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(238,40,122,0.9)
-            HoverBorderColor: =App.Theme.Colors.Darker10
+            Font: =Font.'Open Sans'
             HoverColor: =Color.White
             HoverFill: =ColorValue("#EE2C70")
-            PressedBorderColor: =App.Theme.Colors.Darker40
-            PressedColor: =Self.Color
-            PressedFill: =App.Theme.Colors.Darker40
             RadiusBottomLeft: =08
             RadiusBottomRight: =08
             RadiusTopLeft: =08
@@ -85,15 +71,10 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
-            Color: =App.Theme.Colors.PrimaryForeground
-            DisabledBorderColor: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(238,40,122,0.9)
-            HoverBorderColor: =App.Theme.Colors.Darker10
+            Font: =Font.'Open Sans'
             HoverColor: =Color.White
             HoverFill: =ColorValue("#EE2C70")
-            PressedBorderColor: =App.Theme.Colors.Darker40
-            PressedColor: =Self.Color
-            PressedFill: =App.Theme.Colors.Darker40
             RadiusBottomLeft: =08
             RadiusBottomRight: =08
             RadiusTopLeft: =08
@@ -109,15 +90,10 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
-            Color: =App.Theme.Colors.PrimaryForeground
-            DisabledBorderColor: =RGBA(244, 244, 244, 1)
             Fill: =RGBA(238,40,122,0.9)
-            HoverBorderColor: =App.Theme.Colors.Darker10
+            Font: =Font.'Open Sans'
             HoverColor: =Color.White
             HoverFill: =ColorValue("#EE2C70")
-            PressedBorderColor: =App.Theme.Colors.Darker40
-            PressedColor: =Self.Color
-            PressedFill: =App.Theme.Colors.Darker40
             RadiusBottomLeft: =08
             RadiusBottomRight: =08
             RadiusTopLeft: =08
@@ -129,7 +105,6 @@ Screens:
           Control: Gallery@2.15.0
           Variant: Vertical
           Properties:
-            BorderColor: =App.Theme.Colors.Darker40
             Fill: =RGBA(255, 255, 255, 1)
             Height: =576
             Items: |-
@@ -159,7 +134,6 @@ Screens:
             - HtmlText1:
                 Control: HtmlViewer@2.1.0
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =212
                   HtmlText: |-
                     =$"<div style='border-radius: 5px;padding: 100px;margin: 0px;background-color: #f9f9f9;border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
@@ -172,7 +146,6 @@ Screens:
             - HtmlText1_1:
                 Control: HtmlViewer@2.1.0
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =140
                   HtmlText: |-
                     =$"<div style='border-radius: 5px;padding: 68px;margin: 0px;background-color: #EEEFED;'></div>"
@@ -185,7 +158,7 @@ Screens:
                   X: =787
                   Y: =51
             - TextCanvas2:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   Height: =34
@@ -196,7 +169,7 @@ Screens:
                   X: =10
                   Y: =131
             - TextCanvas2_2:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   Height: =40
@@ -210,7 +183,6 @@ Screens:
                 Control: Gallery@2.15.0
                 Variant: Vertical
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Height: =137
                   Items: |
                     =Filter(T_TAREAS_APP_GCI_003, nombreKRAsociado.Id = ThisItem.ID)
@@ -220,7 +192,7 @@ Screens:
                   Y: =54
                 Children:
                   - TextCanvas3_1:
-                      Control: Text@0.0.43
+                      Control: Text@0.0.47
                       Properties:
                         Height: =20
                         Text: ="• "
@@ -251,7 +223,7 @@ Screens:
                         X: =400
                         Y: =1
                   - nombreTarea:
-                      Control: TextInput@0.0.49
+                      Control: TextInput@0.0.51
                       Properties:
                         DisplayMode: =mode
                         FontColor: =RGBA(0, 0, 0, 1)
@@ -305,7 +277,7 @@ Screens:
                         Width: =25
                         X: =345
             - TextCanvas4:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.Center
                   BorderRadius: =10
@@ -323,7 +295,7 @@ Screens:
                   X: =10
                   Y: =11
             - TextCanvas4_1:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   FontColor: =RGBA(0, 153, 204, 1)
@@ -334,7 +306,7 @@ Screens:
                   X: =10
                   Y: =47
             - TextCanvas4_2:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   FontColor: =RGBA(0, 153, 204, 1)
@@ -345,7 +317,7 @@ Screens:
                   X: =10
                   Y: =112
             - TextCanvas4_3:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -357,7 +329,7 @@ Screens:
                   X: =402
                   Y: =143
             - TextCanvas2_3:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Height: =19
                   Text: |
@@ -366,7 +338,7 @@ Screens:
                   X: =523
                   Y: =143
             - TextCanvas4_4:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   FontColor: =RGBA(0, 153, 204, 1)
@@ -377,7 +349,7 @@ Screens:
                   X: =799
                   Y: =32
             - TextCanvas4_5:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.Center
                   Font: =Font.Arial
@@ -389,7 +361,7 @@ Screens:
                   X: =1114
                   Y: =32
             - TextCanvas2_4:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   Height: =22
@@ -398,7 +370,7 @@ Screens:
                   X: =523
                   Y: =37
             - TextCanvas4_6:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -413,7 +385,6 @@ Screens:
                 Control: Gallery@2.15.0
                 Variant: Horizontal
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Height: =31
                   Items: =ThisItem.usuarioAprobador
                   TemplatePadding: =0
@@ -437,7 +408,7 @@ Screens:
                         Width: =30
                       Children:
                         - TextCanvas6:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Font: =Font.Arial
@@ -450,7 +421,6 @@ Screens:
                   - Image1:
                       Control: Image@2.2.3
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         Height: =Self.Width
                         Image: |
                           =IfError(
@@ -465,7 +435,7 @@ Screens:
                         RadiusTopRight: =30
                         Width: =30
             - TextCanvas2_5:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   Height: =20
@@ -475,7 +445,7 @@ Screens:
                   X: =558
                   Y: =71
             - TextCanvas4_7:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -487,7 +457,7 @@ Screens:
                   X: =442
                   Y: =70
             - TextCanvas4_8:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -499,7 +469,7 @@ Screens:
                   X: =442
                   Y: =11
             - TextCanvas4_9:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -511,7 +481,7 @@ Screens:
                   X: =402
                   Y: =97
             - TextCanvas4_10:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -523,7 +493,7 @@ Screens:
                   X: =358
                   Y: =165
             - fecini:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   Height: =19
@@ -534,7 +504,7 @@ Screens:
                   X: =525
                   Y: =165
             - fecfin:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   Height: =19
@@ -545,7 +515,7 @@ Screens:
                   X: =619
                   Y: =165
             - TextCanvas4_11:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -597,7 +567,7 @@ Screens:
                   X: =553
                   Y: =143
             - TextCanvas2_6:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Height: =19
                   Text: |
@@ -617,7 +587,7 @@ Screens:
                   X: =680
                   Y: =143
             - TextCanvas2_7:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Height: =19
                   Text: |
@@ -626,7 +596,7 @@ Screens:
                   X: =523
                   Y: =97
             - TextCanvas2_8:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Height: =19
                   Text: |
@@ -635,7 +605,7 @@ Screens:
                   X: =693
                   Y: =96
             - TextCanvas4_12:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.End
                   Font: =Font.Arial
@@ -647,7 +617,7 @@ Screens:
                   X: =402
                   Y: =120
             - TextCanvas2_9:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Height: =19
                   Text: |
@@ -656,7 +626,7 @@ Screens:
                   X: =523
                   Y: =120
             - TextCanvas2_10:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.Center
                   Height: =19
@@ -666,7 +636,7 @@ Screens:
                   X: =588
                   Y: =165
             - TextCanvas2_12:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
                   Height: =36
@@ -684,8 +654,6 @@ Screens:
                     =BorderStyle.Solid
 
                   BorderThickness: =1
-                  Color: =App.Theme.Colors.PrimaryForeground
-                  DisabledBorderColor: =RGBA(244, 244, 244, 1)
                   Fill: =RGBA(238,40,122,0.9)
                   Font: =Font.Arial
                   FontWeight: =FontWeight.Normal
@@ -711,9 +679,6 @@ Screens:
                   PaddingLeft: =2
                   PaddingRight: =2
                   PaddingTop: =2
-                  PressedBorderColor: =App.Theme.Colors.Darker40
-                  PressedColor: =Self.Color
-                  PressedFill: =App.Theme.Colors.Darker40
                   RadiusBottomLeft: =4
                   RadiusBottomRight: =4
                   RadiusTopLeft: =4
@@ -743,7 +708,7 @@ Screens:
                   X: =789
                   Y: =7
             - estadoKRtext:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Align: ='TextCanvas.Align'.Center
                   BorderRadius: =8
@@ -765,7 +730,7 @@ Screens:
                   X: =523
                   Y: =9
             - verificarTareas:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Height: =24
                   Text: =CountRows(Filter(T_TAREAS_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID,finalizado = true)) = Gallery3.AllItemsCount
@@ -844,7 +809,7 @@ Screens:
                   X: =1122
                   Y: =7
             - visibleBotonPerUser:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   Text: |-
                     =Or(
@@ -890,7 +855,7 @@ Screens:
                   FieldType: ="s"
                   Order: =1
       - filterTitle:
-          Control: TextInput@0.0.49
+          Control: TextInput@0.0.51
           Properties:
             Height: =35
             Placeholder: ="Buscar por nombre KR"
@@ -1001,7 +966,6 @@ Screens:
             - HtmlText2:
                 Control: HtmlViewer@2.1.0
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =667
                   HtmlText: |-
                     =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
@@ -1010,7 +974,6 @@ Screens:
                 Control: HtmlViewer@2.1.0
                 Group: Group1
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =482
                   HtmlText: |-
                     =$"<div style='border-radius: 10px;padding: 232px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
@@ -1022,7 +985,6 @@ Screens:
                 Layout: Vertical
                 Group: Group1
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataSource: =T_OKR_APP_GCI_003
                   Height: =400
                   Item: =Gallery2.Selected
@@ -1034,7 +996,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: TextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="lineaBase"
                         Default: =ThisItem.lineaBase
                         DisplayMode: =DisplayMode.View
@@ -1047,7 +1008,7 @@ Screens:
                         Y: =4
                       Children:
                         - DataCardKey28:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(214, 221, 224, 1)
                               Height: =22
@@ -1059,7 +1020,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue24:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               DisplayMode: =Parent.DisplayMode
@@ -1071,7 +1032,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey28.Y + DataCardKey28.Height + 4
                         - ErrorMessage28:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1080,7 +1041,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue24.Y + DataCardValue24.Height
                         - StarVisible28:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1092,7 +1053,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: TextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="Title"
                         Default: =ThisItem.nombreKR
                         DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,nombreKR)
@@ -1104,7 +1064,7 @@ Screens:
                         Y: =0
                       Children:
                         - DataCardKey8:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1116,7 +1076,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue4:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -1130,7 +1090,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey8.Y + DataCardKey8.Height + 4
                         - ErrorMessage8:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1139,7 +1099,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue4.Y + DataCardValue4.Height
                         - StarVisible8:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1151,7 +1111,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: TextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="descripcionKR"
                         Default: =ThisItem.descripcionKR
                         DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,descripcionKR)
@@ -1163,7 +1122,7 @@ Screens:
                         Y: =1
                       Children:
                         - DataCardKey9:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1175,7 +1134,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue5:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -1190,7 +1149,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey9.Y + DataCardKey9.Height + 4
                         - ErrorMessage9:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1199,7 +1158,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue5.Y + DataCardValue5.Height
                         - StarVisible9:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1211,7 +1170,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: TextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="objetivoKR"
                         Default: =ThisItem.objetivoKR
                         DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,objetivoKR)
@@ -1222,7 +1180,7 @@ Screens:
                         Y: =2
                       Children:
                         - DataCardKey10:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1234,7 +1192,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue14:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -1248,7 +1206,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey10.Y + DataCardKey10.Height + 4
                         - ErrorMessage10:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1257,7 +1215,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue14.Y + DataCardValue14.Height
                         - StarVisible10:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1269,7 +1227,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: NumberEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="alcanzadoPeriodo"
                         Default: =ThisItem.alcanzadoPeriodo
                         DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,alcanzadoPeriodo)
@@ -1279,7 +1236,7 @@ Screens:
                         Y: =3
                       Children:
                         - DataCardKey26:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1291,7 +1248,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue22:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -1304,7 +1261,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey26.Y + DataCardKey26.Height + 4
                         - ErrorMessage26:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1313,7 +1270,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue22.Y + DataCardValue22.Height
                         - StarVisible26:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1325,7 +1282,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: TextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="observaciones"
                         Default: =ThisItem.observaciones
                         DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,observaciones)
@@ -1337,7 +1293,7 @@ Screens:
                         Y: =3
                       Children:
                         - DataCardKey24:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1349,7 +1305,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue20:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -1363,7 +1319,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey24.Y + DataCardKey24.Height + 4
                         - ErrorMessage24:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1372,7 +1328,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue20.Y + DataCardValue20.Height
                         - StarVisible24:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1384,7 +1340,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ComboBoxEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="unidadDeMedida"
                         Default: =ThisItem.unidadDeMedida
                         DisplayMode: =DisplayMode.View
@@ -1395,7 +1350,7 @@ Screens:
                         Y: =4
                       Children:
                         - DataCardKey14:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(214, 221, 224, 1)
                               Height: =22
@@ -1420,7 +1375,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey14.Y + DataCardKey14.Height + 4
                         - ErrorMessage14:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1429,7 +1384,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue15.Y + DataCardValue15.Height
                         - StarVisible14:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =20
@@ -1441,7 +1396,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: NumberEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="metaPeriodo"
                         Default: =ThisItem.metaPeriodo
                         DisplayMode: =DisplayMode.View
@@ -1453,7 +1407,7 @@ Screens:
                         Y: =4
                       Children:
                         - DataCardKey25:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(214, 221, 224, 1)
                               Height: =22
@@ -1465,7 +1419,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue21:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               DisplayMode: =Parent.DisplayMode
@@ -1476,7 +1430,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey25.Y + DataCardKey25.Height + 4
                         - ErrorMessage25:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1485,7 +1439,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue21.Y + DataCardValue21.Height
                         - StarVisible25:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1494,7 +1448,7 @@ Screens:
                               Width: =30
                               Y: =DataCardKey25.Y
             - TextCanvas3:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Group: Group1
                 Properties:
                   FontColor: =RGBA(255, 255, 255, 1)
@@ -1508,7 +1462,6 @@ Screens:
                 Control: Classic/Icon@2.5.0
                 Group: Group1
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Color: =App.Theme.Colors.PrimaryForeground
                   Fill: =RGBA(238, 44, 112, 1)
                   Height: =43
@@ -1526,7 +1479,6 @@ Screens:
             - Icon3_1:
                 Control: Classic/Icon@2.5.0
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Color: =App.Theme.Colors.PrimaryForeground
                   Fill: =RGBA(238, 44, 112, 1)
                   Height: =43
@@ -1551,7 +1503,6 @@ Screens:
             - HtmlText2_3:
                 Control: HtmlViewer@2.1.0
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =667
                   HtmlText: |-
                     =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
@@ -1559,7 +1510,6 @@ Screens:
             - HtmlText2_4:
                 Control: HtmlViewer@2.1.0
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =237
                   HtmlText: |-
                     =$"<div style='border-radius: 10px;padding: 110px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
@@ -1570,7 +1520,6 @@ Screens:
                 Control: Form@2.4.2
                 Layout: Vertical
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataSource: =T_OKR_APP_GCI_003
                   Height: =159
                   Item: =Gallery2.Selected
@@ -1582,7 +1531,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: TextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="lineaBase"
                         Default: =ThisItem.lineaBase
                         DisplayMode: =displayModeVar
@@ -1595,7 +1543,7 @@ Screens:
                         Y: =0
                       Children:
                         - DataCardKey28_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1607,7 +1555,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue24_1:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -1626,7 +1574,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey28_1.Y + DataCardKey28_1.Height + 4
                         - ErrorMessage28_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1635,7 +1583,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue24_1.Y + DataCardValue24_1.Height
                         - StarVisible28_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1647,7 +1595,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ComboBoxEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="Q"
                         Default: =ThisItem.Q
                         DisplayMode: |-
@@ -1665,7 +1612,7 @@ Screens:
                         Y: =1
                       Children:
                         - DataCardKey43:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1719,7 +1666,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey43.Y + DataCardKey43.Height + 4
                         - ErrorMessage43:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1728,7 +1675,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue43.Y + DataCardValue43.Height
                         - StarVisible43:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =20
@@ -1740,7 +1687,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: DateEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="fechaProgramadainicio"
                         Default: =ThisItem.fechaProgramadainicio
                         DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadainicio)
@@ -1752,7 +1698,7 @@ Screens:
                         Y: =1
                       Children:
                         - DataCardKey17:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =22
                               Text: =Parent.DisplayName
@@ -1762,7 +1708,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue18:
-                            Control: DatePicker@0.0.36
+                            Control: DatePicker@0.0.38
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               DisplayMode: =Parent.DisplayMode
@@ -1779,7 +1725,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey17.Y + DataCardKey17.Height + 4
                         - ErrorMessage17:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1788,7 +1734,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue18.Y + DataCardValue18.Height
                         - StarVisible17:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1800,7 +1746,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: DateEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="fechaProgramadaFin"
                         Default: =ThisItem.fechaProgramadaFin
                         DisplayName: =DataSourceInfo([@T_OKR_APP_GCI_003],DataSourceInfo.DisplayName,fechaProgramadaFin)
@@ -1811,7 +1756,7 @@ Screens:
                         Y: =2
                       Children:
                         - DataCardKey23:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =22
                               Text: =Parent.DisplayName
@@ -1821,7 +1766,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue19:
-                            Control: DatePicker@0.0.36
+                            Control: DatePicker@0.0.38
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               DisplayMode: =Parent.DisplayMode
@@ -1838,7 +1783,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey23.Y + DataCardKey23.Height + 4
                         - ErrorMessage23:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1847,7 +1792,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue19.Y + DataCardValue19.Height
                         - StarVisible23:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1859,7 +1804,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ComboBoxEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="unidadDeMedida"
                         Default: =ThisItem.unidadDeMedida
                         DisplayMode: =displayModeVar
@@ -1870,7 +1814,7 @@ Screens:
                         Y: =0
                       Children:
                         - DataCardKey14_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1896,7 +1840,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey14_1.Y + DataCardKey14_1.Height + 4
                         - ErrorMessage14_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1905,7 +1849,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue15_1.Y + DataCardValue15_1.Height
                         - StarVisible14_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =20
@@ -1917,7 +1861,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: NumberEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="metaPeriodo"
                         Default: =ThisItem.metaPeriodo
                         DisplayMode: =displayModeVar
@@ -1929,7 +1872,7 @@ Screens:
                         Y: =0
                       Children:
                         - DataCardKey25_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -1941,7 +1884,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue21_1:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -1959,7 +1902,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey25_1.Y + DataCardKey25_1.Height + 4
                         - ErrorMessage25_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -1968,7 +1911,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue21_1.Y + DataCardValue21_1.Height
                         - StarVisible25_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -1980,7 +1923,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: NumberEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="alcanzadoPeriodo"
                         Default: =ThisItem.alcanzadoPeriodo
                         DisplayMode: |-
@@ -1996,7 +1938,7 @@ Screens:
                         Y: =1
                       Children:
                         - DataCardKey26_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               FontColor: =RGBA(255, 255, 255, 1)
                               Height: =22
@@ -2008,7 +1950,7 @@ Screens:
                               X: =24
                               Y: =10
                         - DataCardValue22_1:
-                            Control: TextInput@0.0.49
+                            Control: TextInput@0.0.51
                             Properties:
                               AccessibleLabel: =Parent.DisplayName
                               BasePaletteColor: =RGBA(8, 222, 8, 1)
@@ -2080,7 +2022,7 @@ Screens:
                               X: =24
                               Y: =DataCardKey26_1.Y + DataCardKey26_1.Height + 4
                         - ErrorMessage26_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Height: =30
                               Text: =Parent.Error
@@ -2089,7 +2031,7 @@ Screens:
                               X: =24
                               Y: =DataCardValue22_1.Y + DataCardValue22_1.Height
                         - StarVisible26_1:
-                            Control: Text@0.0.43
+                            Control: Text@0.0.47
                             Properties:
                               Align: ='TextCanvas.Align'.Center
                               Height: =30
@@ -2098,7 +2040,7 @@ Screens:
                               Width: =30
                               Y: =DataCardKey26_1.Y
             - TextCanvas3_2:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   FontColor: =RGBA(255, 255, 255, 1)
                   Size: =20
@@ -2110,7 +2052,6 @@ Screens:
             - Icon3_2:
                 Control: Classic/Icon@2.5.0
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Color: =App.Theme.Colors.PrimaryForeground
                   DisabledFill: =RGBA(214, 221, 224, 1)
                   DisplayMode: |-
@@ -2137,7 +2078,6 @@ Screens:
             - Icon3_3:
                 Control: Classic/Icon@2.5.0
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Color: =App.Theme.Colors.PrimaryForeground
                   Fill: =RGBA(238, 44, 112, 1)
                   Height: =43
@@ -2162,7 +2102,6 @@ Screens:
             - HtmlText2_5:
                 Control: HtmlViewer@2.1.0
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =667
                   HtmlText: |-
                     =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
@@ -2170,7 +2109,6 @@ Screens:
             - HtmlText2_6:
                 Control: HtmlViewer@2.1.0
                 Properties:
-                  Font: =App.Theme.Font
                   Height: =350
                   HtmlText: |-
                     =$"<div style='border-radius: 10px;padding: 155px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
@@ -2178,7 +2116,7 @@ Screens:
                   X: =198
                   Y: =87
             - TextCanvas3_3:
-                Control: Text@0.0.43
+                Control: Text@0.0.47
                 Properties:
                   FontColor: =RGBA(255, 255, 255, 1)
                   Size: =20
@@ -2190,7 +2128,6 @@ Screens:
             - Icon3_4:
                 Control: Classic/Icon@2.5.0
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Color: =App.Theme.Colors.PrimaryForeground
                   Fill: =RGBA(238, 44, 112, 1)
                   Height: =44
@@ -2208,7 +2145,6 @@ Screens:
             - Icon3_5:
                 Control: Classic/Icon@2.5.0
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   Color: =App.Theme.Colors.PrimaryForeground
                   Fill: =RGBA(238, 44, 112, 1)
                   Height: =43
@@ -2226,7 +2162,6 @@ Screens:
                 Variant: Classic
                 Layout: Vertical
                 Properties:
-                  BorderColor: =App.Theme.Colors.Darker40
                   DataSource: =T_TAREAS_APP_GCI_003
                   DefaultMode: =FormMode.New
                   Height: =292
@@ -2238,7 +2173,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ClassicTextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="Title"
                         Default: =ThisItem.nombreTareas
                         DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreTareas)
@@ -2254,7 +2188,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Lighter80
-                              Font: =App.Theme.Font
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2269,10 +2202,7 @@ Screens:
                               DelayOutput: =true
                               DisplayMode: =Parent.DisplayMode
                               Fill: =RGBA(247, 247, 247, 1)
-                              Font: =App.Theme.Font
                               Height: =113
-                              HoverBorderColor: =App.Theme.Colors.Darker40
-                              HoverFill: =App.Theme.Colors.Lighter70
                               MaxLength: =Parent.MaxLength
                               Mode: =TextMode.MultiLine
                               PaddingLeft: =5
@@ -2286,7 +2216,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =RGBA(168, 0, 0, 1)
-                              Font: =App.Theme.Font
                               FontWeight: =FontWeight.Semibold
                               Height: =10
                               Live: =Live.Assertive
@@ -2306,7 +2235,6 @@ Screens:
                               Align: =Align.Center
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Darker30
-                              Font: =App.Theme.Font
                               Height: =DataCardKey38.Height
                               Text: ="*"
                               Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -2317,7 +2245,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ClassicTextualEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="descripcionTarea"
                         Default: =ThisItem.descripcionTarea
                         DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
@@ -2335,7 +2262,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Lighter80
-                              Font: =App.Theme.Font
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2350,10 +2276,7 @@ Screens:
                               DelayOutput: =true
                               DisplayMode: =Parent.DisplayMode
                               Fill: =RGBA(247, 247, 247, 1)
-                              Font: =App.Theme.Font
                               Height: =113
-                              HoverBorderColor: =App.Theme.Colors.Darker40
-                              HoverFill: =App.Theme.Colors.Lighter70
                               MaxLength: =Parent.MaxLength
                               Mode: =TextMode.MultiLine
                               PaddingLeft: =5
@@ -2367,7 +2290,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =RGBA(168, 0, 0, 1)
-                              Font: =App.Theme.Font
                               FontWeight: =FontWeight.Semibold
                               Height: =10
                               Live: =Live.Assertive
@@ -2387,7 +2309,6 @@ Screens:
                               Align: =Align.Center
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Darker30
-                              Font: =App.Theme.Font
                               Height: =DataCardKey40.Height
                               Text: ="*"
                               Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -2398,7 +2319,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ClassicComboBoxEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="nombreKRAsociado"
                         Default: =ThisItem.nombreKRAsociado
                         DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreKRAsociado)
@@ -2413,7 +2333,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Lighter80
-                              Font: =App.Theme.Font
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2424,25 +2343,15 @@ Screens:
                             Control: Classic/ComboBox@2.4.0
                             Properties:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                              ChevronBackground: =App.Theme.Colors.Primary
-                              ChevronFill: =App.Theme.Colors.PrimaryForeground
-                              ChevronHoverBackground: =App.Theme.Colors.Darker10
-                              ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                               DefaultSelectedItems: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado,Gallery2.Selected.nombreKR)
                               DisplayFields: =["Value"]
                               DisplayMode: =Parent.DisplayMode
                               Fill: =RGBA(247, 247, 247, 1)
-                              Font: =App.Theme.Font
-                              HoverFill: =App.Theme.Colors.Lighter70
                               IsSearchable: =false
                               Items: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado,Gallery2.Selected.nombreKR)
                               PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                              PressedColor: =App.Theme.Colors.PrimaryForeground
-                              PressedFill: =App.Theme.Colors.Darker30
                               SearchFields: =["Value"]
                               SelectMultiple: =false
-                              SelectionColor: =App.Theme.Colors.PrimaryForeground
-                              SelectionFill: =App.Theme.Colors.Primary
                               Tooltip: =Parent.DisplayName
                               Width: =Parent.Width - 60
                               X: =30
@@ -2453,7 +2362,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =RGBA(168, 0, 0, 1)
-                              Font: =App.Theme.Font
                               FontWeight: =FontWeight.Semibold
                               Height: =10
                               Live: =Live.Assertive
@@ -2473,7 +2381,6 @@ Screens:
                               Align: =Align.Center
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Darker30
-                              Font: =App.Theme.Font
                               Height: =DataCardKey39.Height
                               Text: ="*"
                               Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -2484,7 +2391,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ClassicComboBoxMultiSelectEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="responsableTarea"
                         Default: =ThisItem.responsableTarea
                         DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,responsableTarea)
@@ -2500,7 +2406,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Lighter80
-                              Font: =App.Theme.Font
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2511,23 +2416,13 @@ Screens:
                             Control: Classic/ComboBox@2.4.0
                             Properties:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                              ChevronBackground: =App.Theme.Colors.Primary
-                              ChevronFill: =App.Theme.Colors.PrimaryForeground
-                              ChevronHoverBackground: =App.Theme.Colors.Darker10
-                              ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                               DefaultSelectedItems: =Parent.Default
                               DisplayFields: =["DisplayName","Email","Picture"]
                               DisplayMode: =Parent.DisplayMode
                               Fill: =RGBA(247, 247, 247, 1)
-                              Font: =App.Theme.Font
-                              HoverFill: =App.Theme.Colors.Lighter70
                               Items: =Choices([@T_TAREAS_APP_GCI_003].responsableTarea)
                               PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
-                              PressedColor: =App.Theme.Colors.PrimaryForeground
-                              PressedFill: =App.Theme.Colors.Darker30
                               SearchFields: =["DisplayName"]
-                              SelectionColor: =App.Theme.Colors.PrimaryForeground
-                              SelectionFill: =App.Theme.Colors.Primary
                               Tooltip: =Parent.DisplayName
                               Width: =Parent.Width - 60
                               X: =30
@@ -2538,7 +2433,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =RGBA(168, 0, 0, 1)
-                              Font: =App.Theme.Font
                               FontWeight: =FontWeight.Semibold
                               Height: =10
                               Live: =Live.Assertive
@@ -2558,7 +2452,6 @@ Screens:
                               Align: =Align.Center
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Darker30
-                              Font: =App.Theme.Font
                               Height: =DataCardKey41.Height
                               Text: ="*"
                               Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
@@ -2569,7 +2462,6 @@ Screens:
                       Control: TypedDataCard@1.0.6
                       Variant: ClassicToggleEdit
                       Properties:
-                        BorderColor: =App.Theme.Colors.Darker40
                         DataField: ="finalizado"
                         Default: =ThisItem.finalizado
                         DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,finalizado)
@@ -2585,7 +2477,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Lighter80
-                              Font: =App.Theme.Font
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2598,10 +2489,8 @@ Screens:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                               Default: =Parent.Default
                               DisplayMode: =Parent.DisplayMode
-                              Font: =App.Theme.Font
                               Height: =30
                               ShowLabel: =false
-                              TrueFill: =App.Theme.Colors.Primary
                               Width: =150
                               X: =30
                               Y: =DataCardKey42.Y + DataCardKey42.Height + 5
@@ -2611,7 +2500,6 @@ Screens:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =RGBA(168, 0, 0, 1)
-                              Font: =App.Theme.Font
                               FontWeight: =FontWeight.Semibold
                               Height: =10
                               Live: =Live.Assertive
@@ -2631,7 +2519,6 @@ Screens:
                               Align: =Align.Center
                               BorderColor: =RGBA(0, 0, 0, 1)
                               Color: =App.Theme.Colors.Darker30
-                              Font: =App.Theme.Font
                               Height: =DataCardKey42.Height
                               Text: ="*"
                               Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
