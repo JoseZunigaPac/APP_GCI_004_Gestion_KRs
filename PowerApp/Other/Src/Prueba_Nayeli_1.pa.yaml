@@ -179,7 +179,7 @@ Screens:
           Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
           Properties:
             Height: =486
-            Items: |+
+            Items: |
               =Filter(
                   T_OKR_APP_GCI_003,
                   If(!IsBlank(filterBuscarKR_2.Value),StartsWith(nombreKR,filterBuscarKR_2.Value),true),
