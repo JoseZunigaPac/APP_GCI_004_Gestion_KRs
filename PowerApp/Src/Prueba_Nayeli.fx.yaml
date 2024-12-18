@@ -65,8 +65,8 @@ Prueba_Nayeli As screen:
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
-        TemplateSize: =64
-        Width: =1244
+        TemplateSize: =58
+        Width: =1266
         X: =59
         Y: =237
         ZIndex: =4
@@ -74,9 +74,9 @@ Prueba_Nayeli As screen:
         HtmlText1_2 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             Font: =App.Theme.Font
-            Height: =64
+            Height: =56
             HtmlText: |-
-                =$"<div style='border-radius: 10px;padding: 28px;margin: 0px;background-color: #ffffff;border-bottom: 1px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
+                =$"<div style='border-radius: 10px;padding: 25px;margin: 0px;background-color: #ffffff;border-bottom: 1px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
             OnSelect: =Select(Parent)
             PaddingBottom: =1
             PaddingLeft: =1
@@ -147,7 +147,7 @@ Prueba_Nayeli As screen:
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
             TemplateSize: =30
-            Width: =115
+            Width: =83
             X: =811
             Y: =6
             ZIndex: =8
