@@ -66,7 +66,7 @@ Prueba_Nayeli As screen:
         LoadingSpinner: =LoadingSpinner.Data
         TemplatePadding: =0
         TemplateSize: =58
-        Width: =1266
+        Width: =1250
         X: =59
         Y: =237
         ZIndex: =4
@@ -197,6 +197,27 @@ Prueba_Nayeli As screen:
                 Tooltip: =ThisItem.DisplayName
                 Width: =35
                 ZIndex: =2
+
+        ButtonCanvas1 As Botón:
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: =Select(Parent)
+            Width: =96
+            X: =1135
+            Y: =7
+            ZIndex: =9
+
+        ButtonCanvas1_1 As Botón:
+            BasePaletteColor: =RGBA(238, 40, 122, 1)
+            BorderColor: =RGBA(238, 40, 122, 1)
+            BorderStyle: =BorderStyle.Solid
+            DisplayMode: =DisplayMode.Edit
+            Height: =32
+            OnSelect: =Select(Parent)
+            Width: =96
+            X: =1018
+            Y: =7
+            ZIndex: =10
 
     "filterLider_1 As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =

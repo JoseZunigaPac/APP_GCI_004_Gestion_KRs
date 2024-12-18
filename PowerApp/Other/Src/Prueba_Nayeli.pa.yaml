@@ -64,7 +64,7 @@ Screens:
               )
 
             TemplateSize: =58
-            Width: =1266
+            Width: =1250
             X: =59
             Y: =237
           Children:
@@ -179,6 +179,21 @@ Screens:
                         RadiusTopRight: =30
                         Tooltip: =ThisItem.DisplayName
                         Width: =35
+            - ButtonCanvas1:
+                Control: Button@0.0.43
+                Properties:
+                  OnSelect: =Select(Parent)
+                  X: =1135
+                  Y: =7
+            - ButtonCanvas1_1:
+                Control: Button@0.0.43
+                Properties:
+                  BasePaletteColor: =RGBA(238, 40, 122, 1)
+                  BorderColor: =RGBA(238, 40, 122, 1)
+                  BorderStyle: =BorderStyle.Solid
+                  OnSelect: =Select(Parent)
+                  X: =1018
+                  Y: =7
       - filterLider_1:
           Control: ComboBox@0.0.48
           Properties:
