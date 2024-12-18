@@ -28,7 +28,7 @@ Screens:
           Control: Gallery@2.15.0
           Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
           Properties:
-            Height: =481
+            Height: =485
             Items: |+
               =Filter(
                   T_OKR_APP_GCI_003,
@@ -49,43 +49,38 @@ Screens:
                   If(!IsBlank(filterAnio_1.Selected.Value),Year(fechaProgramadainicio) = filterAnio_1.Selected.Value,true)
               )
 
-            TemplateSize: =62
-            Width: =1245
+            TemplateSize: =64
+            Width: =1244
             X: =59
             Y: =237
           Children:
-            - Separator1:
-                Control: Rectangle@2.3.0
+            - HtmlText1_2:
+                Control: HtmlViewer@2.1.0
                 Properties:
-                  Fill: =RGBA(255, 255, 255, 1)
-                  Height: =8
+                  Height: =63
+                  HtmlText: |-
+                    =$"<div style='border-radius: 10px;padding: 28px;margin: 0px;background-color: #ffffff;border-bottom: 1px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
                   OnSelect: =Select(Parent)
-                  Width: =Parent.TemplateWidth
-                  Y: =Parent.TemplateHeight - Self.Height
-            - Rectangle1:
-                Control: Rectangle@2.3.0
-                Properties:
-                  Fill: =App.Theme.Colors.Darker30
-                  Height: =Parent.TemplateHeight - Separator1.Height
-                  OnSelect: =Select(Parent)
-                  Visible: =ThisItem.IsSelected
-                  Width: =4
+                  PaddingBottom: =1
+                  PaddingLeft: =1
+                  PaddingRight: =1
+                  PaddingTop: =1
+                  Width: =1244
             - TextCanvas7:
                 Control: Text@0.0.47
                 Properties:
                   Text: =ThisItem.codigoKR
                   Width: =90
-                  X: =20
-                  Y: =26
+                  X: =19
+                  Y: =12
             - TextCanvas7_1:
                 Control: Text@0.0.47
                 Properties:
                   Height: =56
                   Text: =ThisItem.nombreKR
-                  Width: =207
+                  Width: =282
                   Wrap: =false
-                  X: =110
-                  Y: =14
+                  X: =109
             - TextCanvas7_2:
                 Control: Text@0.0.47
                 Properties:
@@ -93,8 +88,7 @@ Screens:
                   Text: |
                     =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
                   Width: =141
-                  X: =343
-                  Y: =14
+                  X: =435
             - estadoKRtext_1:
                 Control: Text@0.0.47
                 Properties:
@@ -115,8 +109,8 @@ Screens:
                   Text: =LookUp(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID && status.Value = "activo",Proper(nombreEstado))
                   Weight: ='TextCanvas.Weight'.Semibold
                   Width: =140
-                  X: =510
-                  Y: =30
+                  X: =599
+                  Y: =17
             - Gallery6_3:
                 Control: Gallery@2.15.0
                 Variant: Horizontal
@@ -126,8 +120,8 @@ Screens:
                   TemplatePadding: =0
                   TemplateSize: =30
                   Width: =115
-                  X: =718
-                  Y: =26
+                  X: =811
+                  Y: =6
                 Children:
                   - Container2_3:
                       Control: GroupContainer@1.3.0
@@ -271,10 +265,11 @@ Screens:
           Properties:
             Align: ='TextInputCanvas.Align'.Center
             BorderRadius: =5
-            Fill: =RGBA(180, 214, 250, 1)
-            Height: =33
+            Fill: =RGBA(0, 153, 204, 1)
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =43
             Value: ="Código"
-            Width: =96
+            Width: =98
             X: =59
             Y: =194
       - TextInputCanvas2_1:
@@ -282,42 +277,46 @@ Screens:
           Properties:
             Align: ='TextInputCanvas.Align'.Center
             BorderRadius: =5
-            Fill: =RGBA(180, 214, 250, 1)
-            Height: =33
+            Fill: =RGBA(0, 153, 204, 1)
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =43
             Value: ="Descripción Kr"
-            Width: =207
-            X: =168
+            Width: =295
+            X: =159
             Y: =194
       - TextInputCanvas2_2:
           Control: TextInput@0.0.51
           Properties:
             Align: ='TextInputCanvas.Align'.Center
             BorderRadius: =5
-            Fill: =RGBA(180, 214, 250, 1)
-            Height: =33
+            Fill: =RGBA(0, 153, 204, 1)
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =43
             Value: ="Líder"
-            Width: =157
-            X: =389
+            Width: =177
+            X: =456
             Y: =194
       - TextInputCanvas2_3:
           Control: TextInput@0.0.51
           Properties:
             Align: ='TextInputCanvas.Align'.Center
             BorderRadius: =5
-            Fill: =RGBA(180, 214, 250, 1)
-            Height: =33
+            Fill: =RGBA(0, 153, 204, 1)
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =43
             Value: ="Estado KR"
-            Width: =145
-            X: =566
+            Width: =178
+            X: =635
             Y: =194
       - TextInputCanvas2_4:
           Control: TextInput@0.0.51
           Properties:
             Align: ='TextInputCanvas.Align'.Center
             BorderRadius: =5
-            Fill: =RGBA(180, 214, 250, 1)
-            Height: =33
+            Fill: =RGBA(0, 153, 204, 1)
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =43
             Value: ="Responsable"
-            Width: =135
-            X: =731
+            Width: =144
+            X: =815
             Y: =194
