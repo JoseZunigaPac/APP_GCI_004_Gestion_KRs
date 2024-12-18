@@ -2,6 +2,23 @@ Prueba_Nayeli As screen:
     Fill: =Color.White
     LoadingSpinnerColor: =App.Theme.Colors.Primary
 
+    HtmlText1_3 As htmlViewer:
+        DisabledBorderColor: =RGBA(166, 166, 166, 1)
+        Font: =App.Theme.Font
+        Height: =72
+        HtmlText: |-
+            =$"<div style='border-radius: 10px;padding: 28px;margin: 0px;background-color: #ffffff;border-bottom: 3px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
+        OnSelect: =Select(Parent)
+        PaddingBottom: =1
+        PaddingLeft: =1
+        PaddingRight: =1
+        PaddingTop: =1
+        Size: =13
+        Width: =1244
+        X: =59
+        Y: =178
+        ZIndex: =1
+
     Rectangle1_7 As rectangle:
         BorderColor: =App.Theme.Colors.Darker40
         Fill: =RGBA(0, 153, 204, 1)
@@ -57,7 +74,7 @@ Prueba_Nayeli As screen:
         HtmlText1_2 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
             Font: =App.Theme.Font
-            Height: =63
+            Height: =64
             HtmlText: |-
                 =$"<div style='border-radius: 10px;padding: 28px;margin: 0px;background-color: #ffffff;border-bottom: 1px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
             OnSelect: =Select(Parent)
@@ -290,7 +307,10 @@ Prueba_Nayeli As screen:
 
     "TextInputCanvas2 As 'Entrada de texto'":
         Align: ='TextInputCanvas.Align'.Center
+        BorderColor: =RGBA(122, 138, 143, 1)
         BorderRadius: =5
+        BorderStyle: =BorderStyle.Solid
+        BorderThickness: =0
         DisplayMode: =DisplayMode.Edit
         Fill: =RGBA(0, 153, 204, 1)
         FontColor: =RGBA(255, 255, 255, 1)
@@ -298,7 +318,7 @@ Prueba_Nayeli As screen:
         Value: ="Código"
         Width: =98
         X: =59
-        Y: =194
+        Y: =186
         ZIndex: =10
 
     "TextInputCanvas2_1 As 'Entrada de texto'":
@@ -311,7 +331,7 @@ Prueba_Nayeli As screen:
         Value: ="Descripción Kr"
         Width: =295
         X: =159
-        Y: =194
+        Y: =186
         ZIndex: =11
 
     "TextInputCanvas2_2 As 'Entrada de texto'":
@@ -324,7 +344,7 @@ Prueba_Nayeli As screen:
         Value: ="Líder"
         Width: =177
         X: =456
-        Y: =194
+        Y: =186
         ZIndex: =12
 
     "TextInputCanvas2_3 As 'Entrada de texto'":
@@ -337,7 +357,7 @@ Prueba_Nayeli As screen:
         Value: ="Estado KR"
         Width: =178
         X: =635
-        Y: =194
+        Y: =186
         ZIndex: =13
 
     "TextInputCanvas2_4 As 'Entrada de texto'":
@@ -350,6 +370,6 @@ Prueba_Nayeli As screen:
         Value: ="Responsable"
         Width: =144
         X: =815
-        Y: =194
+        Y: =186
         ZIndex: =14
 
