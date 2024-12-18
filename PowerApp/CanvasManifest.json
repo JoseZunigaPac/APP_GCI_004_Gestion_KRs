@@ -108,7 +108,7 @@
       "zeroalltabindexes": true
     },
     "Author": "",
-    "BindingErrorCount": 1,
+    "BindingErrorCount": 10,
     "ContainsThirdPartyPcfControls": false,
     "DefaultConnectedDataSourceMaxGetRowsCount": 500,
     "DocumentAppType": "DesktopOrTablet",
@@ -153,6 +153,7 @@
     "Pruebas Jose",
     "Confirmacion",
     "Screen3",
-    "Prueba_Nayeli"
+    "Prueba_Nayeli",
+    "Prueba_Nayeli_1"
   ]
 }

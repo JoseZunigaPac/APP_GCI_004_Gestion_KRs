@@ -49,30 +49,11 @@ Screens:
                   If(!IsBlank(filterAnio_1.Selected.Value),Year(fechaProgramadainicio) = filterAnio_1.Selected.Value,true)
               )
 
-            TemplateSize: =82
+            TemplateSize: =62
             Width: =1245
             X: =59
             Y: =237
           Children:
-            - NextArrow1:
-                Control: Classic/Icon@2.5.0
-                Properties:
-                  AccessibleLabel: =Self.Tooltip
-                  BorderColor: =RGBA(0, 0, 0, 1)
-                  Color: =RGBA(166, 166, 166, 1)
-                  DisabledBorderColor: =RGBA(56, 56, 56, 1)
-                  DisabledColor: =RGBA(119, 119, 119, 1)
-                  Height: =50
-                  Icon: =Icon.ChevronRight
-                  OnSelect: =Select(Parent)
-                  PaddingBottom: =16
-                  PaddingLeft: =16
-                  PaddingRight: =16
-                  PaddingTop: =16
-                  Tooltip: ="Ver los detalles del elemento"
-                  Width: =50
-                  X: =Parent.TemplateWidth - Self.Width - 12
-                  Y: =(Parent.TemplateHeight / 2) - (Self.Height / 2)
             - Separator1:
                 Control: Rectangle@2.3.0
                 Properties:
@@ -92,17 +73,17 @@ Screens:
             - TextCanvas7:
                 Control: Text@0.0.47
                 Properties:
-                  Height: =50
                   Text: =ThisItem.codigoKR
                   Width: =90
                   X: =20
-                  Y: =20
+                  Y: =26
             - TextCanvas7_1:
                 Control: Text@0.0.47
                 Properties:
                   Height: =56
                   Text: =ThisItem.nombreKR
                   Width: =207
+                  Wrap: =false
                   X: =110
                   Y: =14
             - TextCanvas7_2:
@@ -140,7 +121,7 @@ Screens:
                 Control: Gallery@2.15.0
                 Variant: Horizontal
                 Properties:
-                  Height: =32
+                  Height: =44
                   Items: =ThisItem.responsables
                   TemplatePadding: =0
                   TemplateSize: =30
@@ -155,12 +136,12 @@ Screens:
                         BorderColor: =RGBA(52, 152, 47, 1)
                         DropShadow: =DropShadow.None
                         Fill: =RGBA(62, 128, 149, 1)
-                        Height: =Self.Width
+                        Height: =35
                         RadiusBottomLeft: =30
                         RadiusBottomRight: =30
                         RadiusTopLeft: =30
                         RadiusTopRight: =30
-                        Width: =30
+                        Width: =35
                       Children:
                         - TextCanvas6_3:
                             Control: Text@0.0.47
@@ -168,15 +149,15 @@ Screens:
                               Align: ='TextCanvas.Align'.Center
                               Font: =Font.Arial
                               FontColor: =RGBA(255, 255, 255, 1)
-                              Height: =30
+                              Height: =35
                               Size: =11
                               Text: =Left(First(Split(ThisItem.DisplayName, " ")).Value,1) & Left(Last(FirstN(Split(ThisItem.DisplayName, " "), CountRows(Split(ThisItem.DisplayName, " ")) - 1)).Value,1)
                               Weight: ='TextCanvas.Weight'.Bold
-                              Width: =30
+                              Width: =35
                   - Image1_3:
                       Control: Image@2.2.3
                       Properties:
-                        Height: =Self.Width
+                        Height: =35
                         Image: |
                           =IfError(
                               UsuariosdeOffice365.UserPhotoMetadata(ThisItem.Email).HasPhoto,
@@ -189,7 +170,7 @@ Screens:
                         RadiusTopLeft: =30
                         RadiusTopRight: =30
                         Tooltip: =ThisItem.DisplayName
-                        Width: =30
+                        Width: =35
       - filterLider_1:
           Control: ComboBox@0.0.48
           Properties:
