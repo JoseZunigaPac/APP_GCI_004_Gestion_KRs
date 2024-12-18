@@ -140,51 +140,50 @@ Prueba_Nayeli As screen:
             Y: =30
             ZIndex: =10
 
-        Gallery6_1 As gallery.galleryHorizontal:
+        Gallery6_3 As gallery.galleryHorizontal:
             BorderColor: =App.Theme.Colors.Darker40
             DelayItemLoading: =true
-            Height: =50
-            Items: =ThisItem.'Creado por'
+            Height: =32
+            Items: =ThisItem.responsables
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
-            TemplateSize: =61
-            Width: =69
-            X: =714
-            Y: =19
+            TemplateSize: =30
+            Width: =115
+            X: =718
+            Y: =26
             ZIndex: =11
 
-            Container2_1 As groupContainer.manualLayoutContainer:
+            Container2_3 As groupContainer.manualLayoutContainer:
                 BorderColor: =RGBA(52, 152, 47, 1)
                 Fill: =RGBA(62, 128, 149, 1)
-                Height: =42
+                Height: =Self.Width
                 RadiusBottomLeft: =30
                 RadiusBottomRight: =30
                 RadiusTopLeft: =30
                 RadiusTopRight: =30
-                Width: =42
+                Width: =30
                 ZIndex: =1
 
-                TextCanvas6_1 As Texto:
+                TextCanvas6_3 As Texto:
                     Align: ='TextCanvas.Align'.Center
                     DisplayMode: =DisplayMode.Edit
                     Font: =Font.Arial
                     FontColor: =RGBA(255, 255, 255, 1)
                     Height: =30
-                    Size: =14
+                    Size: =11
                     Text: =Left(First(Split(ThisItem.DisplayName, " ")).Value,1) & Left(Last(FirstN(Split(ThisItem.DisplayName, " "), CountRows(Split(ThisItem.DisplayName, " ")) - 1)).Value,1)
-                    VerticalAlign: ='TextCanvas.VerticalAlign'.Middle
                     Weight: ='TextCanvas.Weight'.Bold
                     Width: =30
                     Wrap: =true
-                    X: =5
-                    Y: =6
+                    X: =0
+                    Y: =0
                     ZIndex: =1
 
-            Image1_1 As image:
+            Image1_3 As image:
                 BorderColor: =App.Theme.Colors.Darker40
                 DisabledBorderColor: =RGBA(166, 166, 166, 1)
                 DisabledFill: =RGBA(244, 244, 244, 1)
-                Height: =50
+                Height: =Self.Width
                 Image: |
                     =IfError(
                         UsuariosdeOffice365.UserPhotoMetadata(ThisItem.Email).HasPhoto,
@@ -192,11 +191,12 @@ Prueba_Nayeli As screen:
                         UsuariosdeOffice365.UserPhotoV2(ThisItem.Email)
                     )
                 OnSelect: =Select(Parent)
-                RadiusBottomLeft: =40
-                RadiusBottomRight: =40
-                RadiusTopLeft: =40
-                RadiusTopRight: =40
-                Width: =50
+                RadiusBottomLeft: =30
+                RadiusBottomRight: =30
+                RadiusTopLeft: =30
+                RadiusTopRight: =30
+                Tooltip: =ThisItem.DisplayName
+                Width: =30
                 ZIndex: =2
 
     "filterLider_1 As 'Cuadro combinado'.pcfdataset":
