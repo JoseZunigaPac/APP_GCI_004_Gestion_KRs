@@ -28,7 +28,7 @@ Screens:
           Control: Gallery@2.15.0
           Variant: BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0
           Properties:
-            Height: =455
+            Height: =481
             Items: |+
               =Filter(
                   T_OKR_APP_GCI_003,
@@ -49,10 +49,10 @@ Screens:
                   If(!IsBlank(filterAnio_1.Selected.Value),Year(fechaProgramadainicio) = filterAnio_1.Selected.Value,true)
               )
 
-            TemplateSize: =90
+            TemplateSize: =82
             Width: =1245
             X: =59
-            Y: =264
+            Y: =237
           Children:
             - NextArrow1:
                 Control: Classic/Icon@2.5.0
@@ -102,7 +102,7 @@ Screens:
                 Properties:
                   Height: =56
                   Text: =ThisItem.nombreKR
-                  Width: =220
+                  Width: =207
                   X: =110
                   Y: =14
             - TextCanvas7_2:
@@ -112,7 +112,7 @@ Screens:
                   Text: |
                     =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
                   Width: =141
-                  X: =330
+                  X: =343
                   Y: =14
             - estadoKRtext_1:
                 Control: Text@0.0.47
@@ -134,8 +134,8 @@ Screens:
                   Text: =LookUp(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID && status.Value = "activo",Proper(nombreEstado))
                   Weight: ='TextCanvas.Weight'.Semibold
                   Width: =140
-                  X: =471
-                  Y: =31
+                  X: =495
+                  Y: =30
             - Gallery6_1:
                 Control: Gallery@2.15.0
                 Variant: Horizontal
@@ -145,7 +145,7 @@ Screens:
                   TemplatePadding: =0
                   TemplateSize: =61
                   Width: =69
-                  X: =644
+                  X: =677
                   Y: =20
                 Children:
                   - Container2_1:
@@ -300,16 +300,11 @@ Screens:
       - TextInputCanvas2_1:
           Control: TextInput@0.0.51
           Properties:
+            Align: ='TextInputCanvas.Align'.Center
+            BorderRadius: =5
+            Fill: =RGBA(180, 214, 250, 1)
             Height: =33
-            Value: ="Descrpción del KR"
-            Width: =144
-            X: =169
-            Y: =194
-      - TextInputCanvas2_2:
-          Control: TextInput@0.0.51
-          Properties:
-            Height: =33
-            Value: ="Responsable"
-            Width: =144
-            X: =369
+            Value: ="Código"
+            Width: =207
+            X: =168
             Y: =194
