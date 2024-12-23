@@ -110,7 +110,7 @@ Screens:
           Variant: Vertical
           Properties:
             Fill: =RGBA(255, 255, 255, 1)
-            Height: =576
+            Height: =558
             Items: |-
               =Filter(
                   T_OKR_APP_GCI_003,
@@ -137,7 +137,7 @@ Screens:
             Visible: =vistaDetalle
             Width: =1270
             X: =53
-            Y: =172
+            Y: =197
           Children:
             - HtmlText1:
                 Control: HtmlViewer@2.1.0
@@ -893,7 +893,7 @@ Screens:
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =200
             X: =408
-            Y: =127
+            Y: =159
           Children:
             - Value2:
                 Control: ComboBoxDataField@1.5.0
@@ -912,7 +912,7 @@ Screens:
             Type: ='TextInputCanvas.Type'.Text
             Width: =180
             X: =59
-            Y: =127
+            Y: =159
       - filterEstado:
           Control: ComboBox@0.0.48
           Properties:
@@ -924,7 +924,7 @@ Screens:
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =140
             X: =253
-            Y: =127
+            Y: =159
           Children:
             - Value2_2:
                 Control: ComboBoxDataField@1.5.0
@@ -946,8 +946,8 @@ Screens:
             OnSelect: =Navigate(Registrar_Kr)
             Text: ="Agregar KR"
             Width: =125
-            X: =1070
-            Y: =130
+            X: =934
+            Y: =114
       - btnActualizarVista:
           Control: Button@0.0.43
           Properties:
@@ -955,15 +955,15 @@ Screens:
             FontWeight: =FontWeight.Semibold
             Icon: ="ArrowSync"
             IconStyle: ='ButtonCanvas.IconStyle'.Filled
-            Layout: ='ButtonCanvas.Layout'.IconOnly
+            Layout: ='ButtonCanvas.Layout'.IconBefore
             OnSelect: |-
               =Refresh(T_OKR_APP_GCI_003);
               Refresh(T_REG_STS_KR_APP_GCI_003);
               Refresh(T_TAREAS_APP_GCI_003)
             Text: ="Sincronizar"
-            Width: =40
-            X: =1202
-            Y: =130
+            Width: =121
+            X: =1064
+            Y: =114
       - filterTrimestre:
           Control: ComboBox@0.0.48
           Properties:
@@ -973,7 +973,7 @@ Screens:
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =110
             X: =835
-            Y: =127
+            Y: =159
           Children:
             - Value2_1:
                 Control: ComboBoxDataField@1.5.0
@@ -994,7 +994,7 @@ Screens:
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =90
             X: =958
-            Y: =127
+            Y: =159
           Children:
             - Value2_3:
                 Control: ComboBoxDataField@1.5.0
@@ -1019,7 +1019,7 @@ Screens:
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =200
             X: =621
-            Y: =127
+            Y: =159
           Children:
             - Value2_8:
                 Control: ComboBoxDataField@1.5.0
@@ -1041,7 +1041,7 @@ Screens:
             ToggleSize: =45
             Width: =73
             X: =1245
-            Y: =115
+            Y: =99
       - Popup:
           Control: GroupContainer@1.3.0
           Variant: ManualLayout
@@ -3049,11 +3049,3 @@ Screens:
                               Width: =30
                               Wrap: =false
                               Y: =DataCardKey37.Y
-      - Rectangle3:
-          Control: Rectangle@2.3.0
-          Properties:
-            Fill: =RGBA(122, 138, 143, 1)
-            Height: =47
-            Width: =2
-            X: =1058
-            Y: =122

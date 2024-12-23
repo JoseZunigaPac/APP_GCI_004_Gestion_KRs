@@ -1,0 +1,102 @@
+CustomToggle As CanvasComponent:
+    baseBG: =RGBA(255, 255, 255, 1)
+    basedColorIcon_Text: =RGBA(0, 153, 204, 1)
+    Fill: =RGBA(0, 0, 0, 0)
+    Height: =35
+    OnReset: =Set(activeToggleID,1)
+    selectedBG: =RGBA(0, 153, 204, 1)
+    SelectedColorIcon_Text: =RGBA(255, 255, 255, 1)
+    Width: =70
+    X: =0
+    Y: =0
+    ZIndex: =1
+
+    Container1 As groupContainer.horizontalAutoLayoutContainer:
+        Height: =Parent.Height
+        LayoutMode: =LayoutMode.Auto
+        PaddingBottom: =1
+        PaddingLeft: =1
+        PaddingRight: =1
+        PaddingTop: =1
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Width: =Parent.Width
+        ZIndex: =1
+
+        Container3 As groupContainer.horizontalAutoLayoutContainer:
+            BorderColor: =CustomToggle.selectedBG
+            BorderThickness: =2
+            LayoutMinHeight: =0
+            LayoutMinWidth: =0
+            LayoutMode: =LayoutMode.Auto
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            RadiusBottomLeft: =10
+            RadiusBottomRight: =10
+            RadiusTopLeft: =10
+            RadiusTopRight: =10
+            ZIndex: =2
+
+            Icon2 As Icono:
+                AlignInContainer: =AlignInContainer.Stretch
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                Icon: ="AppsListDetail"
+                IconColor: =If(activeToggleID = 1, CustomToggle.SelectedColorIcon_Text,CustomToggle.basedColorIcon_Text)
+                IconStyle: ='Icon.IconStyle'.Outline
+                LayoutMinHeight: =20
+                LayoutMinWidth: =20
+                Width: =32
+                X: =0
+                Y: =0
+                ZIndex: =1
+
+            Icon4 As Icono:
+                AlignInContainer: =AlignInContainer.Stretch
+                DisplayMode: =DisplayMode.Edit
+                FillPortions: =1
+                Height: =32
+                Icon: ="AppsList"
+                IconColor: =If(activeToggleID = 2, CustomToggle.SelectedColorIcon_Text,CustomToggle.basedColorIcon_Text)
+                LayoutMinHeight: =20
+                LayoutMinWidth: =20
+                Width: =20
+                X: =0
+                Y: =0
+                ZIndex: =2
+
+    Button2 As button:
+        BorderColor: =App.Theme.Colors.Primary
+        BorderStyle: =BorderStyle.None
+        Color: =
+        DisabledBorderColor: =RGBA(244, 244, 244, 1)
+        DisabledColor: =RGBA(166, 166, 166, 1)
+        DisabledFill: =RGBA(244, 244, 244, 1)
+        Fill: =RGBA(0, 0, 0, 0)
+        Font: =App.Theme.Font
+        FontWeight: =FontWeight.Semibold
+        Height: =Parent.Height
+        HoverBorderColor: =App.Theme.Colors.Darker10
+        HoverColor: =App.Theme.Colors.PrimaryForeground
+        HoverFill: =RGBA(0, 0, 0, 0.3)
+        OnSelect: |-
+            =If(
+                activeToggleID = 1,
+                Set(activeToggleID,2),
+                Set(activeToggleID,1)
+            )
+        PressedBorderColor: =App.Theme.Colors.Darker40
+        PressedColor: =Self.Color
+        PressedFill: =RGBA(0, 0, 0, 0.2)
+        Size: =15
+        Text: =
+        Width: =Parent.Width
+        X: =40
+        Y: =35
+        ZIndex: =2
+
