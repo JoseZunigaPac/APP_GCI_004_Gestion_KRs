@@ -246,7 +246,7 @@
             TextCanvas3_1 As Texto:
                 DisplayMode: =DisplayMode.Edit
                 Height: =20
-                Text: ="• "
+                Text: ="• " & ThisItem.ID & " - " & ThisItem.IsSelected
                 Width: =300
                 X: =7
                 Y: =1
@@ -278,11 +278,11 @@
                 ZIndex: =3
 
             "nombreTarea As 'Entrada de texto'":
-                DisplayMode: =mode
+                DisplayMode: =DisplayMode.Edit
                 FontColor: =RGBA(0, 0, 0, 1)
                 FontSize: =12
                 FontWeight: =FontWeight.Normal
-                Height: =20
+                Height: =21
                 OnChange: |-
                     =Patch(
                         T_TAREAS_APP_GCI_003,
@@ -296,8 +296,8 @@
                 PaddingTop: =0
                 Placeholder: =ThisItem.nombreTareas
                 Value: =ThisItem.nombreTareas
-                Width: =320
-                X: =15
+                Width: =247
+                X: =85
                 Y: =0
                 ZIndex: =4
 
@@ -315,11 +315,13 @@
                 IconStyle: ='ButtonCanvas.IconStyle'.Filled
                 Layout: ='ButtonCanvas.Layout'.IconOnly
                 OnSelect: |-
-                    =If(
-                        nombreTarea.DisplayMode = DisplayMode.Edit,
-                        UpdateContext({mode: DisplayMode.View}),
+                    =/*If(
+                        nombreTarea.DisplayMode = DisplayMode.Edit;
+                        UpdateContext({mode: DisplayMode.View});
                         UpdateContext({mode: DisplayMode.Edit})
-                    )
+                    )¨
+                    */
+                    Set(pouplista_4,true)
                 PaddingBottom: =5
                 PaddingLeft: =5
                 PaddingRight: =5
@@ -783,13 +785,13 @@
             Text: |
                 =If(
                     Lower(estadoKRtext.Text) = "sin aprobación", 
-                    "aprobar",
+                    "Aprobar",
                     If(
                         Lower(estadoKRtext.Text)   = "programado", 
-                        "iniciar",
+                        "Iniciar",
                         If(
                             Lower(estadoKRtext.Text)  = "en curso", 
-                            "finalizar",
+                            "Finalizar",
                             ""
                         )
                     )
@@ -853,7 +855,7 @@
             OnSelect: =Set(pouplista,true)
             PaddingBottom: =2
             PaddingTop: =2
-            Text: ="editar KR"
+            Text: ="Editar KR"
             Visible: |-
                 =If(
                     estadoKRtext.Text = "finalizado",
@@ -881,14 +883,14 @@
                 NewForm(Form3)
             PaddingBottom: =2
             PaddingTop: =2
-            Text: ="crear tarea"
+            Text: ="Crear Tarea"
             Visible: |-
                 =If(
                     estadoKRtext.Text = "finalizado",
                     false,
                     Boolean(visibleBotonPerUser.Text)
                 )
-            Width: =115
+            Width: =118
             X: =998
             Y: =7
             ZIndex: =42
@@ -907,7 +909,7 @@
             OnSelect: =false
             PaddingBottom: =2
             PaddingTop: =2
-            Text: ="editar tarea"
+            Text: ="Editar Tarea"
             Visible: |-
                 =If(
                     estadoKRtext.Text = "finalizado",
@@ -1161,6 +1163,33 @@
             Order: =1
             ZIndex: =36
 
+    "filterResponsable As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |-
+            =If(
+                User().FullName in Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName),
+                [User().FullName]
+            )
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Seleccionar Responsable"
+        Items: =Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName)
+        MultiValueDelimiter: ="; "
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =200
+        X: =621
+        Y: =127
+        ZIndex: =15
+
+        Value2_8 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
     Popup As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =668
@@ -1171,7 +1200,7 @@
         Visible: =pouplista
         Width: =1366
         Y: =100
-        ZIndex: =15
+        ZIndex: =16
 
         HtmlText2 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1804,7 +1833,7 @@
         Visible: =pouplista_2
         Width: =1366
         Y: =100
-        ZIndex: =16
+        ZIndex: =17
 
         HtmlText2_3 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2655,7 +2684,7 @@
         Visible: =pouplista_3
         Width: =1366
         Y: =100
-        ZIndex: =17
+        ZIndex: =18
 
         HtmlText2_5 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2689,7 +2718,7 @@
             Width: =400
             X: =247
             Y: =103
-            ZIndex: =4
+            ZIndex: =3
 
         Icon3_4 As icon.Save:
             BorderColor: =App.Theme.Colors.Darker40
@@ -2709,7 +2738,7 @@
             Width: =50
             X: =1000
             Y: =103
-            ZIndex: =6
+            ZIndex: =4
 
         Icon3_5 As icon.Save:
             BorderColor: =App.Theme.Colors.Darker40
@@ -2727,7 +2756,7 @@
             Width: =50
             X: =1072
             Y: =102
-            ZIndex: =7
+            ZIndex: =5
 
         Form3 As form:
             BorderColor: =App.Theme.Colors.Darker40
@@ -2737,7 +2766,7 @@
             Width: =898
             X: =224
             Y: =130
-            ZIndex: =8
+            ZIndex: =6
 
             nombreTareas_DataCard4 As typedDataCard.textualEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
@@ -3195,30 +3224,411 @@
                     Y: =DataCardKey42.Y
                     ZIndex: =4
 
-    "filterResponsable As 'Cuadro combinado'.pcfdataset":
-        BasePaletteColor: =
-        DefaultSelectedItems: |-
-            =If(
-                User().FullName in Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName),
-                [User().FullName]
-            )
-        DisplayMode: =DisplayMode.Edit
-        Height: =35
-        InputTextPlaceholder: ="Seleccionar Responsable"
-        Items: =Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName)
-        MultiValueDelimiter: ="; "
-        SelectMultiple: =false
-        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-        Width: =200
-        X: =621
-        Y: =127
-        ZIndex: =18
+    Popup_3 As groupContainer.manualLayoutContainer:
+        DropShadow: =DropShadow.Light
+        Height: =668
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =pouplista_4
+        Width: =1366
+        Y: =100
+        ZIndex: =19
 
-        Value2_8 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-            FieldDisplayName: ="Value"
-            FieldName: ="Value"
-            FieldType: ="s"
-            FieldVariantName: ="textualColumn"
-            Order: =1
-            ZIndex: =36
+        HtmlText2_7 As htmlViewer:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Height: =667
+            HtmlText: |-
+                =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
+            Size: =13
+            Width: =1366
+            ZIndex: =1
+
+        HtmlText2_8 As htmlViewer:
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            Font: =App.Theme.Font
+            Height: =350
+            HtmlText: |-
+                =$"<div style='border-radius: 10px;padding: 155px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
+            Size: =13
+            Width: =957
+            X: =198
+            Y: =87
+            ZIndex: =2
+
+        TextCanvas3_4 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            FontColor: =RGBA(255, 255, 255, 1)
+            Height: =32
+            Size: =20
+            Text: ="Agregar tarea - " & Gallery2.Selected.codigoKR & " - " & Gallery2.Selected.Gallery3.Selected.ID
+            Weight: ='TextCanvas.Weight'.Bold
+            Width: =400
+            X: =247
+            Y: =103
+            ZIndex: =4
+
+        Icon3_7 As icon.Save:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(238, 44, 112, 1)
+            Height: =44
+            Icon: =Icon.Save
+            OnSelect: |-
+                =SubmitForm(Form4);
+                Set(pouplista_4,false)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Width: =50
+            X: =1000
+            Y: =103
+            ZIndex: =6
+
+        Icon3_6 As icon.Save:
+            BorderColor: =App.Theme.Colors.Darker40
+            Color: =App.Theme.Colors.PrimaryForeground
+            DisabledBorderColor: =RGBA(166, 166, 166, 1)
+            DisabledColor: =RGBA(244, 244, 244, 1)
+            Fill: =RGBA(238, 44, 112, 1)
+            Height: =43
+            Icon: =Icon.Cancel
+            OnSelect: =Set(pouplista_4,false)
+            PaddingBottom: =5
+            PaddingLeft: =5
+            PaddingRight: =5
+            PaddingTop: =5
+            Width: =50
+            X: =1072
+            Y: =102
+            ZIndex: =7
+
+        Form4 As form.PowerApps_CoreControls_Form:
+            BorderColor: =App.Theme.Colors.Darker40
+            DataSource: =T_TAREAS_APP_GCI_003
+            Height: =228
+            Item: =Gallery2.Selected.Gallery3.Selected
+            UseFluentV9Cards: =true
+            Width: =900
+            X: =230
+            Y: =168
+            ZIndex: =8
+
+            nombreTareas_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="Title"
+                Default: =ThisItem.nombreTareas
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,Title)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, Title)
+                Required: =true
+                Update: =DataCardValue23.Value
+                Width: =300
+                X: =0
+                Y: =0
+                ZIndex: =9
+
+                DataCardKey13 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue23 As 'Entrada de texto'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =65
+                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage13 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue23.Y + DataCardValue23.Height
+                    ZIndex: =3
+
+                StarVisible13 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey13.Y
+                    ZIndex: =4
+
+            nombreKRAsociado_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="nombreKRAsociado"
+                Default: =ThisItem.nombreKRAsociado
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreKRAsociado)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =true
+                Update: =DataCardValue27.Selected
+                Width: =300
+                X: =0
+                Y: =1
+                ZIndex: =9
+
+                DataCardKey29 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue27 As 'Cuadro combinado'.pcfdataset":
+                    AccessibleLabel: =Parent.DisplayName
+                    DefaultSelectedItems: =[Parent.Default]
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    Items: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado)
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey29.Y + DataCardKey29.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage29 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue27.Y + DataCardValue27.Height
+                    ZIndex: =3
+
+                StarVisible29 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey29.Y
+                    ZIndex: =4
+
+            descripcionTarea_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="descripcionTarea"
+                Default: =ThisItem.descripcionTarea
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =115
+                MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, descripcionTarea)
+                Required: =false
+                Update: =DataCardValue30.Value
+                Width: =600
+                X: =1
+                Y: =0
+                ZIndex: =9
+
+                DataCardKey30 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue30 As 'Entrada de texto'":
+                    AccessibleLabel: =Parent.DisplayName
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =62
+                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                    Required: =Parent.Required
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Value: =Parent.Default
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey30.Y + DataCardKey30.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage30 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue30.Y + DataCardValue30.Height
+                    ZIndex: =3
+
+                StarVisible30 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey30.Y
+                    ZIndex: =4
+
+            responsableTarea_DataCard1 As typedDataCard.fluentV9ComboBoxMultiSelectEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="responsableTarea"
+                Default: =ThisItem.responsableTarea
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,responsableTarea)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =true
+                Update: =DataCardValue31.SelectedItems
+                Width: =300
+                X: =1
+                Y: =1
+                ZIndex: =9
+
+                DataCardKey31 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                "DataCardValue31 As 'Cuadro combinado'.pcfdataset":
+                    AccessibleLabel: =Parent.DisplayName
+                    DefaultSelectedItems: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    Items: =Choices([@T_TAREAS_APP_GCI_003].responsableTarea)
+                    Required: =Parent.Required
+                    SelectMultiple: =true
+                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey31.Y + DataCardKey31.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage31 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue31.Y + DataCardValue31.Height
+                    ZIndex: =3
+
+                StarVisible31 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =20
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey31.Y
+                    ZIndex: =4
+
+            finalizado_DataCard1 As typedDataCard.fluentV9ToggleEditCard:
+                BorderColor: =App.Theme.Colors.Darker40
+                BorderStyle: =BorderStyle.Solid
+                DataField: ="finalizado"
+                Default: =ThisItem.finalizado
+                DisplayMode: =Parent.DisplayMode
+                DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,finalizado)
+                Fill: =RGBA(0, 0, 0, 0)
+                Height: =70
+                Required: =false
+                Update: =DataCardValue32.Checked
+                Width: =300
+                X: =2
+                Y: =1
+                ZIndex: =9
+
+                DataCardKey32 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =22
+                    Text: =Parent.DisplayName
+                    Weight: ='TextCanvas.Weight'.Semibold
+                    Width: =Parent.Width - 48
+                    Wrap: =false
+                    X: =24
+                    Y: =10
+                    ZIndex: =1
+
+                DataCardValue32 As Alternancia:
+                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Obligatorio.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                    Checked: =Parent.Default
+                    DisplayMode: =Parent.DisplayMode
+                    Height: =32
+                    Label: =""
+                    OnCheck: =false
+                    OnUncheck: =false
+                    Width: =Parent.Width - 48
+                    X: =24
+                    Y: =DataCardKey32.Y + DataCardKey32.Height + 4
+                    ZIndex: =2
+
+                ErrorMessage32 As Texto:
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: =Parent.Error
+                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =Parent.Width - 48
+                    Wrap: =true
+                    X: =24
+                    Y: =DataCardValue32.Y + DataCardValue32.Height
+                    ZIndex: =3
+
+                StarVisible32 As Texto:
+                    Align: ='TextCanvas.Align'.Center
+                    DisplayMode: =DisplayMode.Edit
+                    Height: =30
+                    Text: ="*"
+                    Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                    Width: =30
+                    X: =0
+                    Y: =DataCardKey32.Y
+                    ZIndex: =4
 

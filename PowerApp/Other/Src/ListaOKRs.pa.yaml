@@ -198,7 +198,7 @@ Screens:
                       Control: Text@0.0.47
                       Properties:
                         Height: =20
-                        Text: ="• "
+                        Text: ="• " & ThisItem.ID & " - " & ThisItem.IsSelected
                         Width: =300
                         X: =7
                         Y: =1
@@ -228,11 +228,10 @@ Screens:
                   - nombreTarea:
                       Control: TextInput@0.0.51
                       Properties:
-                        DisplayMode: =mode
                         FontColor: =RGBA(0, 0, 0, 1)
                         FontSize: =12
                         FontWeight: =FontWeight.Normal
-                        Height: =20
+                        Height: =21
                         OnChange: |-
                           =Patch(
                               T_TAREAS_APP_GCI_003,
@@ -246,7 +245,8 @@ Screens:
                         PaddingTop: =0
                         Placeholder: =ThisItem.nombreTareas
                         Value: =ThisItem.nombreTareas
-                        X: =15
+                        Width: =247
+                        X: =85
                   - ButtonCanvas2:
                       Control: Button@0.0.43
                       Properties:
@@ -262,11 +262,13 @@ Screens:
                         IconStyle: ='ButtonCanvas.IconStyle'.Filled
                         Layout: ='ButtonCanvas.Layout'.IconOnly
                         OnSelect: |-
-                          =If(
-                              nombreTarea.DisplayMode = DisplayMode.Edit,
-                              UpdateContext({mode: DisplayMode.View}),
+                          =/*If(
+                              nombreTarea.DisplayMode = DisplayMode.Edit;
+                              UpdateContext({mode: DisplayMode.View});
                               UpdateContext({mode: DisplayMode.Edit})
-                          )
+                          )¨
+                          */
+                          Set(pouplista_4,true)
                         PaddingBottom: =5
                         PaddingLeft: =5
                         PaddingRight: =5
@@ -691,13 +693,13 @@ Screens:
                   Text: |
                     =If(
                         Lower(estadoKRtext.Text) = "sin aprobación", 
-                        "aprobar",
+                        "Aprobar",
                         If(
                             Lower(estadoKRtext.Text)   = "programado", 
-                            "iniciar",
+                            "Iniciar",
                             If(
                                 Lower(estadoKRtext.Text)  = "en curso", 
-                                "finalizar",
+                                "Finalizar",
                                 ""
                             )
                         )
@@ -755,7 +757,7 @@ Screens:
                   OnSelect: =Set(pouplista,true)
                   PaddingBottom: =2
                   PaddingTop: =2
-                  Text: ="editar KR"
+                  Text: ="Editar KR"
                   Visible: |-
                     =If(
                         estadoKRtext.Text = "finalizado",
@@ -780,14 +782,14 @@ Screens:
                     NewForm(Form3)
                   PaddingBottom: =2
                   PaddingTop: =2
-                  Text: ="crear tarea"
+                  Text: ="Crear Tarea"
                   Visible: |-
                     =If(
                         estadoKRtext.Text = "finalizado",
                         false,
                         Boolean(visibleBotonPerUser.Text)
                     )
-                  Width: =115
+                  Width: =118
                   X: =998
                   Y: =7
             - btnAddTask_1:
@@ -802,7 +804,7 @@ Screens:
                   Layout: ='ButtonCanvas.Layout'.IconBefore
                   PaddingBottom: =2
                   PaddingTop: =2
-                  Text: ="editar tarea"
+                  Text: ="Editar Tarea"
                   Visible: |-
                     =If(
                         estadoKRtext.Text = "finalizado",
@@ -1016,6 +1018,31 @@ Screens:
             Y: =127
           Children:
             - Value2_3:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1
+      - filterResponsable:
+          Control: ComboBox@0.0.48
+          Properties:
+            DefaultSelectedItems: |-
+              =If(
+                  User().FullName in Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName),
+                  [User().FullName]
+              )
+            Height: =35
+            InputTextPlaceholder: ="Seleccionar Responsable"
+            Items: =Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName)
+            MultiValueDelimiter: ="; "
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =200
+            X: =621
+            Y: =127
+          Children:
+            - Value2_8:
                 Control: ComboBoxDataField@1.5.0
                 Variant: textualColumn
                 Properties:
@@ -2594,28 +2621,349 @@ Screens:
                               Width: =30
                               Wrap: =false
                               Y: =DataCardKey42.Y
-      - filterResponsable:
-          Control: ComboBox@0.0.48
+      - Popup_3:
+          Control: GroupContainer@1.3.0
+          Variant: ManualLayout
           Properties:
-            DefaultSelectedItems: |-
-              =If(
-                  User().FullName in Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName),
-                  [User().FullName]
-              )
-            Height: =35
-            InputTextPlaceholder: ="Seleccionar Responsable"
-            Items: =Distinct(T_RESPONSABLES_APP_GCI_003,responsable.DisplayName)
-            MultiValueDelimiter: ="; "
-            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-            Width: =200
-            X: =621
-            Y: =127
+            Height: =668
+            Visible: =pouplista_4
+            Width: =1366
+            Y: =100
           Children:
-            - Value2_8:
-                Control: ComboBoxDataField@1.5.0
-                Variant: textualColumn
+            - HtmlText2_7:
+                Control: HtmlViewer@2.1.0
                 Properties:
-                  FieldDisplayName: ="Value"
-                  FieldName: ="Value"
-                  FieldType: ="s"
-                  Order: =1
+                  Height: =667
+                  HtmlText: |-
+                    =$"<div style='background: rgba(220, 220, 220, 0.4); backdrop-filter: blur(5px); border-radius: 0px; width: {Self.Width}px; height: {Self.Height-15}px;'></div>"
+                  Width: =1366
+            - HtmlText2_8:
+                Control: HtmlViewer@2.1.0
+                Properties:
+                  Height: =350
+                  HtmlText: |-
+                    =$"<div style='border-radius: 10px;padding: 155px;margin: 0px;background-color: rgba(0, 153, 204, 0.7);border-bottom: 3px solid rgba(0,0,0,0.7);border-top: 2px solid rgba(0,0,0,0.3);border-left: 2px solid rgba(0,0,0,0.3);border-right: 2px solid rgba(0,0,0,0.3);'></div>"
+                  Width: =957
+                  X: =198
+                  Y: =87
+            - TextCanvas3_4:
+                Control: Text@0.0.47
+                Properties:
+                  FontColor: =RGBA(255, 255, 255, 1)
+                  Size: =20
+                  Text: ="Agregar tarea - " & Gallery2.Selected.codigoKR & " - " & Gallery2.Selected.Gallery3.Selected.ID
+                  Weight: ='TextCanvas.Weight'.Bold
+                  Width: =400
+                  X: =247
+                  Y: =103
+            - Icon3_7:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =44
+                  Icon: =Icon.Save
+                  OnSelect: |-
+                    =SubmitForm(Form4);
+                    Set(pouplista_4,false)
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1000
+                  Y: =103
+            - Icon3_6:
+                Control: Classic/Icon@2.5.0
+                Properties:
+                  Color: =App.Theme.Colors.PrimaryForeground
+                  Fill: =RGBA(238, 44, 112, 1)
+                  Height: =43
+                  Icon: =Icon.Cancel
+                  OnSelect: =Set(pouplista_4,false)
+                  PaddingBottom: =5
+                  PaddingLeft: =5
+                  PaddingRight: =5
+                  PaddingTop: =5
+                  Width: =50
+                  X: =1072
+                  Y: =102
+            - Form4:
+                Control: Form@2.4.2
+                Layout: Vertical
+                Properties:
+                  DataSource: =T_TAREAS_APP_GCI_003
+                  Height: =228
+                  Item: =Gallery2.Selected.Gallery3.Selected
+                  Width: =900
+                  X: =230
+                  Y: =168
+                Children:
+                  - nombreTareas_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        DataField: ="Title"
+                        Default: =ThisItem.nombreTareas
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,Title)
+                        MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, Title)
+                        Required: =true
+                        Update: =DataCardValue23.Value
+                        Width: =300
+                        Y: =0
+                      Children:
+                        - DataCardKey13:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue23:
+                            Control: TextInput@0.0.51
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              Height: =65
+                              Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                        - ErrorMessage13:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue23.Y + DataCardValue23.Height
+                        - StarVisible13:
+                            Control: Text@0.0.47
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey13.Y
+                  - nombreKRAsociado_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ComboBoxEdit
+                      Properties:
+                        DataField: ="nombreKRAsociado"
+                        Default: =ThisItem.nombreKRAsociado
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreKRAsociado)
+                        Required: =true
+                        Update: =DataCardValue27.Selected
+                        Width: =300
+                        Y: =1
+                      Children:
+                        - DataCardKey29:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue27:
+                            Control: ComboBox@0.0.48
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DefaultSelectedItems: =[Parent.Default]
+                              DisplayMode: =Parent.DisplayMode
+                              Items: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado)
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey29.Y + DataCardKey29.Height + 4
+                        - ErrorMessage29:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue27.Y + DataCardValue27.Height
+                        - StarVisible29:
+                            Control: Text@0.0.47
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =20
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey29.Y
+                  - descripcionTarea_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: TextualEdit
+                      Properties:
+                        DataField: ="descripcionTarea"
+                        Default: =ThisItem.descripcionTarea
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
+                        Height: =115
+                        MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, descripcionTarea)
+                        Required: =false
+                        Update: =DataCardValue30.Value
+                        Width: =600
+                        X: =1
+                        Y: =0
+                      Children:
+                        - DataCardKey30:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue30:
+                            Control: TextInput@0.0.51
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DisplayMode: =Parent.DisplayMode
+                              Height: =62
+                              Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
+                              Required: =Parent.Required
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Value: =Parent.Default
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey30.Y + DataCardKey30.Height + 4
+                        - ErrorMessage30:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue30.Y + DataCardValue30.Height
+                        - StarVisible30:
+                            Control: Text@0.0.47
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey30.Y
+                  - responsableTarea_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ComboBoxMultiSelectEdit
+                      Properties:
+                        DataField: ="responsableTarea"
+                        Default: =ThisItem.responsableTarea
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,responsableTarea)
+                        Required: =true
+                        Update: =DataCardValue31.SelectedItems
+                        Width: =300
+                        X: =1
+                        Y: =1
+                      Children:
+                        - DataCardKey31:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue31:
+                            Control: ComboBox@0.0.48
+                            Properties:
+                              AccessibleLabel: =Parent.DisplayName
+                              DefaultSelectedItems: =Parent.Default
+                              DisplayMode: =Parent.DisplayMode
+                              Items: =Choices([@T_TAREAS_APP_GCI_003].responsableTarea)
+                              Required: =Parent.Required
+                              SelectMultiple: =true
+                              ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey31.Y + DataCardKey31.Height + 4
+                        - ErrorMessage31:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue31.Y + DataCardValue31.Height
+                        - StarVisible31:
+                            Control: Text@0.0.47
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =20
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey31.Y
+                  - finalizado_DataCard1:
+                      Control: TypedDataCard@1.0.6
+                      Variant: ToggleEdit
+                      Properties:
+                        DataField: ="finalizado"
+                        Default: =ThisItem.finalizado
+                        DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,finalizado)
+                        Required: =false
+                        Update: =DataCardValue32.Checked
+                        Width: =300
+                        X: =2
+                        Y: =1
+                      Children:
+                        - DataCardKey32:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =22
+                              Text: =Parent.DisplayName
+                              Weight: ='TextCanvas.Weight'.Semibold
+                              Width: =Parent.Width - 48
+                              Wrap: =false
+                              X: =24
+                              Y: =10
+                        - DataCardValue32:
+                            Control: Toggle@1.1.2
+                            Properties:
+                              AccessibleLabel: =If(Parent.Required, Substitute("{0}. Obligatorio.", "{0}", Parent.DisplayName), Parent.DisplayName)
+                              Checked: =Parent.Default
+                              DisplayMode: =Parent.DisplayMode
+                              Height: =32
+                              Label: =""
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardKey32.Y + DataCardKey32.Height + 4
+                        - ErrorMessage32:
+                            Control: Text@0.0.47
+                            Properties:
+                              Height: =30
+                              Text: =Parent.Error
+                              Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =Parent.Width - 48
+                              X: =24
+                              Y: =DataCardValue32.Y + DataCardValue32.Height
+                        - StarVisible32:
+                            Control: Text@0.0.47
+                            Properties:
+                              Align: ='TextCanvas.Align'.Center
+                              Height: =30
+                              Text: ="*"
+                              Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
+                              Width: =30
+                              Y: =DataCardKey32.Y
