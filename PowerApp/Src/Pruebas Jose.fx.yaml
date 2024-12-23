@@ -1,5 +1,15 @@
-"'Pruebas Jose' As screen":
-    Fill: |-
-        =ColorValue("#DCDCDC")
+"'Pruebas Jose' As screen.'autoLayout_Approval_ver1.0'":
+    Fill: =
     LoadingSpinnerColor: =App.Theme.Colors.Primary
+
+    Toolbar1 As Toolbar.pcfdataset:
+        DisplayMode: =DisplayMode.Edit
+        Height: =47
+        Items: |-
+            =Table({ItemKey: "new", ItemDisplayName: "New", ItemIconName: "Add", ItemAppearance: "Primary", ItemIconStyle: "Regular", ItemTooltip: "Add new item"},{ItemKey: "edit", ItemDisplayName: "Edit", ItemIconName: "Edit", ItemAppearance: "Subtle", ItemIconStyle: "Regular"},{ItemKey: "delete", ItemDisplayName: "Delete", ItemIconName: "Delete", ItemDisabled: true, ItemAppearance: "Subtle", ItemIconStyle: "Filled"},{ItemKey: "info", ItemDisplayName: "Info", ItemIconName: "Info", ItemAppearance: "Subtle", ItemIconStyle: "Regular"})
+        OnSelect: =Switch(Self.Selected.ItemKey,/* Action for Key 'new' */"new",Notify("New clicked"),/* Action for 'edit' */"edit",Notify("Edit clicked"),/* Action for 'delete' */ "delete",Notify("Delete clicked"),/* Action for 'info' */ "info",Notify("Info clicked"), /* Default action */  Notify("Unrecognized button clicked"))
+        Width: =362
+        X: =162
+        Y: =450
+        ZIndex: =1
 

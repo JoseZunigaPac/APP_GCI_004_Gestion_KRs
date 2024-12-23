@@ -3,6 +3,15 @@
     {
       "EntityName": "PowerAppsTheme",
       "ThemeName": "PowerAppsTheme"
+    },
+    {
+      "BasePaletteColor": "#0099cc",
+      "EntityName": "Pacifico",
+      "Font": "Segoe UI",
+      "HueTorsion": 0,
+      "ThemeName": "Pacifico",
+      "ThemePrimaryColorLocked": true,
+      "Vibrancy": 0
     }
   ]
 }
