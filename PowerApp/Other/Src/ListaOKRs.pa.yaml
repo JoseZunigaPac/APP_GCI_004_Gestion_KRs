@@ -134,7 +134,7 @@ Screens:
                   If(!IsBlank(filterAnio.Selected.Value),Year(fechaProgramadainicio) = filterAnio.Selected.Value,true)
               )
             TemplateSize: =212
-            Visible: =vistaDetalle
+            Visible: =If(cambioVista.activeToggleID = 2, true, false)
             Width: =1270
             X: =53
             Y: =197
@@ -334,7 +334,7 @@ Screens:
                 Properties:
                   Font: =Font.Arial
                   FontColor: =RGBA(0, 153, 204, 1)
-                  Height: =19
+                  Height: =22
                   Text: ="Lista de tareas"
                   Weight: ='TextCanvas.Weight'.Semibold
                   Width: =150
@@ -346,7 +346,7 @@ Screens:
                   Align: ='TextCanvas.Align'.Center
                   Font: =Font.Arial
                   FontColor: =RGBA(0, 153, 204, 1)
-                  Height: =19
+                  Height: =22
                   Text: ="Finalizar"
                   Weight: ='TextCanvas.Weight'.Semibold
                   Width: =68
@@ -356,7 +356,7 @@ Screens:
                 Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
-                  Height: =22
+                  Height: =24
                   Text: =Proper(ThisItem.usuarioAprobador.Department)
                   Width: =222
                   X: =523
@@ -431,7 +431,7 @@ Screens:
                 Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
-                  Height: =20
+                  Height: =22
                   Size: =13
                   Text: =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
                   Width: =195
@@ -489,7 +489,7 @@ Screens:
                 Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
-                  Height: =19
+                  Height: =22
                   Size: =12
                   Text: =Text(ThisItem.fechaProgramadainicio,"dd/mm/yyyy")
                   VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
@@ -500,7 +500,7 @@ Screens:
                 Control: Text@0.0.47
                 Properties:
                   Font: =Font.Arial
-                  Height: =19
+                  Height: =22
                   Size: =12
                   Text: =Text(ThisItem.fechaProgramadaFin,"dd/mm/yyyy")
                   VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
@@ -582,7 +582,7 @@ Screens:
             - TextCanvas2_7:
                 Control: Text@0.0.47
                 Properties:
-                  Height: =19
+                  Height: =22
                   Text: |
                     =ThisItem.lineaBase
                   Width: =70
@@ -612,7 +612,7 @@ Screens:
             - TextCanvas2_9:
                 Control: Text@0.0.47
                 Properties:
-                  Height: =19
+                  Height: =22
                   Text: |
                     =ThisItem.metaPeriodo
                   Width: =70
@@ -873,7 +873,7 @@ Screens:
                   Align: ='TextCanvas.Align'.Center
                   Font: =Font.Arial
                   FontColor: =RGBA(0, 153, 204, 1)
-                  Height: =19
+                  Height: =22
                   Text: ="Editar"
                   Weight: ='TextCanvas.Weight'.Semibold
                   Width: =50
@@ -892,7 +892,7 @@ Screens:
             Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName)
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =200
-            X: =408
+            X: =680
             Y: =159
           Children:
             - Value2:
@@ -947,8 +947,8 @@ Screens:
             Text: ="Agregar KR"
             VerticalAlign: =VerticalAlign.Middle
             Width: =125
-            X: =934
-            Y: =114
+            X: =998
+            Y: =108
       - btnActualizarVista:
           Control: Button@0.0.43
           Properties:
@@ -963,8 +963,8 @@ Screens:
               Refresh(T_TAREAS_APP_GCI_003)
             Text: ="Sincronizar"
             Width: =121
-            X: =1064
-            Y: =114
+            X: =1128
+            Y: =108
       - filterTrimestre:
           Control: ComboBox@0.0.48
           Properties:
@@ -973,7 +973,7 @@ Screens:
             Items: =["Q1","Q2","Q3","Q4"]
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =110
-            X: =835
+            X: =1107
             Y: =159
           Children:
             - Value2_1:
@@ -994,7 +994,7 @@ Screens:
             Items: =Distinct(Filter(T_OKR_APP_GCI_003,!IsBlank(fechaProgramadainicio)),Year(fechaProgramadainicio))
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =90
-            X: =958
+            X: =1230
             Y: =159
           Children:
             - Value2_3:
@@ -1019,7 +1019,7 @@ Screens:
             MultiValueDelimiter: ="; "
             TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
             Width: =200
-            X: =621
+            X: =893
             Y: =159
           Children:
             - Value2_8:
@@ -1030,19 +1030,6 @@ Screens:
                   FieldName: ="Value"
                   FieldType: ="s"
                   Order: =1
-      - CambiarVista:
-          Control: Toggle@1.1.2
-          Properties:
-            BasePaletteColor: =RGBA(0, 153, 204, 1)
-            Height: =50
-            Label: =
-            LabelPosition: ='Toggle.LabelPosition'.Above
-            OnCheck: =Set(vistaDetalle,false)
-            OnUncheck: =Set(vistaDetalle,true)
-            ToggleSize: =45
-            Width: =73
-            X: =1245
-            Y: =99
       - Popup:
           Control: GroupContainer@1.3.0
           Variant: ManualLayout
@@ -3050,3 +3037,39 @@ Screens:
                               Width: =30
                               Wrap: =false
                               Y: =DataCardKey37.Y
+      - cambioVista:
+          Control: CanvasComponent
+          ComponentName: CustomToggle
+          Properties:
+            Height: =35
+            SelectedColorIcon_Text: =RGBA(255, 255, 255, 1)
+            Width: =70
+            X: =1253
+            Y: =106
+            baseBG: =RGBA(255, 255, 255, 1)
+            basedColorIcon_Text: =RGBA(0, 153, 204, 1)
+            selectedBG: =RGBA(0, 153, 204, 1)
+      - filterLider_3:
+          Control: ComboBox@0.0.48
+          Properties:
+            DefaultSelectedItems: |-
+              =If(
+                  User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
+                  [User().FullName]
+              )
+            Height: =35
+            InputTextPlaceholder: ="Seleccionar Equipo"
+            Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.Department)
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =260
+            X: =404
+            Y: =159
+          Children:
+            - Value2_13:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1

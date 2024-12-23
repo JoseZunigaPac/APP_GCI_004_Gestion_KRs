@@ -2451,19 +2451,19 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "ListaOKRs.CambiarVista.AccessibleLabel"
+                  "fullyQualifiedName": "ListaOKRs.filterLider_3.AccessibleLabel"
                 }
               ],
               "physicalLocation": {
                 "address": {
-                  "fullyQualifiedName": "ListaOKRs.CambiarVista.AccessibleLabel",
+                  "fullyQualifiedName": "ListaOKRs.filterLider_3.AccessibleLabel",
                   "relativeAddress": 0
                 }
               },
               "properties": {
                 "member": "AccessibleLabel",
                 "module": "ListaOKRs",
-                "type": "ListaOKRs.CambiarVista"
+                "type": "ListaOKRs.filterLider_3"
               }
             }
           ],
@@ -5121,6 +5121,36 @@
             {
               "logicalLocations": [
                 {
+                  "fullyQualifiedName": "App.vistaDetalle"
+                }
+              ],
+              "physicalLocation": {
+                "address": {
+                  "fullyQualifiedName": "App.vistaDetalle",
+                  "relativeAddress": 0
+                }
+              },
+              "properties": {
+                "member": "vistaDetalle",
+                "module": "App",
+                "type": "App"
+              }
+            }
+          ],
+          "message": {
+            "id": "issue"
+          },
+          "properties": {
+            "level": "Medium"
+          },
+          "ruleId": "app-UnusedVariables",
+          "ruleIndex": 12
+        },
+        {
+          "locations": [
+            {
+              "logicalLocations": [
+                {
                   "fullyQualifiedName": "App.FieldType1"
                 }
               ],
@@ -5528,7 +5558,7 @@
                 ],
                 "level": "Medium",
                 "primaryCategory": "performance",
-                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ListaOKRs\" es 680, que es superior al umbral máximo recomendado (300)."
+                "whyFix": "Los controles consumen recursos y, si una pantalla tiene demasiados controles, la aplicación puede dejar de responder o ralentizarse. La complejidad estimada de \"ListaOKRs\" es 682, que es superior al umbral máximo recomendado (300)."
               }
             }
           ],

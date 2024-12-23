@@ -164,7 +164,7 @@
         Layout: =Layout.Vertical
         LoadingSpinner: =LoadingSpinner.Data
         TemplateSize: =212
-        Visible: =vistaDetalle
+        Visible: =If(cambioVista.activeToggleID = 2, true, false)
         Width: =1270
         X: =53
         Y: =197
@@ -384,7 +384,7 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             FontColor: =RGBA(0, 153, 204, 1)
-            Height: =19
+            Height: =22
             Text: ="Lista de tareas"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =150
@@ -397,7 +397,7 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             FontColor: =RGBA(0, 153, 204, 1)
-            Height: =19
+            Height: =22
             Text: ="Finalizar"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =68
@@ -408,7 +408,7 @@
         TextCanvas2_4 As Texto:
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            Height: =22
+            Height: =24
             Text: =Proper(ThisItem.usuarioAprobador.Department)
             Width: =222
             X: =523
@@ -490,7 +490,7 @@
         TextCanvas2_5 As Texto:
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            Height: =20
+            Height: =22
             Size: =13
             Text: =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
             Width: =195
@@ -553,7 +553,7 @@
         fecini As Texto:
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            Height: =19
+            Height: =22
             Size: =12
             Text: =Text(ThisItem.fechaProgramadainicio,"dd/mm/yyyy")
             VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
@@ -565,7 +565,7 @@
         fecfin As Texto:
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            Height: =19
+            Height: =22
             Size: =12
             Text: =Text(ThisItem.fechaProgramadaFin,"dd/mm/yyyy")
             VerticalAlign: ='TextCanvas.VerticalAlign'.Bottom
@@ -651,7 +651,7 @@
 
         TextCanvas2_7 As Texto:
             DisplayMode: =DisplayMode.Edit
-            Height: =19
+            Height: =22
             Text: |
                 =ThisItem.lineaBase
             Width: =70
@@ -684,7 +684,7 @@
 
         TextCanvas2_9 As Texto:
             DisplayMode: =DisplayMode.Edit
-            Height: =19
+            Height: =22
             Text: |
                 =ThisItem.metaPeriodo
             Width: =70
@@ -971,7 +971,7 @@
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
             FontColor: =RGBA(0, 153, 204, 1)
-            Height: =19
+            Height: =22
             Text: ="Editar"
             Weight: ='TextCanvas.Weight'.Semibold
             Width: =50
@@ -993,7 +993,7 @@
         SelectMultiple: =false
         TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
         Width: =200
-        X: =408
+        X: =680
         Y: =159
         ZIndex: =8
 
@@ -1057,8 +1057,8 @@
         Text: ="Agregar KR"
         VerticalAlign: =VerticalAlign.Middle
         Width: =125
-        X: =934
-        Y: =114
+        X: =998
+        Y: =108
         ZIndex: =11
 
     btnActualizarVista As Botón:
@@ -1078,8 +1078,8 @@
             Refresh(T_TAREAS_APP_GCI_003)
         Text: ="Sincronizar"
         Width: =121
-        X: =1064
-        Y: =114
+        X: =1128
+        Y: =108
         ZIndex: =12
 
     "filterTrimestre As 'Cuadro combinado'.pcfdataset":
@@ -1092,7 +1092,7 @@
         SelectMultiple: =false
         TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
         Width: =110
-        X: =835
+        X: =1107
         Y: =159
         ZIndex: =13
 
@@ -1115,7 +1115,7 @@
         SelectMultiple: =false
         TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
         Width: =90
-        X: =958
+        X: =1230
         Y: =159
         ZIndex: =14
 
@@ -1142,7 +1142,7 @@
         SelectMultiple: =false
         TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
         Width: =200
-        X: =621
+        X: =893
         Y: =159
         ZIndex: =15
 
@@ -1153,20 +1153,6 @@
             FieldVariantName: ="textualColumn"
             Order: =1
             ZIndex: =36
-
-    CambiarVista As Alternancia:
-        BasePaletteColor: =RGBA(0, 153, 204, 1)
-        DisplayMode: =DisplayMode.Edit
-        Height: =50
-        Label: =
-        LabelPosition: ='Toggle.LabelPosition'.Above
-        OnCheck: =Set(vistaDetalle,false)
-        OnUncheck: =Set(vistaDetalle,true)
-        ToggleSize: =45
-        Width: =73
-        X: =1245
-        Y: =99
-        ZIndex: =16
 
     Popup As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
@@ -3748,4 +3734,36 @@
                     Wrap: =false
                     Y: =DataCardKey37.Y
                     ZIndex: =4
+
+    cambioVista As CustomToggle:
+        Visible: =true
+        X: =1253
+        Y: =106
+        ZIndex: =21
+
+    "filterLider_3 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |-
+            =If(
+                User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
+                [User().FullName]
+            )
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Seleccionar Equipo"
+        Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.Department)
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =260
+        X: =404
+        Y: =159
+        ZIndex: =22
+
+        Value2_13 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
 
