@@ -11,7 +11,7 @@ App As appinfo:
         Set(lastID, form_Registrar.LastSubmit.nombreKR);
         Set(usuarioActual,User().Email);
         Set(vistaDetalle,true)
-    Theme: =Pacifico
+    Theme: =pacifico1
 
     Host As hostControl.DefaultHostControlVariant:
         OnCancel: =false

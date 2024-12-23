@@ -1055,6 +1055,7 @@
         Layout: ='ButtonCanvas.Layout'.IconBefore
         OnSelect: =Navigate(Registrar_Kr)
         Text: ="Agregar KR"
+        VerticalAlign: =VerticalAlign.Middle
         Width: =125
         X: =934
         Y: =114
