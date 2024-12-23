@@ -17,5 +17,6 @@ App:
       Set(displayModeVar,DisplayMode.View);
       Set(varEstadoKr,"sin aprobación");
       Set(lastID, form_Registrar.LastSubmit.nombreKR);
-      Set(usuarioActual,User().Email)
-    Theme: =PowerAppsTheme
+      Set(usuarioActual,User().Email);
+      Set(vistaDetalle,true)
+    Theme: =Pacifico

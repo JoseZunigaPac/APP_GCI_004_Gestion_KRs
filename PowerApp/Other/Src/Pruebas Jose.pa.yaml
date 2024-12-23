@@ -10,4 +10,12 @@
 Screens:
   Pruebas Jose:
     Properties:
-      Fill: =ColorValue("#DCDCDC")
+      Fill: =
+    Children:
+      - Toolbar1:
+          Control: Toolbar@2.0.2
+          Properties:
+            Height: =47
+            Width: =362
+            X: =162
+            Y: =450
