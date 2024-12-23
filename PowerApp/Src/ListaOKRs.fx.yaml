@@ -27,7 +27,6 @@
             =BorderStyle.Solid
             
         BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
         DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -57,7 +56,6 @@
             =BorderStyle.Solid
             
         BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
         DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -86,7 +84,6 @@
             =BorderStyle.Solid
             
         BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
         DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -115,7 +112,6 @@
             =BorderStyle.Solid
             
         BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
         DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -725,7 +721,6 @@
                 =BorderStyle.Solid
                 
             BorderThickness: =1
-            Color: =App.Theme.Colors.PrimaryForeground
             DisabledBorderColor: =RGBA(244, 244, 244, 1)
             DisabledColor: =RGBA(166, 166, 166, 1)
             DisabledFill: =RGBA(244, 244, 244, 1)

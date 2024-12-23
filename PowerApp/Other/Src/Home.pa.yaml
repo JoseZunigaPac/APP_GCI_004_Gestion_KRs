@@ -54,6 +54,7 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
+            Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(238,40,122,0.9)
             Font: =Font.'Open Sans'
             Height: =65

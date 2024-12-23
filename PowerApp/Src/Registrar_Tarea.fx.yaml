@@ -27,7 +27,6 @@ Registrar_Tarea As screen:
             =BorderStyle.Solid
             
         BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
         DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)
@@ -63,7 +62,6 @@ Registrar_Tarea As screen:
             =BorderStyle.Solid
             
         BorderThickness: =4
-        Color: =App.Theme.Colors.PrimaryForeground
         DisabledBorderColor: =RGBA(244, 244, 244, 1)
         DisabledColor: =RGBA(166, 166, 166, 1)
         DisabledFill: =RGBA(244, 244, 244, 1)

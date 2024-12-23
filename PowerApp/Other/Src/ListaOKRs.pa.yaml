@@ -32,6 +32,7 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
+            Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(238,40,122,0.9)
             Font: =Font.'Open Sans'
             HoverColor: =Color.White
@@ -52,6 +53,7 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
+            Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(238,40,122,0.9)
             Font: =Font.'Open Sans'
             HoverColor: =Color.White
@@ -71,6 +73,7 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
+            Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(238,40,122,0.9)
             Font: =Font.'Open Sans'
             HoverColor: =Color.White
@@ -90,6 +93,7 @@ Screens:
               =BorderStyle.Solid
 
             BorderThickness: =4
+            Color: =RGBA(255, 255, 255, 1)
             Fill: =RGBA(238,40,122,0.9)
             Font: =Font.'Open Sans'
             HoverColor: =Color.White
@@ -643,6 +647,7 @@ Screens:
                     =BorderStyle.Solid
 
                   BorderThickness: =1
+                  Color: =RGBA(255, 255, 255, 1)
                   Fill: =RGBA(238,40,122,0.9)
                   Font: =Font.Arial
                   FontWeight: =FontWeight.Normal
