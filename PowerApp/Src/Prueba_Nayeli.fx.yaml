@@ -5,9 +5,9 @@ Prueba_Nayeli As screen:
     HtmlText1_3 As htmlViewer:
         DisabledBorderColor: =RGBA(166, 166, 166, 1)
         Font: =App.Theme.Font
-        Height: =72
+        Height: =43
         HtmlText: |-
-            =$"<div style='border-radius: 0px;padding: 28px;margin: 0px;background-color: #ffffff;border-bottom: 3px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
+            =$"<div style='border-radius: 0px;padding: 18px;margin: 0px;background-color: #0099cc;border-bottom: 3px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
         OnSelect: =Select(Parent)
         PaddingBottom: =1
         PaddingLeft: =1
@@ -16,7 +16,7 @@ Prueba_Nayeli As screen:
         Size: =13
         Width: =1244
         X: =59
-        Y: =178
+        Y: =190
         ZIndex: =1
 
     Rectangle1_7 As rectangle:
@@ -110,8 +110,8 @@ Prueba_Nayeli As screen:
             Height: =56
             Text: |
                 =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
-            Width: =141
-            X: =435
+            Width: =107
+            X: =468
             Y: =0
             ZIndex: =6
 
@@ -199,11 +199,15 @@ Prueba_Nayeli As screen:
                 ZIndex: =2
 
         ButtonCanvas1 As Botón:
+            Appearance: ='ButtonCanvas.Appearance'.Secondary
+            BasePaletteColor: =
             DisplayMode: =DisplayMode.Edit
             Height: =32
+            Icon: ="Edit"
+            Layout: ='ButtonCanvas.Layout'.IconOnly
             OnSelect: =Select(Parent)
-            Width: =96
-            X: =1135
+            Width: =32
+            X: =1199
             Y: =7
             ZIndex: =9
 
@@ -215,9 +219,19 @@ Prueba_Nayeli As screen:
             Height: =32
             OnSelect: =Select(Parent)
             Width: =96
-            X: =1018
+            X: =1094
             Y: =7
             ZIndex: =10
+
+        TextCanvas7_5 As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Height: =50
+            Text: =ThisItem.usuarioAprobador.Department
+            Width: =180
+            Wrap: =false
+            X: =894
+            Y: =0
+            ZIndex: =11
 
     "filterLider_1 As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =
@@ -329,11 +343,11 @@ Prueba_Nayeli As screen:
     "TextInputCanvas2 As 'Entrada de texto'":
         Align: ='TextInputCanvas.Align'.Center
         BorderColor: =RGBA(122, 138, 143, 1)
-        BorderRadius: =5
+        BorderRadius: =
         BorderStyle: =BorderStyle.Solid
         BorderThickness: =0
         DisplayMode: =DisplayMode.Edit
-        Fill: =RGBA(0, 153, 204, 1)
+        Fill: =RGBA(109, 49, 162, 0)
         FontColor: =RGBA(255, 255, 255, 1)
         Height: =30
         Value: ="Código"
@@ -346,7 +360,7 @@ Prueba_Nayeli As screen:
         Align: ='TextInputCanvas.Align'.Center
         BorderRadius: =5
         DisplayMode: =DisplayMode.Edit
-        Fill: =RGBA(0, 153, 204, 1)
+        Fill: =RGBA(0, 0, 0, 0.01)
         FontColor: =RGBA(255, 255, 255, 1)
         Height: =31
         Value: ="Descripción Kr"
