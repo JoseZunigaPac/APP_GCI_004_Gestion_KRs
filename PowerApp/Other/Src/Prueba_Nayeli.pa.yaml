@@ -13,9 +13,9 @@ Screens:
       - HtmlText1_3:
           Control: HtmlViewer@2.1.0
           Properties:
-            Height: =72
+            Height: =43
             HtmlText: |-
-              =$"<div style='border-radius: 0px;padding: 28px;margin: 0px;background-color: #ffffff;border-bottom: 3px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
+              =$"<div style='border-radius: 0px;padding: 18px;margin: 0px;background-color: #0099cc;border-bottom: 3px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
             OnSelect: =Select(Parent)
             PaddingBottom: =1
             PaddingLeft: =1
@@ -23,7 +23,7 @@ Screens:
             PaddingTop: =1
             Width: =1244
             X: =59
-            Y: =178
+            Y: =190
       - Rectangle1_7:
           Control: Rectangle@2.3.0
           Properties:
@@ -101,8 +101,8 @@ Screens:
                   Height: =56
                   Text: |
                     =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
-                  Width: =141
-                  X: =435
+                  Width: =107
+                  X: =468
             - estadoKRtext_1:
                 Control: Text@0.0.47
                 Properties:
@@ -182,8 +182,12 @@ Screens:
             - ButtonCanvas1:
                 Control: Button@0.0.43
                 Properties:
+                  Appearance: ='ButtonCanvas.Appearance'.Secondary
+                  Icon: ="Edit"
+                  Layout: ='ButtonCanvas.Layout'.IconOnly
                   OnSelect: =Select(Parent)
-                  X: =1135
+                  Width: =32
+                  X: =1199
                   Y: =7
             - ButtonCanvas1_1:
                 Control: Button@0.0.43
@@ -192,8 +196,16 @@ Screens:
                   BorderColor: =RGBA(238, 40, 122, 1)
                   BorderStyle: =BorderStyle.Solid
                   OnSelect: =Select(Parent)
-                  X: =1018
+                  X: =1094
                   Y: =7
+            - TextCanvas7_5:
+                Control: Text@0.0.47
+                Properties:
+                  Height: =50
+                  Text: =ThisItem.usuarioAprobador.Department
+                  Width: =180
+                  Wrap: =false
+                  X: =894
       - filterLider_1:
           Control: ComboBox@0.0.48
           Properties:
@@ -294,10 +306,9 @@ Screens:
           Properties:
             Align: ='TextInputCanvas.Align'.Center
             BorderColor: =RGBA(122, 138, 143, 1)
-            BorderRadius: =5
             BorderStyle: =BorderStyle.Solid
             BorderThickness: =0
-            Fill: =RGBA(0, 153, 204, 1)
+            Fill: =RGBA(109, 49, 162, 0)
             FontColor: =RGBA(255, 255, 255, 1)
             Height: =30
             Value: ="Código"
@@ -309,7 +320,7 @@ Screens:
           Properties:
             Align: ='TextInputCanvas.Align'.Center
             BorderRadius: =5
-            Fill: =RGBA(0, 153, 204, 1)
+            Fill: =RGBA(0, 0, 0, 0.01)
             FontColor: =RGBA(255, 255, 255, 1)
             Height: =31
             Value: ="Descripción Kr"

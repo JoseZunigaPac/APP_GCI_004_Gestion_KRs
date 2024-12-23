@@ -2124,10 +2124,10 @@ Screens:
                   DisabledFill: =RGBA(214, 221, 224, 1)
                   DisplayMode: |-
                     =If(
-                        Gallery2.Selected.estadoKRtext.Text = "en curso" && DataCardValue22_1.ValidationState = "Valid",
+                        Lower(Gallery2.Selected.estadoKRtext.Text) = "en curso" && DataCardValue22_1.ValidationState = "Valid",
                         DisplayMode.Edit,
                         If(
-                            Gallery2.Selected.estadoKRtext.Text = "sin aprobación" && !IsBlank(DataCardValue43.Selected.Value),
+                            Lower(Gallery2.Selected.estadoKRtext.Text) = "sin aprobación" && !IsBlank(DataCardValue43.Selected.Value),
                             DisplayMode.Edit,
                             DisplayMode.Disabled
                         )
@@ -2991,10 +2991,10 @@ Screens:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                               Default: =Parent.Default
                               DisplayMode: =Parent.DisplayMode
-                              FalseText: |+
+                              FalseText: |
                                 =""
                               Tooltip: =Parent.DisplayName
-                              TrueText: |+
+                              TrueText: |
                                 =""
                               X: =30
                               Y: =DataCardKey37.Y + DataCardKey37.Height + 5
