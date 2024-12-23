@@ -101,8 +101,8 @@ Prueba_Nayeli As screen:
             Text: =ThisItem.nombreKR
             Width: =269
             Wrap: =false
-            X: =90
-            Y: =-2
+            X: =100
+            Y: =0
             ZIndex: =5
 
         TextCanvas7_2 As Texto:
@@ -112,7 +112,7 @@ Prueba_Nayeli As screen:
             Text: |
                 =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
             Width: =142
-            X: =359
+            X: =379
             Y: =0
             ZIndex: =6
 
@@ -148,8 +148,8 @@ Prueba_Nayeli As screen:
             LoadingSpinner: =LoadingSpinner.Data
             TemplatePadding: =0
             TemplateSize: =30
-            Width: =83
-            X: =727
+            Width: =96
+            X: =722
             Y: =6
             ZIndex: =8
 
@@ -229,7 +229,7 @@ Prueba_Nayeli As screen:
             DisplayMode: =DisplayMode.Edit
             Height: =50
             Text: =ThisItem.usuarioAprobador.Department
-            Width: =223
+            Width: =215
             Wrap: =false
             X: =830
             Y: =0

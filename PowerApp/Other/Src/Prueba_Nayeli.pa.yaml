@@ -94,8 +94,7 @@ Screens:
                   Text: =ThisItem.nombreKR
                   Width: =269
                   Wrap: =false
-                  X: =90
-                  Y: =-2
+                  X: =100
             - TextCanvas7_2:
                 Control: Text@0.0.47
                 Properties:
@@ -104,7 +103,7 @@ Screens:
                   Text: |
                     =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
                   Width: =142
-                  X: =359
+                  X: =379
             - estadoKRtext_1:
                 Control: Text@0.0.47
                 Properties:
@@ -135,8 +134,8 @@ Screens:
                   Items: =ThisItem.responsables
                   TemplatePadding: =0
                   TemplateSize: =30
-                  Width: =83
-                  X: =727
+                  Width: =96
+                  X: =722
                   Y: =6
                 Children:
                   - Container2_3:
@@ -207,7 +206,7 @@ Screens:
                   Align: ='TextCanvas.Align'.Center
                   Height: =50
                   Text: =ThisItem.usuarioAprobador.Department
-                  Width: =223
+                  Width: =215
                   Wrap: =false
                   X: =830
       - filterLider_1:
