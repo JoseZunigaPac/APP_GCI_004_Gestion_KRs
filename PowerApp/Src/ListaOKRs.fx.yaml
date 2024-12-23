@@ -247,7 +247,7 @@
             TextCanvas3_1 As Texto:
                 DisplayMode: =DisplayMode.Edit
                 Height: =20
-                Text: ="• " & ThisItem.ID & " - " & ThisItem.IsSelected
+                Text: ="• " & ThisItem.nombreTareas
                 Width: =300
                 X: =7
                 Y: =1
@@ -272,47 +272,25 @@
                         }
                     )
                 OnSelect: =false
-                OnUncheck: =false
+                OnUncheck: |-
+                    =Patch(
+                        T_TAREAS_APP_GCI_003,
+                        LookUp(T_TAREAS_APP_GCI_003,ID = Gallery3.Selected.ID),
+                        {
+                            finalizado: false
+                        }
+                    )
                 Width: =44
                 X: =400
                 Y: =1
                 ZIndex: =3
-
-            "nombreTarea As 'Entrada de texto'":
-                DisplayMode: =DisplayMode.Edit
-                FontColor: =RGBA(0, 0, 0, 1)
-                FontSize: =12
-                FontWeight: =FontWeight.Normal
-                Height: =21
-                OnChange: |-
-                    =Patch(
-                        T_TAREAS_APP_GCI_003,
-                        LookUp(T_TAREAS_APP_GCI_003,ID = ThisItem.ID),
-                        {
-                            nombreTareas: Self.Value
-                        }
-                    )
-                PaddingBottom: =8
-                PaddingLeft: =0
-                PaddingTop: =0
-                Placeholder: =ThisItem.nombreTareas
-                Value: =ThisItem.nombreTareas
-                Width: =247
-                X: =85
-                Y: =0
-                ZIndex: =4
 
             ButtonCanvas2 As Botón:
                 Appearance: ='ButtonCanvas.Appearance'.Outline
                 DisplayMode: =DisplayMode.Edit
                 FontSize: =14
                 Height: =22
-                Icon: |-
-                    =If(
-                        nombreTarea.DisplayMode = DisplayMode.Edit,
-                        "Save",
-                        "Edit"
-                    )
+                Icon: ="Edit"
                 IconStyle: ='ButtonCanvas.IconStyle'.Filled
                 Layout: ='ButtonCanvas.Layout'.IconOnly
                 OnSelect: |-
@@ -423,10 +401,10 @@
             Font: =Font.Arial
             FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
-            Text: ="Marcar finalizado"
+            Text: ="Finalizar"
             Weight: ='TextCanvas.Weight'.Semibold
-            Width: =127
-            X: =1114
+            Width: =68
+            X: =1172
             Y: =32
             ZIndex: =13
 
@@ -896,32 +874,6 @@
             Y: =7
             ZIndex: =42
 
-        btnAddTask_1 As Botón:
-            Appearance: ='ButtonCanvas.Appearance'.Secondary
-            BasePaletteColor: =
-            DisplayMode: =DisplayMode.Edit
-            FontColor: =
-            FontSize: =14
-            FontWeight: =FontWeight.Semibold
-            Height: =25
-            Icon: ="Edit"
-            IconStyle: ='ButtonCanvas.IconStyle'.Outline
-            Layout: ='ButtonCanvas.Layout'.IconBefore
-            OnSelect: =false
-            PaddingBottom: =2
-            PaddingTop: =2
-            Text: ="Editar Tarea"
-            Visible: |-
-                =If(
-                    estadoKRtext.Text = "finalizado",
-                    false,
-                    Boolean(visibleBotonPerUser.Text)
-                )
-            Width: =120
-            X: =1122
-            Y: =7
-            ZIndex: =43
-
         visibleBotonPerUser As Texto:
             DisplayMode: =DisplayMode.Edit
             Height: =32
@@ -1018,16 +970,17 @@
             Y: =171
             ZIndex: =46
 
-        idTarea As Texto:
+        TextCanvas4_14 As Texto:
+            Align: ='TextCanvas.Align'.Center
             DisplayMode: =DisplayMode.Edit
             Font: =Font.Arial
-            FontColor: =
+            FontColor: =RGBA(0, 153, 204, 1)
             Height: =19
-            Text: =Gallery2.Selected.Gallery3.AccessibleLabel
-            Weight: ='TextCanvas.Weight'.Regular
-            Width: =100
-            X: =337
-            Y: =23
+            Text: ="Editar"
+            Weight: ='TextCanvas.Weight'.Semibold
+            Width: =50
+            X: =1123
+            Y: =32
             ZIndex: =47
 
     "filterLider As 'Cuadro combinado'.pcfdataset":
@@ -3276,7 +3229,7 @@
             FontColor: =RGBA(255, 255, 255, 1)
             Height: =32
             Size: =20
-            Text: ="Agregar tarea - " & Gallery2.Selected.codigoKR & " - " & Gallery2.Selected.Gallery3.Selected.ID
+            Text: ="Editar tarea - " & Gallery2.Selected.codigoKR
             Weight: ='TextCanvas.Weight'.Bold
             Width: =400
             X: =247
@@ -3292,7 +3245,7 @@
             Height: =44
             Icon: =Icon.Save
             OnSelect: |-
-                =SubmitForm(Form4);
+                =SubmitForm(Form5);
                 Set(pouplista_4,false)
             PaddingBottom: =5
             PaddingLeft: =5
@@ -3350,7 +3303,7 @@
 
                 DataCardKey33 As label:
                     AutoHeight: =true
-                    Color: =App.Theme.Colors.Darker30
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     Height: =34
@@ -3364,7 +3317,6 @@
 
                 DataCardValue33 As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
                     Default: =Parent.Default
                     DelayOutput: =true
@@ -3381,10 +3333,6 @@
                     MaxLength: =Parent.MaxLength
                     Mode: =TextMode.MultiLine
                     PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
                     Size: =13
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -3443,7 +3391,7 @@
 
                 DataCardKey34 As label:
                     AutoHeight: =true
-                    Color: =App.Theme.Colors.Darker30
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     Height: =34
@@ -3457,6 +3405,7 @@
 
                 DataCardValue34 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =1
                     ChevronBackground: =App.Theme.Colors.Primary
                     ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                     ChevronDisabledFill: =RGBA(244, 244, 244, 1)
@@ -3540,7 +3489,7 @@
 
                 DataCardKey35 As label:
                     AutoHeight: =true
-                    Color: =App.Theme.Colors.Darker30
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     Height: =34
@@ -3554,7 +3503,6 @@
 
                 DataCardValue35 As text:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
-                    BorderThickness: =2
                     Color: =RGBA(0, 0, 0, 1)
                     Default: =Parent.Default
                     DelayOutput: =true
@@ -3571,10 +3519,6 @@
                     MaxLength: =Parent.MaxLength
                     Mode: =TextMode.MultiLine
                     PaddingLeft: =5
-                    RadiusBottomLeft: =0
-                    RadiusBottomRight: =0
-                    RadiusTopLeft: =0
-                    RadiusTopRight: =0
                     Size: =13
                     Tooltip: =Parent.DisplayName
                     Width: =Parent.Width - 60
@@ -3633,7 +3577,7 @@
 
                 DataCardKey36 As label:
                     AutoHeight: =true
-                    Color: =App.Theme.Colors.Darker30
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     Height: =34
@@ -3647,6 +3591,7 @@
 
                 DataCardValue36 As combobox:
                     BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =1
                     ChevronBackground: =App.Theme.Colors.Primary
                     ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
                     ChevronDisabledFill: =RGBA(244, 244, 244, 1)
@@ -3728,7 +3673,7 @@
 
                 DataCardKey37 As label:
                     AutoHeight: =true
-                    Color: =App.Theme.Colors.Darker30
+                    Color: =RGBA(255, 255, 255, 1)
                     DisabledColor: =RGBA(166, 166, 166, 1)
                     Font: =App.Theme.Font
                     Height: =34
@@ -3746,11 +3691,15 @@
                     Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
                     FalseFill: =RGBA(128, 130, 133, 1)
+                    FalseText: |
+                        =""
                     Font: =App.Theme.Font
                     HandleFill: =RGBA(255, 255, 255, 1)
                     Size: =13
                     Tooltip: =Parent.DisplayName
                     TrueFill: =App.Theme.Colors.Primary
+                    TrueText: |
+                        =""
                     X: =30
                     Y: =DataCardKey37.Y + DataCardKey37.Height + 5
                     ZIndex: =2

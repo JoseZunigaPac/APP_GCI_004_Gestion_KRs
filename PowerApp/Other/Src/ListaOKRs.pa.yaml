@@ -199,7 +199,7 @@ Screens:
                       Control: Text@0.0.47
                       Properties:
                         Height: =20
-                        Text: ="• " & ThisItem.ID & " - " & ThisItem.IsSelected
+                        Text: ="• " & ThisItem.nombreTareas
                         Width: =300
                         X: =7
                         Y: =1
@@ -223,43 +223,24 @@ Screens:
                                   finalizado: true
                               }
                           )
+                        OnUncheck: |-
+                          =Patch(
+                              T_TAREAS_APP_GCI_003,
+                              LookUp(T_TAREAS_APP_GCI_003,ID = Gallery3.Selected.ID),
+                              {
+                                  finalizado: false
+                              }
+                          )
                         Width: =44
                         X: =400
                         Y: =1
-                  - nombreTarea:
-                      Control: TextInput@0.0.51
-                      Properties:
-                        FontColor: =RGBA(0, 0, 0, 1)
-                        FontSize: =12
-                        FontWeight: =FontWeight.Normal
-                        Height: =21
-                        OnChange: |-
-                          =Patch(
-                              T_TAREAS_APP_GCI_003,
-                              LookUp(T_TAREAS_APP_GCI_003,ID = ThisItem.ID),
-                              {
-                                  nombreTareas: Self.Value
-                              }
-                          )
-                        PaddingBottom: =8
-                        PaddingLeft: =0
-                        PaddingTop: =0
-                        Placeholder: =ThisItem.nombreTareas
-                        Value: =ThisItem.nombreTareas
-                        Width: =247
-                        X: =85
                   - ButtonCanvas2:
                       Control: Button@0.0.43
                       Properties:
                         Appearance: ='ButtonCanvas.Appearance'.Outline
                         FontSize: =14
                         Height: =22
-                        Icon: |-
-                          =If(
-                              nombreTarea.DisplayMode = DisplayMode.Edit,
-                              "Save",
-                              "Edit"
-                          )
+                        Icon: ="Edit"
                         IconStyle: ='ButtonCanvas.IconStyle'.Filled
                         Layout: ='ButtonCanvas.Layout'.IconOnly
                         OnSelect: |-
@@ -361,10 +342,10 @@ Screens:
                   Font: =Font.Arial
                   FontColor: =RGBA(0, 153, 204, 1)
                   Height: =19
-                  Text: ="Marcar finalizado"
+                  Text: ="Finalizar"
                   Weight: ='TextCanvas.Weight'.Semibold
-                  Width: =127
-                  X: =1114
+                  Width: =68
+                  X: =1172
                   Y: =32
             - TextCanvas2_4:
                 Control: Text@0.0.47
@@ -793,28 +774,6 @@ Screens:
                   Width: =118
                   X: =998
                   Y: =7
-            - btnAddTask_1:
-                Control: Button@0.0.43
-                Properties:
-                  Appearance: ='ButtonCanvas.Appearance'.Secondary
-                  FontSize: =14
-                  FontWeight: =FontWeight.Semibold
-                  Height: =25
-                  Icon: ="Edit"
-                  IconStyle: ='ButtonCanvas.IconStyle'.Outline
-                  Layout: ='ButtonCanvas.Layout'.IconBefore
-                  PaddingBottom: =2
-                  PaddingTop: =2
-                  Text: ="Editar Tarea"
-                  Visible: |-
-                    =If(
-                        estadoKRtext.Text = "finalizado",
-                        false,
-                        Boolean(visibleBotonPerUser.Text)
-                    )
-                  Width: =120
-                  X: =1122
-                  Y: =7
             - visibleBotonPerUser:
                 Control: Text@0.0.47
                 Properties:
@@ -902,16 +861,18 @@ Screens:
                   Width: =100
                   X: =10
                   Y: =171
-            - idTarea:
+            - TextCanvas4_14:
                 Control: Text@0.0.47
                 Properties:
+                  Align: ='TextCanvas.Align'.Center
                   Font: =Font.Arial
+                  FontColor: =RGBA(0, 153, 204, 1)
                   Height: =19
-                  Text: =Gallery2.Selected.Gallery3.AccessibleLabel
-                  Weight: ='TextCanvas.Weight'.Regular
-                  Width: =100
-                  X: =337
-                  Y: =23
+                  Text: ="Editar"
+                  Weight: ='TextCanvas.Weight'.Semibold
+                  Width: =50
+                  X: =1123
+                  Y: =32
       - filterLider:
           Control: ComboBox@0.0.48
           Properties:
@@ -2662,7 +2623,7 @@ Screens:
                 Properties:
                   FontColor: =RGBA(255, 255, 255, 1)
                   Size: =20
-                  Text: ="Agregar tarea - " & Gallery2.Selected.codigoKR & " - " & Gallery2.Selected.Gallery3.Selected.ID
+                  Text: ="Editar tarea - " & Gallery2.Selected.codigoKR
                   Weight: ='TextCanvas.Weight'.Bold
                   Width: =400
                   X: =247
@@ -2675,7 +2636,7 @@ Screens:
                   Height: =44
                   Icon: =Icon.Save
                   OnSelect: |-
-                    =SubmitForm(Form4);
+                    =SubmitForm(Form5);
                     Set(pouplista_4,false)
                   PaddingBottom: =5
                   PaddingLeft: =5
@@ -2729,7 +2690,7 @@ Screens:
                             Properties:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
-                              Color: =App.Theme.Colors.Darker30
+                              Color: =RGBA(255, 255, 255, 1)
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2740,6 +2701,7 @@ Screens:
                             Control: Classic/TextInput@2.3.2
                             Properties:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              BorderThickness: =1
                               Default: =Parent.Default
                               DelayOutput: =true
                               DisplayMode: =Parent.DisplayMode
@@ -2747,10 +2709,6 @@ Screens:
                               MaxLength: =Parent.MaxLength
                               Mode: =TextMode.MultiLine
                               PaddingLeft: =5
-                              RadiusBottomLeft: =0
-                              RadiusBottomRight: =0
-                              RadiusTopLeft: =0
-                              RadiusTopRight: =0
                               Tooltip: =Parent.DisplayName
                               Width: =Parent.Width - 60
                               X: =30
@@ -2803,7 +2761,7 @@ Screens:
                             Properties:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
-                              Color: =App.Theme.Colors.Darker30
+                              Color: =RGBA(255, 255, 255, 1)
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2814,6 +2772,7 @@ Screens:
                             Control: Classic/ComboBox@2.4.0
                             Properties:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              BorderThickness: =1
                               DefaultSelectedItems: =Parent.Default
                               DisplayFields: =["Value"]
                               DisplayMode: =Parent.DisplayMode
@@ -2876,7 +2835,7 @@ Screens:
                             Properties:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
-                              Color: =App.Theme.Colors.Darker30
+                              Color: =RGBA(255, 255, 255, 1)
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2887,6 +2846,7 @@ Screens:
                             Control: Classic/TextInput@2.3.2
                             Properties:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              BorderThickness: =1
                               Default: =Parent.Default
                               DelayOutput: =true
                               DisplayMode: =Parent.DisplayMode
@@ -2894,10 +2854,6 @@ Screens:
                               MaxLength: =Parent.MaxLength
                               Mode: =TextMode.MultiLine
                               PaddingLeft: =5
-                              RadiusBottomLeft: =0
-                              RadiusBottomRight: =0
-                              RadiusTopLeft: =0
-                              RadiusTopRight: =0
                               Tooltip: =Parent.DisplayName
                               Width: =Parent.Width - 60
                               X: =30
@@ -2951,7 +2907,7 @@ Screens:
                             Properties:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
-                              Color: =App.Theme.Colors.Darker30
+                              Color: =RGBA(255, 255, 255, 1)
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -2962,6 +2918,7 @@ Screens:
                             Control: Classic/ComboBox@2.4.0
                             Properties:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                              BorderThickness: =1
                               DefaultSelectedItems: =Parent.Default
                               DisplayFields: =["DisplayName"]
                               DisplayMode: =Parent.DisplayMode
@@ -3021,7 +2978,7 @@ Screens:
                             Properties:
                               AutoHeight: =true
                               BorderColor: =RGBA(0, 0, 0, 1)
-                              Color: =App.Theme.Colors.Darker30
+                              Color: =RGBA(255, 255, 255, 1)
                               Height: =34
                               Text: =Parent.DisplayName
                               Width: =Parent.Width - 60
@@ -3034,7 +2991,11 @@ Screens:
                               BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
                               Default: =Parent.Default
                               DisplayMode: =Parent.DisplayMode
+                              FalseText: |+
+                                =""
                               Tooltip: =Parent.DisplayName
+                              TrueText: |+
+                                =""
                               X: =30
                               Y: =DataCardKey37.Y + DataCardKey37.Height + 5
                         - ErrorMessage37:
