@@ -230,6 +230,7 @@
             ZIndex: =5
 
         Gallery3 As gallery.galleryVertical:
+            AccessibleLabel: =Self.Selected.ID
             BorderColor: =App.Theme.Colors.Darker40
             DelayItemLoading: =true
             Height: =137
@@ -1016,6 +1017,18 @@
             X: =10
             Y: =171
             ZIndex: =46
+
+        idTarea As Texto:
+            DisplayMode: =DisplayMode.Edit
+            Font: =Font.Arial
+            FontColor: =
+            Height: =19
+            Text: =Gallery2.Selected.Gallery3.AccessibleLabel
+            Weight: ='TextCanvas.Weight'.Regular
+            Width: =100
+            X: =337
+            Y: =23
+            ZIndex: =47
 
     "filterLider As 'Cuadro combinado'.pcfdataset":
         BasePaletteColor: =
@@ -3308,18 +3321,17 @@
             Y: =102
             ZIndex: =7
 
-        Form4 As form.PowerApps_CoreControls_Form:
+        Form5 As form:
             BorderColor: =App.Theme.Colors.Darker40
             DataSource: =T_TAREAS_APP_GCI_003
-            Height: =228
-            Item: =Gallery2.Selected.Gallery3.Selected
-            UseFluentV9Cards: =true
-            Width: =900
-            X: =230
-            Y: =168
+            Height: =263
+            Item: =First(Filter(T_TAREAS_APP_GCI_003,ID = Gallery3.AccessibleLabel))
+            Width: =881
+            X: =235
+            Y: =157
             ZIndex: =8
 
-            nombreTareas_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+            nombreTareas_DataCard3 As typedDataCard.textualEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="Title"
@@ -3327,62 +3339,93 @@
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,Title)
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =70
+                Height: =50
                 MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, Title)
                 Required: =true
-                Update: =DataCardValue23.Value
-                Width: =300
+                Update: =DataCardValue33.Text
+                Width: =293
                 X: =0
                 Y: =0
                 ZIndex: =9
 
-                DataCardKey13 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =22
+                DataCardKey33 As label:
+                    AutoHeight: =true
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =34
+                    Size: =13
                     Text: =Parent.DisplayName
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =Parent.Width - 48
+                    Width: =Parent.Width - 60
                     Wrap: =false
-                    X: =24
+                    X: =30
                     Y: =10
                     ZIndex: =1
 
-                "DataCardValue23 As 'Entrada de texto'":
-                    AccessibleLabel: =Parent.DisplayName
+                DataCardValue33 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
                     DisplayMode: =Parent.DisplayMode
-                    Height: =65
-                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                    Required: =Parent.Required
-                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                    Value: =Parent.Default
-                    Width: =Parent.Width - 48
-                    X: =24
-                    Y: =DataCardKey13.Y + DataCardKey13.Height + 4
+                    FocusedBorderThickness: =4
+                    Font: =App.Theme.Font
+                    Height: =75
+                    HoverBorderColor: =App.Theme.Colors.Darker40
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
+                    MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey33.Y + DataCardKey33.Height + 5
                     ZIndex: =2
 
-                ErrorMessage13 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                ErrorMessage33 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
                     Text: =Parent.Error
-                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =Parent.Width - 48
-                    Wrap: =true
-                    X: =24
-                    Y: =DataCardValue23.Y + DataCardValue23.Height
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue33.Y + DataCardValue33.Height
                     ZIndex: =3
 
-                StarVisible13 As Texto:
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                StarVisible33 As label:
+                    Align: =Align.Center
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =DataCardKey33.Height
+                    Size: =13
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
-                    X: =0
-                    Y: =DataCardKey13.Y
+                    Wrap: =false
+                    Y: =DataCardKey33.Y
                     ZIndex: =4
 
-            nombreKRAsociado_DataCard1 As typedDataCard.fluentV9ComboBoxEditCard:
+            nombreKRAsociado_DataCard3 As typedDataCard.comboBoxEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="nombreKRAsociado"
@@ -3390,61 +3433,95 @@
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,nombreKRAsociado)
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =70
+                Height: =50
                 Required: =true
-                Update: =DataCardValue27.Selected
-                Width: =300
+                Update: =DataCardValue34.Selected
+                Width: =293
                 X: =0
                 Y: =1
                 ZIndex: =9
 
-                DataCardKey29 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =22
+                DataCardKey34 As label:
+                    AutoHeight: =true
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =34
+                    Size: =13
                     Text: =Parent.DisplayName
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =Parent.Width - 48
+                    Width: =Parent.Width - 60
                     Wrap: =false
-                    X: =24
+                    X: =30
                     Y: =10
                     ZIndex: =1
 
-                "DataCardValue27 As 'Cuadro combinado'.pcfdataset":
-                    AccessibleLabel: =Parent.DisplayName
-                    DefaultSelectedItems: =[Parent.Default]
+                DataCardValue34 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    ChevronBackground: =App.Theme.Colors.Primary
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronFill: =App.Theme.Colors.PrimaryForeground
+                    ChevronHoverBackground: =App.Theme.Colors.Darker10
+                    ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
+                    DefaultSelectedItems: =Parent.Default
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["Value"]
                     DisplayMode: =Parent.DisplayMode
-                    Height: =32
+                    Font: =App.Theme.Font
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
                     Items: =Choices([@T_TAREAS_APP_GCI_003].nombreKRAsociado)
-                    Required: =Parent.Required
-                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                    Width: =Parent.Width - 48
-                    X: =24
-                    Y: =DataCardKey29.Y + DataCardKey29.Height + 4
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedColor: =App.Theme.Colors.PrimaryForeground
+                    PressedFill: =App.Theme.Colors.Darker30
+                    SearchFields: =["Value"]
+                    SearchItems: =Choices(T_TAREAS_APP_GCI_003.nombreKRAsociado,DataCardValue34.SearchText)
+                    SelectionColor: =App.Theme.Colors.PrimaryForeground
+                    SelectionFill: =App.Theme.Colors.Primary
+                    SelectMultiple: =false
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey34.Y + DataCardKey34.Height + 5
                     ZIndex: =2
 
-                ErrorMessage29 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                ErrorMessage34 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
                     Text: =Parent.Error
-                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =Parent.Width - 48
-                    Wrap: =true
-                    X: =24
-                    Y: =DataCardValue27.Y + DataCardValue27.Height
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue34.Y + DataCardValue34.Height
                     ZIndex: =3
 
-                StarVisible29 As Texto:
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =20
+                StarVisible34 As label:
+                    Align: =Align.Center
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =DataCardKey34.Height
+                    Size: =13
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
-                    X: =0
-                    Y: =DataCardKey29.Y
+                    Wrap: =false
+                    Y: =DataCardKey34.Y
                     ZIndex: =4
 
-            descripcionTarea_DataCard1 As typedDataCard.fluentV9TextualEditCard:
+            descripcionTarea_DataCard3 As typedDataCard.textualEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="descripcionTarea"
@@ -3452,62 +3529,93 @@
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,descripcionTarea)
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =115
+                Height: =138
                 MaxLength: =DataSourceInfo([@T_TAREAS_APP_GCI_003], DataSourceInfo.MaxLength, descripcionTarea)
                 Required: =false
-                Update: =DataCardValue30.Value
-                Width: =600
+                Update: =DataCardValue35.Text
+                Width: =586
                 X: =1
                 Y: =0
                 ZIndex: =9
 
-                DataCardKey30 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =22
+                DataCardKey35 As label:
+                    AutoHeight: =true
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =34
+                    Size: =13
                     Text: =Parent.DisplayName
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =Parent.Width - 48
+                    Width: =Parent.Width - 60
                     Wrap: =false
-                    X: =24
+                    X: =30
                     Y: =10
                     ZIndex: =1
 
-                "DataCardValue30 As 'Entrada de texto'":
-                    AccessibleLabel: =Parent.DisplayName
+                DataCardValue35 As text:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    BorderThickness: =2
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
+                    DelayOutput: =true
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
                     DisplayMode: =Parent.DisplayMode
-                    Height: =62
-                    Mode: ="'TextInputCanvas.Mode'.TextInputModeSingleLine"
-                    Required: =Parent.Required
-                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                    Value: =Parent.Default
-                    Width: =Parent.Width - 48
-                    X: =24
-                    Y: =DataCardKey30.Y + DataCardKey30.Height + 4
+                    FocusedBorderThickness: =4
+                    Font: =App.Theme.Font
+                    Height: =76
+                    HoverBorderColor: =App.Theme.Colors.Darker40
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
+                    MaxLength: =Parent.MaxLength
+                    Mode: =TextMode.MultiLine
+                    PaddingLeft: =5
+                    RadiusBottomLeft: =0
+                    RadiusBottomRight: =0
+                    RadiusTopLeft: =0
+                    RadiusTopRight: =0
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey35.Y + DataCardKey35.Height + 5
                     ZIndex: =2
 
-                ErrorMessage30 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                ErrorMessage35 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
                     Text: =Parent.Error
-                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =Parent.Width - 48
-                    Wrap: =true
-                    X: =24
-                    Y: =DataCardValue30.Y + DataCardValue30.Height
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue35.Y + DataCardValue35.Height
                     ZIndex: =3
 
-                StarVisible30 As Texto:
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                StarVisible35 As label:
+                    Align: =Align.Center
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =DataCardKey35.Height
+                    Size: =13
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
-                    X: =0
-                    Y: =DataCardKey30.Y
+                    Wrap: =false
+                    Y: =DataCardKey35.Y
                     ZIndex: =4
 
-            responsableTarea_DataCard1 As typedDataCard.fluentV9ComboBoxMultiSelectEditCard:
+            responsableTarea_DataCard3 As typedDataCard.comboBoxMultiSelectEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="responsableTarea"
@@ -3515,62 +3623,94 @@
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,responsableTarea)
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =70
+                Height: =50
                 Required: =true
-                Update: =DataCardValue31.SelectedItems
-                Width: =300
+                Update: =DataCardValue36.SelectedItems
+                Width: =293
                 X: =1
                 Y: =1
                 ZIndex: =9
 
-                DataCardKey31 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =22
+                DataCardKey36 As label:
+                    AutoHeight: =true
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =34
+                    Size: =13
                     Text: =Parent.DisplayName
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =Parent.Width - 48
+                    Width: =Parent.Width - 60
                     Wrap: =false
-                    X: =24
+                    X: =30
                     Y: =10
                     ZIndex: =1
 
-                "DataCardValue31 As 'Cuadro combinado'.pcfdataset":
-                    AccessibleLabel: =Parent.DisplayName
+                DataCardValue36 As combobox:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    ChevronBackground: =App.Theme.Colors.Primary
+                    ChevronDisabledBackground: =RGBA(166, 166, 166, 1)
+                    ChevronDisabledFill: =RGBA(244, 244, 244, 1)
+                    ChevronFill: =App.Theme.Colors.PrimaryForeground
+                    ChevronHoverBackground: =App.Theme.Colors.Darker10
+                    ChevronHoverFill: =App.Theme.Colors.PrimaryForeground
                     DefaultSelectedItems: =Parent.Default
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    DisplayFields: =["DisplayName"]
                     DisplayMode: =Parent.DisplayMode
-                    Height: =32
+                    Font: =App.Theme.Font
+                    HoverColor: =RGBA(0, 0, 0, 1)
+                    HoverFill: =App.Theme.Colors.Lighter70
                     Items: =Choices([@T_TAREAS_APP_GCI_003].responsableTarea)
-                    Required: =Parent.Required
-                    SelectMultiple: =true
-                    ValidationState: =If(IsBlank(Parent.Error), "None", "Error")
-                    Width: =Parent.Width - 48
-                    X: =24
-                    Y: =DataCardKey31.Y + DataCardKey31.Height + 4
+                    PaddingLeft: =If(Self.DisplayMode = DisplayMode.Edit, 5, 0)
+                    PressedColor: =App.Theme.Colors.PrimaryForeground
+                    PressedFill: =App.Theme.Colors.Darker30
+                    SearchFields: =["Claims"]
+                    SearchItems: =Choices(T_TAREAS_APP_GCI_003.responsableTarea,DataCardValue36.SearchText)
+                    SelectionColor: =App.Theme.Colors.PrimaryForeground
+                    SelectionFill: =App.Theme.Colors.Primary
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardKey36.Y + DataCardKey36.Height + 5
                     ZIndex: =2
 
-                ErrorMessage31 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                ErrorMessage36 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
                     Text: =Parent.Error
-                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =Parent.Width - 48
-                    Wrap: =true
-                    X: =24
-                    Y: =DataCardValue31.Y + DataCardValue31.Height
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue36.Y + DataCardValue36.Height
                     ZIndex: =3
 
-                StarVisible31 As Texto:
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =20
+                StarVisible36 As label:
+                    Align: =Align.Center
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =DataCardKey36.Height
+                    Size: =13
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
-                    X: =0
-                    Y: =DataCardKey31.Y
+                    Wrap: =false
+                    Y: =DataCardKey36.Y
                     ZIndex: =4
 
-            finalizado_DataCard1 As typedDataCard.fluentV9ToggleEditCard:
+            finalizado_DataCard2 As typedDataCard.toggleEditCard:
                 BorderColor: =App.Theme.Colors.Darker40
                 BorderStyle: =BorderStyle.Solid
                 DataField: ="finalizado"
@@ -3578,57 +3718,73 @@
                 DisplayMode: =Parent.DisplayMode
                 DisplayName: =DataSourceInfo([@T_TAREAS_APP_GCI_003],DataSourceInfo.DisplayName,finalizado)
                 Fill: =RGBA(0, 0, 0, 0)
-                Height: =70
+                Height: =50
                 Required: =false
-                Update: =DataCardValue32.Checked
-                Width: =300
+                Update: =DataCardValue37.Value
+                Width: =293
                 X: =2
                 Y: =1
                 ZIndex: =9
 
-                DataCardKey32 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =22
+                DataCardKey37 As label:
+                    AutoHeight: =true
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =34
+                    Size: =13
                     Text: =Parent.DisplayName
-                    Weight: ='TextCanvas.Weight'.Semibold
-                    Width: =Parent.Width - 48
+                    Width: =Parent.Width - 60
                     Wrap: =false
-                    X: =24
+                    X: =30
                     Y: =10
                     ZIndex: =1
 
-                DataCardValue32 As Alternancia:
-                    AccessibleLabel: =If(Parent.Required, Substitute("{0}. Obligatorio.", "{0}", Parent.DisplayName), Parent.DisplayName)
-                    Checked: =Parent.Default
+                DataCardValue37 As toggleSwitch:
+                    BorderColor: =If(IsBlank(Parent.Error), Parent.BorderColor, Color.Red)
+                    Color: =RGBA(0, 0, 0, 1)
+                    Default: =Parent.Default
                     DisplayMode: =Parent.DisplayMode
-                    Height: =32
-                    Label: =""
-                    OnCheck: =false
-                    OnUncheck: =false
-                    Width: =Parent.Width - 48
-                    X: =24
-                    Y: =DataCardKey32.Y + DataCardKey32.Height + 4
+                    FalseFill: =RGBA(128, 130, 133, 1)
+                    Font: =App.Theme.Font
+                    HandleFill: =RGBA(255, 255, 255, 1)
+                    Size: =13
+                    Tooltip: =Parent.DisplayName
+                    TrueFill: =App.Theme.Colors.Primary
+                    X: =30
+                    Y: =DataCardKey37.Y + DataCardKey37.Height + 5
                     ZIndex: =2
 
-                ErrorMessage32 As Texto:
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                ErrorMessage37 As label:
+                    AutoHeight: =true
+                    Color: =RGBA(168, 0, 0, 1)
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    FontWeight: =FontWeight.Semibold
+                    Height: =10
+                    Live: =Live.Assertive
+                    PaddingBottom: =0
+                    PaddingLeft: =0
+                    PaddingRight: =0
+                    PaddingTop: =0
                     Text: =Parent.Error
-                    Visible: =And(!IsBlank(Parent.Error), Parent.DisplayMode=DisplayMode.Edit)
-                    Width: =Parent.Width - 48
-                    Wrap: =true
-                    X: =24
-                    Y: =DataCardValue32.Y + DataCardValue32.Height
+                    Visible: =Parent.DisplayMode=DisplayMode.Edit
+                    Width: =Parent.Width - 60
+                    X: =30
+                    Y: =DataCardValue37.Y + DataCardValue37.Height
                     ZIndex: =3
 
-                StarVisible32 As Texto:
-                    Align: ='TextCanvas.Align'.Center
-                    DisplayMode: =DisplayMode.Edit
-                    Height: =30
+                StarVisible37 As label:
+                    Align: =Align.Center
+                    Color: =App.Theme.Colors.Darker30
+                    DisabledColor: =RGBA(166, 166, 166, 1)
+                    Font: =App.Theme.Font
+                    Height: =DataCardKey37.Height
+                    Size: =13
                     Text: ="*"
                     Visible: =And(Parent.Required, Parent.DisplayMode=DisplayMode.Edit)
                     Width: =30
-                    X: =0
-                    Y: =DataCardKey32.Y
+                    Wrap: =false
+                    Y: =DataCardKey37.Y
                     ZIndex: =4
 
