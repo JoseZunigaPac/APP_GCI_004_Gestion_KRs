@@ -122,5 +122,3 @@ ComponentDefinitions:
             PressedFill: =RGBA(0, 0, 0, 0.2)
             Text: =
             Width: =Parent.Width
-            X: =40
-            Y: =35

@@ -106,7 +106,5 @@ CustomToggle As CanvasComponent:
         Size: =15
         Text: =
         Width: =Parent.Width
-        X: =40
-        Y: =35
         ZIndex: =2
 
