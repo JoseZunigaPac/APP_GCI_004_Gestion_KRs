@@ -137,7 +137,7 @@ Screens:
             Visible: =If(cambioVista.activeToggleID = 2, true, false)
             Width: =1270
             X: =53
-            Y: =197
+            Y: =206
           Children:
             - HtmlText1:
                 Control: HtmlViewer@2.1.0
@@ -1023,6 +1023,42 @@ Screens:
             Y: =159
           Children:
             - Value2_8:
+                Control: ComboBoxDataField@1.5.0
+                Variant: textualColumn
+                Properties:
+                  FieldDisplayName: ="Value"
+                  FieldName: ="Value"
+                  FieldType: ="s"
+                  Order: =1
+      - cambioVista:
+          Control: CanvasComponent
+          ComponentName: CustomToggle
+          Properties:
+            Height: =35
+            SelectedColorIcon_Text: =RGBA(255, 255, 255, 1)
+            Width: =70
+            X: =1253
+            Y: =106
+            baseBG: =RGBA(255, 255, 255, 1)
+            basedColorIcon_Text: =RGBA(0, 153, 204, 1)
+            selectedBG: =RGBA(0, 153, 204, 1)
+      - filterLider_3:
+          Control: ComboBox@0.0.48
+          Properties:
+            DefaultSelectedItems: |-
+              =If(
+                  User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
+                  [User().FullName]
+              )
+            Height: =35
+            InputTextPlaceholder: ="Seleccionar Equipo"
+            Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.Department)
+            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+            Width: =260
+            X: =404
+            Y: =159
+          Children:
+            - Value2_13:
                 Control: ComboBoxDataField@1.5.0
                 Variant: textualColumn
                 Properties:
@@ -3037,39 +3073,3 @@ Screens:
                               Width: =30
                               Wrap: =false
                               Y: =DataCardKey37.Y
-      - cambioVista:
-          Control: CanvasComponent
-          ComponentName: CustomToggle
-          Properties:
-            Height: =35
-            SelectedColorIcon_Text: =RGBA(255, 255, 255, 1)
-            Width: =70
-            X: =1253
-            Y: =106
-            baseBG: =RGBA(255, 255, 255, 1)
-            basedColorIcon_Text: =RGBA(0, 153, 204, 1)
-            selectedBG: =RGBA(0, 153, 204, 1)
-      - filterLider_3:
-          Control: ComboBox@0.0.48
-          Properties:
-            DefaultSelectedItems: |-
-              =If(
-                  User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
-                  [User().FullName]
-              )
-            Height: =35
-            InputTextPlaceholder: ="Seleccionar Equipo"
-            Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.Department)
-            TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-            Width: =260
-            X: =404
-            Y: =159
-          Children:
-            - Value2_13:
-                Control: ComboBoxDataField@1.5.0
-                Variant: textualColumn
-                Properties:
-                  FieldDisplayName: ="Value"
-                  FieldName: ="Value"
-                  FieldType: ="s"
-                  Order: =1

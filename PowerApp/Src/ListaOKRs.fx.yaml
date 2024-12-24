@@ -167,7 +167,7 @@
         Visible: =If(cambioVista.activeToggleID = 2, true, false)
         Width: =1270
         X: =53
-        Y: =197
+        Y: =206
         ZIndex: =7
 
         HtmlText1 As htmlViewer:
@@ -1154,6 +1154,426 @@
             Order: =1
             ZIndex: =36
 
+    Container5_1 As groupContainer:
+        BorderStyle: =BorderStyle.None
+        Height: =558
+        RadiusBottomLeft: =4
+        RadiusBottomRight: =4
+        RadiusTopLeft: =4
+        RadiusTopRight: =4
+        Visible: =If(cambioVista.activeToggleID = 1, true, false)
+        Width: =1270
+        X: =53
+        Y: =206
+        ZIndex: =16
+
+        "GaleriaResumida As gallery.'BrowseLayout_Vertical_TwoTextOneImageVariant_ver5.0'":
+            BorderColor: =App.Theme.Colors.Darker40
+            BorderStyle: =BorderStyle.None
+            DelayItemLoading: =true
+            Height: =504
+            Items: |+
+                =Filter(
+                    T_OKR_APP_GCI_003,
+                    If(!IsBlank(filterBuscarKR_1.Value),StartsWith(nombreKR,filterBuscarKR_1.Value),true),
+                    If(!IsBlank(filterEstado_1.Selected.Value) && filterEstado_1.Selected.Value <> "todos",
+                        ID in ForAll(
+                                Filter(
+                                    T_REG_STS_KR_APP_GCI_003,
+                                    nombreEstado = filterEstado_1.Selected.Value && status.Value = "activo"
+                                ),
+                                nombreKRAsociado.Id
+                            ), true
+                    ),
+                    If(!IsBlank(filterLider_1.Selected.Value),
+                        usuarioAprobador.DisplayName = filterLider_1.Selected.Value, true
+                    ),
+                    If(!IsBlank(filterTrimestre_1.Selected.Value),Q.Value = filterTrimestre_1.Selected.Value,true),
+                    If(!IsBlank(filterAnio_1.Selected.Value),Year(fechaProgramadainicio) = filterAnio_1.Selected.Value,true)
+                )
+                
+            Layout: =Layout.Vertical
+            LoadingSpinner: =LoadingSpinner.Data
+            TemplatePadding: =0
+            TemplateSize: =62
+            Width: =1270
+            Y: =47
+            ZIndex: =2
+
+            HtmlText1_5 As htmlViewer:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =56
+                HtmlText: |-
+                    =$"<div style='border-radius: 10px;padding: 25px;margin: 0px;background-color: #f9f9f9;border-bottom: 1px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
+                OnSelect: =Select(Parent)
+                PaddingBottom: =1
+                PaddingLeft: =1
+                PaddingRight: =1
+                PaddingTop: =1
+                Size: =13
+                Width: =1255
+                ZIndex: =1
+
+            TextCanvas7_8 As Texto:
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Text: =ThisItem.codigoKR
+                Width: =90
+                X: =10
+                Y: =10
+                ZIndex: =4
+
+            TextCanvas7_7 As Texto:
+                DisplayMode: =DisplayMode.Edit
+                Height: =56
+                Text: =ThisItem.nombreKR
+                Width: =269
+                Wrap: =false
+                X: =100
+                Y: =0
+                ZIndex: =5
+
+            TextCanvas7_6 As Texto:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =56
+                Text: |
+                    =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
+                Width: =142
+                X: =379
+                Y: =0
+                ZIndex: =6
+
+            estadoKRtext_2 As Texto:
+                Align: ='TextCanvas.Align'.Center
+                BorderRadius: =8
+                DisplayMode: =DisplayMode.Edit
+                Fill: |-
+                    =Switch(
+                        Lower(estadoKRtext_2.Text),
+                        "sin aprobación", RGBA(255, 0, 0, 1), // Rojo
+                        "programado", RGBA(255, 165, 0, 1),   // Naranja
+                        "en curso", RGBA(54, 176, 75, 1),     // Verde
+                        "finalizado", RGBA(0, 0, 255, 1),     // Azul
+                        RGBA(0, 0, 0, 0)                      // Color por defecto (Negro)
+                    )
+                Font: =Font.Arial
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =22
+                Size: =14
+                Text: =LookUp(T_REG_STS_KR_APP_GCI_003,nombreKRAsociado.Id = ThisItem.ID && status.Value = "activo",Proper(nombreEstado))
+                Weight: ='TextCanvas.Weight'.Semibold
+                Width: =140
+                X: =541
+                Y: =14
+                ZIndex: =7
+
+            Gallery6_4 As gallery.galleryHorizontal:
+                BorderColor: =App.Theme.Colors.Darker40
+                DelayItemLoading: =true
+                Height: =44
+                Items: =ThisItem.responsables
+                LoadingSpinner: =LoadingSpinner.Data
+                TemplatePadding: =0
+                TemplateSize: =30
+                Width: =115
+                X: =700
+                Y: =6
+                ZIndex: =8
+
+                Container2_4 As groupContainer.manualLayoutContainer:
+                    BorderColor: =RGBA(52, 152, 47, 1)
+                    Fill: =RGBA(62, 128, 149, 1)
+                    Height: =30
+                    RadiusBottomLeft: =30
+                    RadiusBottomRight: =30
+                    RadiusTopLeft: =30
+                    RadiusTopRight: =30
+                    Width: =30
+                    ZIndex: =1
+
+                    TextCanvas6_4 As Texto:
+                        Align: ='TextCanvas.Align'.Center
+                        DisplayMode: =DisplayMode.Edit
+                        Font: =Font.Arial
+                        FontColor: =RGBA(255, 255, 255, 1)
+                        Height: =35
+                        Size: =11
+                        Text: =Left(First(Split(ThisItem.DisplayName, " ")).Value,1) & Left(Last(FirstN(Split(ThisItem.DisplayName, " "), CountRows(Split(ThisItem.DisplayName, " ")) - 1)).Value,1)
+                        Weight: ='TextCanvas.Weight'.Bold
+                        Width: =30
+                        Wrap: =true
+                        X: =0
+                        Y: =0
+                        ZIndex: =1
+
+                Image1_4 As image:
+                    BorderColor: =App.Theme.Colors.Darker40
+                    DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                    DisabledFill: =RGBA(244, 244, 244, 1)
+                    Height: =30
+                    Image: |
+                        =IfError(
+                            UsuariosdeOffice365.UserPhotoMetadata(ThisItem.Email).HasPhoto,
+                            false,
+                            UsuariosdeOffice365.UserPhotoV2(ThisItem.Email)
+                        )
+                    OnSelect: =Select(Parent)
+                    RadiusBottomLeft: =30
+                    RadiusBottomRight: =30
+                    RadiusTopLeft: =30
+                    RadiusTopRight: =30
+                    Tooltip: =ThisItem.DisplayName
+                    Width: =30
+                    ZIndex: =2
+
+            ButtonCanvas1_2 As Botón:
+                Appearance: ='ButtonCanvas.Appearance'.Secondary
+                BasePaletteColor: =
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                Icon: ="Edit"
+                Layout: ='ButtonCanvas.Layout'.IconOnly
+                OnSelect: =Set(pouplista,true)
+                Width: =32
+                X: =1202
+                Y: =7
+                ZIndex: =9
+
+            ButtonCanvas1_3 As Botón:
+                BasePaletteColor: =RGBA(238, 40, 122, 1)
+                BorderColor: =RGBA(238, 40, 122, 1)
+                BorderStyle: =BorderStyle.Solid
+                DisplayMode: =DisplayMode.Edit
+                Height: =32
+                OnSelect: =Select(Parent)
+                Width: =121
+                X: =1074
+                Y: =7
+                ZIndex: =10
+
+            TextCanvas7_9 As Texto:
+                Align: ='TextCanvas.Align'.Center
+                DisplayMode: =DisplayMode.Edit
+                Height: =50
+                Text: =Proper(ThisItem.usuarioAprobador.Department)
+                Width: =215
+                Wrap: =false
+                X: =830
+                Y: =0
+                ZIndex: =11
+
+            btnCambiarEstado_1 As button:
+                BorderColor: =RGBA(238,40,122,1)
+                BorderStyle: |+
+                    =BorderStyle.Solid
+                    
+                BorderThickness: =1
+                DisabledBorderColor: =RGBA(244, 244, 244, 1)
+                DisabledColor: =RGBA(166, 166, 166, 1)
+                DisabledFill: =RGBA(244, 244, 244, 1)
+                Fill: =RGBA(238,40,122,0.9)
+                Font: =Font.Arial
+                Height: =32
+                HoverBorderColor: =RGBA(214, 221, 224, 1)
+                HoverColor: =RGBA(0, 0, 0, 1)
+                HoverFill: |-
+                    =ColorValue("#f7f7f7")
+                OnSelect: |-
+                    =If(
+                        Lower(Self.Text) = "finalizar" && verificarTareas.Text = "false",  
+                        Notify(
+                            "No puede finalizar el KR sin completar las tareas",
+                            NotificationType.Error
+                        ),
+                        Set(pouplista_2,true)
+                    );
+                    If(
+                        Lower(Self.Text) = "aprobar" && ThisItem.unidadDeMedida.Value <> "Hito",
+                        Set(displayModeVar,DisplayMode.Edit),
+                        Set(displayModeVar,DisplayMode.View)
+                    )
+                PaddingBottom: =2
+                PaddingLeft: =2
+                PaddingRight: =2
+                PaddingTop: =2
+                PressedBorderColor: =App.Theme.Colors.Darker40
+                PressedColor: =Self.Color
+                PressedFill: =App.Theme.Colors.Darker40
+                RadiusBottomLeft: =4
+                RadiusBottomRight: =4
+                RadiusTopLeft: =4
+                RadiusTopRight: =4
+                Size: =10
+                Text: |
+                    =If(
+                        Lower(estadoKRtext.Text) = "sin aprobación", 
+                        "Aprobar",
+                        If(
+                            Lower(estadoKRtext.Text)   = "programado", 
+                            "Iniciar",
+                            If(
+                                Lower(estadoKRtext.Text)  = "en curso", 
+                                "Finalizar",
+                                ""
+                            )
+                        )
+                    )
+                Visible: |-
+                    =If(
+                        Lower(estadoKRtext.Text) = "finalizado",
+                        false,
+                        Boolean(visibleBotonPerUser.Text)
+                    )
+                Width: =121
+                X: =1074
+                Y: =7
+                ZIndex: =12
+
+        Group4 As group:
+            Height: =5
+            Width: =5
+            X: =60
+            Y: =60
+            ZIndex: =9
+
+            HtmlText1_4 As htmlViewer:
+                DisabledBorderColor: =RGBA(166, 166, 166, 1)
+                Font: =App.Theme.Font
+                Height: =47
+                HtmlText: |-
+                    =$"<div style='border-radius: 0px;padding: 20px;margin: 0px;background-color: #0099cc;border-bottom: 3px solid rgba(0,0,0,0.3);border-top: 0px solid rgba(0,0,0,0.3);border-left: 0px solid rgba(0,0,0,0.3);border-right: 0px solid rgba(0,0,0,0.3);'></div>"
+                OnSelect: =
+                PaddingBottom: =1
+                PaddingLeft: =1
+                PaddingRight: =1
+                PaddingTop: =1
+                Size: =13
+                Width: =1270
+                ZIndex: =1
+
+            "TextInputCanvas2_11 As 'Entrada de texto'":
+                Align: ='TextInputCanvas.Align'.Center
+                BorderColor: =RGBA(122, 138, 143, 1)
+                BorderRadius: =
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(109, 49, 162, 0)
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =30
+                Value: ="Código"
+                Width: =90
+                X: =10
+                Y: =5
+                ZIndex: =3
+
+            "TextInputCanvas2_13 As 'Entrada de texto'":
+                Align: ='TextInputCanvas.Align'.Center
+                BorderRadius: =5
+                BorderStyle: =BorderStyle.None
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(109, 49, 162, 0)
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =31
+                Value: ="Líder"
+                Width: =142
+                X: =379
+                Y: =5
+                ZIndex: =4
+
+            "TextInputCanvas2_14 As 'Entrada de texto'":
+                Align: ='TextInputCanvas.Align'.Center
+                BorderRadius: =5
+                BorderStyle: =BorderStyle.None
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(109, 49, 162, 0)
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =31
+                Value: ="Estado KR"
+                Width: =140
+                X: =541
+                Y: =5
+                ZIndex: =5
+
+            "TextInputCanvas2_15 As 'Entrada de texto'":
+                Align: ='TextInputCanvas.Align'.Center
+                BorderRadius: =5
+                BorderStyle: =BorderStyle.None
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(109, 49, 162, 0)
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =31
+                Value: ="Responsable"
+                Width: =115
+                X: =700
+                Y: =5
+                ZIndex: =6
+
+            "TextInputCanvas2_16 As 'Entrada de texto'":
+                Align: ='TextInputCanvas.Align'.Center
+                BorderRadius: =5
+                BorderStyle: =BorderStyle.None
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(109, 49, 162, 0)
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =31
+                Value: |
+                    ="Equipo"
+                Width: =215
+                X: =830
+                Y: =5
+                ZIndex: =7
+
+            "TextInputCanvas2_12 As 'Entrada de texto'":
+                Align: ='TextInputCanvas.Align'.Center
+                BorderColor: =RGBA(122, 138, 143, 1)
+                BorderRadius: =
+                BorderStyle: =BorderStyle.None
+                BorderThickness: =0
+                DisplayMode: =DisplayMode.Edit
+                Fill: =RGBA(109, 49, 162, 0)
+                FontColor: =RGBA(255, 255, 255, 1)
+                Height: =30
+                Value: ="Nombre KR"
+                Width: =269
+                X: =100
+                Y: =5
+                ZIndex: =8
+
+    cambioVista As CustomToggle:
+        Visible: =true
+        X: =1253
+        Y: =106
+        ZIndex: =17
+
+    "filterLider_3 As 'Cuadro combinado'.pcfdataset":
+        BasePaletteColor: =
+        DefaultSelectedItems: |-
+            =If(
+                User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
+                [User().FullName]
+            )
+        DisplayMode: =DisplayMode.Edit
+        Height: =35
+        InputTextPlaceholder: ="Seleccionar Equipo"
+        Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.Department)
+        SelectMultiple: =false
+        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
+        Width: =260
+        X: =404
+        Y: =159
+        ZIndex: =18
+
+        Value2_13 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
+            FieldDisplayName: ="Value"
+            FieldName: ="Value"
+            FieldType: ="s"
+            FieldVariantName: ="textualColumn"
+            Order: =1
+            ZIndex: =36
+
     Popup As groupContainer.manualLayoutContainer:
         DropShadow: =DropShadow.Light
         Height: =668
@@ -1164,7 +1584,7 @@
         Visible: =pouplista
         Width: =1366
         Y: =100
-        ZIndex: =17
+        ZIndex: =19
 
         HtmlText2 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -1797,7 +2217,7 @@
         Visible: =pouplista_2
         Width: =1366
         Y: =100
-        ZIndex: =18
+        ZIndex: =20
 
         HtmlText2_3 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -2648,7 +3068,7 @@
         Visible: =pouplista_3
         Width: =1366
         Y: =100
-        ZIndex: =19
+        ZIndex: =21
 
         HtmlText2_5 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -3198,7 +3618,7 @@
         Visible: =pouplista_4
         Width: =1366
         Y: =100
-        ZIndex: =20
+        ZIndex: =22
 
         HtmlText2_7 As htmlViewer:
             DisabledBorderColor: =RGBA(166, 166, 166, 1)
@@ -3734,36 +4154,4 @@
                     Wrap: =false
                     Y: =DataCardKey37.Y
                     ZIndex: =4
-
-    cambioVista As CustomToggle:
-        Visible: =true
-        X: =1253
-        Y: =106
-        ZIndex: =21
-
-    "filterLider_3 As 'Cuadro combinado'.pcfdataset":
-        BasePaletteColor: =
-        DefaultSelectedItems: |-
-            =If(
-                User().FullName in Distinct(T_OKR_APP_GCI_003,usuarioAprobador.DisplayName),
-                [User().FullName]
-            )
-        DisplayMode: =DisplayMode.Edit
-        Height: =35
-        InputTextPlaceholder: ="Seleccionar Equipo"
-        Items: =Distinct(T_OKR_APP_GCI_003,usuarioAprobador.Department)
-        SelectMultiple: =false
-        TriggerOutput: ='ComboboxCanvas.TriggerOutput'.Delayed
-        Width: =260
-        X: =404
-        Y: =159
-        ZIndex: =22
-
-        Value2_13 As PowerApps_CoreControls_ComboboxCanvasTemplate_dataField.textualColumn:
-            FieldDisplayName: ="Value"
-            FieldName: ="Value"
-            FieldType: ="s"
-            FieldVariantName: ="textualColumn"
-            Order: =1
-            ZIndex: =36
 
