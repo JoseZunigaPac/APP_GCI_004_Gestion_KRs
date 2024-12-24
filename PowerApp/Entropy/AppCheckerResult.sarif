@@ -5121,36 +5121,6 @@
             {
               "logicalLocations": [
                 {
-                  "fullyQualifiedName": "App.vistaDetalle"
-                }
-              ],
-              "physicalLocation": {
-                "address": {
-                  "fullyQualifiedName": "App.vistaDetalle",
-                  "relativeAddress": 0
-                }
-              },
-              "properties": {
-                "member": "vistaDetalle",
-                "module": "App",
-                "type": "App"
-              }
-            }
-          ],
-          "message": {
-            "id": "issue"
-          },
-          "properties": {
-            "level": "Medium"
-          },
-          "ruleId": "app-UnusedVariables",
-          "ruleIndex": 12
-        },
-        {
-          "locations": [
-            {
-              "logicalLocations": [
-                {
                   "fullyQualifiedName": "App.FieldType1"
                 }
               ],

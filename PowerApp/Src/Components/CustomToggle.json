@@ -1821,7 +1821,7 @@
         "NameMapSourceSchema": "?"
       }
     ],
-    "LastModifiedTimestamp": "638706557083474802",
+    "LastModifiedTimestamp": "638706558421544065",
     "Name": "CustomToggle",
     "Rules": [
       {
@@ -1892,7 +1892,7 @@
       },
       {
         "Category": "Behavior",
-        "InvariantScript": "Set(activeToggleID,1)",
+        "InvariantScript": "Set(activeToggleID,2)",
         "Property": "OnReset",
         "RuleProviderType": "System"
       }
@@ -1962,7 +1962,7 @@
   "IsPcfControl": false,
   "IsPremiumPcfControl": false,
   "IsWidgetTemplate": false,
-  "LastModifiedTimestamp": "638706557083474802",
+  "LastModifiedTimestamp": "638706558421544065",
   "Name": "42bdab6382c44eaf8db3d8d0df7cf61b",
   "OverridableProperties": {},
   "Version": "1.0"

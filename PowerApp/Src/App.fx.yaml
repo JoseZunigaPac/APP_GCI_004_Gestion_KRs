@@ -10,7 +10,6 @@ App As appinfo:
         Set(varEstadoKr,"sin aprobación");
         Set(lastID, form_Registrar.LastSubmit.nombreKR);
         Set(usuarioActual,User().Email);
-        Set(vistaDetalle,true)
     Theme: =pacifico1
 
     Host As hostControl.DefaultHostControlVariant:
