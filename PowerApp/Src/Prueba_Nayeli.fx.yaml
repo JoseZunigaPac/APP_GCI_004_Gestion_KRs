@@ -92,7 +92,7 @@ Prueba_Nayeli As screen:
             Text: =ThisItem.codigoKR
             Width: =90
             X: =10
-            Y: =11
+            Y: =10
             ZIndex: =4
 
         TextCanvas7_1 As Texto:
@@ -102,7 +102,7 @@ Prueba_Nayeli As screen:
             Width: =269
             Wrap: =false
             X: =100
-            Y: =0
+            Y: =-3
             ZIndex: =5
 
         TextCanvas7_2 As Texto:
@@ -113,7 +113,7 @@ Prueba_Nayeli As screen:
                 =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
             Width: =142
             X: =379
-            Y: =0
+            Y: =-3
             ZIndex: =6
 
         estadoKRtext_1 As Texto:
@@ -367,7 +367,7 @@ Prueba_Nayeli As screen:
         Height: =31
         Value: ="Líder"
         Width: =159
-        X: =406
+        X: =428
         Y: =181
         ZIndex: =12
 

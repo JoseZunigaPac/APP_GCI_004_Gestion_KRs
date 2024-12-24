@@ -86,7 +86,7 @@ Screens:
                   Text: =ThisItem.codigoKR
                   Width: =90
                   X: =10
-                  Y: =11
+                  Y: =10
             - TextCanvas7_1:
                 Control: Text@0.0.47
                 Properties:
@@ -95,6 +95,7 @@ Screens:
                   Width: =269
                   Wrap: =false
                   X: =100
+                  Y: =-3
             - TextCanvas7_2:
                 Control: Text@0.0.47
                 Properties:
@@ -104,6 +105,7 @@ Screens:
                     =Concatenate(First(Split(ThisItem.usuarioAprobador.DisplayName, " ")).Value, " ", Last(FirstN(Split(ThisItem.usuarioAprobador.DisplayName, " "), CountRows(Split(ThisItem.usuarioAprobador.DisplayName, " ")) - 1)).Value)
                   Width: =142
                   X: =379
+                  Y: =-3
             - estadoKRtext_1:
                 Control: Text@0.0.47
                 Properties:
@@ -328,7 +330,7 @@ Screens:
             Height: =31
             Value: ="Líder"
             Width: =159
-            X: =406
+            X: =428
             Y: =181
       - TextInputCanvas2_3:
           Control: TextInput@0.0.51
